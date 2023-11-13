@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour
             {
                 nowAnimation = walkLeftUpAnime;
             }
-            else if (angleZ > 145 && angleZ < 180 || angleZ<-105 && angleZ>-180)   // 왼, 왼밑
+            else if (angleZ > 145 && angleZ < 240 || angleZ < -105 && angleZ > -200)   // 왼, 왼밑
             {
                 nowAnimation = walkLeftDownAnime;
             }
@@ -116,27 +116,51 @@ public class PlayerController : MonoBehaviour
         }
         else // 키 입력이 없는 경우에는 Stop 애니메이션을 재생
         {
-            if (angleZ > -60 && angleZ < 15)      //오른, 오른아래
+            //if (angleZ > -60 && angleZ < 10)      //오른, 오른아래
+            //{
+            //    nowAnimation = stopRightDownAnime;
+            //}
+            //else if (angleZ > 10 && angleZ < 80)                 // 오른위
+            //{
+            //    nowAnimation = stopRightUpAnime;
+            //}
+            //else if (angleZ > 80 && angleZ < 100)  // 위
+            //{
+            //    nowAnimation = stopUpAnime;
+            //}
+            //else if (angleZ > 100 && angleZ < 170)                // 왼위
+            //{
+            //    nowAnimation = stopLeftUpAnime;
+            //}
+            //else if (angleZ > 175 && angleZ < 240 || angleZ < -105 && angleZ > -190)   // 왼, 왼밑
+            //{
+            //    nowAnimation = stopLeftDownAnime;
+            //}
+            //else if (angleZ < -80 && angleZ > -100)// 아래
+            //{
+            //    nowAnimation = stopDownAnime;
+            //}
+            if (nowAnimation == walkRightDownAnime)      //오른, 오른아래
             {
                 nowAnimation = stopRightDownAnime;
             }
-            else if (angleZ > 30 && angleZ < 60)                 // 오른위
+            else if (angleZ > 0 && angleZ < 90)                 // 오른위
             {
                 nowAnimation = stopRightUpAnime;
             }
-            else if (angleZ > 75 && angleZ < 105)  // 위
+            else if (nowAnimation == walkUpAnime)  // 위
             {
                 nowAnimation = stopUpAnime;
             }
-            else if (angleZ > 120 && angleZ < 150)                // 왼위
+            else if (angleZ > 90 && angleZ < 180)                // 왼위
             {
                 nowAnimation = stopLeftUpAnime;
             }
-            else if (angleZ > 145 && angleZ < 260)   // 왼, 왼밑
+            else if (nowAnimation == walkLeftDownAnime)   // 왼, 왼밑
             {
                 nowAnimation = stopLeftDownAnime;
             }
-            else if (angleZ < -85 && angleZ > -95)// 아래
+            else if (nowAnimation == walkDownAnime)// 아래
             {
                 nowAnimation = stopDownAnime;
             }
@@ -146,18 +170,18 @@ public class PlayerController : MonoBehaviour
         if (axisH < 0)
         {
             // SpriteRenderer의 flipX를 사용하는 경우
-            // GetComponent<SpriteRenderer>().flipX = true;
+            GetComponent<SpriteRenderer>().flipX = true;
 
             // Transform의 Rotation을 사용하는 경우
-            transform.rotation = Quaternion.Euler(0, 180, 0);
+            //transform.rotation = Quaternion.Euler(0, 180, 0);
         }
         else if (axisH > 0) // 오른쪽으로 이동할 때 X축 플립 해제
         {
             // SpriteRenderer의 flipX를 사용하는 경우
-            // GetComponent<SpriteRenderer>().flipX = false;
+            GetComponent<SpriteRenderer>().flipX = false;
 
             // Transform의 Rotation을 사용하는 경우
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+            //transform.rotation = Quaternion.Euler(0, 0, 0);
         }
 
         // 애니메이션 변경
