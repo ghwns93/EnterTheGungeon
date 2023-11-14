@@ -4,12 +4,6 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class BulletStat
-{
-    public GameObject bullet;
-    public Vector3 v;
-}
-
 public class EnemyScript : MonoBehaviour
 {
     public int hp = 3;                      //적 체력
@@ -23,6 +17,7 @@ public class EnemyScript : MonoBehaviour
     //애니메이션 목록
     public string idleAnime = "EnemyIdle";
     public string attackAnime = "EnemyLeft";
+    public string attackingAnime = "EnemyAttaking";
     public string attackFinishAnime = "EnemyLeft";
     public string deadAnime = "EnemyDead";
     public string mjscAnime = "EnemyMjsc";
@@ -40,18 +35,17 @@ public class EnemyScript : MonoBehaviour
     bool isActive = false;
     bool inAttack = false;  //공격 상태
 
-    BulletStat[] bulletStats;
+    List<GameObject> bulletStats;
 
     int count = 0;
 
-    bool isAct = false;
+    bool isAct = true;
 
     // Start is called before the first frame update
     void Start()
     {
+        bulletStats = new List<GameObject>();
         rbody = GetComponent<Rigidbody2D>();
-
-        bulletStats = new BulletStat[30];
     }
 
     // Update is called once per frame
@@ -66,7 +60,7 @@ public class EnemyScript : MonoBehaviour
             //플레이어와의 거리 확인
             Vector3 plpos = player.transform.position;
             float dist = Vector2.Distance(transform.position, plpos);
-            
+
             if (!inAttack)
             {
                 //플레이어가 범위 안에 있고 공격 중이 아닌 경우
@@ -128,8 +122,8 @@ public class EnemyScript : MonoBehaviour
                             }
                             else if (count < 20)
                             {
-                                objX = transform.position.x - (float)(-1 + (0.2 * (count % 10)));
-                                objY = transform.position.y - (float)(1 - (0.2 * (count % 10)));
+                                objX = transform.position.x + (float)(-1 + (0.2 * (count % 10)));
+                                objY = transform.position.y + (float)(1 - (0.2 * (count % 10)));
                             }
                             else
                             {
@@ -139,35 +133,28 @@ public class EnemyScript : MonoBehaviour
 
                             Vector3 bulletTran = new Vector3(objX, objY);
 
-                            float dx = player.transform.position.x - objX;
-                            float dy = player.transform.position.y - objY;
-
-                            //아크탄젠트2 함수로 라디안(호도법) 구하기
-                            float rad = Mathf.Atan2(dy, dx);
-
-                            //라디안을 각도(육십분법)로 변환
-                            float angle = rad * Mathf.Rad2Deg;
+                            //float dx = player.transform.position.x - objX;
+                            //float dy = player.transform.position.y - objY;
+                            //
+                            ////아크탄젠트2 함수로 라디안(호도법) 구하기
+                            //float rad = Mathf.Atan2(dy, dx);
+                            //
+                            ////라디안을 각도(육십분법)로 변환
+                            //float angle = rad * Mathf.Rad2Deg;
 
                             //프리팹을 이용하여 총알 오브젝트 만들기 (진행 방향으로 회전)
-                            Quaternion r = Quaternion.Euler(0, 0, angle);
+                            Quaternion r = Quaternion.Euler(0, 0, 0);
                             GameObject bullet = Instantiate(bulletPrefab, bulletTran, r);
-                            float x = Mathf.Cos(rad);
-                            float y = Mathf.Sin(rad);
-                            Vector3 v = new Vector3(x, y) * shootSpeed;
+                            //float x = Mathf.Cos(rad);
+                            //float y = Mathf.Sin(rad);
+                            //Vector3 v = new Vector3(x, y) * shootSpeed;
 
-                            bulletStats[count].bullet = bullet;
-                            bulletStats[count].v = v;
+                            if (bullet != null) bulletStats.Add(bullet);
 
                             count++;
 
                             isAct = false;
                         }
-                    }
-                    else
-                    {
-                        BulletShoot(bulletStats);
-                        Array.Clear(bulletStats, 0, bulletStats.Length);
-                        count = 0;
                     }
                 }
             }
@@ -217,14 +204,19 @@ public class EnemyScript : MonoBehaviour
             //rbody.AddForce(v, ForceMode2D.Impulse);
             #endregion
 
+            isAct = false;
         }
-
-        nowAnimation = attackFinishAnime;
     }
 
     void AttackAnimationEnd()
     {
+        isAct = true;
         inAttack = false;
+    }
+
+    void InBulletCharge()
+    {
+        nowAnimation = attackingAnime;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -262,15 +254,42 @@ public class EnemyScript : MonoBehaviour
         playerSprite.color = defaultColor;
     }
 
-    private void BulletShoot(BulletStat[] bulletStats)
+    private void BulletShoot()
     {
-        for (int i = 0; i < bulletStats.Length; i++)
+        if (count == 30)
         {
-            if (bulletStats[i].bullet != null)
+            isAct = true;
+
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+            foreach (var bs in bulletStats)
             {
-                Rigidbody2D rbody = bulletStats[i].bullet.GetComponent<Rigidbody2D>();
-                rbody.AddForce(bulletStats[i].v, ForceMode2D.Impulse);
+                if (bs != null)
+                {
+                    float dx = player.transform.position.x - bs.transform.position.x;
+                    float dy = player.transform.position.y - bs.transform.position.y;
+
+                    //아크탄젠트2 함수로 라디안(호도법) 구하기
+                    float rad = Mathf.Atan2(dy, dx);
+
+                    //라디안을 각도(육십분법)로 변환
+                    float angle = rad * Mathf.Rad2Deg;
+
+                    bs.transform.rotation = Quaternion.Euler(0, 0, angle);
+
+                    float x = Mathf.Cos(rad);
+                    float y = Mathf.Sin(rad);
+                    Vector3 v = new Vector3(x, y) * shootSpeed;
+
+                    Rigidbody2D rbody = bs.GetComponent<Rigidbody2D>();
+                    rbody.AddForce(v, ForceMode2D.Impulse);
+                }
             }
+
+            bulletStats.Clear();
+            count = 0;
+
+            nowAnimation = attackFinishAnime;
         }
     }
 }
