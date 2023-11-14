@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
     public static string gameState;    // 게임 상태
     bool inDamage = false;                   // 피격 상태
 
-
+    Vector2 beforePos = new Vector2(0, 0);
 
     // Start is called before the first frame update
     void Start()
@@ -311,26 +311,50 @@ public class PlayerController : MonoBehaviour
             GetDamage(collision.gameObject);
         }
 
-        //// FallDown 직전 캐릭터 재생성 위치 저장
-        //if (collision.gameObject.tag == "BeforePos")
-        //{
-        //    // 재생성할 위치 저장하기
-        //    Vector2 beforePos = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
-
-        //    // FallDown 애니메이션
-        //    if (collision.gameObject.tag == "FallDown")
-        //    {
-        //        // 이동 중지
-        //        rbody.velocity = new Vector2(0, 0);
-        //        // 추락 애니메이션 재생
-        //        GetComponent<Animator>().Play(fallAnime);
-        //        // 데미지 계산
-        //        GetDamage(collision.gameObject);
-        //        // 떨어지기 전 위치로 이동
-        //        gameObject.transform.position = beforePos;
-        //    }
-        //}
+        
     }
+
+    //private void OnTriggerStay2D(Collider2D collision)
+    //{
+    //    // FallDown 직전 캐릭터 재생성 위치 저장
+    //    if (collision.gameObject.tag == "BeforePos")
+    //    {
+    //        // 재생성할 위치 저장하기
+    //        beforePos = gameObject.transform.position;
+    //    }
+    //    // FallDown 애니메이션
+    //    if (collision.gameObject.tag == "FallDown")
+    //    {
+    //        StartCoroutine(WaitForIt());
+
+    //        // 데미지 계산
+    //        //GetDamage(collision.gameObject);
+            
+    //        // 추락 애니메이션이 재생된 후에 떨어지기 전 위치로 이동하기 위해 1초 대기
+    //        Invoke("BeforePos", 2.0f);
+    //    }
+    //}
+
+    //// 추락 전 위치로 이동
+    //IEnumerator WaitForIt()
+    //{
+    //    yield return new WaitForSeconds(0.2f);
+    //    // 게임 상태를 추락중으로 변경
+    //    gameState = "falling";
+    //    // 이동 중지
+    //    rbody.velocity = new Vector2(0, 0);
+    //    // 추락 애니메이션 재생
+    //    animator.Play("PilotFall");
+    //}
+
+    //void BeforePos()
+    //{
+    //    // 플레이어의 위치를 추락 전 저장된 위치로 이동
+    //    gameObject.transform.position = beforePos;
+
+    //    // 게임상태를 다시 게임중으로 변경
+    //    gameState = "playing";
+    //}
 
     // 데미지 계산
     void GetDamage(GameObject enemy)
