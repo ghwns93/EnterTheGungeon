@@ -258,6 +258,26 @@ public class PlayerController : MonoBehaviour
             // 데미지 계산
             GetDamage(collision.gameObject);
         }
+
+        //// FallDown 직전 캐릭터 재생성 위치 저장
+        //if (collision.gameObject.tag == "BeforePos")
+        //{
+        //    // 재생성할 위치 저장하기
+        //    Vector2 beforePos = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
+
+        //    // FallDown 애니메이션
+        //    if (collision.gameObject.tag == "FallDown")
+        //    {
+        //        // 이동 중지
+        //        rbody.velocity = new Vector2(0, 0);
+        //        // 추락 애니메이션 재생
+        //        GetComponent<Animator>().Play(fallAnime);
+        //        // 데미지 계산
+        //        GetDamage(collision.gameObject);
+        //        // 떨어지기 전 위치로 이동
+        //        gameObject.transform.position = beforePos;
+        //    }
+        //}
     }
 
     // 데미지 계산
