@@ -5,7 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-  - PlayerBullet
+  - Exit
+  - FallDown
+  - BeforePos
   layers:
   - Default
   - TransparentFX
