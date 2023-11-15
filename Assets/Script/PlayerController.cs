@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour
     float axisH = 0.0f;                     // 가로 입력 (-1.0 ~ 1.0)
     float axisV = 0.0f;                     // 세로 입력 (-1.0 ~ 1.0)
     public float angleZ = -90.0f; // 회전
+    float angleDodge = -90.0f;  // 구르기
 
     Rigidbody2D rbody;              // RigidBody 2D 컴포넌트
     bool isMoving = false;          // 이동 중
@@ -175,63 +176,92 @@ public class PlayerController : MonoBehaviour
             GetComponent<Animator>().Play(nowAnimation);
         }
 
-        // 마우스 오른쪽 입력시 회피
-        // 정지 상태에서 우클릭시 회피가 아닌 방향에 따른 키 입력을 받고 있는 상태(움직이는 상태)에서 우클릭을 눌렀을 시에 회피가 되도록 변경. 11/15
-        // 11/15 왼쪽 구르기만 안 되서 수정중.
-        if (Input.GetKey(KeyCode.W) && Input.GetButtonDown("Fire2"))
+        // 8방향 벡터 구하기
+        angleDodge = GetAngleDodge(fromPt, toPt);
+        Vector2 dodgePos = new Vector2(Mathf.Cos(angleDodge),Mathf.Sin(angleDodge));
+        
+        // 11/16 angleDodge의 값을 GetAngleDodge함수에서 8방향으로만 되게 고정시켰는데
+        // 방향벡터를 구하면서 값이 이상하게 들어간건지 위, 아래, 왼쪽으로 굴렀을때의 벡터가 제대로 설정되지 않음.
+        // 질문사항
+
+        // 키입력을 받은 상태에서 마우스 우클릭을 했을 때만 구르기
+        if ((axisH != 0 || axisV != 0) && Input.GetButtonDown("Fire2"))
         {
-            //Avoid();
-        }
-        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D) && Input.GetButtonDown("Fire2"))
-        {
-            nowAnimation = dodgeRightUpAnime;
-            animator.Play("PilotDodgeRightUp");
-        }
-        if (Input.GetKey(KeyCode.D) && Input.GetButtonDown("Fire2"))
-        {
-            nowAnimation = dodgeRightDownAnime;
-            animator.Play("PilotDodgeRightDown");
-        }
-        if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.S) && Input.GetButtonDown("Fire2"))
-        {
-            nowAnimation = dodgeRightDownAnime;
-            animator.Play("PilotDodgeRightDown");
-        }
-        if (Input.GetKey(KeyCode.S) && Input.GetButtonDown("Fire2"))
-        {
-            nowAnimation = dodgeDownAnime;
-            animator.Play("PilotDodgeDown");
-        }
-        if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.S) && Input.GetButtonDown("Fire2"))
-        {
-            nowAnimation = dodgeLeftDownAnime;
-            animator.Play("PilotDodgeLeftDown");
-        }
-        if (Input.GetKey(KeyCode.A) && Input.GetButtonDown("Fire2"))
-        {
-            Debug.Log("왼쪽 구르기");
-            nowAnimation = dodgeLeftDownAnime;
-            animator.Play("PilotDodgeLeftDown");
-        }
-        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A) && Input.GetButtonDown("Fire2"))
-        {
-            nowAnimation = dodgeLeftUpAnime;
-            animator.Play("PilotDodgeLeftUp");
+            // 오른쪽, 오른쪽 아래로 구르기
+            if (angleZ > -60 && angleZ < 15)
+            {
+                // 회피중
+                gameState = "dodging";
+                // 입력된 방향으로 구르기
+                rbody.AddForce(dodgePos, ForceMode2D.Impulse);
+                // 애니메이션 설정
+                nowAnimation = dodgeRightDownAnime;
+                animator.Play("PilotDodgeRightDown");
+            }
+            // 오른쪽 위로 구르기
+            else if (angleZ > 30 && angleZ < 60)               
+            {
+                // 회피중
+                gameState = "dodging";
+                // 입력한 방향으로 구르기
+                rbody.AddForce(dodgePos, ForceMode2D.Impulse);
+                // 애니메이션 설정
+                nowAnimation = dodgeRightUpAnime;
+                animator.Play("PilotDodgeRightUp");
+            }
+            // 위로 구르기
+            else if (angleZ > 75 && angleZ < 105)             
+            {
+                angleDodge = 90.0f;
+                // 회피중
+                gameState = "dodging";
+                // 입력한 방향으로 구르기
+                rbody.AddForce(dodgePos, ForceMode2D.Impulse);
+                // 애니메이션 설정
+                nowAnimation = dodgeUpAnime;
+                animator.Play("PilotDodgeUp");
+            }
+            // 왼쪽 위로 구르기
+            else if (angleZ > 120 && angleZ < 150)             
+            {
+                // 회피중
+                gameState = "dodging";
+                // 입력한 방향으로 구르기
+                rbody.AddForce(dodgePos, ForceMode2D.Impulse);
+                // 애니메이션 설정
+                nowAnimation = dodgeLeftUpAnime;
+                animator.Play("PilotDodgeRightUp");
+            }
+            // 왼쪽, 왼쪽 아래 구르기
+            else if (angleZ > 165 && angleZ < 240 || angleZ < -105 && angleZ > -200) 
+            {
+                // 회피중
+                gameState = "dodging";
+                // 입력한 방향으로 구르기
+                rbody.AddForce(dodgePos, ForceMode2D.Impulse);
+                // 애니메이션 설정
+                nowAnimation = dodgeLeftDownAnime;
+                animator.Play("PilotDodgeRightDown");
+                // 
+                if (angleDodge == 180)
+                {
+                    Debug.Log("왼쪽 구르기");
+                }
+
+            }
+            // 아래로 구르기
+            else if (angleZ < -80 && angleZ > -100)         
+            {
+                // 회피중
+                gameState = "dodging";
+                // 입력한 방향으로 구르기
+                rbody.AddForce(dodgePos, ForceMode2D.Impulse);
+                // 애니메이션 설정
+                nowAnimation = dodgeDownAnime;
+                animator.Play("PilotDodgeDown");
+            }
         }
     }
-
-    // 구르기(회피) 강제이동
-    //public void Avoid()
-    //{
-    //    if (gameState == "playing")
-    //    {
-    //        rbody = GetComponent<Rigidbody2D>();
-    //        rbody.velocity = new Vector2(0, 0);
-    //        rbody.AddForce(new Vector2(0, 30), ForceMode2D.Impulse);
-    //        nowAnimation = dodgeUpAnime;
-    //        animator.Play("PilotDodgeUp");
-    //    }
-    //}
 
     // (유니티 초기 설정 기준) 0.02초마다 호출되며, 1초에 총 50번 호출되는 함수
     void FixedUpdate()
@@ -268,24 +298,28 @@ public class PlayerController : MonoBehaviour
 
     public void DodgeUpAnimationEnd()
     {
+        gameState = "playing";
         nowAnimation = stopUpAnime;
         animator.Play("PilotStopUp");
         isDodging = false;
     }
     public void DodgeRightUpAnimationEnd()
     {
+        gameState = "playing";
         nowAnimation = stopRightUpAnime;
         animator.Play("PilotStopRightUp");
         isDodging = false;
     }
     public void DodgeRightDownAnimationEnd()
     {
+        gameState = "playing";
         nowAnimation = stopRightDownAnime;
         animator.Play("PilotStopRightDown");
         isDodging = false;
     }
     public void DodgeDownAnimationEnd()
     {
+        gameState = "playing";
         nowAnimation = stopDownAnime;
         animator.Play("PilotStopDown");
         isDodging = false;
@@ -314,6 +348,50 @@ public class PlayerController : MonoBehaviour
         {
             // 캐릭터가 정지 중이면 각도 유지
             angle = angleZ;
+        }
+        return angle;
+    }
+
+    // p1에서 p2까지의 각도를 계산한다
+    float GetAngleDodge(Vector2 p1, Vector2 p2)
+    {
+        float angle;
+
+        // 축 방향에 관계없이 캐릭터가 움직이고 있을 경우 각도 변경
+        if (axisH != 0 || axisV != 0)
+        {
+            // p1과 p2의 차를 구하기 (원점을 0으로 하기 위해)
+            float dx = p2.x - p1.x;
+            float dy = p2.y - p1.y;
+
+            // 아크탄젠트 함수로 각도(라디안) 구하기
+            float rad = Mathf.Atan2(dy, dx);
+
+            // 라디안으로 변환
+            angle = rad * Mathf.Rad2Deg;
+
+            // 구르기는 8방향으로만 가능하게 angle 조정
+            if (angle >= -15 && angle <= 15)
+                angle = 0;
+            else if (angle >= -60 && angle <= -30)
+                angle = -45;
+            else if (angle >= 30 && angle <= 60)
+                angle = 45;
+            else if (angle >= 75 && angle <= 105)
+                angle = 90;
+            else if (angle >= 120 && angle <= 150)
+                angle = 135;
+            else if (angle >= 165 && angle <= 195 || angle >= -195 && angle <= -165)
+                angle = 180;
+            else if (angle >= 210 && angle <= 240 || angle >= -150 && angle <= -120)
+                angle = -135;
+            else if (angle >= -105 && angle <= -75)
+                angle = -90;
+        }
+        else
+        {
+            // 캐릭터가 정지 중이면 각도 유지
+            angle = angleDodge;
         }
         return angle;
     }
@@ -354,6 +432,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // 추락 애니메이션 종료
     void BeforePos()
     {
         // 플레이어의 위치를 추락 전 저장된 위치로 이동
@@ -362,6 +441,7 @@ public class PlayerController : MonoBehaviour
         // 게임상태를 다시 게임중으로 변경
         gameState = "playing";
 
+        nowAnimation = stopDownAnime;
         // 애니메이션을 다시 재생
         animator.Play("PilotStopDown");
     }
