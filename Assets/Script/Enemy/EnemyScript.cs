@@ -11,9 +11,6 @@ public class EnemyScript : MonoBehaviour
     public int roomNumber = 1;    //배치된 위치
     public float attackDistance = 10;    //공격 거리
 
-    public GameObject bulletPrefab;         //총알
-    public float shootSpeed = 5.0f;         //총알 속도
-
     //애니메이션 목록
     public string idleAnime = "EnemyIdle";
     public string attackAnime = "EnemyLeft";
@@ -21,6 +18,9 @@ public class EnemyScript : MonoBehaviour
     public string attackFinishAnime = "EnemyLeft";
     public string deadAnime = "EnemyDead";
     public string mjscAnime = "EnemyMjsc";
+
+    public GameObject bulletPrefab;         //총알
+    public float shootSpeed = 5.0f;         //총알 속도
 
     //현재 & 이전 애니메이션
     string nowAnimation = "";
@@ -33,19 +33,20 @@ public class EnemyScript : MonoBehaviour
 
     //활성화 여부
     bool isActive = false;
-    bool inAttack = false;  //공격 상태
-
-    List<GameObject> bulletStats;
-
-    int count = 0;
-
+    bool isAttack = false;  //공격 상태
     bool isAct = true;
+
+    List<GameObject> bulletStats; //총알을 표현후 한번에 쏘기 위해 List에 저장
+    int count = 0; //총알 갯수 카운트
+
+    int bolletShape = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        bulletStats = new List<GameObject>();
         rbody = GetComponent<Rigidbody2D>();
+        bulletStats = new List<GameObject>();
+
     }
 
     // Update is called once per frame
@@ -61,12 +62,12 @@ public class EnemyScript : MonoBehaviour
             Vector3 plpos = player.transform.position;
             float dist = Vector2.Distance(transform.position, plpos);
 
-            if (!inAttack)
+            if (!isAttack)
             {
                 //플레이어가 범위 안에 있고 공격 중이 아닌 경우
                 if (dist <= attackDistance)
                 {
-                    inAttack = true;
+                    isAttack = true;
 
                     axisH = 0.0f;
                     axisV = 0.0f;
@@ -99,71 +100,125 @@ public class EnemyScript : MonoBehaviour
     {
         if (isActive && hp > 0)
         {
-            if (inAttack)
-            {
-                rbody.velocity = Vector2.zero;
-
-                GameObject player = GameObject.FindGameObjectWithTag("Player");
-
-                if (player != null)
-                {
-                    if (count < 30)
-                    {
-                        if (!isAct)
-                        {
-                            isAct = true;
-
-                            float objX = 0, objY = 0;
-
-                            if (count < 10)
-                            {
-                                objX = transform.position.x - 1;
-                                objY = transform.position.y + (float)(-1 + (0.2 * (count % 10)));
-                            }
-                            else if (count < 20)
-                            {
-                                objX = transform.position.x + (float)(-1 + (0.2 * (count % 10)));
-                                objY = transform.position.y + (float)(1 - (0.2 * (count % 10)));
-                            }
-                            else
-                            {
-                                objX = transform.position.x + 1;
-                                objY = transform.position.y + (float)(-1 + (0.2 * (count % 10)));
-                            }
-
-                            Vector3 bulletTran = new Vector3(objX, objY);
-
-                            //float dx = player.transform.position.x - objX;
-                            //float dy = player.transform.position.y - objY;
-                            //
-                            ////아크탄젠트2 함수로 라디안(호도법) 구하기
-                            //float rad = Mathf.Atan2(dy, dx);
-                            //
-                            ////라디안을 각도(육십분법)로 변환
-                            //float angle = rad * Mathf.Rad2Deg;
-
-                            //프리팹을 이용하여 총알 오브젝트 만들기 (진행 방향으로 회전)
-                            Quaternion r = Quaternion.Euler(0, 0, 0);
-                            GameObject bullet = Instantiate(bulletPrefab, bulletTran, r);
-                            //float x = Mathf.Cos(rad);
-                            //float y = Mathf.Sin(rad);
-                            //Vector3 v = new Vector3(x, y) * shootSpeed;
-
-                            if (bullet != null) bulletStats.Add(bullet);
-
-                            count++;
-
-                            isAct = false;
-                        }
-                    }
-                }
-            }
-            else
+            if (!isAttack)
             {
                 //몬스터 이동시키기
                 rbody.velocity = new Vector2(axisH, axisV);
             }
+            else
+            {
+                if (isAttack)
+                {
+                    rbody.velocity = Vector2.zero;
 
+                    GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+                    if (player != null)
+                    {
+                        if (!isAct)
+                        {
+                            //bolletShape = UnityEngine.Random.Range(0, 3);
+                            bolletShape = 1;
+
+                            switch (bolletShape)
+                            {
+                                case 0:
+                                    #region [ N 형태 발사 ]
+                                    if (count < 30)
+                                    {
+                                        Debug.Log("Charge" + count);
+                                        isAct = true;
+                                        float objX = 0, objY = 0;
+
+                                        if (count < 10)
+                                        {
+                                            objX = transform.position.x - 1;
+                                            objY = transform.position.y + (float)(-1 + (0.2 * (count % 10)));
+                                        }
+                                        else if (count < 20)
+                                        {
+                                            objX = transform.position.x + (float)(-1 + (0.2 * (count % 10)));
+                                            objY = transform.position.y + (float)(1 - (0.2 * (count % 10)));
+                                        }
+                                        else
+                                        {
+                                            objX = transform.position.x + 1;
+                                            objY = transform.position.y + (float)(-1 + (0.2 * (count % 10)));
+                                        }
+
+                                        Vector3 bulletTran = new Vector3(objX, objY);
+
+                                        //프리팹을 이용하여 총알 오브젝트 만들기 (진행 방향으로 회전)
+                                        Quaternion r = Quaternion.Euler(0, 0, 0);
+                                        GameObject bullet = Instantiate(bulletPrefab, bulletTran, r);
+
+                                        if (bullet != null) bulletStats.Add(bullet);
+
+                                        count++;
+
+                                        isAct = false;
+                                    }
+                                    #endregion
+                                    break;
+                                case 1:
+                                    #region [ R 형태 발사 ]
+                                    if (count < 22)
+                                    {
+                                        Debug.Log("Charge" + count);
+                                        isAct = true;
+                                        float objX = 0, objY = 0;
+
+                                        float minX = -0.5f, maxX = 0.5f;
+                                        float minY = -0.75f, maxY = 0.75f;
+
+                                        if (count < 5)
+                                        {
+                                            objX = transform.position.x + minX;
+                                            objY = transform.position.y + (float)(minY + (((maxY - minY) / 5.0f) * count));
+                                        }
+                                        else if(count < 8)
+                                        {
+                                            objX = transform.position.x + (float)(minX + ((minX + 1.25f) / 3) * (count - 5));
+                                            objY = transform.position.y + maxY;
+                                        }
+                                        else if (count < 14)
+                                        {
+                                            objX = transform.position.x + 0.125f + Mathf.Sin((count - 8) * 0.45f);
+                                            objY = transform.position.y - 0.25f + Mathf.Cos((count - 8) * 0.25f);
+                                        }
+                                        else if (count < 17)
+                                        {
+                                            //objX = transform.position.x - (float)(0.2f * (count - 14));
+                                            //objY = transform.position.y;
+                                        }
+                                        else
+                                        {
+                                            //objX = transform.position.x + (float)((0.5f / 6.0f) * (count - 17));
+                                            //objY = transform.position.y - (float)((1.0f / 6.0f) * (count - 17));
+                                        }
+
+                                        Vector3 bulletTran = new Vector3(objX, objY);
+
+                                        //프리팹을 이용하여 총알 오브젝트 만들기 (진행 방향으로 회전)
+                                        Quaternion r = Quaternion.Euler(0, 0, 0);
+                                        GameObject bullet = Instantiate(bulletPrefab, bulletTran, r);
+
+                                        if (bullet != null) bulletStats.Add(bullet);
+
+                                        count++;
+
+                                        isAct = false;
+                                    }
+                                    #endregion
+                                    break;
+                                case 2:
+                                    break;
+                            }
+                        
+                        }
+                    }
+                }
+            }
             //애니메이션 변경하기
             if (nowAnimation != oldAnimation)
             {
@@ -211,7 +266,7 @@ public class EnemyScript : MonoBehaviour
     void AttackAnimationEnd()
     {
         isAct = true;
-        inAttack = false;
+        isAttack = false;
     }
 
     void InBulletCharge()
@@ -256,40 +311,47 @@ public class EnemyScript : MonoBehaviour
 
     private void BulletShoot()
     {
-        if (count == 30)
+        if (bolletShape == 0)
         {
-            isAct = true;
-
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-
-            foreach (var bs in bulletStats)
+            #region [ N 모양 일제히 플레이어에게 발사 ]
+            if (count == 30)
             {
-                if (bs != null)
+                Debug.Log("Shoot!");
+                isAct = true;
+
+                GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+                foreach (var bs in bulletStats)
                 {
-                    float dx = player.transform.position.x - bs.transform.position.x;
-                    float dy = player.transform.position.y - bs.transform.position.y;
+                    if (bs != null)
+                    {
+                        float dx = player.transform.position.x - bs.transform.position.x;
+                        float dy = player.transform.position.y - bs.transform.position.y;
 
-                    //아크탄젠트2 함수로 라디안(호도법) 구하기
-                    float rad = Mathf.Atan2(dy, dx);
+                        //아크탄젠트2 함수로 라디안(호도법) 구하기
+                        float rad = Mathf.Atan2(dy, dx);
 
-                    //라디안을 각도(육십분법)로 변환
-                    float angle = rad * Mathf.Rad2Deg;
+                        //라디안을 각도(육십분법)로 변환
+                        float angle = rad * Mathf.Rad2Deg;
 
-                    bs.transform.rotation = Quaternion.Euler(0, 0, angle);
+                        bs.transform.rotation = Quaternion.Euler(0, 0, angle);
 
-                    float x = Mathf.Cos(rad);
-                    float y = Mathf.Sin(rad);
-                    Vector3 v = new Vector3(x, y) * shootSpeed;
+                        float x = Mathf.Cos(rad);
+                        float y = Mathf.Sin(rad);
+                        Vector3 v = new Vector3(x, y) * shootSpeed;
 
-                    Rigidbody2D rbody = bs.GetComponent<Rigidbody2D>();
-                    rbody.AddForce(v, ForceMode2D.Impulse);
+                        Rigidbody2D rbody = bs.GetComponent<Rigidbody2D>();
+                        rbody.AddForce(v, ForceMode2D.Impulse);
+                    }
                 }
+
+                bulletStats.Clear();
+                count = 0;
+
+                nowAnimation = attackFinishAnime;
             }
-
-            bulletStats.Clear();
-            count = 0;
-
-            nowAnimation = attackFinishAnime;
+            #endregion
         }
+
     }
 }
