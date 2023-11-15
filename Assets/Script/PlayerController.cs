@@ -34,24 +34,24 @@ public class PlayerController : MonoBehaviour
     public string pilotOpenAnime = "PilotOpenItem";
 
     // 현재 애니메이션
-    string nowAnimation = "";
+    protected string nowAnimation = "";
     // 이전 애니메이션
-    string oldAnimation = "";
+    protected string oldAnimation = "";
 
     // 애니메이터
     private Animator animator;
 
-    float axisH = 0.0f;                     // 가로 입력 (-1.0 ~ 1.0)
-    float axisV = 0.0f;                     // 세로 입력 (-1.0 ~ 1.0)
-    public float angleZ = -90.0f; // 회전
+    protected float axisH = 0.0f;             // 가로 입력 (-1.0 ~ 1.0)
+    protected float axisV = 0.0f;             // 세로 입력 (-1.0 ~ 1.0)
+    public float angleZ = -90.0f;   // 회전
 
     Rigidbody2D rbody;              // RigidBody 2D 컴포넌트
-    bool isMoving = false;          // 이동 중
-    bool isDodging = false;         // 회피 중
+    protected bool isMoving = false;          // 이동 중
+    protected bool isDodging = false;         // 회피 중
 
-    public static int hp = 3;                   // 플레이어의 HP
-    public static string gameState;    // 게임 상태
-    bool inDamage = false;                   // 피격 상태
+    public static int hp = 3;       // 플레이어의 HP
+    public static string gameState; // 게임 상태
+    bool inDamage = false;          // 피격 상태
 
     Vector2 beforePos = new Vector2(0, 0);
 
@@ -95,7 +95,7 @@ public class PlayerController : MonoBehaviour
         angleZ = GetAngle(fromPt, toPt);
 
         // 이동 각도를 바탕으로 방향과 애니메이션을 변경한다
-        if ( (axisH != 0 || axisV != 0) && !isDodging) // 키 입력이 있는 경우에만 Walk 애니메이션을 재생
+        if ( (axisH != 0 || axisV != 0) && !isDodging) // 키 입력이 있는 경우,에만 Walk 애니메이션을 재생
         {
             if (angleZ > -60 && angleZ < 15)                     //오른, 오른아래
             {
