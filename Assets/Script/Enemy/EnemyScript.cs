@@ -40,6 +40,13 @@ public class EnemyScript : MonoBehaviour
     int count = 0; //총알 갯수 카운트
 
     int bolletShape = 0;
+    private const int NshapeMaxBullet = 30;
+    private const int RshapeMaxBullet = 22;
+
+    //R형태 총알 날라가는 간격
+    int rDelay = 0;
+
+    bool RShoot = false;
 
     // Start is called before the first frame update
     void Start()
@@ -117,14 +124,11 @@ public class EnemyScript : MonoBehaviour
                     {
                         if (!isAct)
                         {
-                            //bolletShape = UnityEngine.Random.Range(0, 3);
-                            bolletShape = 1;
-
                             switch (bolletShape)
                             {
                                 case 0:
                                     #region [ N 형태 발사 ]
-                                    if (count < 30)
+                                    if (count < NshapeMaxBullet)
                                     {
                                         Debug.Log("Charge" + count);
                                         isAct = true;
@@ -162,7 +166,7 @@ public class EnemyScript : MonoBehaviour
                                     break;
                                 case 1:
                                     #region [ R 형태 발사 ]
-                                    if (count < 22)
+                                    if (count < RshapeMaxBullet)
                                     {
                                         Debug.Log("Charge" + count);
                                         isAct = true;
@@ -183,18 +187,20 @@ public class EnemyScript : MonoBehaviour
                                         }
                                         else if (count < 14)
                                         {
-                                            objX = transform.position.x + 0.125f + Mathf.Sin((count - 8) * 0.45f);
-                                            objY = transform.position.y - 0.25f + Mathf.Cos((count - 8) * 0.25f);
+                                            objX = transform.position.x - 0.6f + (Mathf.Cos((0 + (float)Math.Truncate(Math.Abs((count - 10.5f)))) * 0.3f));
+                                            objY = transform.position.y + maxY - (maxY * ((float)(count - 8) / 6));
+
+                                            Debug.Log(objY);
                                         }
                                         else if (count < 17)
                                         {
-                                            //objX = transform.position.x - (float)(0.2f * (count - 14));
-                                            //objY = transform.position.y;
+                                            objX = transform.position.x - (float)(0.2f * (count - 14));
+                                            objY = transform.position.y;
                                         }
                                         else
                                         {
-                                            //objX = transform.position.x + (float)((0.5f / 6.0f) * (count - 17));
-                                            //objY = transform.position.y - (float)((1.0f / 6.0f) * (count - 17));
+                                            objX = transform.position.x + (float)((0.5f / 6.0f) * (count - 17));
+                                            objY = transform.position.y - (float)((1.0f / 6.0f) * (count - 17));
                                         }
 
                                         Vector3 bulletTran = new Vector3(objX, objY);
@@ -215,6 +221,48 @@ public class EnemyScript : MonoBehaviour
                                     break;
                             }
                         
+                        }
+                        else if(RShoot)
+                        {
+                            Debug.Log("Shoot1");
+
+                            if (rDelay == 0)
+                            {
+                                var bs = bulletStats[0];
+
+                                float dx = player.transform.position.x - bs.transform.position.x;
+                                float dy = player.transform.position.y - bs.transform.position.y;
+
+                                //아크탄젠트2 함수로 라디안(호도법) 구하기
+                                float rad = Mathf.Atan2(dy, dx);
+
+                                //라디안을 각도(육십분법)로 변환
+                                float angle = rad * Mathf.Rad2Deg;
+
+                                bs.transform.rotation = Quaternion.Euler(0, 0, angle);
+
+                                float x = Mathf.Cos(rad);
+                                float y = Mathf.Sin(rad);
+                                Vector3 v = new Vector3(x, y) * shootSpeed;
+
+                                Debug.Log("Shoot2");
+
+                                Rigidbody2D rbody = bs.GetComponent<Rigidbody2D>();
+                                rbody.AddForce(v, ForceMode2D.Impulse);
+
+                                Debug.Log("Shoot3");
+                                bulletStats.Remove(bs);
+
+                                if (bulletStats.Count == 0)
+                                {
+                                    count = 0;
+                                    RShoot = false;
+                                    nowAnimation = attackFinishAnime;
+                                }
+                            }
+                            else if(rDelay == 4) rDelay = -1;
+
+                            rDelay++;
                         }
                     }
                 }
@@ -258,6 +306,8 @@ public class EnemyScript : MonoBehaviour
             //Rigidbody2D rbody = bullet.GetComponent<Rigidbody2D>();
             //rbody.AddForce(v, ForceMode2D.Impulse);
             #endregion
+
+            bolletShape = UnityEngine.Random.Range(0, 2);
 
             isAct = false;
         }
@@ -314,7 +364,7 @@ public class EnemyScript : MonoBehaviour
         if (bolletShape == 0)
         {
             #region [ N 모양 일제히 플레이어에게 발사 ]
-            if (count == 30)
+            if (count == NshapeMaxBullet)
             {
                 Debug.Log("Shoot!");
                 isAct = true;
@@ -352,6 +402,15 @@ public class EnemyScript : MonoBehaviour
             }
             #endregion
         }
+        else if(bolletShape == 1)
+        {
+            if (count == RshapeMaxBullet)
+            {
+                Debug.Log("Shoot!");
+                RShoot = true;
 
+                isAct = true;
+            }
+        }
     }
 }
