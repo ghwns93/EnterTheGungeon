@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody2D rbody;              // RigidBody 2D 컴포넌트
     bool isMoving = false;          // 이동 중
-    bool isDodging = false;         // 회피 중
+    public bool isDodging = false;         // 회피 중
 
     public static int hp = 3;                   // 플레이어의 HP
     public static string gameState;    // 게임 상태
@@ -175,47 +175,63 @@ public class PlayerController : MonoBehaviour
             GetComponent<Animator>().Play(nowAnimation);
         }
 
-        if ((Input.GetButtonDown("Fire2"))) // 마우스 오른쪽 입력시 회피
+        // 마우스 오른쪽 입력시 회피
+        // 정지 상태에서 우클릭시 회피가 아닌 방향에 따른 키 입력을 받고 있는 상태(움직이는 상태)에서 우클릭을 눌렀을 시에 회피가 되도록 변경. 11/15
+        // 11/15 왼쪽 구르기만 안 되서 수정중.
+        if (Input.GetKey(KeyCode.W) && Input.GetButtonDown("Fire2"))
         {
-            if (nowAnimation == walkUpAnime || nowAnimation == stopUpAnime)
-            {
-                nowAnimation = dodgeUpAnime;
-                animator.Play("PilotDodgeUp");
-                isDodging = true;
-            }
-            if (nowAnimation == walkRightUpAnime || nowAnimation == stopRightUpAnime)
-            {
-                nowAnimation = dodgeRightUpAnime;
-                animator.Play("PilotDodgeRightUp");
-                isDodging = true;
-            }
-            if (nowAnimation == walkRightDownAnime || nowAnimation == stopRightDownAnime)
-            {
-                nowAnimation = dodgeRightDownAnime;
-                animator.Play("PilotDodgeRightDown");
-                isDodging = true;
-            }
-            if (nowAnimation == walkDownAnime || nowAnimation == stopDownAnime)
-            {
-                nowAnimation = dodgeDownAnime;
-                animator.Play("PilotDodgeDown");
-                isDodging = true;
-            }
-            if (nowAnimation == walkLeftUpAnime || nowAnimation == stopLeftUpAnime)
-            {
-                nowAnimation = dodgeLeftUpAnime;
-                animator.Play("PilotDodgeLeftUp");
-                isDodging = true;
-            }
-            if (nowAnimation == walkLeftDownAnime || nowAnimation == stopLeftDownAnime)
-            {
-                nowAnimation = dodgeLeftDownAnime;
-                animator.Play("PilotDodgeLeftDown");
-                isDodging = true;
-            }
-
+            //Avoid();
+        }
+        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D) && Input.GetButtonDown("Fire2"))
+        {
+            nowAnimation = dodgeRightUpAnime;
+            animator.Play("PilotDodgeRightUp");
+        }
+        if (Input.GetKey(KeyCode.D) && Input.GetButtonDown("Fire2"))
+        {
+            nowAnimation = dodgeRightDownAnime;
+            animator.Play("PilotDodgeRightDown");
+        }
+        if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.S) && Input.GetButtonDown("Fire2"))
+        {
+            nowAnimation = dodgeRightDownAnime;
+            animator.Play("PilotDodgeRightDown");
+        }
+        if (Input.GetKey(KeyCode.S) && Input.GetButtonDown("Fire2"))
+        {
+            nowAnimation = dodgeDownAnime;
+            animator.Play("PilotDodgeDown");
+        }
+        if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.S) && Input.GetButtonDown("Fire2"))
+        {
+            nowAnimation = dodgeLeftDownAnime;
+            animator.Play("PilotDodgeLeftDown");
+        }
+        if (Input.GetKey(KeyCode.A) && Input.GetButtonDown("Fire2"))
+        {
+            Debug.Log("왼쪽 구르기");
+            nowAnimation = dodgeLeftDownAnime;
+            animator.Play("PilotDodgeLeftDown");
+        }
+        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A) && Input.GetButtonDown("Fire2"))
+        {
+            nowAnimation = dodgeLeftUpAnime;
+            animator.Play("PilotDodgeLeftUp");
         }
     }
+
+    // 구르기(회피) 강제이동
+    //public void Avoid()
+    //{
+    //    if (gameState == "playing")
+    //    {
+    //        rbody = GetComponent<Rigidbody2D>();
+    //        rbody.velocity = new Vector2(0, 0);
+    //        rbody.AddForce(new Vector2(0, 30), ForceMode2D.Impulse);
+    //        nowAnimation = dodgeUpAnime;
+    //        animator.Play("PilotDodgeUp");
+    //    }
+    //}
 
     // (유니티 초기 설정 기준) 0.02초마다 호출되며, 1초에 총 50번 호출되는 함수
     void FixedUpdate()
@@ -310,51 +326,45 @@ public class PlayerController : MonoBehaviour
             // 데미지 계산
             GetDamage(collision.gameObject);
         }
-
-        
     }
 
-    //private void OnTriggerStay2D(Collider2D collision)
-    //{
-    //    // FallDown 직전 캐릭터 재생성 위치 저장
-    //    if (collision.gameObject.tag == "BeforePos")
-    //    {
-    //        // 재생성할 위치 저장하기
-    //        beforePos = gameObject.transform.position;
-    //    }
-    //    // FallDown 애니메이션
-    //    if (collision.gameObject.tag == "FallDown")
-    //    {
-    //        StartCoroutine(WaitForIt());
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        // FallDown 직전 캐릭터 재생성 위치 저장
+        if (collision.gameObject.tag == "BeforePos")
+        {
+            // 재생성할 위치 저장하기
+            beforePos = gameObject.transform.position;
+        }
+        // FallDown 애니메이션
+        if (collision.gameObject.tag == "FallDown" && !isDodging)
+        {
+            // 게임 상태를 추락중으로 변경
+            gameState = "falling";
+            // 이동 중지
+            rbody.velocity = new Vector2(0, 0);
+            // 추락 애니메이션 재생
+            animator.Play("PilotFall");
 
-    //        // 데미지 계산
-    //        //GetDamage(collision.gameObject);
-            
-    //        // 추락 애니메이션이 재생된 후에 떨어지기 전 위치로 이동하기 위해 1초 대기
-    //        Invoke("BeforePos", 2.0f);
-    //    }
-    //}
+            // 데미지 계산
+            //GetDamage(collision.gameObject);
 
-    //// 추락 전 위치로 이동
-    //IEnumerator WaitForIt()
-    //{
-    //    yield return new WaitForSeconds(0.2f);
-    //    // 게임 상태를 추락중으로 변경
-    //    gameState = "falling";
-    //    // 이동 중지
-    //    rbody.velocity = new Vector2(0, 0);
-    //    // 추락 애니메이션 재생
-    //    animator.Play("PilotFall");
-    //}
+            // 추락 애니메이션이 재생된 후에 떨어지기 전 위치로 이동하기 위해 1초 대기
+            Invoke("BeforePos", 1.0f);
+        }
+    }
 
-    //void BeforePos()
-    //{
-    //    // 플레이어의 위치를 추락 전 저장된 위치로 이동
-    //    gameObject.transform.position = beforePos;
+    void BeforePos()
+    {
+        // 플레이어의 위치를 추락 전 저장된 위치로 이동
+        gameObject.transform.position = beforePos;
 
-    //    // 게임상태를 다시 게임중으로 변경
-    //    gameState = "playing";
-    //}
+        // 게임상태를 다시 게임중으로 변경
+        gameState = "playing";
+
+        // 애니메이션을 다시 재생
+        animator.Play("PilotStopDown");
+    }
 
     // 데미지 계산
     void GetDamage(GameObject enemy)
