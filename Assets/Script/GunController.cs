@@ -31,92 +31,95 @@ public class GunController : PlayerController
     // Update is called once per frame
     void Update()
     {
+        // 깃허브에 에러난 상태에서 저장하셔서 다른사람들 빌드가 안됨
+        // 수정하셔야 합니다.
 
-        if(isDodging)
-        {
 
-        }
+        //if(isDodging)
+        //{
 
-        if (nowAnimation == walkRightDownAnime)                     //오른, 오른아래
-        {
-            
-        }
-        else if (nowAnimation == walkRightUpAnime)                 // 오른위
-        {
-            
-        }
-        else if (nowAnimation == walkUpAnime)                // 위
-        {
-            
-        }
-        else if (nowAnimation == walkLeftUpAnime)               // 왼위
-        {
-            
-        }
-        else if (nowAnimation == walkLeftDownAnime)   // 왼, 왼밑
-        {
-            
-        }
-        else if (nowAnimation == walkDownAnime)              // 아래
-        {
-            
-        }
+        //}
 
-        if (nowAnimation == stopRightDownAnime)     //오른, 오른아래
-        {
+        //if (nowAnimation == walkRightDownAnime)                     //오른, 오른아래
+        //{
             
-        }
-        else if (nowAnimation == stopRightUpAnime)         // 오른위
-        {
+        //}
+        //else if (nowAnimation == walkRightUpAnime)                 // 오른위
+        //{
             
-        }
-        else if (nowAnimation == stopUpAnime)       // 위
-        {
+        //}
+        //else if (nowAnimation == walkUpAnime)                // 위
+        //{
             
-        }
-        else if (nowAnimation == stopLeftUpAnime)       // 왼위
-        {
+        //}
+        //else if (nowAnimation == walkLeftUpAnime)               // 왼위
+        //{
             
-        }
-        else if (nowAnimation == stopLeftDownAnime) // 왼, 왼밑
-        {
+        //}
+        //else if (nowAnimation == walkLeftDownAnime)   // 왼, 왼밑
+        //{
             
-        }
-        else if (nowAnimation == stopDownAnime)     // 아래
-        {
+        //}
+        //else if (nowAnimation == walkDownAnime)              // 아래
+        //{
             
-        }
+        //}
 
-        // 왼쪽으로 이동할 때 X축 플립
-        if (axisH < 0)
-        {
-            // SpriteRenderer의 flipX를 사용하는 경우
-            GetComponent<SpriteRenderer>().flipX = true;
+        //if (nowAnimation == stopRightDownAnime)     //오른, 오른아래
+        //{
+            
+        //}
+        //else if (nowAnimation == stopRightUpAnime)         // 오른위
+        //{
+            
+        //}
+        //else if (nowAnimation == stopUpAnime)       // 위
+        //{
+            
+        //}
+        //else if (nowAnimation == stopLeftUpAnime)       // 왼위
+        //{
+            
+        //}
+        //else if (nowAnimation == stopLeftDownAnime) // 왼, 왼밑
+        //{
+            
+        //}
+        //else if (nowAnimation == stopDownAnime)     // 아래
+        //{
+            
+        //}
 
-            // Transform의 Rotation을 사용하는 경우
-            //transform.rotation = Quaternion.Euler(0, 180, 0);
-        }
-        else if (axisH > 0) // 오른쪽으로 이동할 때 X축 플립 해제
-        {
-            // SpriteRenderer의 flipX를 사용하는 경우
-            GetComponent<SpriteRenderer>().flipX = false;
+        //// 왼쪽으로 이동할 때 X축 플립
+        //if (axisH < 0)
+        //{
+        //    // SpriteRenderer의 flipX를 사용하는 경우
+        //    GetComponent<SpriteRenderer>().flipX = true;
 
-            // Transform의 Rotation을 사용하는 경우
-            //transform.rotation = Quaternion.Euler(0, 0, 0);
-        }
+        //    // Transform의 Rotation을 사용하는 경우
+        //    //transform.rotation = Quaternion.Euler(0, 180, 0);
+        //}
+        //else if (axisH > 0) // 오른쪽으로 이동할 때 X축 플립 해제
+        //{
+        //    // SpriteRenderer의 flipX를 사용하는 경우
+        //    GetComponent<SpriteRenderer>().flipX = false;
 
-        // 애니메이션 변경
-        if (nowAnimation != oldAnimation)
-        {
-            oldAnimation = nowAnimation;
-            GetComponent<Animator>().Play(nowAnimation);
-        }
+        //    // Transform의 Rotation을 사용하는 경우
+        //    //transform.rotation = Quaternion.Euler(0, 0, 0);
+        //}
 
-        if ((Input.GetButtonDown("Fire2"))) // 마우스 오른쪽 입력시 회피
-        {
+        //// 애니메이션 변경
+        //if (nowAnimation != oldAnimation)
+        //{
+        //    oldAnimation = nowAnimation;
+        //    GetComponent<Animator>().Play(nowAnimation);
+        //}
+
+        //if ((Input.GetButtonDown("Fire2"))) // 마우스 오른쪽 입력시 회피
+        //{
             
 
-        }
+        //}
     }
 
     // (유니티 초기 설정 기준) 0.02초마다 호출되며, 1초에 총 50번 호출되는 함수
