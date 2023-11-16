@@ -78,6 +78,16 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector3 mousePosition = Input.mousePosition;
+
+        // 마우스 위치를 월드 좌표로 변환
+        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+
+        // 마우스 입력을 통하여 이동 각도 구하기
+        Vector2 characterPt = transform.position;
+        Vector2 mousePt = new Vector2(characterPt.x + mousePosition.x, characterPt.y + mousePosition.y);
+        angleZ = GetAngle(characterPt, mousePt);
+
         // 게임 중이 아니거나 공격받고 있을 경우에는 아무 것도 하지 않음
         if (gameState != "playing" || inDamage)
         {
@@ -93,7 +103,7 @@ public class PlayerController : MonoBehaviour
         // 키 입력을 통하여 이동 각도 구하기
         Vector2 fromPt = transform.position;
         Vector2 toPt = new Vector2(fromPt.x + axisH, fromPt.y + axisV);
-        angleZ = GetAngle(fromPt, toPt);
+        //angleZ = GetAngle(fromPt, toPt);
 
         // 이동 각도를 바탕으로 방향과 애니메이션을 변경한다
         if ( (axisH != 0 || axisV != 0) && !isDodging) // 키 입력이 있는 경우에만 Walk 애니메이션을 재생
@@ -110,7 +120,7 @@ public class PlayerController : MonoBehaviour
             {
                 nowAnimation = walkUpAnime;
             }
-            else if (angleZ > 120 && angleZ < 150)               // 왼위
+            else if (angleZ > 90 && angleZ < 180)                // 왼위
             {
                 nowAnimation = walkLeftUpAnime;
             }
@@ -125,7 +135,7 @@ public class PlayerController : MonoBehaviour
         }
         else if(axisH == 0.0f && axisV == 0.0f && !isDodging)// 키 입력이 없는 경우에는 Stop 애니메이션을 재생
         {            
-            if (nowAnimation == walkRightDownAnime)     //오른, 오른아래
+            if (angleZ > -60 && angleZ < 15)     //오른, 오른아래
             {
                 nowAnimation = stopRightDownAnime;
             }
@@ -133,7 +143,7 @@ public class PlayerController : MonoBehaviour
             {
                 nowAnimation = stopRightUpAnime;
             }
-            else if (nowAnimation == walkUpAnime)       // 위
+            else if (angleZ > 75 && angleZ < 105)       // 위
             {
                 nowAnimation = stopUpAnime;
             }
@@ -141,18 +151,18 @@ public class PlayerController : MonoBehaviour
             {
                 nowAnimation = stopLeftUpAnime;
             }
-            else if (nowAnimation == walkLeftDownAnime) // 왼, 왼밑
+            else if (angleZ > 145 && angleZ < 240 || angleZ < -105 && angleZ > -200)  // 왼, 왼밑
             {
                 nowAnimation = stopLeftDownAnime;
             }
-            else if (nowAnimation == walkDownAnime)     // 아래
+            else if (angleZ < -80 && angleZ > -100)    // 아래
             {
                 nowAnimation = stopDownAnime;
             }
         }
 
         // 왼쪽으로 이동할 때 X축 플립
-        if (axisH < 0)
+        if (mousePosition.x < 0)
         {
             // SpriteRenderer의 flipX를 사용하는 경우
             GetComponent<SpriteRenderer>().flipX = true;
@@ -160,7 +170,7 @@ public class PlayerController : MonoBehaviour
             // Transform의 Rotation을 사용하는 경우
             //transform.rotation = Quaternion.Euler(0, 180, 0);
         }
-        else if (axisH > 0) // 오른쪽으로 이동할 때 X축 플립 해제
+        else if (mousePosition.x >=0) // 오른쪽으로 이동할 때 X축 플립 해제
         {
             // SpriteRenderer의 flipX를 사용하는 경우
             GetComponent<SpriteRenderer>().flipX = false;
@@ -320,24 +330,34 @@ public class PlayerController : MonoBehaviour
     {
         float angle;
 
-        // 축 방향에 관계없이 캐릭터가 움직이고 있을 경우 각도 변경
-        if (axisH != 0 || axisV != 0)
-        {
-            // p1과 p2의 차를 구하기 (원점을 0으로 하기 위해)
-            float dx = p2.x - p1.x;
-            float dy = p2.y - p1.y;
+        // p1과 p2의 차를 구하기 (원점을 0으로 하기 위해)
+        float dx = p2.x - p1.x;
+        float dy = p2.y - p1.y;
 
-            // 아크탄젠트 함수로 각도(라디안) 구하기
-            float rad = Mathf.Atan2(dy, dx);
+        // 아크탄젠트 함수로 각도(라디안) 구하기
+        float rad = Mathf.Atan2(dy, dx);
 
-            // 라디안으로 변환
-            angle = rad * Mathf.Rad2Deg;
-        }
-        else
-        {
-            // 캐릭터가 정지 중이면 각도 유지
-            angle = angleZ;
-        }
+        // 라디안으로 변환
+        angle = rad * Mathf.Rad2Deg;
+
+        //// 축 방향에 관계없이 캐릭터가 움직이고 있을 경우 각도 변경
+        //if (axisH != 0 || axisV != 0 )
+        //{
+        //    // p1과 p2의 차를 구하기 (원점을 0으로 하기 위해)
+        //    float dx = p2.x - p1.x;
+        //    float dy = p2.y - p1.y;
+
+        //    // 아크탄젠트 함수로 각도(라디안) 구하기
+        //    float rad = Mathf.Atan2(dy, dx);
+
+        //    // 라디안으로 변환
+        //    angle = rad * Mathf.Rad2Deg;
+        //}
+        //else
+        //{
+        //    // 캐릭터가 정지 중이면 각도 유지
+        //    angle = angleZ;
+        //}
         return angle;
     }
 

@@ -134,7 +134,6 @@ public class GunController : MonoBehaviour
         //if ((Input.GetButtonDown("Fire2"))) // 마우스 오른쪽 입력시 회피
         //{
 
-
         //}
 
         if (Input.GetButton("Fire1") && canAttack)
@@ -160,14 +159,9 @@ public class GunController : MonoBehaviour
             gunSpr.sortingOrder = 5;    //캐릭터 OrderInLayer == 4
             handSpr.sortingOrder = 6;   //손이 총보다위            
         }
-        if(gunObj.transform)
-        {
-
-            Debug.Log("가져와짐");
-        }
-        // 총 회전
-        gunObj.transform.rotation = Quaternion.Euler(0, 0, plmv.angleZ);
         
+        // 총 회전
+        gunObj.transform.rotation = Quaternion.Euler(0, 0, plmv.angleZ);        
         
     }
 
