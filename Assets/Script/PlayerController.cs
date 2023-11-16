@@ -58,6 +58,8 @@ public class PlayerController : MonoBehaviour
 
     Vector2 beforePos = new Vector2(0, 0);
 
+    public Vector3 mousePosition;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -92,7 +94,7 @@ public class PlayerController : MonoBehaviour
             axisV = Input.GetAxisRaw("Vertical"); // 상하
         }
 
-        Vector3 mousePosition = Input.mousePosition;
+        mousePosition = Input.mousePosition;
 
         // 마우스 위치를 월드 좌표로 변환
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
