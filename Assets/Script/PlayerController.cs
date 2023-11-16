@@ -50,6 +50,8 @@ public class PlayerController : MonoBehaviour
     bool isMoving = false;          // 이동 중
     public bool isDodging = false;         // 회피 중
 
+    public bool inlobby = false;        //로비에 있는지
+
     public static int hp = 3;                   // 플레이어의 HP
     public static string gameState;    // 게임 상태
     bool inDamage = false;                   // 피격 상태
@@ -90,10 +92,49 @@ public class PlayerController : MonoBehaviour
             axisV = Input.GetAxisRaw("Vertical"); // 상하
         }
 
+        Vector3 mousePosition = Input.mousePosition;
+
+        // 마우스 위치를 월드 좌표로 변환
+        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+
+        // 마우스 입력을 통하여 이동 각도 구하기
+        Vector2 characterPt = transform.position;
+        Vector2 mousePt = new Vector2(characterPt.x + mousePosition.x, characterPt.y + mousePosition.y);                      
         // 키 입력을 통하여 이동 각도 구하기
         Vector2 fromPt = transform.position;
         Vector2 toPt = new Vector2(fromPt.x + axisH, fromPt.y + axisV);
-        angleZ = GetAngle(fromPt, toPt);
+        
+        if(inlobby)
+        {
+            angleZ = GetAngle(fromPt, toPt);
+            // 왼쪽으로 이동할 때 X축 플립
+            if (axisH < 0)
+            {
+                // SpriteRenderer의 flipX를 사용하는 경우
+                GetComponent<SpriteRenderer>().flipX = true;
+            }
+            else if (axisH >= 0) // 오른쪽으로 이동할 때 X축 플립 해제
+            {
+                // SpriteRenderer의 flipX를 사용하는 경우
+                GetComponent<SpriteRenderer>().flipX = false;
+            }
+        }
+        else
+        {
+            angleZ = GetAngle(characterPt, mousePt);
+
+            // 왼쪽으로 이동할 때 X축 플립
+            if (mousePosition.x < 0)
+            {
+                // SpriteRenderer의 flipX를 사용하는 경우
+                GetComponent<SpriteRenderer>().flipX = true;
+            }
+            else if (mousePosition.x >= 0) // 오른쪽으로 이동할 때 X축 플립 해제
+            {
+                // SpriteRenderer의 flipX를 사용하는 경우
+                GetComponent<SpriteRenderer>().flipX = false;
+            }
+        }
 
         // 이동 각도를 바탕으로 방향과 애니메이션을 변경한다
         if ( (axisH != 0 || axisV != 0) && !isDodging) // 키 입력이 있는 경우에만 Walk 애니메이션을 재생
@@ -110,7 +151,7 @@ public class PlayerController : MonoBehaviour
             {
                 nowAnimation = walkUpAnime;
             }
-            else if (angleZ > 120 && angleZ < 150)               // 왼위
+            else if (angleZ > 90 && angleZ < 180)                // 왼위
             {
                 nowAnimation = walkLeftUpAnime;
             }
@@ -125,7 +166,7 @@ public class PlayerController : MonoBehaviour
         }
         else if(axisH == 0.0f && axisV == 0.0f && !isDodging)// 키 입력이 없는 경우에는 Stop 애니메이션을 재생
         {            
-            if (nowAnimation == walkRightDownAnime)     //오른, 오른아래
+            if (angleZ > -60 && angleZ < 15)     //오른, 오른아래
             {
                 nowAnimation = stopRightDownAnime;
             }
@@ -133,7 +174,7 @@ public class PlayerController : MonoBehaviour
             {
                 nowAnimation = stopRightUpAnime;
             }
-            else if (nowAnimation == walkUpAnime)       // 위
+            else if (angleZ > 75 && angleZ < 105)       // 위
             {
                 nowAnimation = stopUpAnime;
             }
@@ -141,33 +182,17 @@ public class PlayerController : MonoBehaviour
             {
                 nowAnimation = stopLeftUpAnime;
             }
-            else if (nowAnimation == walkLeftDownAnime) // 왼, 왼밑
+            else if (angleZ > 145 && angleZ < 240 || angleZ < -105 && angleZ > -200)  // 왼, 왼밑
             {
                 nowAnimation = stopLeftDownAnime;
             }
-            else if (nowAnimation == walkDownAnime)     // 아래
+            else if (angleZ < -80 && angleZ > -100)    // 아래
             {
                 nowAnimation = stopDownAnime;
             }
         }
 
-        // 왼쪽으로 이동할 때 X축 플립
-        if (axisH < 0)
-        {
-            // SpriteRenderer의 flipX를 사용하는 경우
-            GetComponent<SpriteRenderer>().flipX = true;
-
-            // Transform의 Rotation을 사용하는 경우
-            //transform.rotation = Quaternion.Euler(0, 180, 0);
-        }
-        else if (axisH > 0) // 오른쪽으로 이동할 때 X축 플립 해제
-        {
-            // SpriteRenderer의 flipX를 사용하는 경우
-            GetComponent<SpriteRenderer>().flipX = false;
-
-            // Transform의 Rotation을 사용하는 경우
-            //transform.rotation = Quaternion.Euler(0, 0, 0);
-        }
+        
 
         // 애니메이션 변경
         if (nowAnimation != oldAnimation)
@@ -178,12 +203,8 @@ public class PlayerController : MonoBehaviour
 
         // 8방향 벡터 구하기
         angleDodge = GetAngleDodge(fromPt, toPt);
-        Vector2 dodgePos = new Vector2(Mathf.Cos(angleDodge),Mathf.Sin(angleDodge));
+        Vector2 dodgePos = new Vector2(Mathf.Cos(angleDodge), Mathf.Sin(angleDodge));
         
-        // 11/16 angleDodge의 값을 GetAngleDodge함수에서 8방향으로만 되게 고정시켰는데
-        // 방향벡터를 구하면서 값이 이상하게 들어간건지 위, 아래, 왼쪽으로 굴렀을때의 벡터가 제대로 설정되지 않음.
-        // 질문사항
-
         // 키입력을 받은 상태에서 마우스 우클릭을 했을 때만 구르기
         if ((axisH != 0 || axisV != 0) && Input.GetButtonDown("Fire2"))
         {
@@ -212,7 +233,6 @@ public class PlayerController : MonoBehaviour
             // 위로 구르기
             else if (angleZ > 75 && angleZ < 105)             
             {
-                angleDodge = 90.0f;
                 // 회피중
                 gameState = "dodging";
                 // 입력한 방향으로 구르기
@@ -242,12 +262,6 @@ public class PlayerController : MonoBehaviour
                 // 애니메이션 설정
                 nowAnimation = dodgeLeftDownAnime;
                 animator.Play("PilotDodgeRightDown");
-                // 
-                if (angleDodge == 180)
-                {
-                    Debug.Log("왼쪽 구르기");
-                }
-
             }
             // 아래로 구르기
             else if (angleZ < -80 && angleZ > -100)         
@@ -331,31 +345,41 @@ public class PlayerController : MonoBehaviour
     {
         float angle;
 
-        // 축 방향에 관계없이 캐릭터가 움직이고 있을 경우 각도 변경
-        if (axisH != 0 || axisV != 0)
-        {
-            // p1과 p2의 차를 구하기 (원점을 0으로 하기 위해)
-            float dx = p2.x - p1.x;
-            float dy = p2.y - p1.y;
+        // p1과 p2의 차를 구하기 (원점을 0으로 하기 위해)
+        float dx = p2.x - p1.x;
+        float dy = p2.y - p1.y;
 
-            // 아크탄젠트 함수로 각도(라디안) 구하기
-            float rad = Mathf.Atan2(dy, dx);
+        // 아크탄젠트 함수로 각도(라디안) 구하기
+        float rad = Mathf.Atan2(dy, dx);
 
-            // 라디안으로 변환
-            angle = rad * Mathf.Rad2Deg;
-        }
-        else
-        {
-            // 캐릭터가 정지 중이면 각도 유지
-            angle = angleZ;
-        }
+        // 라디안으로 변환
+        angle = rad * Mathf.Rad2Deg;
+
+        //// 축 방향에 관계없이 캐릭터가 움직이고 있을 경우 각도 변경
+        //if (axisH != 0 || axisV != 0 )
+        //{
+        //    // p1과 p2의 차를 구하기 (원점을 0으로 하기 위해)
+        //    float dx = p2.x - p1.x;
+        //    float dy = p2.y - p1.y;
+
+        //    // 아크탄젠트 함수로 각도(라디안) 구하기
+        //    float rad = Mathf.Atan2(dy, dx);
+
+        //    // 라디안으로 변환
+        //    angle = rad * Mathf.Rad2Deg;
+        //}
+        //else
+        //{
+        //    // 캐릭터가 정지 중이면 각도 유지
+        //    angle = angleZ;
+        //}
         return angle;
     }
 
     // p1에서 p2까지의 각도를 계산한다
     float GetAngleDodge(Vector2 p1, Vector2 p2)
     {
-        float angle;
+        float rad;
 
         // 축 방향에 관계없이 캐릭터가 움직이고 있을 경우 각도 변경
         if (axisH != 0 || axisV != 0)
@@ -365,35 +389,14 @@ public class PlayerController : MonoBehaviour
             float dy = p2.y - p1.y;
 
             // 아크탄젠트 함수로 각도(라디안) 구하기
-            float rad = Mathf.Atan2(dy, dx);
-
-            // 라디안으로 변환
-            angle = rad * Mathf.Rad2Deg;
-
-            // 구르기는 8방향으로만 가능하게 angle 조정
-            if (angle >= -15 && angle <= 15)
-                angle = 0;
-            else if (angle >= -60 && angle <= -30)
-                angle = -45;
-            else if (angle >= 30 && angle <= 60)
-                angle = 45;
-            else if (angle >= 75 && angle <= 105)
-                angle = 90;
-            else if (angle >= 120 && angle <= 150)
-                angle = 135;
-            else if (angle >= 165 && angle <= 195 || angle >= -195 && angle <= -165)
-                angle = 180;
-            else if (angle >= 210 && angle <= 240 || angle >= -150 && angle <= -120)
-                angle = -135;
-            else if (angle >= -105 && angle <= -75)
-                angle = -90;
+            rad = Mathf.Atan2(dy, dx);
         }
         else
         {
             // 캐릭터가 정지 중이면 각도 유지
-            angle = angleDodge;
+            rad = angleDodge;
         }
-        return angle;
+        return rad;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
