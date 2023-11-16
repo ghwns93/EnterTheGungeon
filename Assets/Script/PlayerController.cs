@@ -178,12 +178,8 @@ public class PlayerController : MonoBehaviour
 
         // 8방향 벡터 구하기
         angleDodge = GetAngleDodge(fromPt, toPt);
-        Vector2 dodgePos = new Vector2(Mathf.Cos(angleDodge),Mathf.Sin(angleDodge));
+        Vector2 dodgePos = new Vector2(Mathf.Cos(angleDodge), Mathf.Sin(angleDodge));
         
-        // 11/16 angleDodge의 값을 GetAngleDodge함수에서 8방향으로만 되게 고정시켰는데
-        // 방향벡터를 구하면서 값이 이상하게 들어간건지 위, 아래, 왼쪽으로 굴렀을때의 벡터가 제대로 설정되지 않음.
-        // 질문사항
-
         // 키입력을 받은 상태에서 마우스 우클릭을 했을 때만 구르기
         if ((axisH != 0 || axisV != 0) && Input.GetButtonDown("Fire2"))
         {
@@ -212,7 +208,6 @@ public class PlayerController : MonoBehaviour
             // 위로 구르기
             else if (angleZ > 75 && angleZ < 105)             
             {
-                angleDodge = 90.0f;
                 // 회피중
                 gameState = "dodging";
                 // 입력한 방향으로 구르기
@@ -242,12 +237,6 @@ public class PlayerController : MonoBehaviour
                 // 애니메이션 설정
                 nowAnimation = dodgeLeftDownAnime;
                 animator.Play("PilotDodgeRightDown");
-                // 
-                if (angleDodge == 180)
-                {
-                    Debug.Log("왼쪽 구르기");
-                }
-
             }
             // 아래로 구르기
             else if (angleZ < -80 && angleZ > -100)         
@@ -355,7 +344,7 @@ public class PlayerController : MonoBehaviour
     // p1에서 p2까지의 각도를 계산한다
     float GetAngleDodge(Vector2 p1, Vector2 p2)
     {
-        float angle;
+        float rad;
 
         // 축 방향에 관계없이 캐릭터가 움직이고 있을 경우 각도 변경
         if (axisH != 0 || axisV != 0)
@@ -365,35 +354,14 @@ public class PlayerController : MonoBehaviour
             float dy = p2.y - p1.y;
 
             // 아크탄젠트 함수로 각도(라디안) 구하기
-            float rad = Mathf.Atan2(dy, dx);
-
-            // 라디안으로 변환
-            angle = rad * Mathf.Rad2Deg;
-
-            // 구르기는 8방향으로만 가능하게 angle 조정
-            if (angle >= -15 && angle <= 15)
-                angle = 0;
-            else if (angle >= -60 && angle <= -30)
-                angle = -45;
-            else if (angle >= 30 && angle <= 60)
-                angle = 45;
-            else if (angle >= 75 && angle <= 105)
-                angle = 90;
-            else if (angle >= 120 && angle <= 150)
-                angle = 135;
-            else if (angle >= 165 && angle <= 195 || angle >= -195 && angle <= -165)
-                angle = 180;
-            else if (angle >= 210 && angle <= 240 || angle >= -150 && angle <= -120)
-                angle = -135;
-            else if (angle >= -105 && angle <= -75)
-                angle = -90;
+            rad = Mathf.Atan2(dy, dx);
         }
         else
         {
             // 캐릭터가 정지 중이면 각도 유지
-            angle = angleDodge;
+            rad = angleDodge;
         }
-        return angle;
+        return rad;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
