@@ -6,7 +6,7 @@ public class GunController : MonoBehaviour
 {
 
     // 애니메이션
-    public string gunHoldAnime = "PilotGunHold";
+    //public string gunHoldAnime = "PilotGunHold";
 
     // 현재 애니메이션
     string nowGunAnimation = "";
@@ -19,25 +19,26 @@ public class GunController : MonoBehaviour
     public float shootSpeed = 12.0f;    //화살 속도
     public float shootDelay = 0.25f;    //발사 간격
 
-    public GameObject gunPrefab;        //활
-    public GameObject bulletPrefab;     //화살
+    public GameObject gunPrefab;        //총
+    public GameObject bulletPrefab;     //총알
 
-    private bool canAttack = true;
+    private bool canAttack = true;      //공격 딜레이 할때 사용
 
     bool inAttack = false;  //공격 상태 판단
     GameObject gunObj;      //총
 
+    
 
     // Start is called before the first frame update
     void Start()
     {
         // (기본) 애니메이션 설정
-        oldGunAnimation = gunHoldAnime;
+        //oldGunAnimation = gunHoldAnime;
 
         // 애니메이터 가져오기
-        gunanimator = GetComponent<Animator>();
+        //gunanimator = GetComponent<Animator>();
 
-        // 활을 플레이어 위치에 배치
+        // 총을 플레이어 위치에 배치
         Vector3 pos = transform.position;
         gunObj = Instantiate(gunPrefab, pos, Quaternion.identity);
         gunObj.transform.SetParent(transform);  //플레이어 객체를 총 객체의 부모로 설정
@@ -50,58 +51,7 @@ public class GunController : MonoBehaviour
         // 깃허브에 에러난 상태에서 저장하셔서 다른사람들 빌드가 안됨
         // 수정하셔야 합니다.
 
-
         //if(isDodging)
-        //{
-
-        //}
-
-        //if (nowAnimation == walkRightDownAnime)                     //오른, 오른아래
-        //{
-
-        //}
-        //else if (nowAnimation == walkRightUpAnime)                 // 오른위
-        //{
-
-        //}
-        //else if (nowAnimation == walkUpAnime)                // 위
-        //{
-
-        //}
-        //else if (nowAnimation == walkLeftUpAnime)               // 왼위
-        //{
-
-        //}
-        //else if (nowAnimation == walkLeftDownAnime)   // 왼, 왼밑
-        //{
-
-        //}
-        //else if (nowAnimation == walkDownAnime)              // 아래
-        //{
-
-        //}
-
-        //if (nowAnimation == stopRightDownAnime)     //오른, 오른아래
-        //{
-
-        //}
-        //else if (nowAnimation == stopRightUpAnime)         // 오른위
-        //{
-
-        //}
-        //else if (nowAnimation == stopUpAnime)       // 위
-        //{
-
-        //}
-        //else if (nowAnimation == stopLeftUpAnime)       // 왼위
-        //{
-
-        //}
-        //else if (nowAnimation == stopLeftDownAnime) // 왼, 왼밑
-        //{
-
-        //}
-        //else if (nowAnimation == stopDownAnime)     // 아래
         //{
 
         //}
@@ -159,9 +109,28 @@ public class GunController : MonoBehaviour
             gunSpr.sortingOrder = 5;    //캐릭터 OrderInLayer == 4
             handSpr.sortingOrder = 6;   //손이 총보다위            
         }
-        
-        // 총 회전
-        gunObj.transform.rotation = Quaternion.Euler(0, 0, plmv.angleZ);        
+
+        // playerController 변수 가져오기
+        Vector3 mousePosition = FindObjectOfType<PlayerController>().mousePosition; 
+        // 총 위치,회전
+        if (mousePosition .x> transform.position.x)
+        {
+            gunObj.GetComponent<SpriteRenderer>().flipY = false;           
+            gunObj.transform.rotation = Quaternion.Euler(0, 0, plmv.angleZ-90 );
+            gunObj.transform.position = transform.position + new Vector3(0.3f, -0.2f, 0);
+
+            childTransform.position = transform.position + new Vector3(0.2f, -0.2f, 0);
+            childTransform.rotation = Quaternion.Euler(0, 0, 0);    // 손 회전 x
+        }      
+        else
+        {
+            gunObj.GetComponent<SpriteRenderer>().flipY = true;
+            gunObj.transform.rotation = Quaternion.Euler(0, 0, plmv.angleZ+90);
+            gunObj.transform.position = transform.position + new Vector3(-0.3f, -0.2f, 0);
+
+            childTransform.position = transform.position + new Vector3(-0.2f, -0.2f, 0);
+            childTransform.rotation = Quaternion.Euler(0, 0, 0);    // 손 회전 x
+        }
         
     }
 
@@ -204,7 +173,7 @@ public class GunController : MonoBehaviour
         body.AddForce(v, ForceMode2D.Impulse);
 
         // 딜레이 설정
-        Invoke("StopAttack", shootDelay);
+        //Invoke("StopAttack", shootDelay);
     }
 
     // 공격 중지
