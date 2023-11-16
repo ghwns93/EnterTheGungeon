@@ -117,15 +117,19 @@ public class GunController : MonoBehaviour
         {
             gunObj.GetComponent<SpriteRenderer>().flipY = false;           
             gunObj.transform.rotation = Quaternion.Euler(0, 0, plmv.angleZ-90 );
-            gunObj.transform.position = transform.position + new Vector3(0.4f, 0, 0);
-            gunSpr.flipY = false;
+            gunObj.transform.position = transform.position + new Vector3(0.3f, -0.2f, 0);
+
+            childTransform.position = transform.position + new Vector3(0.2f, -0.2f, 0);
+            childTransform.rotation = Quaternion.Euler(0, 0, 0);    // 손 회전 x
         }      
         else
         {
             gunObj.GetComponent<SpriteRenderer>().flipY = true;
             gunObj.transform.rotation = Quaternion.Euler(0, 0, plmv.angleZ+90);
-            gunObj.transform.position = transform.position + new Vector3(-0.4f, 0, 0);
-            gunSpr.flipY = true;
+            gunObj.transform.position = transform.position + new Vector3(-0.3f, -0.2f, 0);
+
+            childTransform.position = transform.position + new Vector3(-0.2f, -0.2f, 0);
+            childTransform.rotation = Quaternion.Euler(0, 0, 0);    // 손 회전 x
         }
         
     }
