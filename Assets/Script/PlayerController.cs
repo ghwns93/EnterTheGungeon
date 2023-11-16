@@ -50,6 +50,8 @@ public class PlayerController : MonoBehaviour
     bool isMoving = false;          // 이동 중
     public bool isDodging = false;         // 회피 중
 
+    public bool inlobby = false;        //로비에 있는지
+
     public static int hp = 3;                   // 플레이어의 HP
     public static string gameState;    // 게임 상태
     bool inDamage = false;                   // 피격 상태
@@ -78,16 +80,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 mousePosition = Input.mousePosition;
-
-        // 마우스 위치를 월드 좌표로 변환
-        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-
-        // 마우스 입력을 통하여 이동 각도 구하기
-        Vector2 characterPt = transform.position;
-        Vector2 mousePt = new Vector2(characterPt.x + mousePosition.x, characterPt.y + mousePosition.y);
-        angleZ = GetAngle(characterPt, mousePt);
-
         // 게임 중이 아니거나 공격받고 있을 경우에는 아무 것도 하지 않음
         if (gameState != "playing" || inDamage)
         {
@@ -100,10 +92,49 @@ public class PlayerController : MonoBehaviour
             axisV = Input.GetAxisRaw("Vertical"); // 상하
         }
 
+        Vector3 mousePosition = Input.mousePosition;
+
+        // 마우스 위치를 월드 좌표로 변환
+        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+
+        // 마우스 입력을 통하여 이동 각도 구하기
+        Vector2 characterPt = transform.position;
+        Vector2 mousePt = new Vector2(characterPt.x + mousePosition.x, characterPt.y + mousePosition.y);                      
         // 키 입력을 통하여 이동 각도 구하기
         Vector2 fromPt = transform.position;
         Vector2 toPt = new Vector2(fromPt.x + axisH, fromPt.y + axisV);
-        //angleZ = GetAngle(fromPt, toPt);
+        
+        if(inlobby)
+        {
+            angleZ = GetAngle(fromPt, toPt);
+            // 왼쪽으로 이동할 때 X축 플립
+            if (axisH < 0)
+            {
+                // SpriteRenderer의 flipX를 사용하는 경우
+                GetComponent<SpriteRenderer>().flipX = true;
+            }
+            else if (axisH >= 0) // 오른쪽으로 이동할 때 X축 플립 해제
+            {
+                // SpriteRenderer의 flipX를 사용하는 경우
+                GetComponent<SpriteRenderer>().flipX = false;
+            }
+        }
+        else
+        {
+            angleZ = GetAngle(characterPt, mousePt);
+
+            // 왼쪽으로 이동할 때 X축 플립
+            if (mousePosition.x < 0)
+            {
+                // SpriteRenderer의 flipX를 사용하는 경우
+                GetComponent<SpriteRenderer>().flipX = true;
+            }
+            else if (mousePosition.x >= 0) // 오른쪽으로 이동할 때 X축 플립 해제
+            {
+                // SpriteRenderer의 flipX를 사용하는 경우
+                GetComponent<SpriteRenderer>().flipX = false;
+            }
+        }
 
         // 이동 각도를 바탕으로 방향과 애니메이션을 변경한다
         if ( (axisH != 0 || axisV != 0) && !isDodging) // 키 입력이 있는 경우에만 Walk 애니메이션을 재생
@@ -161,23 +192,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        // 왼쪽으로 이동할 때 X축 플립
-        if (mousePosition.x < 0)
-        {
-            // SpriteRenderer의 flipX를 사용하는 경우
-            GetComponent<SpriteRenderer>().flipX = true;
-
-            // Transform의 Rotation을 사용하는 경우
-            //transform.rotation = Quaternion.Euler(0, 180, 0);
-        }
-        else if (mousePosition.x >=0) // 오른쪽으로 이동할 때 X축 플립 해제
-        {
-            // SpriteRenderer의 flipX를 사용하는 경우
-            GetComponent<SpriteRenderer>().flipX = false;
-
-            // Transform의 Rotation을 사용하는 경우
-            //transform.rotation = Quaternion.Euler(0, 0, 0);
-        }
+        
 
         // 애니메이션 변경
         if (nowAnimation != oldAnimation)
