@@ -124,6 +124,8 @@ MonoBehaviour:
   pilotOpenAnime: PilotOpenItem
   angleZ: -90
   isDodging: 0
+  inlobby: 1
+  mousePosition: {x: 0, y: 0, z: 0}
 --- !u!50 &4580156496748346251
 Rigidbody2D:
   serializedVersion: 4
