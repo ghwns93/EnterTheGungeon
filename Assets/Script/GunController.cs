@@ -21,6 +21,7 @@ public class GunController : MonoBehaviour
 
     public GameObject gunPrefab;        //총
     public GameObject bulletPrefab;     //총알
+    public GameObject OtherHandPrefab;  //총든손 반대편 손
 
     private bool canAttack = true;      //공격 딜레이 할때 사용
 
@@ -112,24 +113,28 @@ public class GunController : MonoBehaviour
 
         // playerController 변수 가져오기
         Vector3 mousePosition = FindObjectOfType<PlayerController>().mousePosition; 
-        // 총 위치,회전
+        // 총,손 위치,회전
         if (mousePosition .x> transform.position.x)
         {
-            gunObj.GetComponent<SpriteRenderer>().flipY = false;           
-            gunObj.transform.rotation = Quaternion.Euler(0, 0, plmv.angleZ-90 );
-            gunObj.transform.position = transform.position + new Vector3(0.3f, -0.2f, 0);
-
-            childTransform.position = transform.position + new Vector3(0.2f, -0.2f, 0);
-            childTransform.rotation = Quaternion.Euler(0, 0, 0);    // 손 회전 x
+            gunObj.GetComponent<SpriteRenderer>().flipY = false;                            //반전취소
+            gunObj.transform.rotation = Quaternion.Euler(0, 0, plmv.angleZ-90);             //마우스에 따라 총회전
+            gunObj.transform.position = transform.position + new Vector3(0.2f, -0.15f, 0);  //총위치 캐릭터 오른쪽으로
+            childTransform.position = transform.position + new Vector3(0.2f, -0.15f, 0);    //손위치
+            childTransform.rotation = Quaternion.Euler(0, 0, 0);                            //손회전 x
+            if (!OtherHandPrefab)
+                Destroy(OtherHandPrefab);                                                   //반대편손 있으면 없애기
+            GameObject otherHandObj = Instantiate(OtherHandPrefab, transform.position + new Vector3(-0.2f, -0.15f, 0), Quaternion.Euler(0, 0, 0)); //반대편손 생성
         }      
         else
         {
-            gunObj.GetComponent<SpriteRenderer>().flipY = true;
-            gunObj.transform.rotation = Quaternion.Euler(0, 0, plmv.angleZ+90);
-            gunObj.transform.position = transform.position + new Vector3(-0.3f, -0.2f, 0);
-
-            childTransform.position = transform.position + new Vector3(-0.2f, -0.2f, 0);
-            childTransform.rotation = Quaternion.Euler(0, 0, 0);    // 손 회전 x
+            gunObj.GetComponent<SpriteRenderer>().flipY = true;                             //반전           
+            gunObj.transform.rotation = Quaternion.Euler(0, 0, plmv.angleZ+90);             //마우스에 따라 총회전
+            gunObj.transform.position = transform.position + new Vector3(-0.2f, -0.15f, 0); //총위치 캐릭터 왼쪽으로
+            childTransform.position = transform.position + new Vector3(-0.2f, -0.15f, 0);   //손위치
+            childTransform.rotation = Quaternion.Euler(0, 0, 0);                            //손회전 x
+            if (!OtherHandPrefab)
+                Destroy(OtherHandPrefab);                                                   //반대편손 있으면 없애기
+            GameObject otherHandObj = Instantiate(OtherHandPrefab, transform.position + new Vector3(0.2f, -0.15f, 0), Quaternion.Euler(0, 0, 0)); //반대편손 생성
         }
         
     }
@@ -159,10 +164,12 @@ public class GunController : MonoBehaviour
         PlayerController playerCnt = GetComponent<PlayerController>();
         // 회전에 사용할 각도
         float angleZ = playerCnt.angleZ;
+
         // 화살 오브젝트 생성 (캐릭터 진행 방향으로 회전)
         Quaternion r = Quaternion.Euler(0, 0, angleZ + 90);
-        GameObject bulletObj = Instantiate(bulletPrefab, transform.position, r);
-
+        GameObject bulletObj = Instantiate(bulletPrefab,
+            transform.position+new Vector3(1.0f* Mathf.Cos(angleZ * Mathf.Deg2Rad), 1.0f * Mathf.Sin(angleZ),0), r);
+        
         // 화살을 발사하기 위한 벡터 생성
         float x = Mathf.Cos(angleZ * Mathf.Deg2Rad);
         float y = Mathf.Sin(angleZ * Mathf.Deg2Rad);
@@ -172,14 +179,6 @@ public class GunController : MonoBehaviour
         Rigidbody2D body = bulletObj.GetComponent<Rigidbody2D>();
         body.AddForce(v, ForceMode2D.Impulse);
 
-        // 딜레이 설정
-        //Invoke("StopAttack", shootDelay);
-    }
-
-    // 공격 중지
-    public void StopAttack()
-    {
-        inAttack = false;
     }
 
 }
