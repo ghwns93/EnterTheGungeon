@@ -1,37 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
-public class TitleManager : MonoBehaviour
+public class GameOptionManager : MonoBehaviour
 {
-    // 인스펙터에서 버튼들을 할당합니다.
-    public GameObject PlayBtn;  // 게임시작
-    public GameObject OptionBtn;  // 옵션버튼
-    public GameObject QuitBtn;  // 게임종료 버튼
 
-    // 캔버스 할당
-    public GameObject btnCanvas;  // 게임종료 버튼
 
-    // 옵션 Prefab을 인스펙터에서 할당
+
+    // 옵션을 할당
     public GameObject OptionPrefab;
+    public GameObject InoptionPrefab;
 
     // Option Prefab의 인스턴스를 저장할 변수
     private GameObject OptionInstance;
 
-
-    // 게임 시작 첫 화면 이름을 인스펙터에서 할당합니다.
-    public string firstSceneName;
-
     // Start is called before the first frame update
     void Start()
     {
-        // 초기 상태 설정
-        btnCanvas.SetActive(true);
-        OptionPrefab.SetActive(true);
-        // 타이틀 BGM 재생
-        // SoundManager.soundManager.PlayBGM(BGMType.Title);
+
     }
 
     // Update is called once per frame
@@ -43,7 +29,7 @@ public class TitleManager : MonoBehaviour
             // 옵션 Prefab이 현재 활성화되어 있는 지 여부 판단
             if (OptionInstance == null)
             {
-                OptionButtonClicked();
+                OpenInOption();
             }
             else
             {
@@ -53,21 +39,17 @@ public class TitleManager : MonoBehaviour
         }
     }
 
-    // 스타트 버튼 클릭 이벤트
-    public void PlayButtonClicked()
+    public void OpenInOption() 
     {
-        // Scene 이동
-        SceneManager.LoadScene(firstSceneName);
-    }
 
-    // 옵션 버튼 클릭 이벤트
-    public void OptionButtonClicked()
-    {
+        InoptionPrefab.SetActive(true);
+
         // Option Prefab을 호출
-        OptionInstance = Instantiate(OptionPrefab);
+        OptionInstance = Instantiate(InoptionPrefab);
 
         // Option Prefab에서 Canvas 컴포넌트 가져오기
         Canvas canvas = OptionInstance.GetComponent<Canvas>();
+
 
         if (canvas != null)
         {
@@ -90,15 +72,9 @@ public class TitleManager : MonoBehaviour
         {
             Debug.LogError("프리팹에 Canvas 컴포넌트가 없음");
         }
+
     }
 
-    // 게임 종료 버튼 클릭 이벤트
-    public void QuitButtonClicked()
-    {
-        Application.Quit();
-    }
-
-    // 옵션창 숨기기
     void HideOptionCanvas()
     {
         // 옵션 Prefab을 제거합니다.

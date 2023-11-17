@@ -21998,6 +21998,7 @@ MonoBehaviour:
   PlayBtn: {fileID: 806668652}
   OptionBtn: {fileID: 1573206221}
   QuitBtn: {fileID: 1369996718}
+  btnCanvas: {fileID: 1660759938}
   OptionPrefab: {fileID: 851840797709776527, guid: 1218fcdc85d6af84680a0f8bf687cc4e, type: 3}
   firstSceneName: Lobby
 --- !u!1 &1879337901

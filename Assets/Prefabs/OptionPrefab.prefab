@@ -201,7 +201,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 851840797259454422}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: MainOptionManager, Assembly-CSharp
+        m_MethodName: GamePlayButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &851840797288079477
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,7 +335,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 851840797288079466}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: MainOptionManager, Assembly-CSharp
+        m_MethodName: AudioButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &851840797297979658
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,7 +717,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 851840797611673815}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: MainOptionManager, Assembly-CSharp
+        m_MethodName: VideoButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &851840797709776527
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,13 +743,14 @@ GameObject:
   - component: {fileID: 851840797709776524}
   - component: {fileID: 851840797709776525}
   - component: {fileID: 851840797709776526}
+  - component: {fileID: 6120464248103545462}
   m_Layer: 5
-  m_Name: Option
+  m_Name: OptionPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &851840797709776514
 RectTransform:
   m_ObjectHideFlags: 0
@@ -752,7 +789,7 @@ Canvas:
   m_GameObject: {fileID: 851840797709776527}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -856,6 +893,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6120464248103545462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851840797709776527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d15d87be477d82b45aa69fe6f2d8da39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gamePlayBtn: {fileID: 851840797259454417}
+  controlBtn: {fileID: 851840798679825226}
+  videoBtn: {fileID: 851840797611673810}
+  audioBtn: {fileID: 851840797288079477}
+  gamePlayPrefab: {fileID: 0}
+  controlPrefab: {fileID: 0}
+  videoPrefab: {fileID: 0}
+  audioPrefab: {fileID: 0}
 --- !u!1 &851840797867179479
 GameObject:
   m_ObjectHideFlags: 0
@@ -928,7 +985,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1899219981
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 14
   m_Sprite: {fileID: 21300000, guid: 5528b0822bacb564ca1ea18380524c75, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1407,4 +1464,16 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 851840798679825231}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: MainOptionManager, Assembly-CSharp
+        m_MethodName: ControlButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
