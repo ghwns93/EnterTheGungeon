@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 9079041790749028453}
   - component: {fileID: 9079041790749028454}
   - component: {fileID: 9079041790749028455}
-  - component: {fileID: 9079041790749028448}
   - component: {fileID: 9079041790749028449}
+  - component: {fileID: 5970090554121019314}
   m_Layer: 0
   m_Name: BooklletsBlue
   m_TagString: Enemy
@@ -130,30 +130,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &9079041790749028448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9079041790749028450}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebe6be8deec493841a6d0dd5f5855827, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 3
-  speed: 1
-  roomNumber: 1
-  attackDistance: 5
-  idleAnime: booklletsBlueIdle
-  attackAnime: booklletsBlueAttack
-  attackingAnime: booklletsBlueAttacking
-  attackFinishAnime: booklletsBlueAttackFinish
-  deadAnime: booklletsBlueDeath
-  mjscAnime: booklletsBlueMjsc
-  bulletPrefab: {fileID: 1586123153232276774, guid: 165cd03a9e7a0c84bb3636d616242bae, type: 3}
-  shootSpeed: 5
 --- !u!61 &9079041790749028449
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -180,3 +156,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.40625, y: 0.4375}
   m_EdgeRadius: 0
+--- !u!114 &5970090554121019314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9079041790749028450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6be22fc416ec7442b7cbd0d8094a001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 3
+  speed: 1
+  roomNumber: 1
+  attackDistance: 10
+  idleAnime: booklletsBlueIdle
+  attackAnime: booklletsBlueAttack
+  attackingAnime: booklletsBlueAttacking
+  attackFinishAnime: booklletsBlueAttackFinish
+  deadAnime: booklletsBlueDeath
+  mjscAnime: booklletsBlueMjsc
+  bulletPrefab: {fileID: 1586123153232276774, guid: 165cd03a9e7a0c84bb3636d616242bae, type: 3}
+  shootSpeed: 5
