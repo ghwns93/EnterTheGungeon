@@ -41,20 +41,20 @@ public class PlayerController : MonoBehaviour
     // 애니메이터
     private Animator animator;
 
-    float axisH = 0.0f;                     // 가로 입력 (-1.0 ~ 1.0)
-    float axisV = 0.0f;                     // 세로 입력 (-1.0 ~ 1.0)
-    public float angleZ = -90.0f; // 회전
-    float angleDodge = -90.0f;  // 구르기
+    float axisH = 0.0f;             // 가로 입력 (-1.0 ~ 1.0)
+    float axisV = 0.0f;             // 세로 입력 (-1.0 ~ 1.0)
+    public float angleZ = -90.0f;   // 회전
+    float angleDodge = -90.0f;      // 구르기
 
     Rigidbody2D rbody;              // RigidBody 2D 컴포넌트
     bool isMoving = false;          // 이동 중
-    public bool isDodging = false;         // 회피 중
+    public bool isDodging = false;  // 회피 중
 
-    public bool inlobby = false;        //로비에 있는지
+    public bool inlobby = false;    // 로비에 있는지
 
-    public static int hp = 3;                   // 플레이어의 HP
-    public static string gameState;    // 게임 상태
-    bool inDamage = false;                   // 피격 상태
+    public static int hp = 3;       // 플레이어의 HP
+    public static string gameState; // 게임 상태
+    bool inDamage = false;          // 피격 상태
 
     Vector2 beforePos = new Vector2(0, 0);
 
@@ -91,9 +91,10 @@ public class PlayerController : MonoBehaviour
         if (isMoving == false)
         {
             axisH = Input.GetAxisRaw("Horizontal"); // 좌우
-            axisV = Input.GetAxisRaw("Vertical"); // 상하
+            axisV = Input.GetAxisRaw("Vertical");   // 상하
         }
 
+        // 마우스 위치 받아오기
         mousePosition = Input.mousePosition;
 
         // 마우스 위치를 월드 좌표로 변환
@@ -192,9 +193,7 @@ public class PlayerController : MonoBehaviour
             {
                 nowAnimation = stopDownAnime;
             }
-        }
-
-        
+        }              
 
         // 애니메이션 변경
         if (nowAnimation != oldAnimation)
@@ -308,7 +307,6 @@ public class PlayerController : MonoBehaviour
 
         // 이동 속도를 더하여 캐릭터를 움직여준다
         rbody.velocity = new Vector2(axisH, axisV) * speed;
-
         
     }
 
@@ -359,22 +357,7 @@ public class PlayerController : MonoBehaviour
 
         //// 축 방향에 관계없이 캐릭터가 움직이고 있을 경우 각도 변경
         //if (axisH != 0 || axisV != 0 )
-        //{
-        //    // p1과 p2의 차를 구하기 (원점을 0으로 하기 위해)
-        //    float dx = p2.x - p1.x;
-        //    float dy = p2.y - p1.y;
-
-        //    // 아크탄젠트 함수로 각도(라디안) 구하기
-        //    float rad = Mathf.Atan2(dy, dx);
-
-        //    // 라디안으로 변환
-        //    angle = rad * Mathf.Rad2Deg;
-        //}
-        //else
-        //{
-        //    // 캐릭터가 정지 중이면 각도 유지
-        //    angle = angleZ;
-        //}
+        
         return angle;
     }
 
