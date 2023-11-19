@@ -28,11 +28,9 @@ public class GunController : MonoBehaviour
 
     private bool canAttack = true;      //공격 딜레이 할때 사용
 
-    bool inAttack = false;  //공격 상태 판단
     GameObject gunObj;      //총
-    bool islefthand;        //왼손있는지
-    bool isrighthand;       //오른손있는지
-    bool iscalcul = false;  //update에서 계산한번
+    bool isLeftHand;        //왼손있는지
+    bool isRightHand;       //오른손있는지
 
     // Start is called before the first frame update
     void Start()
@@ -58,8 +56,6 @@ public class GunController : MonoBehaviour
     {
         // 깃허브에 에러난 상태에서 저장하셔서 다른사람들 빌드가 안됨
         // 수정하셔야 합니다.
-
-
 
         //// 애니메이션 변경
         //if (nowAnimation != oldAnimation)
@@ -105,7 +101,7 @@ public class GunController : MonoBehaviour
         Vector3 mousePosition = FindObjectOfType<PlayerController>().mousePosition; 
 
         // 총,손,총구 위치,회전
-        if (mousePosition .x> transform.position.x)
+        if (mousePosition .x> transform.position.x) // 마우스가 캐릭터 오른쪽에 있을때
         {
             gunObj.GetComponent<SpriteRenderer>().flipY = false;                                    //반전취소
             gunObj.transform.rotation = Quaternion.Euler(0, 0, plmv.angleZ-90);                     //마우스에 따라 총회전
@@ -115,21 +111,21 @@ public class GunController : MonoBehaviour
                 new Vector3(0.5f * Mathf.Cos(plmv.angleZ * Mathf.Deg2Rad), 0.5f * Mathf.Sin(plmv.angleZ * Mathf.Deg2Rad)+0.2f);//총구 위치
             if (plmv.angleZ < -45 && plmv.angleZ > -135)
                 gunGateObj.transform.position = gunObj.transform.position +
-                new Vector3(0.5f * Mathf.Cos(plmv.angleZ * Mathf.Deg2Rad) +0.15f, 0.5f * Mathf.Sin(plmv.angleZ * Mathf.Deg2Rad));//밑에 볼때 총구위치 조정
+                new Vector3(0.5f * Mathf.Cos(plmv.angleZ * Mathf.Deg2Rad) + 0.15f, 0.5f * Mathf.Sin(plmv.angleZ * Mathf.Deg2Rad));//밑에 볼때 총구위치 조정
 
             childTransform.position = transform.position + new Vector3(0.2f, -0.15f, 0);            //손위치
             childTransform.rotation = Quaternion.Euler(0, 0, 0);                                    //손회전 x                        
-            if(!islefthand)
+            if(!isLeftHand)
             {
                 LeftHandObj = Instantiate(OtherHandPrefab,
                     transform.position + new Vector3(-0.2f, -0.15f, 0), Quaternion.Euler(0, 0, 0)); //왼손 생성
-                islefthand = true;
+                isLeftHand = true;
             }
-            LeftHandObj.transform.position = transform.position + new Vector3(-0.2f, -0.15f, 0);    //손 캐릭터에 붙어다니게
+            LeftHandObj.transform.position = transform.position + new Vector3(-0.2f, -0.15f, 0);    //왼손 캐릭터에 붙어다니게
             Destroy(RightHandObj);                                                                  //오른손 삭제
-            isrighthand = false;
-        }      
-        else
+            isRightHand = false;
+        }
+        else // 마우스가 캐릭터 왼쪽에 있을때
         {
             gunObj.GetComponent<SpriteRenderer>().flipY = true;                                     //반전           
             gunObj.transform.rotation = Quaternion.Euler(0, 0, plmv.angleZ+90);                     //마우스에 따라 총회전
@@ -143,15 +139,15 @@ public class GunController : MonoBehaviour
 
             childTransform.position = transform.position + new Vector3(-0.2f, -0.15f, 0);           //손위치
             childTransform.rotation = Quaternion.Euler(0, 0, 0);                                    //손회전 x
-            if (!isrighthand)                                                               
+            if (!isRightHand)                                                               
             {
                 RightHandObj = Instantiate(OtherHandPrefab,
                     transform.position + new Vector3(0.2f, -0.15f, 0), Quaternion.Euler(0, 0, 0));  //오른손 생성
-                isrighthand = true;
+                isRightHand = true;
             }
-            RightHandObj.transform.position = transform.position + new Vector3(+0.2f, -0.15f, 0);   //손 캐릭터에 붙어다니게
+            RightHandObj.transform.position = transform.position + new Vector3(+0.2f, -0.15f, 0);   //오른손 캐릭터에 붙어다니게
             Destroy(LeftHandObj);                                                                   //왼손 삭제
-            islefthand = false;
+            isLeftHand = false;
         }        
     }
 
@@ -174,8 +170,7 @@ public class GunController : MonoBehaviour
 
     // 총알 발사
     public void Attack()
-    {
-        inAttack = true;            //공격 상태 변경                
+    {     
         PlayerController playerCnt = GetComponent<PlayerController>();
         // 회전에 사용할 각도
         float angleZ = playerCnt.angleZ;
@@ -196,7 +191,6 @@ public class GunController : MonoBehaviour
         // 지정한 각도와 방향으로 화살을 발사
         Rigidbody2D body = bulletObj.GetComponent<Rigidbody2D>();
         body.AddForce(v, ForceMode2D.Impulse);
-
     }
 
 }

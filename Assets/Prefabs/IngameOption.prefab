@@ -498,9 +498,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 4792363502667615709}
         m_TargetAssemblyTypeName: GameOptionManager, Assembly-CSharp
-        m_MethodName: IndexButtonClicked
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -956,8 +956,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameOptionManager, Assembly-CSharp
+      - m_Target: {fileID: 5336593052500452287}
+        m_TargetAssemblyTypeName: GOM, Assembly-CSharp
         m_MethodName: PlayingButtonClicked
         m_Mode: 1
         m_Arguments:
@@ -1090,8 +1090,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameOptionManager, Assembly-CSharp
+      - m_Target: {fileID: 5336593052500452287}
+        m_TargetAssemblyTypeName: GOM, Assembly-CSharp
         m_MethodName: OptionButtonClicked
         m_Mode: 1
         m_Arguments:
@@ -1275,6 +1275,7 @@ GameObject:
   - component: {fileID: 4792363502667615264}
   - component: {fileID: 4792363502667615267}
   - component: {fileID: 4792363502667615266}
+  - component: {fileID: 5336593052500452287}
   m_Layer: 5
   m_Name: IngameOption
   m_TagString: Untagged
@@ -1426,6 +1427,24 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5336593052500452287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4792363502667615709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 275e0784ad3747d4e99db012fb1edd8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OptionPrefab: {fileID: 851840797709776527, guid: 1218fcdc85d6af84680a0f8bf687cc4e, type: 3}
+  InoptionPrefab: {fileID: 4792363502667615709}
+  Playingbtn: {fileID: 4792363501818335174}
+  Optionbtn: {fileID: 4792363502115551709}
+  Indexbtn: {fileID: 4792363501194717405}
+  EXITbtn: {fileID: 4792363502727073610}
 --- !u!1 &4792363502674502796
 GameObject:
   m_ObjectHideFlags: 0
@@ -1712,9 +1731,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameOptionManager, Assembly-CSharp
-        m_MethodName: ExitButtonClicked
+      - m_Target: {fileID: 5336593052500452287}
+        m_TargetAssemblyTypeName: GOM, Assembly-CSharp
+        m_MethodName: QuitButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

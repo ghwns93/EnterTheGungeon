@@ -43,13 +43,12 @@ public class PlayerController : MonoBehaviour
 
     float axisH = 0.0f;             // 가로 입력 (-1.0 ~ 1.0)
     float axisV = 0.0f;             // 세로 입력 (-1.0 ~ 1.0)
-    public float angleZ = -90.0f;   // 회전
+    public float angleZ = -90.0f;   // 회전 각도
     float angleDodge = -90.0f;      // 구르기
 
     Rigidbody2D rbody;              // RigidBody 2D 컴포넌트
     bool isMoving = false;          // 이동 중
     public bool isDodging = false;  // 회피 중
-
     public bool inlobby = false;    // 로비에 있는지
 
     public static int hp = 3;       // 플레이어의 HP
@@ -101,8 +100,8 @@ public class PlayerController : MonoBehaviour
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
         // 마우스 입력을 통하여 이동 각도 구하기
-        Vector2 characterPt = transform.position;
-        Vector2 mousePt = new Vector2(characterPt.x + mousePosition.x, characterPt.y + mousePosition.y);                      
+        Vector2 characterPt = transform.position;         
+        
         // 키 입력을 통하여 이동 각도 구하기
         Vector2 fromPt = transform.position;
         Vector2 toPt = new Vector2(fromPt.x + axisH, fromPt.y + axisV);
@@ -124,7 +123,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            angleZ = GetAngle(characterPt, mousePt);
+            angleZ = GetAngle(characterPt, mousePosition);
 
             // 왼쪽으로 이동할 때 X축 플립
             if (mousePosition.x < 0)
