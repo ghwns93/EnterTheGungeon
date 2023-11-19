@@ -464,7 +464,7 @@ public class BooklletsBlueScript : MonoBehaviour
             bolletShape = UnityEngine.Random.Range(0, 3);
             //bolletShape = -1;
 
-            isPulseOn = true;
+            if(UnityEngine.Random.Range(0, 3) == 0) isPulseOn = true;
 
             isAct = false;
         }
