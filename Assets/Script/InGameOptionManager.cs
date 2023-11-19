@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameOptionManager : MonoBehaviour
+public class InGameOptionManager : MonoBehaviour
 {
-
-
-
     // 옵션을 할당
     public GameObject OptionPrefab;
     public GameObject InoptionPrefab;
+
 
     // Option Prefab의 인스턴스를 저장할 변수
     private GameObject OptionInstance;
@@ -39,17 +37,15 @@ public class GameOptionManager : MonoBehaviour
         }
     }
 
-    public void OpenInOption() 
+    public void OpenInOption()
     {
 
-        InoptionPrefab.SetActive(true);
 
         // Option Prefab을 호출
         OptionInstance = Instantiate(InoptionPrefab);
 
         // Option Prefab에서 Canvas 컴포넌트 가져오기
         Canvas canvas = OptionInstance.GetComponent<Canvas>();
-
 
         if (canvas != null)
         {
@@ -75,6 +71,7 @@ public class GameOptionManager : MonoBehaviour
 
     }
 
+
     void HideOptionCanvas()
     {
         // 옵션 Prefab을 제거합니다.
@@ -82,3 +79,4 @@ public class GameOptionManager : MonoBehaviour
         OptionInstance = null;
     }
 }
+
