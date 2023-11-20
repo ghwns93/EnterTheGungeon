@@ -292,14 +292,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc13b19153221741a798a989c225f72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PilotGun: {fileID: 21300000, guid: 8df7dc253c6580544a929a56b36f9a21, type: 3}
-  PilotGunReady: {fileID: 21300000, guid: 4d424ec03ebf1b348975dc5d053f71dd, type: 3}
-  PilotGunFire: {fileID: 21300000, guid: db6627cac9a63014fa5aaa0b8f5c340c, type: 3}
-  PilotGunReload: {fileID: 21300000, guid: ea29953f7f3bded4caa3a88bd9163ca6, type: 3}
-  PilotGunReturn1: {fileID: 21300000, guid: fbf2472043ee7154f98dff4eec168ec8, type: 3}
-  PilotGunReturn2: {fileID: 21300000, guid: 7962c23a1b5d03c479c84ac680b0a2fc, type: 3}
+  pilotGunHold: PilotGunHold
+  pilotGunReady: PilotGunReady
+  pilotGunFire: PilotGunFire
+  pilotGunReturn: PilotGunReturn
+  pilotGunReload: PilotGunReload
   shootSpeed: 12
-  shootDelay: 0.25
+  shootDelay: 0.5
   gunPrefab: {fileID: 1706475630286016771, guid: 20b4c141b2471a9419a4da7bc1e87bf1, type: 3}
   bulletPrefab: {fileID: 4566102399501587369, guid: f09a92aeb3632d4488362d1fd4f99482, type: 3}
   OtherHandPrefab: {fileID: 1776603167825510655, guid: 45bc4e061324bee44a2b6f1acd8e9135, type: 3}
