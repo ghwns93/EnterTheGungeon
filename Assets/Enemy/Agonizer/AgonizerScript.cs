@@ -230,25 +230,38 @@ public class AgonizerScript : MonoBehaviour
 
         float rad = 0.0f;
         float halfCount = MaxBullet / 2;
+        float limit = 0.0f;
 
         if (bulletTwoWay)
         {
             if (halfCount < count)
             {
-                rad = (float)((maxAngle - (((maxAngle - minAngle) / halfCount) * ((count - halfCount) - 0.5f))) * Mathf.Deg2Rad);
+                limit = (float)(maxAngle - (((maxAngle - minAngle) / halfCount) * ((count - halfCount) - 0.5f)));
+
+                limit = limit <= minAngle ? minAngle : limit;
+
+                rad = limit * Mathf.Deg2Rad;
                 objX = transform.position.x + ((float)Math.Cos(rad));
                 objY = transform.position.y - ((float)Math.Sin(rad));
             }
             else
             {
-                rad = (float)((minAngle + (((maxAngle - minAngle) / halfCount) * count)) * Mathf.Deg2Rad);
+                limit = (float)(minAngle + (((maxAngle - minAngle) / halfCount) * count));
+
+                limit = limit >= maxAngle ? maxAngle : limit;
+
+                rad =  limit * Mathf.Deg2Rad;
                 objX = transform.position.x + ((float)Math.Cos(rad));
                 objY = transform.position.y - ((float)Math.Sin(rad));
             }
         }
         else
         {
-            rad = (float)((minAngle + (((maxAngle - minAngle) / MaxBullet) * count)) * Mathf.Deg2Rad);
+            limit = (float)(minAngle + (((maxAngle - minAngle) / MaxBullet) * count));
+
+            limit = limit >= maxAngle ? maxAngle : limit;
+
+            rad =  limit * Mathf.Deg2Rad;
             objX = transform.position.x + ((float)Math.Cos(rad));
             objY = transform.position.y - ((float)Math.Sin(rad));
         }
