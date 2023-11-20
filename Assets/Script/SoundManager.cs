@@ -10,9 +10,8 @@ public class SoundManager : MonoBehaviour
     public AudioClip bgmInTitle;         // BGM(타이틀)   
     public AudioClip bgmInGame;      // BGM(게임 중)
     public AudioClip bgmInBoss;        // BGM(보스전)
-    public AudioClip meGameClear;  // SE(게임 클리어)
-    public AudioClip meGameOver;   // SE(게임 오버)
-    public AudioClip setShoot;             // SE(총쏘기)
+    public AudioClip seShoot;             // SE(총쏘기)
+    public AudioClip seUI;             // SE(총쏘기)
 
     // 첫 SoundManager를 저장할 Static 변수
     public static SoundManager soundManager;
@@ -77,12 +76,14 @@ public class SoundManager : MonoBehaviour
 
     public void SEPlay(SEType type)
     {
+        /*
         if (type == SEType.GameClear)
             GetComponent<AudioSource>().PlayOneShot(meGameClear);
         else if (type == SEType.GameOver)
             GetComponent<AudioSource>().PlayOneShot(meGameOver);
-        else if (type == SEType.Shoot)
-            GetComponent<AudioSource>().PlayOneShot(setShoot);
+         */
+        if (type == SEType.Shoot)
+            GetComponent<AudioSource>().PlayOneShot(seShoot);
     }
 
 }
