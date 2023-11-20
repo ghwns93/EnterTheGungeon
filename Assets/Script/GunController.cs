@@ -24,10 +24,10 @@ public class GunController : MonoBehaviour
     public string pilotGunReady = "PilotGunReady";
     public string pilotGunFire = "PilotGunFire";
     public string pilotGunReturn = "PilotGunReturn";
-    public string PilotGunReload = "PilotGunReload";
+    public string pilotGunReload = "PilotGunReload";
 
     public float shootSpeed = 12.0f;    //화살 속도
-    public float shootDelay = 0.25f;    //발사 간격
+    public float shootDelay = 1.0f;    //발사 간격
 
     public GameObject gunPrefab;        //총
     public GameObject bulletPrefab;     //총알
@@ -55,11 +55,12 @@ public class GunController : MonoBehaviour
         Transform tr = gunObj.transform.Find("GunGate");
         gunGateObj = tr.gameObject;
 
-        // (기본) 애니메이션 설정
-        oldGunAnimation = pilotGunHold;
-
         // 애니메이터 가져오기
-        gunAnimator = GetComponent<Animator>();
+        gunAnimator = gunObj.GetComponent<Animator>();
+
+        // (기본) 애니메이션 설정
+        gunAnimator.Play(pilotGunHold);
+
     }
 
     // Update is called once per frame
@@ -135,8 +136,6 @@ public class GunController : MonoBehaviour
             Destroy(LeftHandObj);                                                                   //왼손 삭제
             isLeftHand = false;
 
-
-            gunObj.GetComponent<Animator>().Play("pilotGunReload");
         }
 
         //if(isDodging)// 마우스 오른쪽 입력시 총안보이게
@@ -146,15 +145,8 @@ public class GunController : MonoBehaviour
 
         if (Input.GetButton("Fire1") && canAttack)
         {
-            //gunSpr.sprite = PilotGunReady;
-            //nowGunAnimation = pilotGunReady;
+            
 
-            //// 애니메이션 변경
-            //if (nowGunAnimation != oldGunAnimation)
-            //{
-            //    oldGunAnimation = nowGunAnimation;
-            //    gunAnimator.Play(nowGunAnimation);
-            //}
             gunAnimator.Play(pilotGunReady);
 
             // 공격 키 입력 및 딜레이 시작
@@ -171,7 +163,6 @@ public class GunController : MonoBehaviour
     {
         // 공격 수행
         Attack();
-        //gunObj.GetComponent<SpriteRenderer>().sprite = PilotGunReady;
 
         // 딜레이 설정 
         canAttack = false;
@@ -183,7 +174,11 @@ public class GunController : MonoBehaviour
 
     // 총알 발사
     public void Attack()
-    {     
+    {
+        gunAnimator.StopPlayback();             // 지금애니메이션 즉시중지
+        gunAnimator.Play(pilotGunFire, -1, 0f); // 애니메이션 키포인트 처음으로 이동
+        gunAnimator.Play(pilotGunFire);         // 애니메이션 실행
+
         PlayerController playerCnt = GetComponent<PlayerController>();
         // 회전에 사용할 각도
         float angleZ = playerCnt.angleZ;
@@ -205,8 +200,6 @@ public class GunController : MonoBehaviour
         Rigidbody2D body = bulletObj.GetComponent<Rigidbody2D>();
         body.AddForce(v, ForceMode2D.Impulse);
 
-        //gunObj.GetComponent<SpriteRenderer>().sprite = PilotGunFire;        
-        
     }
 
 }
@@ -217,7 +210,7 @@ public class GunController : MonoBehaviour
 총쏘기- 딜레이에 총쏘는 애니메이션
 
 총 꾹누르는 경우
-총 단발쏠때
+총 단발쏠때 
 
-마우스 손때면 돌아가는 애니메이션
+마우스 손때면 hold 애니메이션
  */
