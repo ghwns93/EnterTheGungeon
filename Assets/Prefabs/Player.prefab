@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4580156496748346251}
   - component: {fileID: 4580156496748346250}
   - component: {fileID: 4580156496748346249}
+  - component: {fileID: -1580582772358180264}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -194,3 +195,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.22479248, y: 0.13455296}
   m_EdgeRadius: 0
+--- !u!114 &-1580582772358180264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4580156496748346248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edc13b19153221741a798a989c225f72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunHoldAnime: PilotGunHold
+  shootSpeed: 12
+  shootDelay: 0.25
+  gunPrefab: {fileID: 1706475630286016771, guid: 58ae56ff7e33a4046bcbfc9aff366cea, type: 3}
+  bulletPrefab: {fileID: 4566102399501587369, guid: f09a92aeb3632d4488362d1fd4f99482, type: 3}
+  OtherHandPrefab: {fileID: 1776603167825510655, guid: 45bc4e061324bee44a2b6f1acd8e9135, type: 3}
