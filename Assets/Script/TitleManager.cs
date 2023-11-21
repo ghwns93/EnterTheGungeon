@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class TitleManager : MonoBehaviour
 {
-    // 인스펙터에서 버튼들을 할당합니다.
+        // 인스펙터에서 버튼들을 할당합니다.
     public GameObject PlayBtn;  // 게임시작
     public GameObject OptionBtn;  // 옵션버튼
     public GameObject QuitBtn;  // 게임종료 버튼
@@ -20,18 +20,13 @@ public class TitleManager : MonoBehaviour
     // Option Prefab의 인스턴스를 저장할 변수
     private GameObject OptionInstance;
 
-
     // 게임 시작 첫 화면 이름을 인스펙터에서 할당합니다.
     public string firstSceneName;
 
     // Start is called before the first frame update
     void Start()
     {
-        // 초기 상태 설정
-        btnCanvas.SetActive(true);
-        OptionPrefab.SetActive(true);
-        // 타이틀 BGM 재생
-        // SoundManager.soundManager.PlayBGM(BGMType.Title);
+     
     }
 
     // Update is called once per frame

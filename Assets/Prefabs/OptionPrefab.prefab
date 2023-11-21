@@ -743,14 +743,13 @@ GameObject:
   - component: {fileID: 851840797709776524}
   - component: {fileID: 851840797709776525}
   - component: {fileID: 851840797709776526}
-  - component: {fileID: 6120464248103545462}
   m_Layer: 5
   m_Name: OptionPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &851840797709776514
 RectTransform:
   m_ObjectHideFlags: 0
@@ -789,7 +788,7 @@ Canvas:
   m_GameObject: {fileID: 851840797709776527}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 2
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -823,7 +822,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &851840797709776525
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -893,26 +892,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6120464248103545462
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 851840797709776527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d15d87be477d82b45aa69fe6f2d8da39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gamePlayBtn: {fileID: 851840797259454417}
-  controlBtn: {fileID: 851840798679825226}
-  videoBtn: {fileID: 851840797611673810}
-  audioBtn: {fileID: 851840797288079477}
-  gamePlayPrefab: {fileID: 0}
-  controlPrefab: {fileID: 0}
-  videoPrefab: {fileID: 0}
-  audioPrefab: {fileID: 0}
 --- !u!1 &851840797867179479
 GameObject:
   m_ObjectHideFlags: 0

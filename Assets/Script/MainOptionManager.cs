@@ -18,7 +18,6 @@ public class MainOptionManager : MonoBehaviour
 
     // Option Prefab의 인스턴스를 저장할 변수
     private GameObject OptionInstance;
-    private GameObject oldCanvas;
 
     // Start is called before the first frame update
     void Start()
@@ -41,28 +40,24 @@ public class MainOptionManager : MonoBehaviour
     public void GamePlayButtonClick()
     {
         OptionInstance = Instantiate(gamePlayPrefab);
-        oldCanvas = OptionInstance;
         CanvasOpen();
     }
 
     public void ControlButtonClick()
     {
         OptionInstance = Instantiate(controlPrefab);
-        oldCanvas = OptionInstance;
         CanvasOpen();
     }
 
     public void VideoButtonClick()
     {
         OptionInstance= Instantiate(videoPrefab);
-        oldCanvas = OptionInstance;
         CanvasOpen();
     }
 
     public void AudioButtonClick()
     {
         OptionInstance= Instantiate(audioPrefab);
-        oldCanvas = OptionInstance;
         CanvasOpen();
     }
 
