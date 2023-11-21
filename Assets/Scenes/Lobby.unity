@@ -1980,6 +1980,7 @@ GameObject:
   - component: {fileID: 1025484313}
   - component: {fileID: 1025484312}
   - component: {fileID: 1025484311}
+  - component: {fileID: 1025484314}
   m_Layer: 0
   m_Name: DungeonEnter
   m_TagString: Untagged
@@ -2070,6 +2071,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!61 &1025484314
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1025484310}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.31754947, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.53125, y: 2.25}
+    newSize: {x: 1.53125, y: 2.25}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.89615107, y: 2.25}
+  m_EdgeRadius: 0
 --- !u!1 &1040973418
 GameObject:
   m_ObjectHideFlags: 0
@@ -3590,6 +3617,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2690403611829605194, guid: fac1b2573137d324b960d66cc9bc1c8a, type: 3}
+      propertyPath: inlobby
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4799994007946725763, guid: fac1b2573137d324b960d66cc9bc1c8a, type: 3}
       propertyPath: m_RootOrder
       value: 12
