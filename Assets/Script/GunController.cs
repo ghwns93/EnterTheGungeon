@@ -178,6 +178,10 @@ public class GunController : MonoBehaviour
             StartCoroutine(AttackWithDelay());
         }
 
+        if( Input.GetButtonUp("Fire1") && !GetComponent<PlayerController>().inlobby)
+        {
+            gunAnimator.Play(pilotGunReturn);
+        }
     }
 
     void FixedUpdate()
@@ -231,6 +235,15 @@ public class GunController : MonoBehaviour
 
 
 /*
+멀리가면 총알 없애기
 
-마우스 손때면 hold 애니메이션
+총알 개수 다쓰면 재장전 머리위에 뜨고 총알발사 못하게
+장전하면 바생기고 바 애니메이션,총 애니메이션
+
+총쏠때 이펙트
+총알 부딛히면 없애고 이펙트
+마우스 크로스헤어
+
+총쏘면 화면 흔들리기
+아이템 키퍼
  */

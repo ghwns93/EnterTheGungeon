@@ -106,20 +106,17 @@ public class PlayerController : MonoBehaviour
         Vector2 fromPt = transform.position;
         Vector2 toPt = new Vector2(fromPt.x + axisH, fromPt.y + axisV);
 
-
-        //GameObject gunObj = GameObject.Find("PilotGun");                 //자식에 접근하기위해
-        //SpriteRenderer gunSpr = gunTransform.GetComponent<SpriteRenderer>(); //총의 SpriteRenderer
         // 로비에 있을때
         if (inlobby)
         {
-            angleZ = GetAngle(fromPt, toPt);
+            angleZ = GetAngleInLobby(characterPt, toPt);
             // 왼쪽으로 이동할 때 X축 플립
             if (axisH < 0)
             {
                 // SpriteRenderer의 flipX를 사용하는 경우
                 GetComponent<SpriteRenderer>().flipX = true;
             }
-            else if (axisH >= 0) // 오른쪽으로 이동할 때 X축 플립 해제
+            else if (axisH > 0) // 오른쪽으로 이동할 때 X축 플립 해제
             {
                 // SpriteRenderer의 flipX를 사용하는 경우
                 GetComponent<SpriteRenderer>().flipX = false;
@@ -184,7 +181,7 @@ public class PlayerController : MonoBehaviour
             {
                 nowAnimation = stopRightDownAnime;
             }
-            else if (angleZ > 0 && angleZ < 90)         // 오른위
+            else if (angleZ > 30 && angleZ < 90)         // 오른위
             {
                 nowAnimation = stopRightUpAnime;
             }
@@ -366,9 +363,31 @@ public class PlayerController : MonoBehaviour
         // 라디안으로 변환
         angle = rad * Mathf.Rad2Deg;
 
-        //// 축 방향에 관계없이 캐릭터가 움직이고 있을 경우 각도 변경
-        //if (axisH != 0 || axisV != 0 )
-        
+        return angle;
+    }
+
+    float GetAngleInLobby(Vector2 p1, Vector2 p2)
+    {
+        float angle;
+
+        // 축 방향에 관계없이 캐릭터가 움직이고 있을 경우 각도 변경
+        if (axisH != 0 || axisV != 0)
+        {
+            // p1과 p2의 차를 구하기 (원점을 0으로 하기 위해)
+            float dx = p2.x - p1.x;
+            float dy = p2.y - p1.y;
+
+            // 아크탄젠트 함수로 각도(라디안) 구하기
+            float rad = Mathf.Atan2(dy, dx);
+
+            // 라디안으로 변환
+            angle = rad * Mathf.Rad2Deg;
+        }
+        else
+        {
+            // 캐릭터가 정지 중이면 각도 유지
+            angle = angleZ;
+        }
         return angle;
     }
 
