@@ -30,6 +30,10 @@ public class GunController : MonoBehaviour
     bool isLeftHand;        //왼손있는지
     bool isRightHand;       //오른손있는지
 
+    PlayerController playerController;  //PlayerController의 함수,변수 사용하기위해 선언해둠
+
+    Vector3 mousePosition;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,7 +63,7 @@ public class GunController : MonoBehaviour
         PlayerController plmv = GetComponent<PlayerController>();               //player의 SpriteRenderer
         
         // playerController의 마우스 포지션 변수 가져오기
-        Vector3 mousePosition = FindObjectOfType<PlayerController>().mousePosition; 
+        mousePosition = FindObjectOfType<PlayerController>().mousePosition; 
 
         // 총,손,총구 위치,회전
         if (mousePosition .x> transform.position.x) // 마우스가 캐릭터 오른쪽에 있을때
@@ -69,7 +73,7 @@ public class GunController : MonoBehaviour
             gunObj.transform.position = transform.position + new Vector3(0.2f, -0.15f, 0);          //총위치 캐릭터 오른쪽으로
 
             gunGateObj.transform.position = gunObj.transform.position +
-                new Vector3(0.5f * Mathf.Cos(plmv.angleZ * Mathf.Deg2Rad), 0.5f * Mathf.Sin(plmv.angleZ * Mathf.Deg2Rad)+0.2f);//총구 위치
+                new Vector3(0.5f * Mathf.Cos(plmv.angleZ * Mathf.Deg2Rad), 0.5f * Mathf.Sin(plmv.angleZ * Mathf.Deg2Rad)+0.1f);//총구 위치
             if (plmv.angleZ < -45 && plmv.angleZ > -135)
                 gunGateObj.transform.position = gunObj.transform.position +
                 new Vector3(0.5f * Mathf.Cos(plmv.angleZ * Mathf.Deg2Rad) + 0.15f, 0.5f * Mathf.Sin(plmv.angleZ * Mathf.Deg2Rad));//밑에 볼때 총구위치 조정
@@ -103,7 +107,7 @@ public class GunController : MonoBehaviour
             gunObj.transform.position = transform.position + new Vector3(-0.2f, -0.15f, 0);         //총위치 캐릭터 왼쪽으로
 
             gunGateObj.transform.position = gunObj.transform.position + 
-                new Vector3(0.5f * Mathf.Cos(plmv.angleZ * Mathf.Deg2Rad), 0.5f * Mathf.Sin(plmv.angleZ * Mathf.Deg2Rad)+0.2f);//총구 위치
+                new Vector3(0.5f * Mathf.Cos(plmv.angleZ * Mathf.Deg2Rad), 0.5f * Mathf.Sin(plmv.angleZ * Mathf.Deg2Rad)+0.1f);//총구 위치
             if(plmv.angleZ<-45 && plmv.angleZ>-135)
                 gunGateObj.transform.position = gunObj.transform.position +
                 new Vector3(0.5f * Mathf.Cos(plmv.angleZ * Mathf.Deg2Rad) -0.15f, 0.5f * Mathf.Sin(plmv.angleZ * Mathf.Deg2Rad) );//밑에 볼때 총구위치 조정
@@ -211,6 +215,9 @@ public class GunController : MonoBehaviour
         PlayerController playerCnt = GetComponent<PlayerController>();
         // 회전에 사용할 각도
         float angleZ = playerCnt.angleZ;
+
+        
+
         // 총알 생성 위치
         Vector3 pos = new Vector3(gunGateObj.transform.position.x,
                                           gunGateObj.transform.position.y,
@@ -235,7 +242,10 @@ public class GunController : MonoBehaviour
 
 
 /*
-멀리가면 총알 없애기
+
+총 발사하면 순서대로 10도정도씩? 각도 변경 약간밑으로 해야될듯?
+
+어느정도 거리이동하면면 총알 없애기
 
 총알 개수 다쓰면 재장전 머리위에 뜨고 총알발사 못하게
 장전하면 바생기고 바 애니메이션,총 애니메이션
@@ -245,5 +255,22 @@ public class GunController : MonoBehaviour
 마우스 크로스헤어
 
 총쏘면 화면 흔들리기
+(흔들림 수준 설정 옵션)
+
 아이템 키퍼
+
+//// 총구 위치
+        //Vector2 fromPos = new Vector2(gunGateObj.transform.position.x, gunGateObj.transform.position.y);
+        //// 마우스 위치
+        //Vector2 toPos = new Vector2(mousePosition.x, mousePosition.y);
+        //// 화살발사 각도
+        //float angleCharacterwithMouse;
+        //float dx = toPos.x - fromPos.x;
+        //float dy = toPos.y - fromPos.y;
+
+        //// 아크탄젠트 함수로 각도(라디안) 구하기
+        //float rad = Mathf.Atan2(dy, dx);
+
+        //// 라디안으로 변환
+        //angleCharacterwithMouse = rad * Mathf.Rad2Deg;
  */
