@@ -4,22 +4,10 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
-    // 변경할 스프라이트를 Inspector에서 설정
-    //public Sprite PilotGun; 
-    //public Sprite PilotGunReady;
-    //public Sprite PilotGunFire;
-    //public Sprite PilotGunReload;
-    //public Sprite PilotGunReturn1;
-    //public Sprite PilotGunReturn2;
-
-    // 현재 애니메이션
-    string nowGunAnimation = "";
-    // 이전 애니메이션
-    string oldGunAnimation = "";
-
-    // 애니메이터
+    // 총 애니메이터
     private Animator gunAnimator;
 
+    // 애니메이션
     public string pilotGunHold = "PilotGunHold";
     public string pilotGunReady = "PilotGunReady";
     public string pilotGunFire = "PilotGunFire";
@@ -29,19 +17,18 @@ public class GunController : MonoBehaviour
     public float shootSpeed = 12.0f;    //화살 속도
     public float shootDelay = 1.0f;    //발사 간격
 
-    public GameObject gunPrefab;        //총
-    public GameObject bulletPrefab;     //총알
-    public GameObject OtherHandPrefab;  //총든손 반대편 손
+    public GameObject gunPrefab;        //총 프리팹
+    public GameObject bulletPrefab;     //총알 프리팹
+    public GameObject OtherHandPrefab;  //총든손 반대편 손 프리팹
     GameObject gunGateObj;              //포구
     GameObject LeftHandObj;             //왼손
     GameObject RightHandObj;            //오른손
 
     private bool canAttack = true;      //공격 딜레이 할때 사용
 
-    GameObject gunObj;      //총
+    GameObject gunObj;      //총오브젝트
     bool isLeftHand;        //왼손있는지
     bool isRightHand;       //오른손있는지
-
 
     // Start is called before the first frame update
     void Start()
@@ -65,26 +52,13 @@ public class GunController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        // 총 회전과 우선순위 판정
+    {        
         SpriteRenderer gunSpr = gunObj.GetComponent<SpriteRenderer>();          //총의 SpriteRenderer
         Transform childTransform = gunObj.transform.Find("PilotHand");          //자식에 접근하기위해
         SpriteRenderer handSpr = childTransform.GetComponent<SpriteRenderer>(); //손의 SpriteRenderer
         PlayerController plmv = GetComponent<PlayerController>();               //player의 SpriteRenderer
-
-        if (plmv.angleZ > 30 && plmv.angleZ < 150)  // 윗방향
-        {
-            // 총,활 우선순위
-            gunSpr.sortingOrder = 0;
-            handSpr.sortingOrder = 0;
-        }
-        else 
-        {
-            gunSpr.sortingOrder = 5;    //캐릭터 OrderInLayer == 4
-            handSpr.sortingOrder = 6;   //손이 총보다위            
-        }
-
-        // playerController 변수 가져오기
+        
+        // playerController의 마우스 포지션 변수 가져오기
         Vector3 mousePosition = FindObjectOfType<PlayerController>().mousePosition; 
 
         // 총,손,총구 위치,회전
@@ -104,13 +78,23 @@ public class GunController : MonoBehaviour
             childTransform.rotation = Quaternion.Euler(0, 0, 0);                                    //손회전 x                        
             if(!isLeftHand)
             {
-                LeftHandObj = Instantiate(OtherHandPrefab,
-                    transform.position + new Vector3(-0.2f, -0.15f, 0), Quaternion.Euler(0, 0, 0)); //왼손 생성
                 isLeftHand = true;
+                LeftHandObj = Instantiate(OtherHandPrefab,
+                    transform.position + new Vector3(-0.2f, -0.15f, 0), Quaternion.Euler(0, 0, 0)); //왼손 생성                
             }
             LeftHandObj.transform.position = transform.position + new Vector3(-0.2f, -0.15f, 0);    //왼손 캐릭터에 붙어다니게
-            Destroy(RightHandObj);                                                                  //오른손 삭제
+            Destroy(RightHandObj);  //총에 손이 있어서 원래 있던 손 삭제
             isRightHand = false;
+            if (GetComponent<PlayerController>().inlobby)   //로비에서 손2개
+            {
+                if (!isRightHand)
+                {
+                    isRightHand = true;
+                    RightHandObj = Instantiate(OtherHandPrefab,
+                        transform.position + new Vector3(0.2f, -0.15f, 0), Quaternion.Euler(0, 0, 0));  //오른손 생성
+                }
+                RightHandObj.transform.position = transform.position + new Vector3(+0.2f, -0.15f, 0);   //오른손 캐릭터에 붙어다니게
+            }
         }
         else // 마우스가 캐릭터 왼쪽에 있을때
         {
@@ -133,20 +117,61 @@ public class GunController : MonoBehaviour
                 isRightHand = true;
             }
             RightHandObj.transform.position = transform.position + new Vector3(+0.2f, -0.15f, 0);   //오른손 캐릭터에 붙어다니게
-            Destroy(LeftHandObj);                                                                   //왼손 삭제
+            Destroy(LeftHandObj);   //총에 손이 있어서 원래 있던 손 삭제
             isLeftHand = false;
 
+            if (GetComponent<PlayerController>().inlobby)   //로비에서 손2개 생성
+            {
+                if (!isLeftHand)
+                {
+                    LeftHandObj = Instantiate(OtherHandPrefab,
+                        transform.position + new Vector3(-0.2f, -0.15f, 0), Quaternion.Euler(0, 0, 0)); //왼손 생성
+                    isLeftHand = true;
+                }
+                LeftHandObj.transform.position = transform.position + new Vector3(-0.2f, -0.15f, 0);    //왼손 캐릭터에 붙어다니게
+            }                                                
         }
 
-        //if(isDodging)// 마우스 오른쪽 입력시 총안보이게
-        //{
+        // 우선순위 판정
+        if (plmv.angleZ > 30 && plmv.angleZ < 150)  // 윗방향
+        {
+            // 총,활 우선순위
+            gunSpr.sortingOrder = 1;
+            handSpr.sortingOrder = 1;
+            if(RightHandObj)
+                RightHandObj.GetComponent<SpriteRenderer>().sortingOrder = 1;
+            if (LeftHandObj)
+                LeftHandObj.GetComponent<SpriteRenderer>().sortingOrder = 1;
+        }
+        else
+        {
+            gunSpr.sortingOrder = 5;    //캐릭터 OrderInLayer == 4
+            handSpr.sortingOrder = 6;   //손이 총보다위
+            if (RightHandObj)
+                RightHandObj.GetComponent<SpriteRenderer>().sortingOrder = 6;
+            if (LeftHandObj)
+                LeftHandObj.GetComponent<SpriteRenderer>().sortingOrder = 6;
+        }
+        if (GetComponent<PlayerController>().gameState == "falling")    //떨어지고 있을때
+        {
+            Destroy(RightHandObj);                                                                  //오른손 삭제
+            isRightHand = false;
+            Destroy(LeftHandObj);                                                                   //왼손 삭제
+            isLeftHand = false;
+        }
+                
+        if (GetComponent<PlayerController>().isDodging)// 마우스 오른쪽 입력시 총안보이게
+        {
+            Destroy(RightHandObj);                                                                  //오른손 삭제
+            isRightHand = false;
+            Destroy(LeftHandObj);                                                                   //왼손 삭제
+            isLeftHand = false;
+        }
+                    
 
-        //}
-
-        if (Input.GetButton("Fire1") && canAttack)
+        if (Input.GetButton("Fire1") && canAttack&&!GetComponent<PlayerController>().inlobby)
         {
             
-
             gunAnimator.Play(pilotGunReady);
 
             // 공격 키 입력 및 딜레이 시작
@@ -206,11 +231,6 @@ public class GunController : MonoBehaviour
 
 
 /*
-클릭시 총색바뀌고-누르면 색 바뀌게하고
-총쏘기- 딜레이에 총쏘는 애니메이션
-
-총 꾹누르는 경우
-총 단발쏠때 
 
 마우스 손때면 hold 애니메이션
  */

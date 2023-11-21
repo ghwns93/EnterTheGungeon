@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
     public bool inlobby = false;    // 로비에 있는지
 
     public static int hp = 3;       // 플레이어의 HP
-    public static string gameState; // 게임 상태
+    public string gameState; // 게임 상태
     bool inDamage = false;          // 피격 상태
 
     Vector2 beforePos = new Vector2(0, 0);
@@ -105,8 +105,12 @@ public class PlayerController : MonoBehaviour
         // 키 입력을 통하여 이동 각도 구하기
         Vector2 fromPt = transform.position;
         Vector2 toPt = new Vector2(fromPt.x + axisH, fromPt.y + axisV);
-        
-        if(inlobby)
+
+
+        //GameObject gunObj = GameObject.Find("PilotGun");                 //자식에 접근하기위해
+        //SpriteRenderer gunSpr = gunTransform.GetComponent<SpriteRenderer>(); //총의 SpriteRenderer
+        // 로비에 있을때
+        if (inlobby)
         {
             angleZ = GetAngle(fromPt, toPt);
             // 왼쪽으로 이동할 때 X축 플립
@@ -119,6 +123,10 @@ public class PlayerController : MonoBehaviour
             {
                 // SpriteRenderer의 flipX를 사용하는 경우
                 GetComponent<SpriteRenderer>().flipX = false;
+            }
+            foreach (Transform child in transform)
+            {
+                child.gameObject.SetActive(false);
             }
         }
         else
@@ -135,6 +143,10 @@ public class PlayerController : MonoBehaviour
             {
                 // SpriteRenderer의 flipX를 사용하는 경우
                 GetComponent<SpriteRenderer>().flipX = false;
+            }
+            foreach (Transform child in transform)
+            {
+                child.gameObject.SetActive(true);
             }
         }
 
@@ -486,6 +498,7 @@ public class PlayerController : MonoBehaviour
         Destroy(gameObject, 1.0f);
 
     }
+
 }
 
 // 키 입력 관련 함수 목록
