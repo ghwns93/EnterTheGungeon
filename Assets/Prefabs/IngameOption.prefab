@@ -1275,7 +1275,6 @@ GameObject:
   - component: {fileID: 4792363502667615264}
   - component: {fileID: 4792363502667615267}
   - component: {fileID: 4792363502667615266}
-  - component: {fileID: -7587370068562298412}
   m_Layer: 5
   m_Name: IngameOption
   m_TagString: Untagged
@@ -1357,7 +1356,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &4792363502667615267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1427,22 +1426,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-7587370068562298412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4792363502667615709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fc7a9b2a9e86444c8f6e8580a9578e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  InGameOption: {fileID: 4792363502667615709}
-  optionCanvas: {fileID: 851840797709776527, guid: 1218fcdc85d6af84680a0f8bf687cc4e, type: 3}
-  soundOptionCanvas: {fileID: 8902108517391969010, guid: c543416d5031f2945bdf8d1476393fad, type: 3}
-  indexCanvasPrefab: {fileID: 0}
 --- !u!1 &4792363502674502796
 GameObject:
   m_ObjectHideFlags: 0
