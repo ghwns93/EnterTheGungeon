@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Net;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class AGrid : MonoBehaviour
@@ -22,22 +23,25 @@ public class AGrid : MonoBehaviour
         nodeDiameter = nodeRadius * 2; // 설정한 반지름으로 지름을 구함
         gridSizeX = Mathf.RoundToInt(gridWorldSize.x / nodeDiameter); //그리드 가로
         gridSizeY = Mathf.RoundToInt(gridWorldSize.y / nodeDiameter); //그리드 세로
-       
+
         CreateGrid();
     }
 
     void CreateGrid()
     {
-        grid = new ANode[gridSizeX, gridSizeY];
         Vector3 worldBottomLeft = transform.position - Vector3.right * gridWorldSize.x / 2 - Vector3.up * gridWorldSize.y / 2;
         Vector3 worldPoint;
+
+        grid = new ANode[gridSizeX, gridSizeY];
+
         for(int x = 0; x < gridSizeX; x++)
         {
             for(int y = 0; y < gridSizeY; y++)
             {
                 worldPoint = worldBottomLeft + Vector3.right * (x * nodeDiameter + nodeRadius) + Vector3.up * (y * nodeDiameter + nodeRadius);
                 bool walkable = !(Physics2D.OverlapBox(worldPoint, new Vector2(nodeDiameter - 0.1f, nodeDiameter - 0.1f), 90, unwalkableMask));
-                grid[x,y] = new ANode(walkable, worldPoint, x, y);
+
+                grid[x, y] = new ANode(walkable, worldPoint, x, y);
             }
         }
     }
@@ -93,9 +97,12 @@ public class AGrid : MonoBehaviour
 
                 //탐색된 path의 노드표시
                 if (path != null)
+                {
                     if (path.Contains(n))
+                    {
                         Gizmos.color = Color.black;
-
+                    }
+                }
                 Gizmos.DrawCube(n.worldPos, Vector3.one * (nodeDiameter - 0.1f));
             }
         }

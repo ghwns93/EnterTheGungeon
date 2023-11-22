@@ -17,7 +17,8 @@ public class PathFinding : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        FindPath(StartObject.position, TargetObject.position);
+        if (StartObject != null && TargetObject != null)
+            FindPath(StartObject.position, TargetObject.position);
     }
 
     void FindPath(Vector3 startPos, Vector3 targetPos)
@@ -79,10 +80,14 @@ public class PathFinding : MonoBehaviour
         List<ANode> path = new List<ANode>();
         ANode currentNode = endNode;
 
+        int i = 0;
+
         while (currentNode != startNode) 
         {
+            Debug.Log("i = " + i);
             path.Add(currentNode);
             currentNode = currentNode.parentNode;
+            i++;
         }
 
         path.Reverse();

@@ -207,7 +207,6 @@ public class AgonizerScript : MonoBehaviour
     {
         isHit = true;
 
-        Debug.Log("blink");
         SpriteRenderer playerSprite = GetComponent<SpriteRenderer>();
 
         Color defaultColor = new Color(1, 1, 1, 1);
@@ -224,9 +223,6 @@ public class AgonizerScript : MonoBehaviour
     private void BulletShoot()
     {
         float objX = 0, objY = 0;
-
-        Debug.Log("Angle : " + (minAngle + (((maxAngle - minAngle) / MaxBullet) * count)));
-        Debug.Log("count : " + count);
 
         float rad = 0.0f;
         float halfCount = MaxBullet / 2;
