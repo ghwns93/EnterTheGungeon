@@ -8,6 +8,8 @@ TagManager:
   - Exit
   - FallDown
   - BeforePos
+  - PlayerBullet
+  - Outline
   layers:
   - Default
   - TransparentFX
