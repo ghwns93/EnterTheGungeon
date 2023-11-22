@@ -24,10 +24,11 @@ public class BulletKinScript : MonoBehaviour
     // 이전 애니메이션
     string oldAnimation = "";
 
-    bool isActive = false;
+    bool isActive = true;
     bool isAttack = false;  //공격 상태
     bool isAct = true;
     bool isHit = false;
+    bool isDead = false;
 
     Rigidbody2D rbody;              // RigidBody 2D 컴포넌트
     float axisH;
@@ -40,11 +41,17 @@ public class BulletKinScript : MonoBehaviour
     public GameObject EnemyHand;
     public GameObject EnemyGun;
 
+    // 애니메이터
+    private Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
         // Rigidbody2D 가져오기
         rbody = GetComponent<Rigidbody2D>();
+
+        // 애니메이터 가져오기
+        animator = GetComponent<Animator>();
 
         // (기본) 애니메이션 설정
         oldAnimation = stopDownAnime;
@@ -55,105 +62,118 @@ public class BulletKinScript : MonoBehaviour
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
-        if (player != null)
+        if (isActive)
         {
-            #region [ 플레이어 방향 에 따라 애니메이션 변경 ]
-            isActive = true;
-
-            float dis = Vector2.Distance(player.transform.position, gameObject.transform.position);
-
-            float angleZ = GetAngle(gameObject.transform.position, player.transform.position);
-
-            GetComponent<SpriteRenderer>().flipX = false;
-
-            // 이동 각도를 바탕으로 방향과 애니메이션을 변경한다
-            if (dis > attackDistance) // 사거리 보다 플레이어와의 거리가 멀 경우 이동
+            if (player != null)
             {
-                if (-45 <= angleZ && angleZ < 45)                     //오른쪽
+                isActive = true;
+
+                #region [ 플레이어 방향 에 따라 애니메이션 변경 ]
+
+                float dis = Vector2.Distance(player.transform.position, gameObject.transform.position);
+
+                float angleZ = GetAngle(gameObject.transform.position, player.transform.position);
+
+                GetComponent<SpriteRenderer>().flipX = false;
+
+                // 이동 각도를 바탕으로 방향과 애니메이션을 변경한다
+                if (dis > attackDistance) // 사거리 보다 플레이어와의 거리가 멀 경우 이동
                 {
-                    nowAnimation = walkLeftAnime;
-                    GetComponent<SpriteRenderer>().flipX = true;
+                    if (-45 <= angleZ && angleZ < 45)                     //오른쪽
+                    {
+                        nowAnimation = walkLeftAnime;
+                        GetComponent<SpriteRenderer>().flipX = true;
+                    }
+                    else if (45 <= angleZ && angleZ < 135)                // 위
+                    {
+                        nowAnimation = walkUpAnime;
+                    }
+                    else if (135 <= angleZ && angleZ < 180 || -180 <= angleZ && angleZ < -135)     // 왼쪽
+                    {
+                        nowAnimation = walkLeftAnime;
+                    }
+                    else if (-135 <= angleZ && angleZ < -45)              // 아래
+                    {
+                        nowAnimation = walkDownAnime;
+                    }
+
+                    isAttack = false;
+
+                    //플레이어와의 거리를 바탕으로 각도를 구하기
+                    float dx = player.transform.position.x - transform.position.x;
+                    float dy = player.transform.position.y - transform.position.y;
+                    float rad = Mathf.Atan2(dy, dx);
+
+                    //이동 벡터
+                    axisH = Mathf.Cos(rad) * speed;
+                    axisV = Mathf.Sin(rad) * speed;
                 }
-                else if (45 <= angleZ && angleZ < 135)                // 위
+                else // 공격중에 멈춤
                 {
-                    nowAnimation = walkUpAnime;
-                }
-                else if (135 <= angleZ && angleZ < 180 || -180 <= angleZ && angleZ < -135)     // 왼쪽
-                {
-                    nowAnimation = walkLeftAnime;
-                }
-                else if (-135 <= angleZ && angleZ < -45)              // 아래
-                {
-                    nowAnimation = walkDownAnime;
+                    if (-45 <= angleZ && angleZ < 45)                     //오른쪽
+                    {
+                        nowAnimation = stopLeftAnime;
+                        GetComponent<SpriteRenderer>().flipX = true;
+                    }
+                    else if (45 <= angleZ && angleZ < 135)                // 위
+                    {
+                        nowAnimation = stopUpAnime;
+                    }
+                    else if (135 <= angleZ && angleZ < 180 || -180 <= angleZ && angleZ < -135)     // 왼쪽
+                    {
+                        nowAnimation = stopLeftAnime;
+                    }
+                    else if (-135 <= angleZ && angleZ < -45)              // 아래
+                    {
+                        nowAnimation = stopDownAnime;
+                    }
+
+                    isAttack = true;
+
+                    axisH = 0.0f;
+                    axisV = 0.0f;
                 }
 
-                isAttack = false;
+                // 애니메이션 변경
+                if (nowAnimation != oldAnimation)
+                {
+                    oldAnimation = nowAnimation;
+                    GetComponent<Animator>().Play(nowAnimation);
+                }
+                #endregion
 
-                //플레이어와의 거리를 바탕으로 각도를 구하기
-                float dx = player.transform.position.x - transform.position.x;
-                float dy = player.transform.position.y - transform.position.y;
-                float rad = Mathf.Atan2(dy, dx);
+                #region [ 플레이어 방향에 따라 손 위치 조정 ]
 
-                //이동 벡터
-                axisH = Mathf.Cos(rad) * speed;
-                axisV = Mathf.Sin(rad) * speed;
+                if (EnemyHand != null)
+                {
+                    if (-90 <= angleZ && angleZ < 90)                     //오른쪽
+                    {
+                        EnemyHand.transform.position = new Vector2(transform.position.x + 0.2f, EnemyHand.transform.position.y);
+                        EnemyGun.transform.position = new Vector2(EnemyHand.transform.position.x + 0.1f, EnemyGun.transform.position.y);
+                        EnemyGun.transform.rotation = Quaternion.Euler(0, 0, angleZ);
+                        EnemyGun.GetComponent<SpriteRenderer>().flipX = false;
+                    }
+                    else    // 왼쪽
+                    {
+                        float reverseAngle = 0.0f;
+
+                        if (angleZ >= 90) reverseAngle = (180 - angleZ) * -1;
+                        else reverseAngle = (angleZ + 180);
+
+                        EnemyHand.transform.position = new Vector2(transform.position.x - 0.2f, EnemyHand.transform.position.y);
+                        EnemyGun.transform.position = new Vector2(EnemyHand.transform.position.x - 0.1f, EnemyGun.transform.position.y);
+                        EnemyGun.transform.rotation = Quaternion.Euler(0, 0, reverseAngle);
+                        EnemyGun.GetComponent<SpriteRenderer>().flipX = true;
+                    }
+                }
+
+                #endregion
             }
-            else // 공격중에 멈춤
+            else
             {
-                if (-45 <= angleZ && angleZ < 45)                     //오른쪽
-                {
-                    nowAnimation = stopLeftAnime;
-                    GetComponent<SpriteRenderer>().flipX = true;
-                }
-                else if (45 <= angleZ && angleZ < 135)                // 위
-                {
-                    nowAnimation = stopUpAnime;
-                }
-                else if (135 <= angleZ && angleZ < 180 || -180 <= angleZ && angleZ < -135)     // 왼쪽
-                {
-                    nowAnimation = stopLeftAnime;
-                }
-                else if (-135 <= angleZ && angleZ < -45)              // 아래
-                {
-                    nowAnimation = stopDownAnime;
-                }
-
-                isAttack = true;
-
-                axisH = 0.0f;
-                axisV = 0.0f;
+                rbody.velocity = Vector2.zero;
+                isActive = false;
             }
-
-            // 애니메이션 변경
-            if (nowAnimation != oldAnimation)
-            {
-                oldAnimation = nowAnimation;
-                GetComponent<Animator>().Play(nowAnimation);
-            }
-            #endregion
-
-            #region [ 플레이어 방향에 따라 손 위치 조정 ]
-
-            if (EnemyHand != null)
-            {
-                if (-90 <= angleZ && angleZ < 90)                     //오른쪽
-                {
-                    EnemyHand.transform.position = new Vector2(transform.position.x + 0.2f, EnemyHand.transform.position.y);
-                    EnemyGun.GetComponent<SpriteRenderer>().flipX = false;
-                }
-                else    // 왼쪽
-                {
-                    EnemyHand.transform.position = new Vector2(transform.position.x - 0.2f, EnemyHand.transform.position.y);
-                    EnemyGun.GetComponent<SpriteRenderer>().flipX = true;
-                }
-            }
-
-            #endregion
-        }
-        else
-        {
-            rbody.velocity = Vector2.zero;
-            isActive = false;
         }
     }
 
@@ -202,38 +222,22 @@ public class BulletKinScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Enemy와 물리적으로 충돌 발생
-        if (collision.gameObject.tag == "Enemy")
-        {
-            // 데미지 계산
-            GetDamage(collision.gameObject);
-        }
+        
     }
 
     private void OnTriggerStay2D(Collider2D collision)
-    {
-        //// FallDown 직전 캐릭터 재생성 위치 저장
-        //if (collision.gameObject.tag == "BeforePos")
-        //{
-        //    // 재생성할 위치 저장하기
-        //    beforePos = gameObject.transform.position;
-        //}
-        //// FallDown 애니메이션
-        //if (collision.gameObject.tag == "FallDown" && !isDodging)
-        //{
-        //    // 게임 상태를 추락중으로 변경
-        //    gameState = "falling";
-        //    // 이동 중지
-        //    rbody.velocity = new Vector2(0, 0);
-        //    // 추락 애니메이션 재생
-        //    animator.Play("PilotFall");
+    {   
+        if (collision.gameObject.tag == "FallDown")
+        {
+            isActive = false;
 
-        //    // 데미지 계산
-        //    //GetDamage(collision.gameObject);
+            // 이동 중지
+            rbody.velocity = new Vector2(0, 0);
 
-        //    // 추락 애니메이션이 재생된 후에 떨어지기 전 위치로 이동하기 위해 1초 대기
-        //    Invoke("BeforePos", 1.0f);
-        //}
+            // 추락 애니메이션 재생
+            nowAnimation = fallAnime;
+            animator.Play(fallAnime);
+        }
     }
 
     // 데미지 계산
@@ -272,22 +276,7 @@ public class BulletKinScript : MonoBehaviour
     // 게임오버 처리
     void GameOver()
     {
-        //Debug.Log("게임오버!");
-        //gameState = "gameover";
-
-        //// 게임오버 연출
-        //// 충돌 판정 비활성화
-        //GetComponent<CircleCollider2D>().enabled = false;
-        //// 이동 중지
-        //rbody.velocity = new Vector2(0, 0);
-        //// 중력을 통해 플레이어를 위로 살짝 띄우기
-        //rbody.gravityScale = 1;
-        //rbody.AddForce(new Vector2(0, 5), ForceMode2D.Impulse);
-        //// 애니메이션 변경
-        //GetComponent<Animator>().Play(deadAnime);
-        //// 1초 후 캐릭터 삭제
-        //Destroy(gameObject, 1.0f);
-
+        Destroy(gameObject);
     }
 }
 
