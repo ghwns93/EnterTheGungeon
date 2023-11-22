@@ -796,6 +796,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &402314621 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2386197560039488745, guid: 92be3700cf0d914478523a4e0cc7de4b, type: 3}
+  m_PrefabInstance: {fileID: 4532530959574178439}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &420743727
 GameObject:
   m_ObjectHideFlags: 0
@@ -1941,6 +1946,7 @@ GameObject:
   m_Component:
   - component: {fileID: 780778142}
   - component: {fileID: 780778141}
+  - component: {fileID: 780778143}
   m_Layer: 0
   m_Name: FindGizmo
   m_TagString: Untagged
@@ -1964,7 +1970,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   gridWorldSize: {x: 30, y: 30}
-  nodeRadius: 0.5
+  nodeRadius: 0.25
+  path: []
 --- !u!4 &780778142
 Transform:
   m_ObjectHideFlags: 0
@@ -1980,6 +1987,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &780778143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780778140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3c9a0fe96288e64ba5c006c44624911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartObject: {fileID: 402314621}
+  TargetObject: {fileID: 1711701160}
 --- !u!1 &803288878
 GameObject:
   m_ObjectHideFlags: 0
