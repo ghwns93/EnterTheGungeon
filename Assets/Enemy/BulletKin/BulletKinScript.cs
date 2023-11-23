@@ -44,6 +44,10 @@ public class BulletKinScript : MonoBehaviour
     // 애니메이터
     private Animator animator;
 
+    UnitMove unitMove;
+    public int callMoveTime = 10; //새로운 경로 탐색 시간
+    private int moveTime = 0;     //이전에 부르고 경과 시간
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,6 +56,8 @@ public class BulletKinScript : MonoBehaviour
 
         // 애니메이터 가져오기
         animator = GetComponent<Animator>();
+
+        unitMove = GetComponent<UnitMove>();
 
         // (기본) 애니메이션 설정
         oldAnimation = stopDownAnime;
@@ -180,20 +186,27 @@ public class BulletKinScript : MonoBehaviour
     // (유니티 초기 설정 기준) 0.02초마다 호출되며, 1초에 총 50번 호출되는 함수
     void FixedUpdate()
     {
-        Debug.Log(hp);
+        //Debug.Log(hp);
 
         if (isActive && hp > 0)
         {
-            Debug.Log("Move1");
+            //Debug.Log("Move1");
             if (!isAttack)
             {
-                Debug.Log("Move");
+                //Debug.Log("Move");
                 //몬스터 이동시키기
-                rbody.velocity = new Vector2(axisH, axisV);
+                //rbody.velocity = new Vector2(axisH, axisV);
+                if (moveTime == callMoveTime)
+                {
+                    unitMove.StartPathFind();
+                    moveTime = 0;
+                }
+                else moveTime++;
             }
             else
             {
-                rbody.velocity = Vector2.zero;
+                //rbody.velocity = Vector2.zero;
+                unitMove.StopRoutine();
             }
         }
     }

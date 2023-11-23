@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &42299540 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2386197560375501146, guid: 92be3700cf0d914478523a4e0cc7de4b, type: 3}
+  m_PrefabInstance: {fileID: 1117379421}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &55352223
 GameObject:
   m_ObjectHideFlags: 0
@@ -1942,6 +1947,7 @@ GameObject:
   - component: {fileID: 780778142}
   - component: {fileID: 780778141}
   - component: {fileID: 780778143}
+  - component: {fileID: 780778144}
   m_Layer: 0
   m_Name: FindGizmo
   m_TagString: Untagged
@@ -1993,8 +1999,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3c9a0fe96288e64ba5c006c44624911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartObject: {fileID: 2013827010}
-  TargetObject: {fileID: 1711701160}
+--- !u!114 &780778144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780778140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b60176d4d3c6054a839b2f43d570788, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &803288878
 GameObject:
   m_ObjectHideFlags: 0
@@ -2692,17 +2708,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2386197560039488744, guid: 92be3700cf0d914478523a4e0cc7de4b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2386197560039488745, guid: 92be3700cf0d914478523a4e0cc7de4b, type: 3}
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2386197560039488745, guid: 92be3700cf0d914478523a4e0cc7de4b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.2
+      value: -6.43
       objectReference: {fileID: 0}
     - target: {fileID: 2386197560039488745, guid: 92be3700cf0d914478523a4e0cc7de4b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.15
+      value: -11.54
       objectReference: {fileID: 0}
     - target: {fileID: 2386197560039488745, guid: 92be3700cf0d914478523a4e0cc7de4b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4065,11 +4085,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &2013827010 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2386197560039488745, guid: 92be3700cf0d914478523a4e0cc7de4b, type: 3}
-  m_PrefabInstance: {fileID: 1117379421}
+--- !u!114 &2013827016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 42299540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 503eb62276a5a0c408bfe09d7e8b2f1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1711701160}
 --- !u!1001 &2063314248
 PrefabInstance:
   m_ObjectHideFlags: 0
