@@ -17,17 +17,22 @@ public class GunController : MonoBehaviour
     public float shootSpeed;    //화살 속도
     public float shootDelay;    //발사 간격
 
-    public int bulletCount;     //총알 개수
+    int bulletCount;     //총알 개수
 
     public GameObject gunPrefab;        //총 프리팹
     public GameObject bulletPrefab;     //총알 프리팹
     public GameObject OtherHandPrefab;  //총든손 반대편 손 프리팹
+    public GameObject reloadBack;       //장전시 긴 막대
+    public GameObject reloadBar;        //장전시 작은 막대
+    GameObject ReloadBack;              //R누르면 만들어지는 긴 막대
+    GameObject ReloadBar;               //R누르면 만들어지는 작은 막대
     GameObject gunGateObj;              //포구
     GameObject LeftHandObj;             //왼손
     GameObject RightHandObj;            //오른손
 
-    private bool canAttack = true;      //공격 딜레이 할때 사용
-
+    public bool canAttack;              //공격 딜레이 할때 사용
+    private bool isReloading;           //장전하는중 장전 안되게
+    private bool isAttack;              //공격누르고있을때 장전안되게
     GameObject gunObj;      //총오브젝트
     bool isLeftHand;        //왼손있는지
     bool isRightHand;       //오른손있는지
@@ -58,6 +63,10 @@ public class GunController : MonoBehaviour
 
         inlobby = GetComponent<PlayerController>().inlobby;
 
+        bulletCount = 8;
+        canAttack = true;
+        isReloading = false;
+        isAttack = false;
     }
 
     // Update is called once per frame
@@ -178,27 +187,63 @@ public class GunController : MonoBehaviour
             isLeftHand = false;
         }
 
-        // 마우스 왼클릭하고 , 공격할수있고, 로비에 없을때
-        if (Input.GetButton("Fire1") && canAttack&&!inlobby)
+        // 마우스 왼클릭시 공격
+        if (Input.GetMouseButton(0) && canAttack&&!inlobby&&bulletCount>0 &&!isReloading)
         {            
             gunAnimator.Play(pilotGunReady);
+            isAttack = true;
 
             // 공격 키 입력 및 딜레이 시작
             StartCoroutine(AttackWithDelay());
         }
 
+        // 총알 다썼을 때 마우스 왼클릭시 장전
+        if (Input.GetMouseButtonDown(0) && canAttack && !inlobby && bulletCount == 0)
+        {
+            isReloading = true;
+            canAttack = false;
+            gunAnimator.Play(pilotGunReload, 0, 0f);  // 애니메이션 키포인트 처음으로 이동후 실행
+
+            ReloadBack = Instantiate(reloadBack, transform.position + new Vector3(-0.1f, 0.4f, 0), transform.rotation);   //긴막대 생성            
+            ReloadBar = Instantiate(reloadBar, transform.position + new Vector3(-0.5f, 0.44f, 0), transform.rotation);   //짧은막대 생성
+            ReloadBack.transform.SetParent(transform);  //플레이어 따라다니게
+            ReloadBar.transform.SetParent(transform);   //플레이어 객체를 총 객체의 부모로 설정
+            Destroy(ReloadBack, 1.3f);
+            Destroy(ReloadBar, 1.3f);        //1.3초뒤 삭제
+            Invoke("ChangeVariable", 1.3f);  //1.3초뒤 isReloading=false ,canAttack =true로 바꾸는함수 실행
+            bulletCount = 8;
+        }
+
         // 마우스 왼클릭을 땔때
-        if (Input.GetButtonUp("Fire1") && !inlobby)
+        if (Input.GetMouseButtonUp(0) && !inlobby)
         {
             gunAnimator.Play(pilotGunReturn);
+            isAttack = false;
         }
-
-        // 장전 할때
-        if (Input.GetKeyDown(KeyCode.R) && !inlobby)
+        
+        // R키누르면 장전
+        if (Input.GetKeyDown(KeyCode.R) && !inlobby && !isReloading && bulletCount<8 &&!isAttack)
         {
+            isReloading = true;
+            canAttack = false;
             gunAnimator.Play(pilotGunReload,0,0f);  // 애니메이션 키포인트 처음으로 이동후 실행
 
+            ReloadBack = Instantiate(reloadBack, transform.position + new Vector3(-0.1f, 0.4f, 0), transform.rotation);   //긴막대 생성            
+            ReloadBar = Instantiate(reloadBar, transform.position + new Vector3(-0.5f, 0.44f, 0), transform.rotation);   //짧은막대 생성
+            ReloadBack.transform.SetParent(transform);  //플레이어 따라다니게
+            ReloadBar.transform.SetParent(transform);   //플레이어 객체를 총 객체의 부모로 설정
+            Destroy(ReloadBack, 1.3f);  
+            Destroy(ReloadBar, 1.3f);        //1.3초뒤 삭제
+            Invoke("ChangeVariable", 1.3f);  //1.3초뒤 isReloading=false ,canAttack =true로 바꾸는함수 실행
+            bulletCount = 8;
         }
+        if(ReloadBar)
+        {
+            // ReloadBar를 오른쪽으로 이동
+            float barspeed = 0.8f;
+            ReloadBar.transform.Translate(Vector3.right * barspeed * Time.deltaTime, Space.Self);
+        }
+        
     }
 
     void FixedUpdate()
@@ -213,7 +258,6 @@ public class GunController : MonoBehaviour
         // 딜레이 설정 
         canAttack = false;
         yield return new WaitForSeconds(shootDelay);
-
         // 딜레이 후에 다시 공격 가능으로 설정
         canAttack = true;
     }
@@ -221,6 +265,7 @@ public class GunController : MonoBehaviour
     // 총알 발사
     public void Attack()
     {
+        bulletCount--;
         gunAnimator.Play(pilotGunFire, 0, 0f);  // 애니메이션 키포인트 처음으로 이동후 실행
 
         PlayerController playerCnt = GetComponent<PlayerController>();
@@ -236,7 +281,7 @@ public class GunController : MonoBehaviour
         Quaternion r = Quaternion.Euler(0, 0, angleZ + 90 );     //총알 자체 각도
         GameObject bulletObj = Instantiate(bulletPrefab, pos, r);
 
-        // -10~10사이 랜덤으로 더할 각도
+        // -5~5사이 랜덤으로 더할 각도
         int randomInt = Random.Range(-5, 5);
 
         // 화살을 발사하기 위한 벡터 생성
@@ -244,10 +289,11 @@ public class GunController : MonoBehaviour
         float directionX;
         float directionY;
 
+        // 총알 마우스 포인터 방향으로 날아가게 조정
         if (angleZ < 0 && angleZ > -90)         // 4사분면      
         {
-            directionX = Mathf.Cos((angleZ + randomInt) * Mathf.Deg2Rad);
-            directionY = Mathf.Sin((angleZ + randomInt) * Mathf.Deg2Rad);
+            directionX = Mathf.Cos((angleZ-2 + randomInt) * Mathf.Deg2Rad);
+            directionY = Mathf.Sin((angleZ-2 + randomInt) * Mathf.Deg2Rad);
         }
         else if (angleZ < -135 && angleZ > -180) // 3사분면 위쪽  
         {
@@ -286,18 +332,19 @@ public class GunController : MonoBehaviour
 
     }
 
+    public void ChangeVariable()
+    {
+        isReloading = false;
+        canAttack = true;
+    }
 }
 
 
 /*
 
-총알 개수 다쓰면 장전바 머리위에 뜨고 총알발사 못하게 
-한번더클릭해야 장전
+총알 개수에 따른 오른쪽에 ui 총알 게이지 줄어들게
 
-총알 개수에 따른 오른쪽에 ui? 총알 게이지 줄어들게
-
-어느정도 거리이동하면 총알 없애기
-없애거나 부딪힐때 이펙트나 파티클이나 애니메이션
+어느정도 거리이동하면 총알 없애거나 부딪힐때 이펙트나 파티클이나 애니메이션
 
 총쏠때 이펙트
 
@@ -306,25 +353,4 @@ public class GunController : MonoBehaviour
 
 아이템 키퍼
 
-//// 총구 위치
-        //Vector2 fromPos = new Vector2(gunGateObj.transform.position.x, gunGateObj.transform.position.y);
-        //// 마우스 위치
-        //Vector2 toPos = new Vector2(mousePosition.x, mousePosition.y);
-        //// 화살발사 각도
-        //float angleCharacterwithMouse;
-        //float dx = toPos.x - fromPos.x;
-        //float dy = toPos.y - fromPos.y;
-
-        //// 아크탄젠트 함수로 각도(라디안) 구하기
-        //float rad = Mathf.Atan2(dy, dx);
-
-        //// 라디안으로 변환
-        //angleCharacterwithMouse = rad * Mathf.Rad2Deg;
-
-
-// -10~10사이 랜덤으로 더할 각도
-        int randomInt = Random.Range(-10, 10);
-        // 화살을 발사하기 위한 벡터 생성
-        float x = Mathf.Cos((angleZ+ randomInt) * Mathf.Deg2Rad);
-        float y = Mathf.Sin((angleZ + randomInt) * Mathf.Deg2Rad);
  */
