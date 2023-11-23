@@ -300,9 +300,10 @@ MonoBehaviour:
   pilotGunReload: PilotGunReload
   shootSpeed: 12
   shootDelay: 0.5
-  bulletCount: 0
   gunPrefab: {fileID: 1706475630286016771, guid: 20b4c141b2471a9419a4da7bc1e87bf1, type: 3}
   bulletPrefab: {fileID: 4566102399501587369, guid: f09a92aeb3632d4488362d1fd4f99482, type: 3}
   OtherHandPrefab: {fileID: 1776603167825510655, guid: 45bc4e061324bee44a2b6f1acd8e9135, type: 3}
   reloadBack: {fileID: 7798626822340256123, guid: dae4883961a77f14abacb716ef0d2fd3, type: 3}
   reloadBar: {fileID: 3430188339099538438, guid: b24b3ffd492760d459906fc8f7d54138, type: 3}
+  reloadText: {fileID: 4857945407521960450, guid: d784f53dc05d5d547818f1bba2c04af4, type: 3}
+  canAttack: 0

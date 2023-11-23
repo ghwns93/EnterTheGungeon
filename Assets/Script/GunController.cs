@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 public class GunController : MonoBehaviour
 {
@@ -24,11 +25,14 @@ public class GunController : MonoBehaviour
     public GameObject OtherHandPrefab;  //총든손 반대편 손 프리팹
     public GameObject reloadBack;       //장전시 긴 막대
     public GameObject reloadBar;        //장전시 작은 막대
-    GameObject ReloadBack;              //R누르면 만들어지는 긴 막대
-    GameObject ReloadBar;               //R누르면 만들어지는 작은 막대
+    public GameObject reloadText;       //재장전 프리팹
+
     GameObject gunGateObj;              //포구
     GameObject LeftHandObj;             //왼손
     GameObject RightHandObj;            //오른손
+    GameObject ReloadBack;              //R누르면 만들어지는 긴 막대
+    GameObject ReloadBar;               //R누르면 만들어지는 작은 막대
+    GameObject ReloadText;            //재장전 문구(3d legacy text)
 
     public bool canAttack;              //공격 딜레이 할때 사용
     private bool isReloading;           //장전하는중 장전 안되게
@@ -37,7 +41,10 @@ public class GunController : MonoBehaviour
     bool isLeftHand;        //왼손있는지
     bool isRightHand;       //오른손있는지
     bool inlobby;           //PlayerController의 변수 가져와서 저장할 변수
+    bool isReloadText;       //재장전 문구 생성한개만할려고
 
+    TextMesh textMesh;
+    Color textColor;
 
     PlayerController playerController;  //PlayerController의 함수,변수 사용하기위해 선언해둠
 
@@ -67,6 +74,7 @@ public class GunController : MonoBehaviour
         canAttack = true;
         isReloading = false;
         isAttack = false;
+        isReloadText = false;
     }
 
     // Update is called once per frame
@@ -195,13 +203,30 @@ public class GunController : MonoBehaviour
 
             // 공격 키 입력 및 딜레이 시작
             StartCoroutine(AttackWithDelay());
+            
         }
+
+        // 총알 다썼을때
+        if (bulletCount == 0 && !isReloadText)
+        {
+            // 재장전 문구 생성
+            ReloadText = Instantiate(reloadText, transform.position + new Vector3(-0.35f, 0.7f, 0), transform.rotation);
+            ReloadText.transform.SetParent(transform);  // 플레이어 따라다니게 자식으로 설정
+            isReloadText = true;
+            // 텍스트 깜빡거리게 하기
+            textMesh = ReloadText.GetComponent<TextMesh>();
+            textColor = textMesh.color;
+            Invoke("TextInVisible", 1f);
+        }
+
 
         // 총알 다썼을 때 마우스 왼클릭시 장전
         if (Input.GetMouseButtonDown(0) && canAttack && !inlobby && bulletCount == 0)
         {
             isReloading = true;
             canAttack = false;
+            Destroy(ReloadText);
+            isReloadText =false;
             gunAnimator.Play(pilotGunReload, 0, 0f);  // 애니메이션 키포인트 처음으로 이동후 실행
 
             ReloadBack = Instantiate(reloadBack, transform.position + new Vector3(-0.1f, 0.4f, 0), transform.rotation);   //긴막대 생성            
@@ -222,10 +247,12 @@ public class GunController : MonoBehaviour
         }
         
         // R키누르면 장전
-        if (Input.GetKeyDown(KeyCode.R) && !inlobby && !isReloading && bulletCount<8 &&!isAttack)
+        if (Input.GetKeyDown(KeyCode.R) && !inlobby && !isReloading && bulletCount<8 )
         {
             isReloading = true;
             canAttack = false;
+            Destroy(ReloadText);
+            isReloadText = false;
             gunAnimator.Play(pilotGunReload,0,0f);  // 애니메이션 키포인트 처음으로 이동후 실행
 
             ReloadBack = Instantiate(reloadBack, transform.position + new Vector3(-0.1f, 0.4f, 0), transform.rotation);   //긴막대 생성            
@@ -242,8 +269,7 @@ public class GunController : MonoBehaviour
             // ReloadBar를 오른쪽으로 이동
             float barspeed = 0.8f;
             ReloadBar.transform.Translate(Vector3.right * barspeed * Time.deltaTime, Space.Self);
-        }
-        
+        }        
     }
 
     void FixedUpdate()
@@ -337,10 +363,32 @@ public class GunController : MonoBehaviour
         isReloading = false;
         canAttack = true;
     }
+
+    void TextVisible()
+    {
+        textColor.a =1;
+        if(ReloadText)
+        {
+            ReloadText.GetComponent<TextMesh>().color = textColor;
+        }
+        Invoke("TextInVisible", 1f);
+    }
+    void TextInVisible()
+    {
+        textColor.a = 0;
+        if (ReloadText)
+        {
+            ReloadText.GetComponent<TextMesh>().color = textColor;
+        }
+        Invoke("TextVisible", 1f);
+    }
 }
 
 
 /*
+총쏘다가 장전
+
+오른쪽 밑 총애니메이션따라하는 ui
 
 총알 개수에 따른 오른쪽에 ui 총알 게이지 줄어들게
 
