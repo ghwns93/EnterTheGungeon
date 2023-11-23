@@ -39,7 +39,7 @@ public class AGrid : MonoBehaviour
             for(int y = 0; y < gridSizeY; y++)
             {
                 worldPoint = worldBottomLeft + Vector3.right * (x * nodeDiameter + nodeRadius) + Vector3.up * (y * nodeDiameter + nodeRadius);
-                bool walkable = !(Physics2D.OverlapBox(worldPoint, new Vector2(nodeDiameter - 0.1f, nodeDiameter - 0.1f), 90, unwalkableMask));
+                bool walkable = !(Physics2D.OverlapBox(worldPoint, new Vector2(nodeDiameter - 0.05f, nodeDiameter - 0.05f), 90, unwalkableMask));
 
                 grid[x, y] = new ANode(walkable, worldPoint, x, y);
             }

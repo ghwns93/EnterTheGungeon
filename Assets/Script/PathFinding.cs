@@ -17,8 +17,6 @@ public class PathFinding : MonoBehaviour
     //PathRequestManager에서의 현재 길찾기 요청을 시작하는 함수
     public void StartFindPath(Vector3 startPos, Vector3 targetPos)
     {
-        Debug.Log("3");
-
         StartCoroutine(FindPath(startPos, targetPos));
     }
 
@@ -29,8 +27,6 @@ public class PathFinding : MonoBehaviour
 
         ANode startNode = grid.GetNodeFromWorldPoint(startPos);
         ANode targetNode = grid.GetNodeFromWorldPoint(targetPos);
-
-        Debug.Log("4 " + startNode.isWalkAble + " " + targetNode.isWalkAble);
 
         if (startNode.isWalkAble && targetNode.isWalkAble)
         {
@@ -58,8 +54,6 @@ public class PathFinding : MonoBehaviour
                 //탐색된 노드가 목표 노드라면 탐색 종료
                 if (currentNode == targetNode)
                 {
-                    Debug.Log("5");
-
                     pathSuccess = true;
 
                     break;
@@ -87,8 +81,6 @@ public class PathFinding : MonoBehaviour
         yield return null;
         if(pathSuccess)
         {
-            Debug.Log("6");
-
             waypoints = RetracePath(startNode, targetNode);
         }
 
@@ -101,8 +93,6 @@ public class PathFinding : MonoBehaviour
     //최종 경로에 있는 노드들의 WorldPosition을 순차적으로 담아 리턴
     Vector3[] RetracePath(ANode startNode, ANode endNode) 
     {
-        Debug.Log("7");
-
         List<ANode> path = new List<ANode>();
         ANode currentNode = endNode;
 
@@ -120,8 +110,6 @@ public class PathFinding : MonoBehaviour
     //Path 리스트에 있는 노드들의 WorldPosition을 Vector3[] 배열에 담아 리턴
     Vector3[] SimplifyPath(List<ANode> path) 
     {
-        Debug.Log("8");
-
         List<Vector3> waypoints = new List<Vector3>();
         Vector2 directionOld = Vector2.zero;
 
