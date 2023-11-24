@@ -5,49 +5,28 @@ using UnityEngine.UI;
 
 public class SliderManager : MonoBehaviour
 {
-    public Slider bgmSlider;
-    public Slider seSlider;
-    public Image bgmFillImage;
-    public Image seFillImage;
-    public Sprite grayImage; // 회색 사각형 이미지
-    public Sprite whiteImage; // 흰색 사각형 이미지
+    public Slider BgmSlider;
+    public Slider SeSlider;
 
-    void Start()
+    private void Start()
     {
-        InitializeSliders();
+        // 슬라이더의 값이 변경될 때마다 호출되는 이벤트에 대한 리스너 추가
+        BgmSlider.onValueChanged.AddListener(delegate { UpdateVolume(BgmSlider); });
+        SeSlider.onValueChanged.AddListener(delegate { UpdateVolume(SeSlider); });
     }
 
-    void InitializeSliders()
+    private void UpdateVolume(Slider slider)
     {
-        bgmSlider.onValueChanged.AddListener(delegate { UpdateVolume(bgmSlider, bgmFillImage); });
-        seSlider.onValueChanged.AddListener(delegate { UpdateVolume(seSlider, seFillImage); });
+        // 현재 슬라이더의 값을 가져옴
+        float value = slider.value;
 
-        // 초기 볼륨 설정
-        bgmSlider.value = 100f; // BGM 초기 볼륨 설정
-        seSlider.value = 100f;  // SE 초기 볼륨 설정
+        // 가장 가까운 5의 배수로 반올림
+        float roundedValue = Mathf.Round(value / 5.0f) * 5.0f;
 
-        // 초기 이미지 설정
-        UpdateVolume(bgmSlider, bgmFillImage);
-        UpdateVolume(seSlider, seFillImage);
-    }
+        // 반올림된 값을 슬라이더에 설정
+        slider.value = roundedValue;
 
-    void UpdateVolume(Slider slider, Image fillImage)
-    {
-        int whiteRectCount = Mathf.CeilToInt(slider.value / 5f);
-
-        // 이미지 색상 초기화
-        fillImage.sprite = grayImage;
-
-        // 하얀 사각형 개수만큼 이미지 변경
-        for (int i = 0; i < whiteRectCount; i++)
-        {
-            fillImage.overrideSprite = whiteImage; // 슬라이스된 이미지의 일부분을 하얀 사각형 이미지로 변경
-            // 이미지 슬라이싱을 활용하여 이미지 변경
-            // 예: fillImage.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, ??);
-            //     fillImage.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, ??);
-        }
-
-        // 볼륨 조절 코드 추가 (실제 AudioManager를 활용한 예시)
-        //AudioManager.SetVolume(slider.value); // AudioManager에 볼륨을 조절하는 메서드가 있다고 가정
+        // 여기에서 다른 원하는 동작 수행 가능
+        Debug.Log("슬라이더 값: " + roundedValue);
     }
 }

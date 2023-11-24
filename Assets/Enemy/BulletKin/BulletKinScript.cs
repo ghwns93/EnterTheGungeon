@@ -45,7 +45,7 @@ public class BulletKinScript : MonoBehaviour
     private Animator animator;
 
     UnitMove unitMove;
-    public int callMoveTime = 10; //새로운 경로 탐색 시간
+    public int callMoveTime = 20; //새로운 경로 탐색 시간
     private int moveTime = 0;     //이전에 부르고 경과 시간
 
     // Start is called before the first frame update
@@ -156,8 +156,8 @@ public class BulletKinScript : MonoBehaviour
                     {
                         EnemyHand.transform.position = new Vector2(transform.position.x + 0.2f, EnemyHand.transform.position.y);
                         EnemyGun.transform.position = new Vector2(EnemyHand.transform.position.x + 0.1f, EnemyGun.transform.position.y);
-                        EnemyGun.transform.rotation = Quaternion.Euler(0, 0, angleZ);
-                        EnemyGun.GetComponent<SpriteRenderer>().flipX = false;
+                        //EnemyGun.transform.rotation = Quaternion.Euler(0, 0, EnemyGun.transform.rotation.z + angleZ);
+                        EnemyGun.GetComponent<SpriteRenderer>().flipX = true;
                     }
                     else    // 왼쪽
                     {
@@ -168,8 +168,8 @@ public class BulletKinScript : MonoBehaviour
 
                         EnemyHand.transform.position = new Vector2(transform.position.x - 0.2f, EnemyHand.transform.position.y);
                         EnemyGun.transform.position = new Vector2(EnemyHand.transform.position.x - 0.1f, EnemyGun.transform.position.y);
-                        EnemyGun.transform.rotation = Quaternion.Euler(0, 0, reverseAngle);
-                        EnemyGun.GetComponent<SpriteRenderer>().flipX = true;
+                        //EnemyGun.transform.rotation = Quaternion.Euler(0, 0, reverseAngle);
+                        EnemyGun.GetComponent<SpriteRenderer>().flipX = false;
                     }
                 }
 

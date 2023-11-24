@@ -16,7 +16,7 @@ public class GunController : MonoBehaviour
     public string pilotGunReload = "PilotGunReload";
 
     public float shootSpeed;    //화살 속도
-    public float shootDelay;    //발사 간격
+    public float shootDelay;    //발사 간격 0.5로 인스펙터에 되있음
 
     int bulletCount;     //총알 개수
 
@@ -27,6 +27,8 @@ public class GunController : MonoBehaviour
     public GameObject reloadBar;        //장전시 작은 막대
     public GameObject reloadText;       //재장전 프리팹
 
+
+    GameObject gunObj;                  //총오브젝트
     GameObject gunGateObj;              //포구
     GameObject LeftHandObj;             //왼손
     GameObject RightHandObj;            //오른손
@@ -37,7 +39,6 @@ public class GunController : MonoBehaviour
     public bool canAttack;              //공격 딜레이 할때 사용
     private bool isReloading;           //장전하는중 장전 안되게
     private bool isAttack;              //공격누르고있을때 장전안되게
-    GameObject gunObj;      //총오브젝트
     bool isLeftHand;        //왼손있는지
     bool isRightHand;       //오른손있는지
     bool inlobby;           //PlayerController의 변수 가져와서 저장할 변수
@@ -240,7 +241,7 @@ public class GunController : MonoBehaviour
         }
 
         // 마우스 왼클릭을 땔때
-        if (Input.GetMouseButtonUp(0) && !inlobby)
+        if (Input.GetMouseButtonUp(0) && !inlobby &&!isReloading)
         {
             gunAnimator.Play(pilotGunReturn);
             isAttack = false;
