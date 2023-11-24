@@ -367,7 +367,6 @@ public class BooklletsRedScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //보스가 화살을 맞았을 경우
         if (collision.gameObject.tag == "PlayerBullet")
         {
             hp--; //체력 감소

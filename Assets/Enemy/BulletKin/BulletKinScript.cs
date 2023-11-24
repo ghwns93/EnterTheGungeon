@@ -19,6 +19,9 @@ public class BulletKinScript : MonoBehaviour
     public string deadAnime = "bulletKinDead";
     public string fallAnime = "bulletKinFalling";
 
+    public string AttackAnime = "EnemyGunAttack";
+    public string GunIdleAnime = "EnemyGunIdle";
+
     // 현재 애니메이션
     string nowAnimation = "";
     // 이전 애니메이션
@@ -43,10 +46,14 @@ public class BulletKinScript : MonoBehaviour
 
     // 애니메이터
     private Animator animator;
+    private Animator gunAnimator;
 
     UnitMove unitMove;
     public int callMoveTime = 20; //새로운 경로 탐색 시간
     private int moveTime = 0;     //이전에 부르고 경과 시간
+
+    GameObject player;
+    EnemyGunManager enemyGunManager;
 
     // Start is called before the first frame update
     void Start()
@@ -57,7 +64,15 @@ public class BulletKinScript : MonoBehaviour
         // 애니메이터 가져오기
         animator = GetComponent<Animator>();
 
+        // 총애니메이터 가져오기
+        gunAnimator = transform.GetChild(0).transform.GetChild(0).GetComponent<Animator>();
+
+        // 총 조종
+        enemyGunManager = transform.GetChild(0).transform.GetChild(0).GetComponent<EnemyGunManager>();
+
         unitMove = GetComponent<UnitMove>();
+
+        player = GameObject.FindGameObjectWithTag("Player");
 
         // (기본) 애니메이션 설정
         oldAnimation = stopDownAnime;
@@ -67,6 +82,8 @@ public class BulletKinScript : MonoBehaviour
     void Update()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+        enemyGunManager.isActive = isActive;
 
         if (isActive)
         {
@@ -156,8 +173,8 @@ public class BulletKinScript : MonoBehaviour
                     {
                         EnemyHand.transform.position = new Vector2(transform.position.x + 0.2f, EnemyHand.transform.position.y);
                         EnemyGun.transform.position = new Vector2(EnemyHand.transform.position.x + 0.1f, EnemyGun.transform.position.y);
-                        //EnemyGun.transform.rotation = Quaternion.Euler(0, 0, EnemyGun.transform.rotation.z + angleZ);
-                        EnemyGun.GetComponent<SpriteRenderer>().flipX = true;
+                        EnemyGun.transform.rotation = Quaternion.Euler(0, 0, angleZ);
+                        EnemyGun.GetComponent<SpriteRenderer>().flipX = false;
                     }
                     else    // 왼쪽
                     {
@@ -168,8 +185,8 @@ public class BulletKinScript : MonoBehaviour
 
                         EnemyHand.transform.position = new Vector2(transform.position.x - 0.2f, EnemyHand.transform.position.y);
                         EnemyGun.transform.position = new Vector2(EnemyHand.transform.position.x - 0.1f, EnemyGun.transform.position.y);
-                        //EnemyGun.transform.rotation = Quaternion.Euler(0, 0, reverseAngle);
-                        EnemyGun.GetComponent<SpriteRenderer>().flipX = false;
+                        EnemyGun.transform.rotation = Quaternion.Euler(0, 0, reverseAngle);
+                        EnemyGun.GetComponent<SpriteRenderer>().flipX = true;
                     }
                 }
 
@@ -193,6 +210,8 @@ public class BulletKinScript : MonoBehaviour
             //Debug.Log("Move1");
             if (!isAttack)
             {
+                gunAnimator.Play(GunIdleAnime);
+
                 //Debug.Log("Move");
                 //몬스터 이동시키기
                 //rbody.velocity = new Vector2(axisH, axisV);
@@ -205,6 +224,8 @@ public class BulletKinScript : MonoBehaviour
             }
             else
             {
+                gunAnimator.Play(AttackAnime);
+
                 //rbody.velocity = Vector2.zero;
                 unitMove.StopRoutine();
             }
@@ -232,12 +253,6 @@ public class BulletKinScript : MonoBehaviour
         return angle;
     }
 
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        
-    }
-
     private void OnTriggerStay2D(Collider2D collision)
     {   
         if (collision.gameObject.tag == "FallDown")
@@ -253,37 +268,59 @@ public class BulletKinScript : MonoBehaviour
         }
     }
 
-    // 데미지 계산
-    void GetDamage(GameObject enemy)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        //if (gameState == "playing")
-        //{
-        //    hp--;   // HP감소
-        //    PlayerPrefs.SetInt("PlayerHP", hp); // 현재 HP 갱신
-        //    if (hp > 0)
-        //    {
-        //        // 이동 중지
-        //        rbody.velocity = new Vector2(0, 0);
-        //        // 히트백 (적이 공격한 방향의 반대로)
-        //        Vector3 toPos = (transform.position - enemy.transform.position).normalized;
-        //        rbody.AddForce(new Vector2(toPos.x * 4, toPos.y * 4), ForceMode2D.Impulse);
-        //        // 현재 공격받고 있음
-        //        inDamage = true;
-        //        Invoke("DamageEnd", 0.25f);
-        //    }
-        //    else
-        //    {
-        //        // 체력이 없으면 게임오버
-        //        GameOver();
-        //    }
-        //}
+        if (collision.gameObject.tag == "PlayerBullet")
+        {
+            hp--; //체력 감소
+
+            //체력이 0 이하가 되는 경우는 사망처리
+            if (hp <= 0)
+            {
+                isActive = false;
+
+                rbody.velocity = Vector2.zero;
+                GetComponent<BoxCollider2D>().enabled = false;
+                GetComponent<Animator>().Play(deadAnime);
+
+                Destroy(gameObject, 1);
+            }
+            else
+            {
+                Vector3 toPos = (transform.position - player.transform.position).normalized;
+                rbody.AddForce(new Vector2(toPos.x * 4, toPos.y * 4), ForceMode2D.Impulse);
+
+                if (!isHit) StartCoroutine(Blink());
+
+                Invoke("DamageEnd", 0.1f);
+            }
+
+            Destroy(collision.gameObject);
+        }
+    }
+
+    private IEnumerator Blink()
+    {
+        isHit = true;
+
+        SpriteRenderer playerSprite = GetComponent<SpriteRenderer>();
+
+        Color defaultColor = new Color(1, 1, 1, 1);
+
+        playerSprite.color = new Color(1, 0, 0, 1);
+
+        yield return new WaitForSeconds(0.2f);
+
+        playerSprite.color = defaultColor;
+
+
+        isHit = false;
     }
 
     // 데미지 처리 종료
     void DamageEnd()
     {
-        //inDamage = false;
-        //gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        rbody.velocity = Vector2.zero;
     }
 
     // 게임오버 처리
