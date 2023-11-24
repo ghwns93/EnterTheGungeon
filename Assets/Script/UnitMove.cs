@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UnitMove : MonoBehaviour
 {
-    public Transform target;
+    Transform target;
     float speed = 1;
     Vector3[] path;
     int targetIndex;
@@ -12,11 +12,12 @@ public class UnitMove : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     public void StartPathFind()
     {
+        Debug.Log("target position : " + target.position.x + ", " + target.position.y);
         PathRequestManager.RequestPath(transform.position, target.position, OnPathFound);
     }
 
