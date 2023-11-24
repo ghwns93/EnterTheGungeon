@@ -30,7 +30,7 @@ public class BoxPilotGunController : MonoBehaviour
     {
         gunAnimator = GetComponent<Animator>();
         // 기본 애니메이션 설정
-        gunAnimator.Play(pilotGunReady);
+        gunAnimator.Play(pilotGunHold);
 
         bulletCount = 8;
         canAttack = true;

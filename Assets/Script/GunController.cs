@@ -18,7 +18,7 @@ public class GunController : MonoBehaviour
     public float shootSpeed;    //화살 속도
     public float shootDelay;    //발사 간격 0.5로 인스펙터에 되있음
 
-    int bulletCount;     //총알 개수
+    public int bulletCount;     //총알 개수
 
     public GameObject gunPrefab;        //총 프리팹
     public GameObject bulletPrefab;     //총알 프리팹
