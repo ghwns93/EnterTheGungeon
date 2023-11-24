@@ -1,39 +1,65 @@
-using System.Collections;
-using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.UI;
 
+public class SoundManager : MonoBehaviour
+{
+    public Slider BgmSlider;
+    
+     void Start()
+    {
+        if (BgmSlider != null) BgmSlider.value = 1.0f;
+        else Debug.Log("null1");
+    }
+
+    void Update()
+    {
+        if (BgmSlider != null) BgmSliderValue();
+        else Debug.Log("null2");
+    }
+
+    public void BgmSliderValue()
+    {
+        float value = BgmSlider.value;
+        float soundValue = Mathf.Round(value / 5.0f) * 5.0f;
+        BgmSlider.value = soundValue;
+    }
+}
+
+
+/*
 public enum BGMType { None, Title, InGame, InBoss }
 public enum SEType { GameClear, GameOver, Shoot }
 
 public class SoundManager : MonoBehaviour
 {
-    public AudioClip bgmInTitle;         // BGM(Å¸ÀÌÆ²)   
-    public AudioClip bgmInGame;      // BGM(°ÔÀÓ Áß)
-    public AudioClip bgmInBoss;        // BGM(º¸½ºÀü)
-    public AudioClip seShoot;             // SE(ÃÑ½î±â)
-    public AudioClip seUI;             // SE(ÃÑ½î±â)
+    public AudioClip bgmInTitle;         // BGM(Å¸ï¿½ï¿½Æ²)   
+    public AudioClip bgmInGame;      // BGM(ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½)
+    public AudioClip bgmInBoss;        // BGM(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
+    public AudioClip seShoot;             // SE(ï¿½Ñ½ï¿½ï¿½)
+    public AudioClip seUI;             // SE(ï¿½Ñ½ï¿½ï¿½)
 
-    // Ã¹ SoundManager¸¦ ÀúÀåÇÒ Static º¯¼ö
+    // Ã¹ SoundManagerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Static ï¿½ï¿½ï¿½ï¿½
     public static SoundManager soundManager;
 
-    // ÇöÀç Àç»ýÁßÀÎ BGM
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ BGM
     public static BGMType playingBGM = BGMType.None;
 
     // Start is called before the first frame update
     void Start()
     {
-        // BGM Àç»ý
+        // BGM ï¿½ï¿½ï¿½
         if (soundManager == null)
         {
-            // static º¯¼ö¿¡ ÀÚ±âÀÚ½ÅÀ» ÀúÀå
+            // static ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú±ï¿½ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             soundManager = this;
 
-            // SceneÀÌ ÀÌµ¿ÇØµµ ¿ÀºêÁ§Æ®¸¦ ÆÄ±«ÇÏÁö ¾ÊÀ½
+            // Sceneï¿½ï¿½ ï¿½Ìµï¿½ï¿½Øµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
             DontDestroyOnLoad(gameObject);
         }
         else
         {
-            // Á¤º¸°¡ »ðÀÔµÇ¾î ÀÖ´Ù¸é Áï½Ã ÆÄ±â
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÔµÇ¾ï¿½ ï¿½Ö´Ù¸ï¿½ ï¿½ï¿½ï¿½ ï¿½Ä±ï¿½
             Destroy(gameObject);
         }
     }
@@ -53,18 +79,18 @@ public class SoundManager : MonoBehaviour
             AudioSource audio = GetComponent<AudioSource>();
             if (type == BGMType.Title)
             {
-                audio.clip = bgmInTitle;    // Å¸ÀÌÆ² bgm
+                audio.clip = bgmInTitle;    // Å¸ï¿½ï¿½Æ² bgm
             }
             else if (type == BGMType.InGame)
             {
-                audio.clip = bgmInGame; // ÀÎ°ÔÀÓ bgm
+                audio.clip = bgmInGame; // ï¿½Î°ï¿½ï¿½ï¿½ bgm
             }
             else if (type == BGMType.InBoss)
             {
-                audio.clip = bgmInBoss; // º¸½º bgm
+                audio.clip = bgmInBoss; // ï¿½ï¿½ï¿½ï¿½ bgm
             }
 
-            audio.Play();   // »ç¿îµå Àç»ý
+            audio.Play();   // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
         }
     }
 
@@ -81,9 +107,10 @@ public class SoundManager : MonoBehaviour
             GetComponent<AudioSource>().PlayOneShot(meGameClear);
         else if (type == SEType.GameOver)
             GetComponent<AudioSource>().PlayOneShot(meGameOver);
-         */
+         
         if (type == SEType.Shoot)
             GetComponent<AudioSource>().PlayOneShot(seShoot);
     }
 
 }
+ */
