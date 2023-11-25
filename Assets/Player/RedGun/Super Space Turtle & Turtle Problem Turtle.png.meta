@@ -1,0 +1,6757 @@
+fileFormatVersion: 2
+guid: adea9332b80a10a41bec060a5f07a84c
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_0
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 425
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e05739da78e30574ba3ab09188073efb
+      internalID: 832173526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_1
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 425
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b6416a6e63ff2646b88a698f4430ae0
+      internalID: 1414864811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_2
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 423
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ba9cf1bc136e5547b74fcbbe0306de5
+      internalID: -2097657310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_3
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 425
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7f34ecef7cde2c478fc7cdee2964eb4
+      internalID: 961733233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_4
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 425
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd4983823b52446498e6d7501d1a6cb2
+      internalID: 761715040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_5
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 423
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c5276c839c961b41a81f9a222621c3e
+      internalID: -576843923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_6
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 425
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bd0b2835d61f1b4599a07ac12c49319
+      internalID: -1827517549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_7
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 425
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54c054ddfcb9cd04796770cadb8d7bc3
+      internalID: 1514818896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_8
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 425
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b85c3ccaa35080546b2ce962bc31d1af
+      internalID: -1475800560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_9
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 425
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93b143978373c444dbbedbfc32b75926
+      internalID: -793775977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_10
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 425
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8329d8aee233ea248a2555370daaade4
+      internalID: 1822044942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_11
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 425
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ab5339724cd1e74ca8b1554fab38913
+      internalID: -568039700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_12
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 425
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 732d1eaf5f0304c4eb99b5ac0454e754
+      internalID: 1317163128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_13
+      rect:
+        serializedVersion: 2
+        x: 237
+        y: 425
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a2f12890fc193249975575ac53cd794
+      internalID: 1146222326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_14
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 425
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e87f4d8f7dd4974e8ddf1b920020c54
+      internalID: -1968422923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_15
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 425
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fecf2f4a08d08f43af98c4edd37e3cf
+      internalID: 1889616232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_16
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 423
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c2f0d950c9275f4e90cc2e939580b2d
+      internalID: -531470632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_17
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 425
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfd654efbf271434fa9aed8f4e95b4bb
+      internalID: 1908953077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_18
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 425
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63614e71e2a4a0e478dc6b32cc879f75
+      internalID: 257047719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_19
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 425
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 301f67de607992c4fa76c3c4a6aff5f6
+      internalID: 843155824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_20
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 425
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69f3a39386e02ce44a0aa0a5e7edf39b
+      internalID: 475756140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_21
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 425
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 624e2a679d8eea34da4b5a598d34470c
+      internalID: -1287574410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_22
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 425
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bef2ad571783b8243b453957a2844aef
+      internalID: -1761897701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_23
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 425
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a08f874a1b738d47ab400630f002141
+      internalID: 1749267506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_24
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 425
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4a77730d23035e459f924a550677c1f
+      internalID: -149384922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_25
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 425
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce80b0e8fe90fd84ca6c0025f747691c
+      internalID: 100492000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_26
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 425
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea229f6ef71ea334c8c8bc920f5b19f4
+      internalID: -1948602187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_27
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 413
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 168740ffde84b704f9f6b917cf83c399
+      internalID: -493930513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_28
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 413
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c15eefd269a66a4ba14f9f1f4685d21
+      internalID: 956937618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_29
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 413
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d903302f6332ed46bdc828b5ae00de3
+      internalID: -561937453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_30
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 413
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa142fe37543cc3458a897b5c359ef76
+      internalID: -1985034792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_31
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 413
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9485dc286450b5449b9e679f411beffc
+      internalID: 534985986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_32
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 413
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dd75c80930a55249add843e146d8172
+      internalID: -359019162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_33
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 405
+        width: 8
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c187efb5b0fad324bb6c8c0a092d0193
+      internalID: -1989940336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_34
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 413
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5becdad6048d7314283c40938177e8b4
+      internalID: -1498462549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_35
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 413
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13734f8504ef66a4c878aac4f168bf60
+      internalID: 1204113166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_36
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 411
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4239d5e12f305ea41a9e61fe53b219d5
+      internalID: -939362378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_37
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 413
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 685602de64e848c4197d2fbab00f14e2
+      internalID: 1516514990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_38
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 413
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83b21b88913538f4ab851e2989cb50b8
+      internalID: -496754541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_39
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 394
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d2f179922c748640b2126aafc91efab
+      internalID: -1338740919
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_40
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 394
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 974bb3f7d6c9da14b8d6b235578111de
+      internalID: 1678030002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_41
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 394
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f0a346201c728c46bf4d3584f884c7e
+      internalID: -596270764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_42
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 394
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d517fca2e6ccdf41a7fa59570ccdd87
+      internalID: -403427352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_43
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 395
+        width: 4
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c186d33b2c258f74fb8eeff0a21cd012
+      internalID: 2004585983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_44
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 395
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e4373b3cdc1bf44f8b25e3a7ed8c7a2
+      internalID: -1493036755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_45
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 395
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ff8d8877908f61488d29ec08524219c
+      internalID: 1762898839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_46
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 395
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de6dfc696007d9746bcac7de00731915
+      internalID: 1147662449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_47
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 395
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 587795de5ea1d2a408ed4f57100bb403
+      internalID: -977242171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_48
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 395
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcf64548f4807e14882b9aac1204631a
+      internalID: -26352753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_49
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 393
+        width: 20
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 146db88400c7a1f4cbbf66d821024c37
+      internalID: -1915741245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_50
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 382
+        width: 15
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98eb01f0a001c7944be79a00d17d0890
+      internalID: -1065275130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_51
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 382
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4efd97be6cc57644eafd5145284544ab
+      internalID: 1193234486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_52
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 382
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd0eebd0d5e968b46a73bd1f37b52e49
+      internalID: 1970817273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_53
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 380
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b10f1b448324e624c9c8e6101a98d767
+      internalID: 934624858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_54
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 382
+        width: 16
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c4a82bebeb015b4ab09871f87e1b7dc
+      internalID: -986665239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_55
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 381
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37aa5e6ca273d564f982795f91dbc103
+      internalID: -2097745513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_56
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 381
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49dec6ede4e77bc4fb7535ead8cf249b
+      internalID: -1061702956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_57
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 379
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1026ed7d428c0994caf7624b0f58e1e4
+      internalID: -1372414699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_58
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 363
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21efd3d2308b85f49a6422d816d203f7
+      internalID: 391562157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_59
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 362
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ca82a6aab94a814b9964810ad301385
+      internalID: -39149852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_60
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 363
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e55c56a4a288df6418c6ff95a26dee9b
+      internalID: -628576525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_61
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 362
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 651236bc129ad844585dc61d76fa2ac9
+      internalID: -69330023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_62
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 361
+        width: 20
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a2c8bdb755e3f74fa1c99e3e9533a7f
+      internalID: -1003638574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_63
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 361
+        width: 20
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43f7cc6fdc12b6a4ba97311578226c14
+      internalID: -1637955871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_64
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 350
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3b3caccd357e144bbca086f870b69d7
+      internalID: -1807697120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_65
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 350
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d3f2bf82a33c224d925ed60181c985c
+      internalID: -1907650769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_66
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 350
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f340245b3725c154db03d53f74982e2c
+      internalID: 1279634590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_67
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 350
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10f1c2dc9b88108409024001f6e94fe7
+      internalID: 1667900107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_68
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 348
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86c3785ddedfa8f499092eb3fc60e31c
+      internalID: 556157911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_69
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 350
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f589505e43182a48969a69127b0bf44
+      internalID: -1741352757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_70
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 350
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf2d9214f5c22c74b9592482e56facca
+      internalID: -1052225758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_71
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 350
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87786b1e6dc359a4e8d36384b019b540
+      internalID: -110213997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_72
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 348
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e27ca470fae991f42a84b3fe2d3dc745
+      internalID: 1667189897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_73
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 350
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6c791afde75cd148ab38287895f910a
+      internalID: 1665797609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_74
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 350
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d682c6ee803f48b44bc2989375e5f99a
+      internalID: -353977038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_75
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 350
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a765e12ccdf045d45af55fb83f3bccf6
+      internalID: 1535607908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_76
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 331
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 961bfa0449a7e2b4ea6f75acb22e9990
+      internalID: -1471507796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_77
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 331
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d36d153020b1004caf4dd70eb530a46
+      internalID: 1875062117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_78
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 331
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d44eb17abf9b2c74286c246e8251d534
+      internalID: -843408160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_79
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 319
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ea070e1377908b49b6fa90e5dd621ed
+      internalID: -148245624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_80
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 319
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a234c4c3707753646b985e9764e96234
+      internalID: 656183341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_81
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 319
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 130eb0e5e1f3a674a900e10a9e61c822
+      internalID: -1166634608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_82
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 319
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3d9317d00d95534089a0e4f4af709c0
+      internalID: 1334312997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_83
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 317
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14e4b81d606ab0341987e04a08020cfa
+      internalID: 1009833798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_84
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 319
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08e3a502a25c5af4784333dd3fd4ec9d
+      internalID: 1844612242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_85
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 319
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abbb1917124a1384ab3e19c02927a9a2
+      internalID: -1414368581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_86
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 319
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6886eda696ee4cb4e8ba20939da3f8c7
+      internalID: -662836312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_87
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 319
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bb54025bb0de6640a01458ad928436f
+      internalID: -1362886850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_88
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 306
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d61ec2f9ff1c884ea0d08b5801b3266
+      internalID: 350112496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_89
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 306
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6c033b6c299ec3f4cafc2ecbb8bdcc94
+      internalID: -1676446517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_90
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 306
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0db0b70ade527fa4e9293fe537ebf84b
+      internalID: -562231448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_91
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 306
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc208bec1c654764782b09a817ef40ff
+      internalID: 1644901704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_92
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 294
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32fb687a4382e4c4bbb992b046f6d576
+      internalID: 1522167448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_93
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 294
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a06d751eabd3664b8492d88ee52b48a
+      internalID: -407112201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_94
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 294
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 694c317d28c6af0488998b67591fef17
+      internalID: -1712715263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_95
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 294
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c1b6340ce10d294c9c776200e962661
+      internalID: -371683765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_96
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 294
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43eb772e6956bc24a82d70c0c700832d
+      internalID: -193094020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_97
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 294
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 602b4994956109a429fb803599ab11c8
+      internalID: -564539908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_98
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 294
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a4ad90ac1f97324f8702c2980b870bc
+      internalID: -1856028968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_99
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 294
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78b345e2ee5dfb84983abc58a4c370ac
+      internalID: -937544558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_100
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 292
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7742fde93bcbe0347b27bb63853fa00b
+      internalID: 118301563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_101
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 294
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e14456855322a584f8ec0fd0a85c5236
+      internalID: -164789838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_102
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 294
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab14cb8753b342a40a46fa1e59cd7dd4
+      internalID: 1864299882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_103
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 292
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b63389a4cc9045041b26e149505a2a0d
+      internalID: 994974587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_104
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 294
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ceaa1166f8f692442bc73c6927c5f6b6
+      internalID: -1266801325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_105
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 294
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0e6e375024a6e14fa2c1fcf269f9848
+      internalID: 1139537445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_106
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 294
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c305feabc3d5704d96174219cb7b755
+      internalID: -232300704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_107
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 294
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5e64d9ad642e364a8ee27082eb02319
+      internalID: 823967353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_108
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 294
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 454e03630fa21734d95cad3d77350199
+      internalID: -1849122926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_109
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 294
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbd2ea24762014e4ca900c10ad454ee7
+      internalID: -2090220066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_110
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 282
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e3fbad2db95abd4f8396b268ff74526
+      internalID: -768301910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_111
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 282
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df450f9b5fe6e5f4a9cca45440222243
+      internalID: 619970794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_112
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 266
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0592744e01fd6a43b116b68446da904
+      internalID: -254777557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_113
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 266
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7789d3ab8d32504d8de34b229bac3cd
+      internalID: -1162834266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_114
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 266
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 004f085097a73af45b6f1bd19383315f
+      internalID: 1380965353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_115
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 266
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf54a7544b6edeb4dac77b7c49de83a1
+      internalID: -2069112283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_116
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 254
+        width: 15
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 939258e33cd65d04298d1411877799fb
+      internalID: -1987445580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_117
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 254
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9b03a6e7f1ab1c468ee6908b835c30a
+      internalID: 935607521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_118
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 254
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55fabc9c361bd6b4a884169d75fc1113
+      internalID: 320757463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_119
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 252
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75b79be8361e152498183e95af1217da
+      internalID: 688631959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_120
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 238
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f1ce808d65de4845ab58b31678eadcb
+      internalID: -576675278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_121
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 238
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 091b882bbfb87dc45931d789b5af221d
+      internalID: 545857833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_122
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 238
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9b71ddfe7296404cb8d6c5d1fcb81b0
+      internalID: 437936320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_123
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 238
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3eeaec97e4771cb46b6c36f2f544df9f
+      internalID: 135145336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_124
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 226
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b965a0b2692aed43a818cab902ca1ac
+      internalID: -1218384243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_125
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 226
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaa522db4d311bd4aa6aebe7e41d35a1
+      internalID: 518137022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_126
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 226
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bd619bbb0a04ed468043e76defaf36b
+      internalID: 94151394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_127
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 226
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9710fcbf82d0fc64abd48edef0deb42f
+      internalID: -6138248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_128
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 226
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 636eb7274dae9214795f92c1efa33c25
+      internalID: -1822813425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_129
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 226
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 007632d799f1c9146a23c8b04648b157
+      internalID: 769078115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_130
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 226
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 470b7f52bde8334468ae92b7f5553c70
+      internalID: -1712765074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_131
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 226
+        width: 8
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c6bcf74bfd3a464eb9fcbc04f3f2c29
+      internalID: -810885959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_132
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 226
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aec8de59dbbefd844b0c8269e834e83b
+      internalID: 50811317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_133
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 226
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25a8b21baae052d47b91093feee626b1
+      internalID: -837301339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_134
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 226
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ada2144738962c8459c68ae89b54b668
+      internalID: -1361812207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_135
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 226
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2053c4f89408364bab41177165b19b2
+      internalID: 1513781220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_136
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 226
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 609373846b9ecd04fa382e1631fc892b
+      internalID: -1030028712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_137
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 226
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28e68ec3b7ab21840989faec1f120666
+      internalID: -1414937816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_138
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 226
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c463e444489ff2e47a0d5c776795bfc6
+      internalID: -876088667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_139
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 226
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a90819341bbbda4999b4d1bf2eb95bd
+      internalID: -2012554531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_140
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 226
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 664fe376ade2c9a4aa66a80e7095172f
+      internalID: -571042191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_141
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 226
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef8b16729419a244984506c8f0854f35
+      internalID: 1930985965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_142
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 226
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: accdaf3e56e93d842b6ba48f2c03134b
+      internalID: -1662775177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_143
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 226
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1326883769a74f44aa3b201b8a26ac0e
+      internalID: 1227536553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_144
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 226
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad1fa0288f92a154c8180ec58b26a5dd
+      internalID: -1941811922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_145
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 226
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0496364d4d990f47b97de2fdf6d4246
+      internalID: -1604059297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_146
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 226
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e89d455de96b21342a61b895287256fe
+      internalID: 1712374176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_147
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 224
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ad543ac93af11f49bb4b6097b0c5040
+      internalID: 1327523997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_148
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 226
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ac67a10e031f3748b4ee8e5157cef3f
+      internalID: -474423574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_149
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 226
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4871987401d6e96409e1753aa268b917
+      internalID: -643128354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_150
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 226
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0f90e130fa404f418be61959b93faa6
+      internalID: 1659699443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_151
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 226
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fda116a0bce35564bb18e826fe74032e
+      internalID: -1209216568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_152
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 224
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edd90aa895bf2fe4c84d601109b88755
+      internalID: -883077373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_153
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 214
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3236cade78e9474d9d96d51bfaaff6a
+      internalID: 1608446495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_154
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 214
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f9409f5451fcaf4f8fdb1e1d4b61ae2
+      internalID: -86029605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_155
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 214
+        width: 15
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cbf3f62c3099fa4c97b0837ecd44d11
+      internalID: -1955801189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_156
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 214
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83997bdbc78f3ce45b811f5c2db4b36b
+      internalID: -1303929281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_157
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 214
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4f139c50ea6a2342bc4c96a471e120e
+      internalID: -319724334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_158
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 212
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 325094d5d31afc64f9c3703a9eaa4d30
+      internalID: 1780166048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_159
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 202
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09efb9f7241abab4bb7b6865fbfff074
+      internalID: 21809698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_160
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 202
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad6fbcb687d803e4eb1df8d9f835366c
+      internalID: -1935498589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_161
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 202
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1cac8ac95686cc43bc50be1823131bf
+      internalID: 438508964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_162
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 202
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3991fbe58a3ece04cb0af535288295dc
+      internalID: -72752095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_163
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 197
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d32509b737cd911419f3467069c86296
+      internalID: 696517569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_164
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 197
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24f7281d86f934d4e95d29caae22a67b
+      internalID: -1200654354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_165
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 189
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6892dd21bca93e14b8064427b1b90712
+      internalID: -903970599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_166
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 189
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f476adc45148ad14da7a1795d61b80be
+      internalID: -985163654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_167
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 189
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aba30dfa193c0db45bf27bde98a27027
+      internalID: 936383619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_168
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 189
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa4b15f966ad2ad479bb94ae840bf698
+      internalID: -1449118513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_169
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 185
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbc3c9bee4ddd82469b647ff6dfbca7f
+      internalID: -834350838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_170
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 185
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c910fb8ab470874a8ebd0706054501b
+      internalID: 1668953099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_171
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 185
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5eac6aa83333b64fbcb0b35d170bb6d
+      internalID: 1385817239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_172
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 185
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa089b3a45f3f004aa2fb7886540684d
+      internalID: -798874693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_173
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 183
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4190ae3f4fea9004bab9392daafa1448
+      internalID: -1588435211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_174
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 185
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e29d1bbdc7a017149a5d17ab75b2360a
+      internalID: -1392082216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_175
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 185
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa818fc19a305a84f9b48511663c8dce
+      internalID: 1380122166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_176
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 185
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88b56a632bb777348905b5e553f6ccf6
+      internalID: 698853303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_177
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 183
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e2528d315c1e274c80447ccaf2811d4
+      internalID: -2031673866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_178
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 185
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f177edda4ff874a48a8f203059bbee60
+      internalID: -95971742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_179
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 185
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c16cda09ab5f3c74a897393c24730eca
+      internalID: 364904198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_180
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 185
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec6b2278eedbc334b9b7542a7ee8f3f0
+      internalID: 218843296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_181
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 177
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de9a4d3e6031f3448b691d05f26a30e9
+      internalID: 1190683280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_182
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 177
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f72efdab22222b8489556fdf8fa80900
+      internalID: 1046832569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_183
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 177
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e75053dcb5f3a047932b9f4b2691264
+      internalID: 897699196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_184
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 177
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acbbf88641ae788479d23b42ce6969c7
+      internalID: -1986869415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_185
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 171
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5513f8b5ef37c6468a97e423d578e0b
+      internalID: 438086046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_186
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 171
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1be0e0558e9b50d44b6303763720040e
+      internalID: 1672342418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_187
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 171
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55a268f141b3648479da28b0a782a942
+      internalID: -1919296412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_188
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 164
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89ee65f4c38d6174d8ba99cd24315ce3
+      internalID: -1940448985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_189
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 164
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1ad6f0ab8396ea4d89a64dd7e40b1cf
+      internalID: -1545471018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_190
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 164
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f0ca6a4c449961498f8ee8398e11f35
+      internalID: 238866213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_191
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 164
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7ac921fed9d92749a77c50ff53f3814
+      internalID: -881638209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_192
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 159
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06cee38f737cd8947a7e99d3ce63e932
+      internalID: 1333868976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_193
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 159
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01f0b3c12f7522d4385512b2461bbe4c
+      internalID: 1787963393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_194
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 159
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39a51d4eac03666459cf557830902896
+      internalID: 1979306143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_195
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 159
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2914a0165a33fc40b819dcaf4d1d5d0
+      internalID: -1303834139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_196
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 159
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcb534ade20249249b0205c74551c284
+      internalID: 2116852708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_197
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 159
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be431554790e91d4183cf38ff3543b9c
+      internalID: -1883424518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_198
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 159
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bba372c66b38f846b9ab436badddcdd
+      internalID: -381799773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_199
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 157
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d15957d5b3d6c8749a201d72671ec1fa
+      internalID: -223594207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_200
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 159
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffb6083d052c9f045ab2815f248beba1
+      internalID: 1535018808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_201
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 151
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1bc0b93c852bc446a0d3c38d31fdf6d
+      internalID: 682619997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_202
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 151
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 910137cf699ee9e4a9769a32037d12dc
+      internalID: -1244692743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_203
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 147
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfc2c989381c4954692738bf8b33204e
+      internalID: 1176757289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_204
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 147
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5dffdeffc8fb5c46941620d25ceef7f
+      internalID: 1929858261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_205
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 147
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d44463d77f68b7a4d97844d35f50371c
+      internalID: 1735037098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_206
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 147
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c27aad0efbb1afc46bb4b5e7d1e8b967
+      internalID: 1347562176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_207
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 139
+        width: 15
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9a8a49653e6571459f5c4e1b200bf7f
+      internalID: -304703311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_208
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 139
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3bb072ffdd2c3f4183f06b2dcc35a8f
+      internalID: 1279216741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_209
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 139
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbe470d1884160a4aa4f3fe95ea67e43
+      internalID: 348913379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_210
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 137
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e21fb145172b3ad4fa7fd5eb74d0d876
+      internalID: 1741814915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_211
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 126
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a52bc17dd1631d94ab97060d2725c168
+      internalID: 253044439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_212
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 126
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afa9e6d2cfb023b4f967a384ea8d31a5
+      internalID: 698323579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_213
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 126
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87f7574e9dae9a142aec55c03b32c76b
+      internalID: -1077708528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_214
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 126
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83866e0e088c7dd439cf11c2dc5cadcd
+      internalID: 12549026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_215
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 112
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0029ef9085a17b4f8320bd59895f6fe
+      internalID: 2146112116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_216
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 112
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d733c2e64e9df841a4bacfacb0ac149
+      internalID: -805417958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_217
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 112
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acf0c396e5baf21439d2f27008679dc2
+      internalID: 1705245939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_218
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 112
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6112260c66c49634d87a81d8550f3826
+      internalID: 2049115460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_219
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 112
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 805ee941e21d5df49998a7e7421ad1fe
+      internalID: -990248561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_220
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 98
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0e4fb09309671a4aa86517014b179c1
+      internalID: 372697513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_221
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 99
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 156662b64ade7704bb7c5c7a96c75913
+      internalID: -614467281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_222
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 98
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50a88e862610d64498bbd2f3c8561a2a
+      internalID: -491901318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_223
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 98
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc2149f9461efdb43b850085570424db
+      internalID: -1363354727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_224
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 98
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a7cca6f1da5b274dbfb1f8703705236
+      internalID: 431615373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_225
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 84
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b49118fc62173314097521a5aa0a071d
+      internalID: -1539128149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_226
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 85
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fce5cbd83c9d4824fb299ec466f713a1
+      internalID: 219636373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_227
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 85
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45cbd70cbabe02e40a36fb6ce189525b
+      internalID: 1938533561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_228
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 85
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ba1a37e1bf111240a9c12f28d5d0f98
+      internalID: -132578770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_229
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 84
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 143d66f50565b7b499ab8b4873655623
+      internalID: 1528749911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_230
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 70
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ac88a2211dbfef4abec9f52f82b7e2e
+      internalID: 1063274033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_231
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 71
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6005b1dce56634840b2f0b715a8173fb
+      internalID: -1864588987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_232
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 71
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a34fb43308966dd45b04da0a28ded4d4
+      internalID: -247233167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_233
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 72
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9a80f82e001522247a2e88c4b8915ce7
+      internalID: -732542667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_234
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 58
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2100825bcdb1c84ba51c04c8c75e65a
+      internalID: -972839921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_235
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 58
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c535aa954dd33fc4787dd9e94bb111d2
+      internalID: -1369265113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_236
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 58
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37ad326ba1134de43bf977a3377961d8
+      internalID: 1107085921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_237
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 58
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f6937eb835d0384c857dc21f6c437d9
+      internalID: -1156291979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_238
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 56
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dad3cc159551fd9418dbc80b15da2e28
+      internalID: 835486668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_239
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 58
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed6a2c909aa4ffe4aa9ce3e2a71a9e08
+      internalID: 694716815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_240
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 58
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdf6a58422632744dab267c4c192ef00
+      internalID: -123425332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_241
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 58
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8549bf708b13524f9e55a876a4f14a6
+      internalID: -593297014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_242
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 58
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db5be024ddf9b814abe40808df538eb7
+      internalID: 931639051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_243
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 56
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc53528c92acd054099cf340cb45469d
+      internalID: 1450340534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_244
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 51
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffacf4dec86d99b44a331d852cf367b3
+      internalID: -90739287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_245
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 51
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 278b21ecafab46f4fbe5004e116d4c24
+      internalID: 228857106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_246
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 51
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9054d24eca2438c4abefbe4d00c51e8f
+      internalID: 1718598707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_247
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 51
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a25ab4ffe1731124a9b34970d4eade70
+      internalID: 1375246291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_248
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 51
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2f3f9ae56d28be4184369072d1c8332
+      internalID: -498979147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_249
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 51
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50e34cb76b0d94442a3dc3092d37b5a8
+      internalID: -1702335929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_250
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 51
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 614457204a4c6dd478d7d5386e5e6319
+      internalID: 706028311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_251
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 51
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb94aa948a36fff46a2922c60dfae696
+      internalID: 1668717045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_252
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 51
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d67c86d5a4d380445bef18563a9137cf
+      internalID: -1270820727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_253
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 43
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 427c9c275a3603347b202575ae220b68
+      internalID: -398848280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_254
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 43
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ef225e2d01a6c448aad5dfa1cc45857
+      internalID: -235832855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_255
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 43
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 842a6152b80e3724688e880fa34a9fdd
+      internalID: 974321271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_256
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 51
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3643a6d9bfb29734c87cd5b09e6c6f05
+      internalID: -327538647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_257
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 45
+        width: 4
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9bb2b7aa3e2cdc4cba8dacba7091ba9
+      internalID: 765379173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_258
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 51
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60099c0eb9bf2e54499472041524d533
+      internalID: -190490416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_259
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 49
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8737a3fc1a1d2b34cbc06ea5b3d889ec
+      internalID: 1321580862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_260
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 51
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a51bc0f170c336e4d94b156cda6b4a0a
+      internalID: 1099578033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_261
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 51
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 890f1d6fc697e9b46a9f27284cc5afaa
+      internalID: -1094202818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_262
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 51
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fc307037c6e9a440aa6051ef3145df0
+      internalID: 295888144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_263
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 51
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 990da70054d0e9c47b5b80a5d6477a28
+      internalID: 715892902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_264
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 51
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e85d511177f9c84f806886aaecb2e27
+      internalID: -249713299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_265
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 51
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14df3249015646541aba1f42a783866c
+      internalID: 1743879746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_266
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 51
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 429d4b6c3963d214c9f597c8a3ec1f8b
+      internalID: 141720161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_267
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 51
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c681d2a993faed4f8ac4c077d799e41
+      internalID: 1603791424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_268
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 51
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 126adf7df39bb19478abf5b9989cadd5
+      internalID: -429377664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_269
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 49
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e465fd2e0a442f43806ccb06a42d84a
+      internalID: -1823518111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_270
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 51
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acb04978f4494a14e9aade8cd9be974f
+      internalID: 831264342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_271
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 51
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ecc5ea3403e54d46b8a88f9c6631cc3
+      internalID: 536656689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_272
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 51
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fbc44277c97aa14094c7e809b84dd3e
+      internalID: -1291392538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_273
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 43
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 447396d32a827c24099d5a7b2b390fae
+      internalID: 1409686852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_274
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 43
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a0a7ee4ee5bcd941a3f41ba775dbd98
+      internalID: 1189676608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_275
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 39
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82c6bdfc2b3fbb548894433774259370
+      internalID: 531021301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_276
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 37
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af0294cd598e7d34ca83703190a0f756
+      internalID: -1973784990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_277
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 39
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de916ca12ed1d1142bcf100f0e73b6f3
+      internalID: -1088247335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_278
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 39
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 037add0996fade842a297dbd0324f2a6
+      internalID: 367866763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_279
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 37
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d460d067be614fd4c8e26928d03b9ad2
+      internalID: -961623277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_280
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 37
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1eefe0f5125d8d846b4d3957fa3a4c97
+      internalID: -820338099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_281
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 39
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79538f2d31ea1f944894718264429dd6
+      internalID: 354197738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_282
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 39
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9234fd308a93b3745b860a65c43a5fde
+      internalID: 981641840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_283
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 39
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec6bb00189910a8419457d58d01bc41c
+      internalID: 171269974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_284
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 37
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fa00b6d67a272d449a77ab5881391c6
+      internalID: 1433256911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_285
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 39
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bd94d4b2d2b3494bbcdd6054e9820e2
+      internalID: 900147557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_286
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 39
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 205b2c200a695ed4c95b51084d738e79
+      internalID: 1249289154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_287
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 39
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bd133fedff98744194706012f3e38a7
+      internalID: -1544510545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_288
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 39
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d057067b5d54a9449c19f50083443e3
+      internalID: -1635722424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_289
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 39
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38ca77cf75603f049a8795f87bb33ade
+      internalID: -985777294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_290
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 27
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbbc4b6460d6831488cf1115fb0c34e4
+      internalID: 1727145974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_291
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 27
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf1562f12191691418f0e84854a74b26
+      internalID: -1715187746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_292
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 27
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 053d61c1a34966c4db05661130f52fb9
+      internalID: -1705136752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_293
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 27
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8145ced48a79ba54687964634a1376aa
+      internalID: -1331805062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_294
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 27
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee19047c87830ae47ad294c572095d9b
+      internalID: -1127015206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_295
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 27
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa718394880789843a0fdbe865b5da91
+      internalID: 1002920202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_296
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 27
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a938e42115a618144afd13ad230cc076
+      internalID: -350423019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_297
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 27
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2deced5961ad39743a792c36e0d8939f
+      internalID: 651472621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_298
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 27
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c65d89e54f65cd4fa32de0fae7169a0
+      internalID: -1919115143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_299
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 27
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1ad647d41b211641b0fde8705cc2fb6
+      internalID: -1623473595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Super Space Turtle & Turtle Problem Turtle_300
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 27
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afbd7fe752dc36145a1177acc78b9c38
+      internalID: -80580534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Super Space Turtle & Turtle Problem Turtle_0: 832173526
+      Super Space Turtle & Turtle Problem Turtle_1: 1414864811
+      Super Space Turtle & Turtle Problem Turtle_10: 1822044942
+      Super Space Turtle & Turtle Problem Turtle_100: 118301563
+      Super Space Turtle & Turtle Problem Turtle_101: -164789838
+      Super Space Turtle & Turtle Problem Turtle_102: 1864299882
+      Super Space Turtle & Turtle Problem Turtle_103: 994974587
+      Super Space Turtle & Turtle Problem Turtle_104: -1266801325
+      Super Space Turtle & Turtle Problem Turtle_105: 1139537445
+      Super Space Turtle & Turtle Problem Turtle_106: -232300704
+      Super Space Turtle & Turtle Problem Turtle_107: 823967353
+      Super Space Turtle & Turtle Problem Turtle_108: -1849122926
+      Super Space Turtle & Turtle Problem Turtle_109: -2090220066
+      Super Space Turtle & Turtle Problem Turtle_11: -568039700
+      Super Space Turtle & Turtle Problem Turtle_110: -768301910
+      Super Space Turtle & Turtle Problem Turtle_111: 619970794
+      Super Space Turtle & Turtle Problem Turtle_112: -254777557
+      Super Space Turtle & Turtle Problem Turtle_113: -1162834266
+      Super Space Turtle & Turtle Problem Turtle_114: 1380965353
+      Super Space Turtle & Turtle Problem Turtle_115: -2069112283
+      Super Space Turtle & Turtle Problem Turtle_116: -1987445580
+      Super Space Turtle & Turtle Problem Turtle_117: 935607521
+      Super Space Turtle & Turtle Problem Turtle_118: 320757463
+      Super Space Turtle & Turtle Problem Turtle_119: 688631959
+      Super Space Turtle & Turtle Problem Turtle_12: 1317163128
+      Super Space Turtle & Turtle Problem Turtle_120: -576675278
+      Super Space Turtle & Turtle Problem Turtle_121: 545857833
+      Super Space Turtle & Turtle Problem Turtle_122: 437936320
+      Super Space Turtle & Turtle Problem Turtle_123: 135145336
+      Super Space Turtle & Turtle Problem Turtle_124: -1218384243
+      Super Space Turtle & Turtle Problem Turtle_125: 518137022
+      Super Space Turtle & Turtle Problem Turtle_126: 94151394
+      Super Space Turtle & Turtle Problem Turtle_127: -6138248
+      Super Space Turtle & Turtle Problem Turtle_128: -1822813425
+      Super Space Turtle & Turtle Problem Turtle_129: 769078115
+      Super Space Turtle & Turtle Problem Turtle_13: 1146222326
+      Super Space Turtle & Turtle Problem Turtle_130: -1712765074
+      Super Space Turtle & Turtle Problem Turtle_131: -810885959
+      Super Space Turtle & Turtle Problem Turtle_132: 50811317
+      Super Space Turtle & Turtle Problem Turtle_133: -837301339
+      Super Space Turtle & Turtle Problem Turtle_134: -1361812207
+      Super Space Turtle & Turtle Problem Turtle_135: 1513781220
+      Super Space Turtle & Turtle Problem Turtle_136: -1030028712
+      Super Space Turtle & Turtle Problem Turtle_137: -1414937816
+      Super Space Turtle & Turtle Problem Turtle_138: -876088667
+      Super Space Turtle & Turtle Problem Turtle_139: -2012554531
+      Super Space Turtle & Turtle Problem Turtle_14: -1968422923
+      Super Space Turtle & Turtle Problem Turtle_140: -571042191
+      Super Space Turtle & Turtle Problem Turtle_141: 1930985965
+      Super Space Turtle & Turtle Problem Turtle_142: -1662775177
+      Super Space Turtle & Turtle Problem Turtle_143: 1227536553
+      Super Space Turtle & Turtle Problem Turtle_144: -1941811922
+      Super Space Turtle & Turtle Problem Turtle_145: -1604059297
+      Super Space Turtle & Turtle Problem Turtle_146: 1712374176
+      Super Space Turtle & Turtle Problem Turtle_147: 1327523997
+      Super Space Turtle & Turtle Problem Turtle_148: -474423574
+      Super Space Turtle & Turtle Problem Turtle_149: -643128354
+      Super Space Turtle & Turtle Problem Turtle_15: 1889616232
+      Super Space Turtle & Turtle Problem Turtle_150: 1659699443
+      Super Space Turtle & Turtle Problem Turtle_151: -1209216568
+      Super Space Turtle & Turtle Problem Turtle_152: -883077373
+      Super Space Turtle & Turtle Problem Turtle_153: 1608446495
+      Super Space Turtle & Turtle Problem Turtle_154: -86029605
+      Super Space Turtle & Turtle Problem Turtle_155: -1955801189
+      Super Space Turtle & Turtle Problem Turtle_156: -1303929281
+      Super Space Turtle & Turtle Problem Turtle_157: -319724334
+      Super Space Turtle & Turtle Problem Turtle_158: 1780166048
+      Super Space Turtle & Turtle Problem Turtle_159: 21809698
+      Super Space Turtle & Turtle Problem Turtle_16: -531470632
+      Super Space Turtle & Turtle Problem Turtle_160: -1935498589
+      Super Space Turtle & Turtle Problem Turtle_161: 438508964
+      Super Space Turtle & Turtle Problem Turtle_162: -72752095
+      Super Space Turtle & Turtle Problem Turtle_163: 696517569
+      Super Space Turtle & Turtle Problem Turtle_164: -1200654354
+      Super Space Turtle & Turtle Problem Turtle_165: -903970599
+      Super Space Turtle & Turtle Problem Turtle_166: -985163654
+      Super Space Turtle & Turtle Problem Turtle_167: 936383619
+      Super Space Turtle & Turtle Problem Turtle_168: -1449118513
+      Super Space Turtle & Turtle Problem Turtle_169: -834350838
+      Super Space Turtle & Turtle Problem Turtle_17: 1908953077
+      Super Space Turtle & Turtle Problem Turtle_170: 1668953099
+      Super Space Turtle & Turtle Problem Turtle_171: 1385817239
+      Super Space Turtle & Turtle Problem Turtle_172: -798874693
+      Super Space Turtle & Turtle Problem Turtle_173: -1588435211
+      Super Space Turtle & Turtle Problem Turtle_174: -1392082216
+      Super Space Turtle & Turtle Problem Turtle_175: 1380122166
+      Super Space Turtle & Turtle Problem Turtle_176: 698853303
+      Super Space Turtle & Turtle Problem Turtle_177: -2031673866
+      Super Space Turtle & Turtle Problem Turtle_178: -95971742
+      Super Space Turtle & Turtle Problem Turtle_179: 364904198
+      Super Space Turtle & Turtle Problem Turtle_18: 257047719
+      Super Space Turtle & Turtle Problem Turtle_180: 218843296
+      Super Space Turtle & Turtle Problem Turtle_181: 1190683280
+      Super Space Turtle & Turtle Problem Turtle_182: 1046832569
+      Super Space Turtle & Turtle Problem Turtle_183: 897699196
+      Super Space Turtle & Turtle Problem Turtle_184: -1986869415
+      Super Space Turtle & Turtle Problem Turtle_185: 438086046
+      Super Space Turtle & Turtle Problem Turtle_186: 1672342418
+      Super Space Turtle & Turtle Problem Turtle_187: -1919296412
+      Super Space Turtle & Turtle Problem Turtle_188: -1940448985
+      Super Space Turtle & Turtle Problem Turtle_189: -1545471018
+      Super Space Turtle & Turtle Problem Turtle_19: 843155824
+      Super Space Turtle & Turtle Problem Turtle_190: 238866213
+      Super Space Turtle & Turtle Problem Turtle_191: -881638209
+      Super Space Turtle & Turtle Problem Turtle_192: 1333868976
+      Super Space Turtle & Turtle Problem Turtle_193: 1787963393
+      Super Space Turtle & Turtle Problem Turtle_194: 1979306143
+      Super Space Turtle & Turtle Problem Turtle_195: -1303834139
+      Super Space Turtle & Turtle Problem Turtle_196: 2116852708
+      Super Space Turtle & Turtle Problem Turtle_197: -1883424518
+      Super Space Turtle & Turtle Problem Turtle_198: -381799773
+      Super Space Turtle & Turtle Problem Turtle_199: -223594207
+      Super Space Turtle & Turtle Problem Turtle_2: -2097657310
+      Super Space Turtle & Turtle Problem Turtle_20: 475756140
+      Super Space Turtle & Turtle Problem Turtle_200: 1535018808
+      Super Space Turtle & Turtle Problem Turtle_201: 682619997
+      Super Space Turtle & Turtle Problem Turtle_202: -1244692743
+      Super Space Turtle & Turtle Problem Turtle_203: 1176757289
+      Super Space Turtle & Turtle Problem Turtle_204: 1929858261
+      Super Space Turtle & Turtle Problem Turtle_205: 1735037098
+      Super Space Turtle & Turtle Problem Turtle_206: 1347562176
+      Super Space Turtle & Turtle Problem Turtle_207: -304703311
+      Super Space Turtle & Turtle Problem Turtle_208: 1279216741
+      Super Space Turtle & Turtle Problem Turtle_209: 348913379
+      Super Space Turtle & Turtle Problem Turtle_21: -1287574410
+      Super Space Turtle & Turtle Problem Turtle_210: 1741814915
+      Super Space Turtle & Turtle Problem Turtle_211: 253044439
+      Super Space Turtle & Turtle Problem Turtle_212: 698323579
+      Super Space Turtle & Turtle Problem Turtle_213: -1077708528
+      Super Space Turtle & Turtle Problem Turtle_214: 12549026
+      Super Space Turtle & Turtle Problem Turtle_215: 2146112116
+      Super Space Turtle & Turtle Problem Turtle_216: -805417958
+      Super Space Turtle & Turtle Problem Turtle_217: 1705245939
+      Super Space Turtle & Turtle Problem Turtle_218: 2049115460
+      Super Space Turtle & Turtle Problem Turtle_219: -990248561
+      Super Space Turtle & Turtle Problem Turtle_22: -1761897701
+      Super Space Turtle & Turtle Problem Turtle_220: 372697513
+      Super Space Turtle & Turtle Problem Turtle_221: -614467281
+      Super Space Turtle & Turtle Problem Turtle_222: -491901318
+      Super Space Turtle & Turtle Problem Turtle_223: -1363354727
+      Super Space Turtle & Turtle Problem Turtle_224: 431615373
+      Super Space Turtle & Turtle Problem Turtle_225: -1539128149
+      Super Space Turtle & Turtle Problem Turtle_226: 219636373
+      Super Space Turtle & Turtle Problem Turtle_227: 1938533561
+      Super Space Turtle & Turtle Problem Turtle_228: -132578770
+      Super Space Turtle & Turtle Problem Turtle_229: 1528749911
+      Super Space Turtle & Turtle Problem Turtle_23: 1749267506
+      Super Space Turtle & Turtle Problem Turtle_230: 1063274033
+      Super Space Turtle & Turtle Problem Turtle_231: -1864588987
+      Super Space Turtle & Turtle Problem Turtle_232: -247233167
+      Super Space Turtle & Turtle Problem Turtle_233: -732542667
+      Super Space Turtle & Turtle Problem Turtle_234: -972839921
+      Super Space Turtle & Turtle Problem Turtle_235: -1369265113
+      Super Space Turtle & Turtle Problem Turtle_236: 1107085921
+      Super Space Turtle & Turtle Problem Turtle_237: -1156291979
+      Super Space Turtle & Turtle Problem Turtle_238: 835486668
+      Super Space Turtle & Turtle Problem Turtle_239: 694716815
+      Super Space Turtle & Turtle Problem Turtle_24: -149384922
+      Super Space Turtle & Turtle Problem Turtle_240: -123425332
+      Super Space Turtle & Turtle Problem Turtle_241: -593297014
+      Super Space Turtle & Turtle Problem Turtle_242: 931639051
+      Super Space Turtle & Turtle Problem Turtle_243: 1450340534
+      Super Space Turtle & Turtle Problem Turtle_244: -90739287
+      Super Space Turtle & Turtle Problem Turtle_245: 228857106
+      Super Space Turtle & Turtle Problem Turtle_246: 1718598707
+      Super Space Turtle & Turtle Problem Turtle_247: 1375246291
+      Super Space Turtle & Turtle Problem Turtle_248: -498979147
+      Super Space Turtle & Turtle Problem Turtle_249: -1702335929
+      Super Space Turtle & Turtle Problem Turtle_25: 100492000
+      Super Space Turtle & Turtle Problem Turtle_250: 706028311
+      Super Space Turtle & Turtle Problem Turtle_251: 1668717045
+      Super Space Turtle & Turtle Problem Turtle_252: -1270820727
+      Super Space Turtle & Turtle Problem Turtle_253: -398848280
+      Super Space Turtle & Turtle Problem Turtle_254: -235832855
+      Super Space Turtle & Turtle Problem Turtle_255: 974321271
+      Super Space Turtle & Turtle Problem Turtle_256: -327538647
+      Super Space Turtle & Turtle Problem Turtle_257: 765379173
+      Super Space Turtle & Turtle Problem Turtle_258: -190490416
+      Super Space Turtle & Turtle Problem Turtle_259: 1321580862
+      Super Space Turtle & Turtle Problem Turtle_26: -1948602187
+      Super Space Turtle & Turtle Problem Turtle_260: 1099578033
+      Super Space Turtle & Turtle Problem Turtle_261: -1094202818
+      Super Space Turtle & Turtle Problem Turtle_262: 295888144
+      Super Space Turtle & Turtle Problem Turtle_263: 715892902
+      Super Space Turtle & Turtle Problem Turtle_264: -249713299
+      Super Space Turtle & Turtle Problem Turtle_265: 1743879746
+      Super Space Turtle & Turtle Problem Turtle_266: 141720161
+      Super Space Turtle & Turtle Problem Turtle_267: 1603791424
+      Super Space Turtle & Turtle Problem Turtle_268: -429377664
+      Super Space Turtle & Turtle Problem Turtle_269: -1823518111
+      Super Space Turtle & Turtle Problem Turtle_27: -493930513
+      Super Space Turtle & Turtle Problem Turtle_270: 831264342
+      Super Space Turtle & Turtle Problem Turtle_271: 536656689
+      Super Space Turtle & Turtle Problem Turtle_272: -1291392538
+      Super Space Turtle & Turtle Problem Turtle_273: 1409686852
+      Super Space Turtle & Turtle Problem Turtle_274: 1189676608
+      Super Space Turtle & Turtle Problem Turtle_275: 531021301
+      Super Space Turtle & Turtle Problem Turtle_276: -1973784990
+      Super Space Turtle & Turtle Problem Turtle_277: -1088247335
+      Super Space Turtle & Turtle Problem Turtle_278: 367866763
+      Super Space Turtle & Turtle Problem Turtle_279: -961623277
+      Super Space Turtle & Turtle Problem Turtle_28: 956937618
+      Super Space Turtle & Turtle Problem Turtle_280: -820338099
+      Super Space Turtle & Turtle Problem Turtle_281: 354197738
+      Super Space Turtle & Turtle Problem Turtle_282: 981641840
+      Super Space Turtle & Turtle Problem Turtle_283: 171269974
+      Super Space Turtle & Turtle Problem Turtle_284: 1433256911
+      Super Space Turtle & Turtle Problem Turtle_285: 900147557
+      Super Space Turtle & Turtle Problem Turtle_286: 1249289154
+      Super Space Turtle & Turtle Problem Turtle_287: -1544510545
+      Super Space Turtle & Turtle Problem Turtle_288: -1635722424
+      Super Space Turtle & Turtle Problem Turtle_289: -985777294
+      Super Space Turtle & Turtle Problem Turtle_29: -561937453
+      Super Space Turtle & Turtle Problem Turtle_290: 1727145974
+      Super Space Turtle & Turtle Problem Turtle_291: -1715187746
+      Super Space Turtle & Turtle Problem Turtle_292: -1705136752
+      Super Space Turtle & Turtle Problem Turtle_293: -1331805062
+      Super Space Turtle & Turtle Problem Turtle_294: -1127015206
+      Super Space Turtle & Turtle Problem Turtle_295: 1002920202
+      Super Space Turtle & Turtle Problem Turtle_296: -350423019
+      Super Space Turtle & Turtle Problem Turtle_297: 651472621
+      Super Space Turtle & Turtle Problem Turtle_298: -1919115143
+      Super Space Turtle & Turtle Problem Turtle_299: -1623473595
+      Super Space Turtle & Turtle Problem Turtle_3: 961733233
+      Super Space Turtle & Turtle Problem Turtle_30: -1985034792
+      Super Space Turtle & Turtle Problem Turtle_300: -80580534
+      Super Space Turtle & Turtle Problem Turtle_31: 534985986
+      Super Space Turtle & Turtle Problem Turtle_32: -359019162
+      Super Space Turtle & Turtle Problem Turtle_33: -1989940336
+      Super Space Turtle & Turtle Problem Turtle_34: -1498462549
+      Super Space Turtle & Turtle Problem Turtle_35: 1204113166
+      Super Space Turtle & Turtle Problem Turtle_36: -939362378
+      Super Space Turtle & Turtle Problem Turtle_37: 1516514990
+      Super Space Turtle & Turtle Problem Turtle_38: -496754541
+      Super Space Turtle & Turtle Problem Turtle_39: -1338740919
+      Super Space Turtle & Turtle Problem Turtle_4: 761715040
+      Super Space Turtle & Turtle Problem Turtle_40: 1678030002
+      Super Space Turtle & Turtle Problem Turtle_41: -596270764
+      Super Space Turtle & Turtle Problem Turtle_42: -403427352
+      Super Space Turtle & Turtle Problem Turtle_43: 2004585983
+      Super Space Turtle & Turtle Problem Turtle_44: -1493036755
+      Super Space Turtle & Turtle Problem Turtle_45: 1762898839
+      Super Space Turtle & Turtle Problem Turtle_46: 1147662449
+      Super Space Turtle & Turtle Problem Turtle_47: -977242171
+      Super Space Turtle & Turtle Problem Turtle_48: -26352753
+      Super Space Turtle & Turtle Problem Turtle_49: -1915741245
+      Super Space Turtle & Turtle Problem Turtle_5: -576843923
+      Super Space Turtle & Turtle Problem Turtle_50: -1065275130
+      Super Space Turtle & Turtle Problem Turtle_51: 1193234486
+      Super Space Turtle & Turtle Problem Turtle_52: 1970817273
+      Super Space Turtle & Turtle Problem Turtle_53: 934624858
+      Super Space Turtle & Turtle Problem Turtle_54: -986665239
+      Super Space Turtle & Turtle Problem Turtle_55: -2097745513
+      Super Space Turtle & Turtle Problem Turtle_56: -1061702956
+      Super Space Turtle & Turtle Problem Turtle_57: -1372414699
+      Super Space Turtle & Turtle Problem Turtle_58: 391562157
+      Super Space Turtle & Turtle Problem Turtle_59: -39149852
+      Super Space Turtle & Turtle Problem Turtle_6: -1827517549
+      Super Space Turtle & Turtle Problem Turtle_60: -628576525
+      Super Space Turtle & Turtle Problem Turtle_61: -69330023
+      Super Space Turtle & Turtle Problem Turtle_62: -1003638574
+      Super Space Turtle & Turtle Problem Turtle_63: -1637955871
+      Super Space Turtle & Turtle Problem Turtle_64: -1807697120
+      Super Space Turtle & Turtle Problem Turtle_65: -1907650769
+      Super Space Turtle & Turtle Problem Turtle_66: 1279634590
+      Super Space Turtle & Turtle Problem Turtle_67: 1667900107
+      Super Space Turtle & Turtle Problem Turtle_68: 556157911
+      Super Space Turtle & Turtle Problem Turtle_69: -1741352757
+      Super Space Turtle & Turtle Problem Turtle_7: 1514818896
+      Super Space Turtle & Turtle Problem Turtle_70: -1052225758
+      Super Space Turtle & Turtle Problem Turtle_71: -110213997
+      Super Space Turtle & Turtle Problem Turtle_72: 1667189897
+      Super Space Turtle & Turtle Problem Turtle_73: 1665797609
+      Super Space Turtle & Turtle Problem Turtle_74: -353977038
+      Super Space Turtle & Turtle Problem Turtle_75: 1535607908
+      Super Space Turtle & Turtle Problem Turtle_76: -1471507796
+      Super Space Turtle & Turtle Problem Turtle_77: 1875062117
+      Super Space Turtle & Turtle Problem Turtle_78: -843408160
+      Super Space Turtle & Turtle Problem Turtle_79: -148245624
+      Super Space Turtle & Turtle Problem Turtle_8: -1475800560
+      Super Space Turtle & Turtle Problem Turtle_80: 656183341
+      Super Space Turtle & Turtle Problem Turtle_81: -1166634608
+      Super Space Turtle & Turtle Problem Turtle_82: 1334312997
+      Super Space Turtle & Turtle Problem Turtle_83: 1009833798
+      Super Space Turtle & Turtle Problem Turtle_84: 1844612242
+      Super Space Turtle & Turtle Problem Turtle_85: -1414368581
+      Super Space Turtle & Turtle Problem Turtle_86: -662836312
+      Super Space Turtle & Turtle Problem Turtle_87: -1362886850
+      Super Space Turtle & Turtle Problem Turtle_88: 350112496
+      Super Space Turtle & Turtle Problem Turtle_89: -1676446517
+      Super Space Turtle & Turtle Problem Turtle_9: -793775977
+      Super Space Turtle & Turtle Problem Turtle_90: -562231448
+      Super Space Turtle & Turtle Problem Turtle_91: 1644901704
+      Super Space Turtle & Turtle Problem Turtle_92: 1522167448
+      Super Space Turtle & Turtle Problem Turtle_93: -407112201
+      Super Space Turtle & Turtle Problem Turtle_94: -1712715263
+      Super Space Turtle & Turtle Problem Turtle_95: -371683765
+      Super Space Turtle & Turtle Problem Turtle_96: -193094020
+      Super Space Turtle & Turtle Problem Turtle_97: -564539908
+      Super Space Turtle & Turtle Problem Turtle_98: -1856028968
+      Super Space Turtle & Turtle Problem Turtle_99: -937544558
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

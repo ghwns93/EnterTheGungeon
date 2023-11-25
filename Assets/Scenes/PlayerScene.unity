@@ -775,7 +775,7 @@ GameObject:
   - component: {fileID: 653509896}
   - component: {fileID: 653509895}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: PilotCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1304,6 +1304,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7173136980347401022, guid: fac1b2573137d324b960d66cc9bc1c8a, type: 3}
+      propertyPath: gunNumber
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7173136980347401022, guid: fac1b2573137d324b960d66cc9bc1c8a, type: 3}
+      propertyPath: gunPrefab
+      value: 
+      objectReference: {fileID: 1444257714989707102, guid: 6a494fcedd08e1b47b3cc5adefe849cd, type: 3}
     - target: {fileID: -7173136980347401022, guid: fac1b2573137d324b960d66cc9bc1c8a, type: 3}
       propertyPath: reloadBar
       value: 

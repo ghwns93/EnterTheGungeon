@@ -9,7 +9,7 @@ public class BoxPilotGunController : MonoBehaviour
 
     // 애니메이션
     private string pilotGunHold = "PilotGunHold";
-    private string pilotGunReady = "PilotGunReady";
+    //private string pilotGunReady = "PilotGunReady";
     private string BoxPilotGunFire = "BoxPilotGunFire";
     private string pilotGunReturn = "PilotGunReturn";
     private string pilotGunReload = "PilotGunReload";

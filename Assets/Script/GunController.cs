@@ -20,6 +20,8 @@ public class GunController : MonoBehaviour
 
     public int bulletCount;     //총알 개수
 
+    public int gunNumber;       //총 종류 식별 숫자
+
     public GameObject gunPrefab;        //총 프리팹
     public GameObject bulletPrefab;     //총알 프리팹
     public GameObject OtherHandPrefab;  //총든손 반대편 손 프리팹
@@ -67,7 +69,10 @@ public class GunController : MonoBehaviour
         gunAnimator = gunObj.GetComponent<Animator>();
 
         // (기본) 애니메이션 설정
-        gunAnimator.Play(pilotGunHold);
+        if (gunNumber == 1)
+            gunAnimator.Play(pilotGunHold);
+        else if (gunNumber == 2)
+            gunAnimator.Play("RedGunHold");
 
         inlobby = GetComponent<PlayerController>().inlobby;
 
@@ -93,7 +98,7 @@ public class GunController : MonoBehaviour
         if (mousePosition .x> transform.position.x) // 마우스가 캐릭터 오른쪽에 있을때
         {
             gunObj.GetComponent<SpriteRenderer>().flipY = false;                                    //반전취소
-            gunObj.transform.rotation = Quaternion.Euler(0, 0, plmv.angleZ-90);                     //마우스에 따라 총회전
+            gunObj.transform.rotation = Quaternion.Euler(0, 0, plmv.angleZ - 90);                     //마우스에 따라 총회전          
             gunObj.transform.position = transform.position + new Vector3(0.2f, -0.15f, 0);          //총위치 캐릭터 오른쪽으로
 
             gunGateObj.transform.position = gunObj.transform.position +
@@ -127,7 +132,7 @@ public class GunController : MonoBehaviour
         else // 마우스가 캐릭터 왼쪽에 있을때
         {
             gunObj.GetComponent<SpriteRenderer>().flipY = true;                                     //반전           
-            gunObj.transform.rotation = Quaternion.Euler(0, 0, plmv.angleZ+90);                     //마우스에 따라 총회전
+            gunObj.transform.rotation = Quaternion.Euler(0, 0, plmv.angleZ + 90);                     //마우스에 따라 총회전
             gunObj.transform.position = transform.position + new Vector3(-0.2f, -0.15f, 0);         //총위치 캐릭터 왼쪽으로
 
             gunGateObj.transform.position = gunObj.transform.position + 
@@ -194,12 +199,16 @@ public class GunController : MonoBehaviour
             isRightHand = false;
             Destroy(LeftHandObj);                                                                   //왼손 삭제
             isLeftHand = false;
+            if (gunObj)
+            {
+                gunObj.SetActive(false);
+            }
         }
 
         // 마우스 왼클릭시 공격
         if (Input.GetMouseButton(0) && canAttack&&!inlobby&&bulletCount>0 &&!isReloading)
         {            
-            gunAnimator.Play(pilotGunReady);
+            
             isAttack = true;
 
             // 공격 키 입력 및 딜레이 시작
@@ -228,7 +237,11 @@ public class GunController : MonoBehaviour
             canAttack = false;
             Destroy(ReloadText);
             isReloadText =false;
-            gunAnimator.Play(pilotGunReload, 0, 0f);  // 애니메이션 키포인트 처음으로 이동후 실행
+
+            if (gunNumber == 1)
+                gunAnimator.Play(pilotGunReload, 0, 0f);    // 애니메이션 키포인트 처음으로 이동후 실행
+            else if (gunNumber == 2)
+                gunAnimator.Play("RedGunReload", 0, 0f);
 
             ReloadBack = Instantiate(reloadBack, transform.position + new Vector3(-0.1f, 0.4f, 0), transform.rotation);   //긴막대 생성            
             ReloadBar = Instantiate(reloadBar, transform.position + new Vector3(-0.5f, 0.44f, 0), transform.rotation);   //짧은막대 생성
@@ -243,7 +256,9 @@ public class GunController : MonoBehaviour
         // 마우스 왼클릭을 땔때
         if (Input.GetMouseButtonUp(0) && !inlobby &&!isReloading)
         {
-            gunAnimator.Play(pilotGunReturn);
+            
+            if (gunNumber == 1)
+                gunAnimator.Play(pilotGunReturn);
             isAttack = false;
         }
         
@@ -254,7 +269,11 @@ public class GunController : MonoBehaviour
             canAttack = false;
             Destroy(ReloadText);
             isReloadText = false;
-            gunAnimator.Play(pilotGunReload,0,0f);  // 애니메이션 키포인트 처음으로 이동후 실행
+            //gunAnimator.Play(pilotGunReload,0,0f);  // 애니메이션 키포인트 처음으로 이동후 실행
+            if (gunNumber == 1)
+                gunAnimator.Play(pilotGunReload, 0, 0f);    // 애니메이션 키포인트 처음으로 이동후 실행
+            else if (gunNumber == 2)
+                gunAnimator.Play("RedGunReload", 0, 0f);
 
             ReloadBack = Instantiate(reloadBack, transform.position + new Vector3(-0.1f, 0.4f, 0), transform.rotation);   //긴막대 생성            
             ReloadBar = Instantiate(reloadBar, transform.position + new Vector3(-0.5f, 0.44f, 0), transform.rotation);   //짧은막대 생성
@@ -293,7 +312,11 @@ public class GunController : MonoBehaviour
     public void Attack()
     {
         bulletCount--;
-        gunAnimator.Play(pilotGunFire, 0, 0f);  // 애니메이션 키포인트 처음으로 이동후 실행
+        //gunAnimator.Play(pilotGunFire, 0, 0f);  // 애니메이션 키포인트 처음으로 이동후 실행
+        if (gunNumber == 1)
+            gunAnimator.Play(pilotGunReload, 0, 0f);    // 애니메이션 키포인트 처음으로 이동후 실행
+        else if (gunNumber == 2)
+            gunAnimator.Play("RedGunFire", 0, 0f);
 
         PlayerController playerCnt = GetComponent<PlayerController>();
         // 회전에 사용할 각도
