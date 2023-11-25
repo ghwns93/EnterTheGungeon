@@ -393,15 +393,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 848560060}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8b745c9ed877f944391f99b08fd4d1b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TableIdle: TableIdle
   TableRight: TableRight
   TableLeft: TableLeft
   TableUp: TableUp
   TableDown: TableDown
+  Table_ShadowIdel: Table_ShadowIdle
   Table_ShadowRight: Table_ShadowRight
   Table_ShadowLeft: Table_ShadowLeft
   Table_ShadowUp: Table_ShadowUp

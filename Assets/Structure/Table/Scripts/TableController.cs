@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class TableController : MonoBehaviour
 {
+    public string TableIdle = "TableIdle";
     public string TableRight = "TableRight";
     public string TableLeft = "TableLeft";
     public string TableUp = "TableUp";
     public string TableDown = "TableDown";
 
+    public string Table_ShadowIdel = "Table_ShadowIdle";
     public string Table_ShadowRight = "Table_ShadowRight";
     public string Table_ShadowLeft = "Table_ShadowLeft";
     public string Table_ShadowUp = "Table_ShadowUp";
@@ -36,5 +38,6 @@ public class TableController : MonoBehaviour
             animator.Play("Table_ShadowIdle");
         }
 
+        if ()
     }
 }
