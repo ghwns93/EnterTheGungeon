@@ -18,17 +18,21 @@ public class GunController : MonoBehaviour
     public float shootSpeed;    //화살 속도
     public float shootDelay;    //발사 간격 0.5로 인스펙터에 되있음
 
-    public int bulletCount;     //총알 개수
+    public int pilotGunBulletCount;     //PilotGunBullet총알 개수
+    public int redGunBulletCount;     //총알 개수
 
     public int gunNumber;       //총 종류 식별 숫자
+    public int gunMaxCount;     //가지고 있는 총의 개수
 
-    public GameObject gunPrefab;        //총 프리팹
-    public GameObject bulletPrefab;     //총알 프리팹
-    public GameObject OtherHandPrefab;  //총든손 반대편 손 프리팹
+    public GameObject pilotGunPrefab;           //파일럿 총 프리팹
+    public GameObject redGunPrefab;             //빨간 총 프리팹
+    public GameObject pilotGunBulletPrefab;     //파일럿총알 프리팹
+    public GameObject redGunBulletPrefab;     //빨간총알 프리팹
+
+    public GameObject otherHandPrefab;  //총든손 반대편 손 프리팹
     public GameObject reloadBack;       //장전시 긴 막대
     public GameObject reloadBar;        //장전시 작은 막대
     public GameObject reloadText;       //재장전 프리팹
-
 
     GameObject gunObj;                  //총오브젝트
     GameObject gunGateObj;              //포구
@@ -37,6 +41,7 @@ public class GunController : MonoBehaviour
     GameObject ReloadBack;              //R누르면 만들어지는 긴 막대
     GameObject ReloadBar;               //R누르면 만들어지는 작은 막대
     GameObject ReloadText;            //재장전 문구(3d legacy text)
+    GameObject bulletObj;               //총알 조건문안에 안들어가서 선언해둠
 
     public bool canAttack;              //공격 딜레이 할때 사용
     private bool isReloading;           //장전하는중 장전 안되게
@@ -56,36 +61,45 @@ public class GunController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // 총을 플레이어 위치에 배치
-        Vector3 pos = transform.position;
-        gunObj = Instantiate(gunPrefab, pos, Quaternion.identity);
-        gunObj.transform.SetParent(transform);  //플레이어 객체를 총 객체의 부모로 설정
+        InstantiateGun();
 
-        // 포구에 배치한 오브젝트 가져오기
-        Transform tr = gunObj.transform.Find("GunGate");
-        gunGateObj = tr.gameObject;
+        gunNumber = 1;
+        gunMaxCount = 2;
+        pilotGunBulletCount = 8;
+        redGunBulletCount = 20;
 
-        // 애니메이터 가져오기
-        gunAnimator = gunObj.GetComponent<Animator>();
+        inlobby = GetComponent<PlayerController>().inlobby;            
 
-        // (기본) 애니메이션 설정
-        if (gunNumber == 1)
-            gunAnimator.Play(pilotGunHold);
-        else if (gunNumber == 2)
-            gunAnimator.Play("RedGunHold");
-
-        inlobby = GetComponent<PlayerController>().inlobby;
-
-        bulletCount = 8;
         canAttack = true;
         isReloading = false;
         isAttack = false;
-        isReloadText = false;
+        isReloadText = false;        
     }
 
     // Update is called once per frame
     void Update()
-    {        
+    {
+        // 마우스 휠 스크롤 값을 얻기
+        float scrollValue = Input.GetAxis("Mouse ScrollWheel");
+
+        // 위로 스크롤 
+        if (scrollValue > 0.0f)
+        {            
+            gunNumber++;
+            if (gunNumber > gunMaxCount)
+                gunNumber = 1;
+            Destroy(gunObj);
+            InstantiateGun();
+        }
+        else if (scrollValue < 0.0f)    // 아래쪽으로 스크롤
+        {
+            gunNumber--;
+            if (gunNumber <= 0)
+                gunNumber = gunMaxCount;
+            Destroy(gunObj);
+            InstantiateGun();
+        }
+
         SpriteRenderer gunSpr = gunObj.GetComponent<SpriteRenderer>();          //총의 SpriteRenderer
         Transform childTransform = gunObj.transform.Find("PilotHand");          //자식에 접근하기위해
         SpriteRenderer handSpr = childTransform.GetComponent<SpriteRenderer>(); //손의 SpriteRenderer
@@ -112,7 +126,7 @@ public class GunController : MonoBehaviour
             if(!isLeftHand)
             {
                 isLeftHand = true;
-                LeftHandObj = Instantiate(OtherHandPrefab,
+                LeftHandObj = Instantiate(otherHandPrefab,
                     transform.position + new Vector3(-0.2f, -0.15f, 0), Quaternion.Euler(0, 0, 0)); //왼손 생성                
             }
             LeftHandObj.transform.position = transform.position + new Vector3(-0.2f, -0.15f, 0);    //왼손 캐릭터에 붙어다니게
@@ -123,7 +137,7 @@ public class GunController : MonoBehaviour
                 if (!isRightHand)
                 {
                     isRightHand = true;
-                    RightHandObj = Instantiate(OtherHandPrefab,
+                    RightHandObj = Instantiate(otherHandPrefab,
                         transform.position + new Vector3(0.2f, -0.15f, 0), Quaternion.Euler(0, 0, 0));  //오른손 생성
                 }
                 RightHandObj.transform.position = transform.position + new Vector3(+0.2f, -0.15f, 0);   //오른손 캐릭터에 붙어다니게
@@ -145,7 +159,7 @@ public class GunController : MonoBehaviour
             childTransform.rotation = Quaternion.Euler(0, 0, 0);                                    //손회전 x
             if (!isRightHand)                                                               
             {
-                RightHandObj = Instantiate(OtherHandPrefab,
+                RightHandObj = Instantiate(otherHandPrefab,
                     transform.position + new Vector3(0.2f, -0.15f, 0), Quaternion.Euler(0, 0, 0));  //오른손 생성
                 isRightHand = true;
             }
@@ -157,7 +171,7 @@ public class GunController : MonoBehaviour
             {
                 if (!isLeftHand)
                 {
-                    LeftHandObj = Instantiate(OtherHandPrefab,
+                    LeftHandObj = Instantiate(otherHandPrefab,
                         transform.position + new Vector3(-0.2f, -0.15f, 0), Quaternion.Euler(0, 0, 0)); //왼손 생성
                     isLeftHand = true;
                 }
@@ -206,84 +220,102 @@ public class GunController : MonoBehaviour
         }
 
         // 마우스 왼클릭시 공격
-        if (Input.GetMouseButton(0) && canAttack&&!inlobby&&bulletCount>0 &&!isReloading)
+        if (Input.GetMouseButton(0) && canAttack&&!inlobby &&!isReloading)
         {            
-            
-            isAttack = true;
+            if(gunNumber ==1)
+            {
+                if(pilotGunBulletCount > 0) 
+                {                    
+                    // 공격 키 입력 및 딜레이 시작
+                    StartCoroutine(AttackWithDelay());
 
-            // 공격 키 입력 및 딜레이 시작
-            StartCoroutine(AttackWithDelay());
-            
+                }
+            }
+            else if(gunNumber ==2) 
+            {
+                if(redGunBulletCount > 0)
+                {
+                    // 공격 키 입력 및 딜레이 시작
+                    StartCoroutine(AttackWithDelay());
+                }
+            }            
         }
 
         // 총알 다썼을때
-        if (bulletCount == 0 && !isReloadText)
+        if (!isReloadText)
         {
-            // 재장전 문구 생성
-            ReloadText = Instantiate(reloadText, transform.position + new Vector3(-0.35f, 0.7f, 0), transform.rotation);
-            ReloadText.transform.SetParent(transform);  // 플레이어 따라다니게 자식으로 설정
-            isReloadText = true;
-            // 텍스트 깜빡거리게 하기
-            textMesh = ReloadText.GetComponent<TextMesh>();
-            textColor = textMesh.color;
-            Invoke("TextInVisible", 1f);
+            if (gunNumber ==1) 
+            {
+                if(pilotGunBulletCount == 0)
+                {
+                    // 재장전 문구 생성
+                    ReloadText = Instantiate(reloadText, transform.position + new Vector3(-0.35f, 0.7f, 0), transform.rotation);
+                    ReloadText.transform.SetParent(transform);  // 플레이어 따라다니게 자식으로 설정
+                    isReloadText = true;
+                    // 텍스트 깜빡거리게 하기
+                    textMesh = ReloadText.GetComponent<TextMesh>();
+                    textColor = textMesh.color;
+                    Invoke("TextInVisible", 1f);
+                }
+            }
+            else if (gunNumber == 2)
+            {
+                if (redGunBulletCount == 0)
+                {
+                    // 재장전 문구 생성
+                    ReloadText = Instantiate(reloadText, transform.position + new Vector3(-0.35f, 0.7f, 0), transform.rotation);
+                    ReloadText.transform.SetParent(transform);  // 플레이어 따라다니게 자식으로 설정
+                    isReloadText = true;
+                    // 텍스트 깜빡거리게 하기
+                    textMesh = ReloadText.GetComponent<TextMesh>();
+                    textColor = textMesh.color;
+                    Invoke("TextInVisible", 1f);
+                }
+            }
         }
 
 
         // 총알 다썼을 때 마우스 왼클릭시 장전
-        if (Input.GetMouseButtonDown(0) && canAttack && !inlobby && bulletCount == 0)
+        if (Input.GetMouseButtonDown(0) && canAttack && !inlobby)
         {
-            isReloading = true;
-            canAttack = false;
-            Destroy(ReloadText);
-            isReloadText =false;
-
-            if (gunNumber == 1)
-                gunAnimator.Play(pilotGunReload, 0, 0f);    // 애니메이션 키포인트 처음으로 이동후 실행
+            if(gunNumber==1) 
+            {
+                if(pilotGunBulletCount == 0)
+                    Reload();
+            }
             else if (gunNumber == 2)
-                gunAnimator.Play("RedGunReload", 0, 0f);
-
-            ReloadBack = Instantiate(reloadBack, transform.position + new Vector3(-0.1f, 0.4f, 0), transform.rotation);   //긴막대 생성            
-            ReloadBar = Instantiate(reloadBar, transform.position + new Vector3(-0.5f, 0.44f, 0), transform.rotation);   //짧은막대 생성
-            ReloadBack.transform.SetParent(transform);  //플레이어 따라다니게
-            ReloadBar.transform.SetParent(transform);   //플레이어 객체를 총 객체의 부모로 설정
-            Destroy(ReloadBack, 1.3f);
-            Destroy(ReloadBar, 1.3f);        //1.3초뒤 삭제
-            Invoke("ChangeVariable", 1.3f);  //1.3초뒤 isReloading=false ,canAttack =true로 바꾸는함수 실행
-            bulletCount = 8;
+            {
+                if (redGunBulletCount == 0)
+                    Reload();
+            }
         }
 
         // 마우스 왼클릭을 땔때
         if (Input.GetMouseButtonUp(0) && !inlobby &&!isReloading)
         {
-            
+
             if (gunNumber == 1)
                 gunAnimator.Play(pilotGunReturn);
+            else if (gunNumber == 2)
+                gunAnimator.Play("RedGunHold");
             isAttack = false;
         }
         
         // R키누르면 장전
-        if (Input.GetKeyDown(KeyCode.R) && !inlobby && !isReloading && bulletCount<8 )
+        if (Input.GetKeyDown(KeyCode.R) && !inlobby && !isReloading)
         {
-            isReloading = true;
-            canAttack = false;
-            Destroy(ReloadText);
-            isReloadText = false;
-            //gunAnimator.Play(pilotGunReload,0,0f);  // 애니메이션 키포인트 처음으로 이동후 실행
             if (gunNumber == 1)
-                gunAnimator.Play(pilotGunReload, 0, 0f);    // 애니메이션 키포인트 처음으로 이동후 실행
+            {
+                if (pilotGunBulletCount < 8)
+                    Reload();
+            }
             else if (gunNumber == 2)
-                gunAnimator.Play("RedGunReload", 0, 0f);
-
-            ReloadBack = Instantiate(reloadBack, transform.position + new Vector3(-0.1f, 0.4f, 0), transform.rotation);   //긴막대 생성            
-            ReloadBar = Instantiate(reloadBar, transform.position + new Vector3(-0.5f, 0.44f, 0), transform.rotation);   //짧은막대 생성
-            ReloadBack.transform.SetParent(transform);  //플레이어 따라다니게
-            ReloadBar.transform.SetParent(transform);   //플레이어 객체를 총 객체의 부모로 설정
-            Destroy(ReloadBack, 1.3f);  
-            Destroy(ReloadBar, 1.3f);        //1.3초뒤 삭제
-            Invoke("ChangeVariable", 1.3f);  //1.3초뒤 isReloading=false ,canAttack =true로 바꾸는함수 실행
-            bulletCount = 8;
+            {
+                if (redGunBulletCount < 20)
+                    Reload();
+            }
         }
+
         if(ReloadBar)
         {
             // ReloadBar를 오른쪽으로 이동
@@ -296,8 +328,48 @@ public class GunController : MonoBehaviour
     {        
     }
 
+    public void InstantiateGun()
+    {
+        // 총을 플레이어 위치에 배치
+        if (gunNumber == 1)
+        {
+            Vector3 pos = transform.position;
+            gunObj = Instantiate(pilotGunPrefab, pos, Quaternion.identity);
+            gunObj.transform.SetParent(transform);  //플레이어 객체를 총 객체의 부모로 설정
+        }
+        if (gunNumber == 2)
+        {
+            Vector3 pos = transform.position;
+            gunObj = Instantiate(redGunPrefab, pos, Quaternion.identity);
+            gunObj.transform.SetParent(transform);  //플레이어 객체를 총 객체의 부모로 설정
+        }
+
+        // 포구에 배치한 오브젝트 가져오기
+        Transform tr = gunObj.transform.Find("GunGate");
+        gunGateObj = tr.gameObject;
+
+        // 애니메이터 가져오기
+        gunAnimator = gunObj.GetComponent<Animator>();
+
+        // (기본) 애니메이션 설정
+        if (gunNumber == 1)
+            gunAnimator.Play(pilotGunHold);
+        else if (gunNumber == 2)
+            gunAnimator.Play("RedGunHold");
+
+        if (gunNumber == 1)
+        {
+            shootDelay = 0.5f;
+        }
+        else if (gunNumber == 2)
+        {
+            shootDelay = 0.2f;
+        }
+    }
+
     IEnumerator AttackWithDelay()
     {
+        isAttack = true;
         // 공격 수행
         Attack();
 
@@ -311,13 +383,17 @@ public class GunController : MonoBehaviour
     // 총알 발사
     public void Attack()
     {
-        bulletCount--;
-        //gunAnimator.Play(pilotGunFire, 0, 0f);  // 애니메이션 키포인트 처음으로 이동후 실행
-        if (gunNumber == 1)
-            gunAnimator.Play(pilotGunReload, 0, 0f);    // 애니메이션 키포인트 처음으로 이동후 실행
-        else if (gunNumber == 2)
+        if(gunNumber == 1)
+        {
+            pilotGunBulletCount--;
+            gunAnimator.Play(pilotGunFire, 0, 0f);  // 애니메이션 키포인트 처음으로 이동후 실행
+        }
+        else if(gunNumber == 2)
+        {
+            redGunBulletCount--;
             gunAnimator.Play("RedGunFire", 0, 0f);
-
+        }
+                    
         PlayerController playerCnt = GetComponent<PlayerController>();
         // 회전에 사용할 각도
         float angleZ = playerCnt.angleZ;        
@@ -329,7 +405,10 @@ public class GunController : MonoBehaviour
                 
         // 총알 오브젝트 생성 (캐릭터 진행 방향으로 회전)
         Quaternion r = Quaternion.Euler(0, 0, angleZ + 90 );     //총알 자체 각도
-        GameObject bulletObj = Instantiate(bulletPrefab, pos, r);
+        if(gunNumber ==1)
+            bulletObj = Instantiate(pilotGunBulletPrefab, pos, r);
+        else if(gunNumber==2)
+            bulletObj = Instantiate(redGunBulletPrefab, pos, r);
 
         // -5~5사이 랜덤으로 더할 각도
         int randomInt = Random.Range(-5, 5);
@@ -380,13 +459,7 @@ public class GunController : MonoBehaviour
         Rigidbody2D body = bulletObj.GetComponent<Rigidbody2D>();
         body.AddForce(gateToMouseVec, ForceMode2D.Impulse);
 
-    }
-
-    public void ChangeVariable()
-    {
-        isReloading = false;
-        canAttack = true;
-    }
+    }       
 
     void TextVisible()
     {
@@ -406,23 +479,53 @@ public class GunController : MonoBehaviour
         }
         Invoke("TextVisible", 1f);
     }
+
+    void Reload()
+    {
+        isReloading = true;
+        canAttack = false;
+        Destroy(ReloadText);
+        isReloadText = false;
+
+        if (gunNumber == 1)
+            gunAnimator.Play(pilotGunReload, 0, 0f);    // 애니메이션 키포인트 처음으로 이동후 실행
+        else if (gunNumber == 2)
+            gunAnimator.Play("RedGunReload", 0, 0f);
+
+        ReloadBack = Instantiate(reloadBack, transform.position + new Vector3(-0.1f, 0.4f, 0), transform.rotation);   //긴막대 생성            
+        ReloadBar = Instantiate(reloadBar, transform.position + new Vector3(-0.5f, 0.44f, 0), transform.rotation);   //짧은막대 생성
+        ReloadBack.transform.SetParent(transform);  //플레이어 따라다니게
+        ReloadBar.transform.SetParent(transform);   //플레이어 객체를 총 객체의 부모로 설정
+        Destroy(ReloadBack, 1.3f);
+        Destroy(ReloadBar, 1.3f);        //1.3초뒤 삭제
+        Invoke("ChangeVariable", 1.3f);  //1.3초뒤 isReloading=false ,canAttack =true로 바꾸는함수 실행
+        if(gunNumber==1)
+            pilotGunBulletCount = 8;    //이거 이벤트함수 써서 장전 중간에 끊기면 장전안되게 위에 줄도 거기 넣으면될듯
+        if (gunNumber == 2)
+            redGunBulletCount = 20;
+    }
+
+    public void ChangeVariable()
+    {
+        isReloading = false;
+        canAttack = true;
+    }
 }
 
 
 /*
-총쏘다가 장전
 
-오른쪽 밑 총애니메이션따라하는 ui
+빨간총에 빨간 총알
 
-총알 개수에 따른 오른쪽에 ui 총알 게이지 줄어들게
+장전도중에 총바꾸면 장전 취소
+장전 끝나면 총알 다차게
+
+아이템 키퍼
 
 어느정도 거리이동하면 총알 없애거나 부딪힐때 이펙트나 파티클이나 애니메이션
-
 총쏠때 이펙트
 
 총쏘면 화면 흔들리기
 (흔들림 수준 설정 옵션)
-
-아이템 키퍼
 
  */

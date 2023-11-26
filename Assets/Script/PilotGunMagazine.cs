@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PilotGunMagazine : MonoBehaviour
 {
-    GameObject player;
-    int bulletCount;
+    int pilotGunBulletCount;
     Transform bulletSquareTransform1;
     Transform bulletSquareTransform2;
     Transform bulletSquareTransform3;
@@ -18,14 +17,34 @@ public class PilotGunMagazine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Pilot");        
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        bulletCount = player.GetComponent<GunController>().bulletCount;
+        // gunNumber 변수 가져오기
+        GameObject player = GameObject.FindWithTag("Player");
+        int gunNumber = player.GetComponent<GunController>().gunNumber;
+
+        // 플레이어 가진 총에 따라 창탄 보이거나 안보이게
+        if (gunNumber == 1)
+        {
+            foreach (Transform childTransform in transform)
+            {
+                // 자식 오브젝트를 직접 순회하며 처리
+                childTransform.gameObject.SetActive(true);
+            }
+        }
+        else
+        {
+            foreach (Transform childTransform in transform)
+            {
+                childTransform.gameObject.SetActive(false);
+            }
+        }
+
+        pilotGunBulletCount = player.GetComponent<GunController>().pilotGunBulletCount;
         bulletSquareTransform1 = transform.Find("BulletSquare1");
         bulletSquareTransform2 = transform.Find("BulletSquare2");
         bulletSquareTransform3 = transform.Find("BulletSquare3");
@@ -35,95 +54,39 @@ public class PilotGunMagazine : MonoBehaviour
         bulletSquareTransform7 = transform.Find("BulletSquare7");
         bulletSquareTransform8 = transform.Find("BulletSquare8");
 
-        if (bulletCount == 0) 
+        if (pilotGunBulletCount == 0) 
         {
-            bulletSquareTransform8.GetComponent<SpriteRenderer>().color = Color.gray;
-            bulletSquareTransform7.GetComponent<SpriteRenderer>().color = Color.gray;
-            bulletSquareTransform6.GetComponent<SpriteRenderer>().color = Color.gray;
-            bulletSquareTransform5.GetComponent<SpriteRenderer>().color = Color.gray;
-            bulletSquareTransform4.GetComponent<SpriteRenderer>().color = Color.gray;
-            bulletSquareTransform3.GetComponent<SpriteRenderer>().color = Color.gray;
-            bulletSquareTransform2.GetComponent<SpriteRenderer>().color = Color.gray;
             bulletSquareTransform1.GetComponent<SpriteRenderer>().color = Color.gray;
         }
-        if (bulletCount == 1)
+        if (pilotGunBulletCount == 1)
         {
-            bulletSquareTransform8.GetComponent<SpriteRenderer>().color = Color.gray;
-            bulletSquareTransform7.GetComponent<SpriteRenderer>().color = Color.gray;
-            bulletSquareTransform6.GetComponent<SpriteRenderer>().color = Color.gray;
-            bulletSquareTransform5.GetComponent<SpriteRenderer>().color = Color.gray;
-            bulletSquareTransform4.GetComponent<SpriteRenderer>().color = Color.gray;
-            bulletSquareTransform3.GetComponent<SpriteRenderer>().color = Color.gray;
             bulletSquareTransform2.GetComponent<SpriteRenderer>().color = Color.gray;
-            bulletSquareTransform1.GetComponent<SpriteRenderer>().color = Color.green;
         }
-        if (bulletCount == 2)
+        if (pilotGunBulletCount == 2)
         {
-            bulletSquareTransform8.GetComponent<SpriteRenderer>().color = Color.gray;
-            bulletSquareTransform7.GetComponent<SpriteRenderer>().color = Color.gray;
-            bulletSquareTransform6.GetComponent<SpriteRenderer>().color = Color.gray;
-            bulletSquareTransform5.GetComponent<SpriteRenderer>().color = Color.gray;
-            bulletSquareTransform4.GetComponent<SpriteRenderer>().color = Color.gray;
             bulletSquareTransform3.GetComponent<SpriteRenderer>().color = Color.gray;
-            bulletSquareTransform2.GetComponent<SpriteRenderer>().color = Color.green;
-            bulletSquareTransform1.GetComponent<SpriteRenderer>().color = Color.green;
         }
-        if (bulletCount == 3)
+        if (pilotGunBulletCount == 3)
         {
-            bulletSquareTransform8.GetComponent<SpriteRenderer>().color = Color.gray;
-            bulletSquareTransform7.GetComponent<SpriteRenderer>().color = Color.gray;
-            bulletSquareTransform6.GetComponent<SpriteRenderer>().color = Color.gray;
-            bulletSquareTransform5.GetComponent<SpriteRenderer>().color = Color.gray;
             bulletSquareTransform4.GetComponent<SpriteRenderer>().color = Color.gray;
-            bulletSquareTransform3.GetComponent<SpriteRenderer>().color = Color.green;
-            bulletSquareTransform2.GetComponent<SpriteRenderer>().color = Color.green;
-            bulletSquareTransform1.GetComponent<SpriteRenderer>().color = Color.green;
         }
-        if (bulletCount == 4)
+        if (pilotGunBulletCount == 4)
         {
-            bulletSquareTransform8.GetComponent<SpriteRenderer>().color = Color.gray;
-            bulletSquareTransform7.GetComponent<SpriteRenderer>().color = Color.gray;
-            bulletSquareTransform6.GetComponent<SpriteRenderer>().color = Color.gray;
             bulletSquareTransform5.GetComponent<SpriteRenderer>().color = Color.gray;
-            bulletSquareTransform4.GetComponent<SpriteRenderer>().color = Color.green;
-            bulletSquareTransform3.GetComponent<SpriteRenderer>().color = Color.green;
-            bulletSquareTransform2.GetComponent<SpriteRenderer>().color = Color.green;
-            bulletSquareTransform1.GetComponent<SpriteRenderer>().color = Color.green;
         }
-        if (bulletCount == 5)
+        if (pilotGunBulletCount == 5)
         {
-            bulletSquareTransform8.GetComponent<SpriteRenderer>().color = Color.gray;
-            bulletSquareTransform7.GetComponent<SpriteRenderer>().color = Color.gray;
             bulletSquareTransform6.GetComponent<SpriteRenderer>().color = Color.gray;
-            bulletSquareTransform5.GetComponent<SpriteRenderer>().color = Color.green;
-            bulletSquareTransform4.GetComponent<SpriteRenderer>().color = Color.green;
-            bulletSquareTransform3.GetComponent<SpriteRenderer>().color = Color.green;
-            bulletSquareTransform2.GetComponent<SpriteRenderer>().color = Color.green;
-            bulletSquareTransform1.GetComponent<SpriteRenderer>().color = Color.green;
         }
-        if (bulletCount == 6)
+        if (pilotGunBulletCount == 6)
         {
-            bulletSquareTransform8.GetComponent<SpriteRenderer>().color = Color.gray;
             bulletSquareTransform7.GetComponent<SpriteRenderer>().color = Color.gray;
-            bulletSquareTransform6.GetComponent<SpriteRenderer>().color = Color.green;
-            bulletSquareTransform5.GetComponent<SpriteRenderer>().color = Color.green;
-            bulletSquareTransform4.GetComponent<SpriteRenderer>().color = Color.green;
-            bulletSquareTransform3.GetComponent<SpriteRenderer>().color = Color.green;
-            bulletSquareTransform2.GetComponent<SpriteRenderer>().color = Color.green;
-            bulletSquareTransform1.GetComponent<SpriteRenderer>().color = Color.green;
         }
-        if (bulletCount == 7)
+        if (pilotGunBulletCount == 7)
         {
             bulletSquareTransform8.GetComponent<SpriteRenderer>().color = Color.gray;
-            bulletSquareTransform7.GetComponent<SpriteRenderer>().color = Color.green;
-            bulletSquareTransform6.GetComponent<SpriteRenderer>().color = Color.green;
-            bulletSquareTransform5.GetComponent<SpriteRenderer>().color = Color.green;
-            bulletSquareTransform4.GetComponent<SpriteRenderer>().color = Color.green;
-            bulletSquareTransform3.GetComponent<SpriteRenderer>().color = Color.green;
-            bulletSquareTransform2.GetComponent<SpriteRenderer>().color = Color.green;
-            bulletSquareTransform1.GetComponent<SpriteRenderer>().color = Color.green;
         }
-        if (bulletCount == 8)
+        if (pilotGunBulletCount == 8)
         {
             bulletSquareTransform8.GetComponent<SpriteRenderer>().color = Color.green;
             bulletSquareTransform7.GetComponent<SpriteRenderer>().color = Color.green;

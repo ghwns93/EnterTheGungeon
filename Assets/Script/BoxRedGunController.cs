@@ -2,22 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoxPilotGunController : MonoBehaviour
+public class BoxRedGunController : MonoBehaviour
 {
+
     // 총 애니메이터
     private Animator gunAnimator;
 
     // 애니메이션
-    private string pilotGunHold = "PilotGunHold";
-    private string BoxPilotGunFire = "BoxPilotGunFire";
-    private string pilotGunReturn = "PilotGunReturn";
-    private string pilotGunReload = "PilotGunReload";
+    private string redGunHold = "RedGunHold";
+    private string redGunFire = "RedGunFire";
+    private string redGunReload = "RedGunReload";
 
-    
+
     // 플레이어의 총 애니메이터
     private Animator PlayerGunAnimator;
 
-    private int pilotGunBulletCount;           //총알 개수
+    private int redGunBulletCount;           //총알 개수
 
     private bool canAttack;     //공격 딜레이 할때 사용
     private bool isReloading;  //장전하는중 장전 안되게
@@ -28,13 +28,12 @@ public class BoxPilotGunController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pilotGunBulletCount = 8;
-
         gunAnimator = GetComponent<Animator>();
-        
-        // 기본 애니메이션 설정
-        gunAnimator.Play(pilotGunHold);
 
+        // 기본 애니메이션 설정
+        gunAnimator.Play(redGunHold);
+
+        redGunBulletCount = 20;
         canAttack = true;
         isReloading = false;
         isAttack = false;
@@ -49,7 +48,7 @@ public class BoxPilotGunController : MonoBehaviour
         int gunNumber = player.GetComponent<GunController>().gunNumber;
 
         // 플레이어 가진 총에 따라 박스 ui 총 보이거나 안보이게
-        if(gunNumber == 1)
+        if (gunNumber == 2)
         {
             GetComponent<SpriteRenderer>().enabled = true;
         }
@@ -59,7 +58,7 @@ public class BoxPilotGunController : MonoBehaviour
         }
 
         // 마우스 왼클릭시 공격
-        if (Input.GetMouseButton(0) && canAttack && !inlobby && pilotGunBulletCount > 0 && !isReloading)
+        if (Input.GetMouseButton(0) && canAttack && !inlobby && redGunBulletCount > 0 && !isReloading)
         {
             isAttack = true;
 
@@ -70,28 +69,28 @@ public class BoxPilotGunController : MonoBehaviour
         // 마우스 왼클릭을 땔때
         if (Input.GetMouseButtonUp(0) && !inlobby && !isReloading)
         {
-            gunAnimator.Play(pilotGunReturn);
+            gunAnimator.Play(redGunHold);
             isAttack = false;
         }
 
         // 총알 다썼을 때 마우스 왼클릭시 장전
-        if (Input.GetMouseButtonDown(0) && canAttack && !inlobby && pilotGunBulletCount == 0)
+        if (Input.GetMouseButtonDown(0) && canAttack && !inlobby && redGunBulletCount == 0)
         {
             isReloading = true;
             canAttack = false;
-            gunAnimator.Play(pilotGunReload, 0, 0f);  // 애니메이션 키포인트 처음으로 이동후 실행            
+            gunAnimator.Play(redGunReload, 0, 0f);  // 애니메이션 키포인트 처음으로 이동후 실행            
             Invoke("ChangeVariable", 1.3f);  //1.3초뒤 isReloading=false ,canAttack =true로 바꾸는함수 실행
-            pilotGunBulletCount = 8;
-        }        
+            redGunBulletCount = 20;
+        }
 
         // R키누르면 장전
-        if (Input.GetKeyDown(KeyCode.R) && !inlobby && !isReloading && pilotGunBulletCount < 8)
+        if (Input.GetKeyDown(KeyCode.R) && !inlobby && !isReloading && redGunBulletCount < 20)
         {
             isReloading = true;
-            canAttack = false;            
-            gunAnimator.Play(pilotGunReload, 0, 0f);  // 애니메이션 키포인트 처음으로 이동후 실행
+            canAttack = false;
+            gunAnimator.Play(redGunReload, 0, 0f);  // 애니메이션 키포인트 처음으로 이동후 실행
             Invoke("ChangeVariable", 1.3f);  //1.3초뒤 isReloading=false ,canAttack =true로 바꾸는함수 실행
-            pilotGunBulletCount = 8;
+            redGunBulletCount = 20;
         }
     }
 
@@ -101,14 +100,14 @@ public class BoxPilotGunController : MonoBehaviour
         Attack();
         // 딜레이 설정 
         canAttack = false;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         // 딜레이 후에 다시 공격 가능으로 설정
         canAttack = true;
     }
     private void Attack()
     {
-        pilotGunBulletCount--;
-        gunAnimator.Play(BoxPilotGunFire, 0, 0f);  // 애니메이션 키포인트 처음으로 이동후 실행
+        redGunBulletCount--;
+        gunAnimator.Play(redGunFire, 0, 0f);  // 애니메이션 키포인트 처음으로 이동후 실행
     }
     private void ChangeVariable()
     {
