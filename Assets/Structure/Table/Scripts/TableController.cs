@@ -37,7 +37,8 @@ public class TableController : MonoBehaviour
             animator.Play("TableIdle");
             animator.Play("Table_ShadowIdle");
         }
-
+        /*
         if ()
+         */
     }
 }

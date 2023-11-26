@@ -2973,7 +2973,7 @@ Transform:
   - {fileID: 464615886}
   - {fileID: 394707430}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1021295272
 BoxCollider2D:
@@ -3709,7 +3709,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1263539736
 GameObject:
@@ -4632,7 +4632,7 @@ Transform:
   - {fileID: 325913030}
   - {fileID: 50489210}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1619009867
 BoxCollider2D:
@@ -4934,7 +4934,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4799994007946725763, guid: fac1b2573137d324b960d66cc9bc1c8a, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4799994007946725763, guid: fac1b2573137d324b960d66cc9bc1c8a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5155,6 +5155,20 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8181643863042582082, guid: fac1b2573137d324b960d66cc9bc1c8a, type: 3}
   m_PrefabInstance: {fileID: 1728792688}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1848596766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1848596757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8a421764f5c6b345933a70529dcada4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IngameOption: {fileID: 4792363502667615709, guid: 7b281a1d1fe8bc04c8fc3cae0582fa76, type: 3}
+  SoundOption: {fileID: 7410882215979763297, guid: ae4060cb0ce972f4eb5381628edd462b, type: 3}
 --- !u!1 &1922434059
 GameObject:
   m_ObjectHideFlags: 0
