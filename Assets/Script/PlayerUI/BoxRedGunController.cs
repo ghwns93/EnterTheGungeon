@@ -46,6 +46,7 @@ public class BoxRedGunController : MonoBehaviour
         // gunNumber 변수 가져오기
         GameObject player = GameObject.FindWithTag("Player");
         int gunNumber = player.GetComponent<GunController>().gunNumber;
+        redGunBulletCount = player.GetComponent<GunController>().redGunBulletCount;
 
         // 플레이어 가진 총에 따라 박스 ui 총 보이거나 안보이게
         if (gunNumber == 2)
@@ -80,7 +81,6 @@ public class BoxRedGunController : MonoBehaviour
             canAttack = false;
             gunAnimator.Play(redGunReload, 0, 0f);  // 애니메이션 키포인트 처음으로 이동후 실행            
             Invoke("ChangeVariable", 1.3f);  //1.3초뒤 isReloading=false ,canAttack =true로 바꾸는함수 실행
-            redGunBulletCount = 20;
         }
 
         // R키누르면 장전
@@ -90,7 +90,6 @@ public class BoxRedGunController : MonoBehaviour
             canAttack = false;
             gunAnimator.Play(redGunReload, 0, 0f);  // 애니메이션 키포인트 처음으로 이동후 실행
             Invoke("ChangeVariable", 1.3f);  //1.3초뒤 isReloading=false ,canAttack =true로 바꾸는함수 실행
-            redGunBulletCount = 20;
         }
     }
 
@@ -106,7 +105,6 @@ public class BoxRedGunController : MonoBehaviour
     }
     private void Attack()
     {
-        redGunBulletCount--;
         gunAnimator.Play(redGunFire, 0, 0f);  // 애니메이션 키포인트 처음으로 이동후 실행
     }
     private void ChangeVariable()
