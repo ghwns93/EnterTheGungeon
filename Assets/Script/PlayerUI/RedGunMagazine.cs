@@ -184,6 +184,5 @@ public class RedGunMagazine : MonoBehaviour
             redBulletSquareTransform20.GetComponent<SpriteRenderer>().color = Color.red;
         }
         
-
     }
 }

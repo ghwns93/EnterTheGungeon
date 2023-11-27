@@ -13,22 +13,19 @@ public enum ItemType
 public class ItemData : MonoBehaviour
 {
     public ItemType type;       //아이템 종류
-    public int count = 1;       //아이템 수
-    public int arrangedId = 0;  //식별용 값
+    public int count = 1;       //얻어서 더하려는 아이템 개수
 
     public static int hasKeys = 1;      //열쇠 수
-    public static int money = 100;    //화살 수
+    public static int hasMoneyBullet = 0;       //돈
+    public static int hasBlankBullets = 2;
 
     // Start is called before the first frame update
     void Start()
     {
-
     }
-
     // Update is called once per frame
     void Update()
     {
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -43,7 +40,7 @@ public class ItemData : MonoBehaviour
             else if (type == ItemType.money)
             {
                 //ArrowShoot shoot = collision.gameObject.GetComponent<ArrowShoot>();
-                money += count;
+                hasMoneyBullet += count;
             }
             else if (type == ItemType.life)
             {
