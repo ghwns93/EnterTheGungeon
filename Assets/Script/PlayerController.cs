@@ -33,10 +33,9 @@ public class PlayerController : MonoBehaviour
     public string fallAnime = "PilotFall";
     public string pilotOpenAnime = "PilotOpenItem";
 
-    // 현재 애니메이션
-    string nowAnimation = "";
-    // 이전 애니메이션
-    string oldAnimation = "";
+
+    string nowAnimation = "";       // 현재 애니메이션
+    string oldAnimation = "";       // 이전 애니메이션       
 
     // 애니메이터
     private Animator animator;
@@ -51,8 +50,11 @@ public class PlayerController : MonoBehaviour
     public bool isDodging = false;  // 회피 중
     public bool inlobby = false;    // 로비에 있는지
 
-    public static int hp = 3;       // 플레이어의 HP
-    public string gameState; // 게임 상태
+    public static int hp ;          // 플레이어의 HP
+    public static int maxHp;        // maxHp
+
+
+    public string gameState;        // 게임 상태
     bool inDamage = false;          // 피격 상태
 
     Vector2 beforePos = new Vector2(0, 0);
@@ -74,8 +76,9 @@ public class PlayerController : MonoBehaviour
         // 게임 상태 지정
         gameState = "playing";
 
+        maxHp = 6;
         // HP 불러오기
-        hp = PlayerPrefs.GetInt("PlayerHP");
+        hp = maxHp;
     }
 
     // Update is called once per frame
@@ -231,55 +234,40 @@ public class PlayerController : MonoBehaviour
             // 오른쪽 위로 구르기
             else if (angleZ > 30 && angleZ < 60)               
             {
-                // 회피중
                 gameState = "dodging";
-                // 입력한 방향으로 구르기
                 rbody.AddForce(dodgePos, ForceMode2D.Impulse);
-                // 애니메이션 설정
                 nowAnimation = dodgeRightUpAnime;
                 animator.Play("PilotDodgeRightUp");
             }
             // 위로 구르기
             else if (angleZ > 75 && angleZ < 105)             
             {
-                // 회피중
                 gameState = "dodging";
-                // 입력한 방향으로 구르기
                 rbody.AddForce(dodgePos, ForceMode2D.Impulse);
-                // 애니메이션 설정
                 nowAnimation = dodgeUpAnime;
                 animator.Play("PilotDodgeUp");
             }
             // 왼쪽 위로 구르기
             else if (angleZ > 120 && angleZ < 150)             
             {
-                // 회피중
                 gameState = "dodging";
-                // 입력한 방향으로 구르기
                 rbody.AddForce(dodgePos, ForceMode2D.Impulse);
-                // 애니메이션 설정
                 nowAnimation = dodgeLeftUpAnime;
                 animator.Play("PilotDodgeRightUp");
             }
             // 왼쪽, 왼쪽 아래 구르기
             else if (angleZ > 165 && angleZ < 240 || angleZ < -105 && angleZ > -200) 
             {
-                // 회피중
                 gameState = "dodging";
-                // 입력한 방향으로 구르기
                 rbody.AddForce(dodgePos, ForceMode2D.Impulse);
-                // 애니메이션 설정
                 nowAnimation = dodgeLeftDownAnime;
                 animator.Play("PilotDodgeRightDown");
             }
             // 아래로 구르기
             else if (angleZ < -80 && angleZ > -100)         
             {
-                // 회피중
                 gameState = "dodging";
-                // 입력한 방향으로 구르기
                 rbody.AddForce(dodgePos, ForceMode2D.Impulse);
-                // 애니메이션 설정
                 nowAnimation = dodgeDownAnime;
                 animator.Play("PilotDodgeDown");
             }
