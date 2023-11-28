@@ -271,6 +271,8 @@ public class PlayerController : MonoBehaviour
                 animator.Play("PilotDodgeDown");
             }
         }
+
+        
     }
 
     // (유니티 초기 설정 기준) 0.02초마다 호출되며, 1초에 총 50번 호출되는 함수
@@ -282,27 +284,32 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        //// 공격받는 도중에 캐릭터를 점멸시킨다
-        //if (inDamage)
-        //{
-        //    // Time.time : 게임 시작부터 현재까지의 경과시간 (초단위)
-        //    // Sin 함수에 연속적으로 증가하는 값을 대입하면 0~1~0~-1~0... 순으로 변화
-        //    float value = Mathf.Sin(Time.time * 50);
-        //    Debug.Log(value);
-        //    if (value > 0)
-        //    {
-        //        gameObject.GetComponent<SpriteRenderer>().enabled = true;
-        //    }
-        //    else
-        //    {
-        //        gameObject.GetComponent<SpriteRenderer>().enabled = false;
-        //    }
-        //    return;
-        //}
+        // 공격받는 도중에 캐릭터를 점멸시킨다
+        if (inDamage)
+        {
+            // Time.time : 게임 시작부터 현재까지의 경과시간 (초단위)
+            // Sin 함수에 연속적으로 증가하는 값을 대입하면 0~1~0~-1~0... 순으로 변화
+
+            float value = Mathf.Sin(Time.time * 30);
+            if (value > 0)
+            {
+                gameObject.GetComponent<SpriteRenderer>().enabled = true;
+                Color pilotOtherHandColor = GameObject.Find("PilotOtherHand(Clone)").GetComponent<SpriteRenderer>().color;
+                pilotOtherHandColor.a = 1;
+                GameObject.Find("PilotOtherHand(Clone)").GetComponent<SpriteRenderer>().color = pilotOtherHandColor;
+            }
+            else
+            {
+                gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                Color pilotOtherHandColor = GameObject.Find("PilotOtherHand(Clone)").GetComponent<SpriteRenderer>().color;
+                pilotOtherHandColor.a = 0;
+                GameObject.Find("PilotOtherHand(Clone)").GetComponent<SpriteRenderer>().color = pilotOtherHandColor;
+            }
+            return;
+        }
 
         // 이동 속도를 더하여 캐릭터를 움직여준다
-        rbody.velocity = new Vector2(axisH, axisV) * speed;
-        
+        rbody.velocity = new Vector2(axisH, axisV) * speed;        
     }
 
     public void DodgeUpAnimationEnd()
@@ -401,7 +408,8 @@ public class PlayerController : MonoBehaviour
         return rad;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         // Enemy와 물리적으로 충돌 발생
         if (collision.gameObject.tag == "Enemy")
@@ -410,6 +418,7 @@ public class PlayerController : MonoBehaviour
             GetDamage(collision.gameObject);
         }
     }
+
 
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -456,22 +465,21 @@ public class PlayerController : MonoBehaviour
     {
         hp--;   // HP감소
         
-        // if( gamestate="playing") <-안해도될듯?
-        if (hp > 0)
+        if(gameState=="playing")
         {
-            // 이동 중지
-            rbody.velocity = new Vector2(0, 0);
-            // 히트백 (적이 공격한 방향의 반대로)
-            Vector3 toPos = (transform.position - enemy.transform.position).normalized;
-            rbody.AddForce(new Vector2(toPos.x * 4, toPos.y * 4), ForceMode2D.Impulse);
-            // 현재 공격받고 있음
-            inDamage = true;
-            Invoke("DamageEnd", 0.25f);
-        }
-        else
-        {
-            // 체력이 없으면 게임오버
-            GameOver();
+            if (hp > 0)
+            {               
+                // 현재 공격받고 있음
+                inDamage = true;
+                Invoke("DamageEnd", 0.3f);
+            }
+            else
+            {
+                // 체력이 없으면 게임오버
+                GameOver();
+            }
+
+            Destroy(enemy.gameObject);
         }
     }
 
@@ -480,6 +488,24 @@ public class PlayerController : MonoBehaviour
     {
         inDamage = false;
         gameObject.GetComponent<SpriteRenderer>().enabled = true;
+        GameObject[] handObjects = GameObject.FindGameObjectsWithTag("Hand");
+        foreach (GameObject handObject in handObjects)
+        {
+            // 현재 GameObject의 SpriteRenderer를 가져옴
+            SpriteRenderer handSpriteRenderer = handObject.GetComponent<SpriteRenderer>();
+
+            // SpriteRenderer가 있을 때만 색상을 변경
+            if (handSpriteRenderer != null)
+            {
+                Color handColor = handSpriteRenderer.color;
+                handColor.a = 1;
+                handSpriteRenderer.color = handColor;
+            }
+            else
+            {
+                Debug.LogError("SpriteRenderer not found on a 'Hand' GameObject!");
+            }
+        }
     }
 
     //게임오버 처리
@@ -493,13 +519,8 @@ public class PlayerController : MonoBehaviour
         GetComponent<CircleCollider2D>().enabled = false;
         // 이동 중지
         rbody.velocity = new Vector2(0, 0);
-        // 중력을 통해 플레이어를 위로 살짝 띄우기
-        rbody.gravityScale = 1;
-        rbody.AddForce(new Vector2(0, 5), ForceMode2D.Impulse);
         // 애니메이션 변경
         GetComponent<Animator>().Play(deadAnime);
-        // 1초 후 캐릭터 삭제
-        Destroy(gameObject, 1.0f);
 
     }
 

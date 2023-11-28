@@ -216,6 +216,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2532951662358283262, guid: fac1b2573137d324b960d66cc9bc1c8a, type: 3}
       propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4324113510877881842, guid: fac1b2573137d324b960d66cc9bc1c8a, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4324113510877881842, guid: fac1b2573137d324b960d66cc9bc1c8a, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4324113510877881842, guid: fac1b2573137d324b960d66cc9bc1c8a, type: 3}
+      propertyPath: m_CollisionDetection
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4799994007946725763, guid: fac1b2573137d324b960d66cc9bc1c8a, type: 3}
@@ -277,7 +289,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1948749894322993119, guid: 92be3700cf0d914478523a4e0cc7de4b, type: 3}
       propertyPath: m_Mass
-      value: 50
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1948749894322993119, guid: 92be3700cf0d914478523a4e0cc7de4b, type: 3}
+      propertyPath: m_Simulated
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3026622049857266163, guid: 92be3700cf0d914478523a4e0cc7de4b, type: 3}
       propertyPath: m_RootOrder
