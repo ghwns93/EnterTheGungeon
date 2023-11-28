@@ -7,8 +7,14 @@ public class BossController : MonoBehaviour
     // 이동속도
     public float speed = 1.0f;
 
+    public static int hp = 3;       // 적의 HP
+
+    public float attackDistance = 10;    //공격 거리
+    public float moveDistance = 10;    //추격 거리
+
     bool isActive = true;
     bool isAttack = false;  //공격 상태
+    bool isMove = false;  //추격 상태
     bool isAct = true;
     bool isHit = false;
     bool isDead = false;
@@ -17,19 +23,13 @@ public class BossController : MonoBehaviour
     float axisH;
     float axisV;
 
-    public static int hp = 3;       // 적의 HP
-
-    public float attackDistance = 10;    //공격 거리
-
-    // 애니메이터
-    private Animator bodyAnimator;
-    private Animator chairAnimator;
-
     UnitMove unitMove;
     public int callMoveTime = 20; //새로운 경로 탐색 시간
     private int moveTime = 0;     //이전에 부르고 경과 시간
 
     GameObject player;
+
+    BossChairManager chairManager;
 
     // Start is called before the first frame update
     void Start()
@@ -37,9 +37,7 @@ public class BossController : MonoBehaviour
         // Rigidbody2D 가져오기
         rbody = GetComponent<Rigidbody2D>();
 
-        // 총애니메이터 가져오기
-        bodyAnimator = transform.Find("BossMoveObject").transform.Find("BossBody").GetComponent<Animator>();
-        chairAnimator = transform.Find("BossMoveObject").transform.Find("BossBody").GetComponent<Animator>();
+        chairManager = transform.Find("BossMoveObject").transform.Find("BossChair").GetComponent<BossChairManager>();
 
         unitMove = GetComponent<UnitMove>();
 
@@ -59,13 +57,19 @@ public class BossController : MonoBehaviour
 
                 float dis = Vector2.Distance(player.transform.position, gameObject.transform.position);
 
-                float angleZ = GetAngle(gameObject.transform.position, player.transform.position);
-
-                // 이동 각도를 바탕으로 방향과 애니메이션을 변경한다
-                if (dis > attackDistance) // 사거리 보다 플레이어와의 거리가 멀 경우 이동
+                // 사거리 보다 플레이어와의 거리가 멀 경우 공격 중지
+                if (dis > attackDistance)
                 {
                     isAttack = false;
+                }
+                else 
+                {
+                    isAttack = true;
+                }
 
+                // 추격거리보다 플레이어가 멀 경우 추격
+                if(dis > moveDistance)
+                {
                     //플레이어와의 거리를 바탕으로 각도를 구하기
                     float dx = player.transform.position.x - transform.position.x;
                     float dy = player.transform.position.y - transform.position.y;
@@ -74,13 +78,15 @@ public class BossController : MonoBehaviour
                     //이동 벡터
                     axisH = Mathf.Cos(rad) * speed;
                     axisV = Mathf.Sin(rad) * speed;
-                }
-                else // 공격중에 멈춤
-                {
-                    isAttack = true;
 
+                    isMove = true;
+                }
+                else
+                {
                     axisH = 0.0f;
                     axisV = 0.0f;
+
+                    isMove = false;
                 }
             }
             else
@@ -96,7 +102,7 @@ public class BossController : MonoBehaviour
     {
         if (isActive && hp > 0)
         {
-            if (!isAttack)
+            if (isMove)
             {
                 if (moveTime == callMoveTime)
                 {
@@ -109,28 +115,9 @@ public class BossController : MonoBehaviour
             {
                 unitMove.StopRoutine();
             }
+
+            chairManager.isAttack = isAttack;
         }
-    }
-
-    // p1에서 p2까지의 각도를 계산한다
-    float GetAngle(Vector2 p1, Vector2 p2)
-    {
-        float angle;
-
-        // p1과 p2의 차를 구하기 (원점을 0으로 하기 위해)
-        float dx = p2.x - p1.x;
-        float dy = p2.y - p1.y;
-
-        // 아크탄젠트 함수로 각도(라디안) 구하기
-        float rad = Mathf.Atan2(dy, dx);
-
-        // 라디안으로 변환
-        angle = rad * Mathf.Rad2Deg;
-
-        //// 축 방향에 관계없이 캐릭터가 움직이고 있을 경우 각도 변경
-        //if (axisH != 0 || axisV != 0 )
-
-        return angle;
     }
 
     private void OnTriggerStay2D(Collider2D collision)

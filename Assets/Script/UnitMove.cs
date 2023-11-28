@@ -17,7 +17,6 @@ public class UnitMove : MonoBehaviour
 
     public void StartPathFind()
     {
-        Debug.Log("target position : " + target.position.x + ", " + target.position.y);
         PathRequestManager.RequestPath(transform.position, target.position, OnPathFound);
     }
 
