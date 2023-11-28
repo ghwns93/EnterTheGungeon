@@ -9,6 +9,7 @@ TagManager:
   - FallDown
   - BeforePos
   - PlayerBullet
+  - Hand
   layers:
   - Default
   - TransparentFX
