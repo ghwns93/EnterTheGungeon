@@ -29,7 +29,8 @@ public class PlayerController : MonoBehaviour
     public string dodgeRightUpAnime = "PilotDodgeRightUp";
     public string dodgeRightDownAnime = "PilotDodgeRightDown";
 
-    public string deadAnime = "PlayerDead";
+    public string deadAnime1 = "PilotDead1";
+    public string deadAnime2 = "PilotDead2";
     public string fallAnime = "PilotFall";
     public string pilotOpenAnime = "PilotOpenItem";
 
@@ -44,6 +45,7 @@ public class PlayerController : MonoBehaviour
     float axisV = 0.0f;             // 세로 입력 (-1.0 ~ 1.0)
     public float angleZ = -90.0f;   // 회전 각도
     float angleDodge = -90.0f;      // 구르기
+    int gunNumber;                  // GunController의 총종류 변수 가져다 저장할곳
 
     Rigidbody2D rbody;              // RigidBody 2D 컴포넌트
     bool isMoving = false;          // 이동 중
@@ -53,7 +55,7 @@ public class PlayerController : MonoBehaviour
     public static int hp ;          // 플레이어의 HP
     public static int maxHp;        // maxHp
 
-    public string gameState;        // 게임 상태
+    public string gameState;        // 게임 상태 (playing, dodging, gameover)
     bool inDamage = false;          // 피격 상태
 
     Vector2 beforePos = new Vector2(0, 0);
@@ -75,7 +77,7 @@ public class PlayerController : MonoBehaviour
         // 게임 상태 지정
         gameState = "playing";
 
-        maxHp = 6;
+        maxHp = 1;
         // HP 불러오기
         hp = maxHp;
     }
@@ -83,8 +85,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // 게임 중이 아니거나 공격받고 있을 경우에는 아무 것도 하지 않음
-        if (gameState != "playing" || inDamage)
+        // gameover 일때는 아무 것도 하지 않음
+        if (gameState == "gameover")
         {
             return;
         }
@@ -94,6 +96,9 @@ public class PlayerController : MonoBehaviour
             axisH = Input.GetAxisRaw("Horizontal"); // 좌우
             axisV = Input.GetAxisRaw("Vertical");   // 상하
         }
+
+        // 총종류 받아오기
+        gunNumber = GetComponent<GunController>().gunNumber;
 
         // 마우스 위치 받아오기
         mousePosition = Input.mousePosition;
@@ -278,8 +283,8 @@ public class PlayerController : MonoBehaviour
     // (유니티 초기 설정 기준) 0.02초마다 호출되며, 1초에 총 50번 호출되는 함수
     void FixedUpdate()
     {
-        // 게임 중이 아니면 아무 것도 하지 않음
-        if (gameState != "playing")
+        // gameover 일때는 아무 것도 하지 않음
+        if (gameState == "gameover")
         {
             return;
         }
@@ -289,23 +294,52 @@ public class PlayerController : MonoBehaviour
         {
             // Time.time : 게임 시작부터 현재까지의 경과시간 (초단위)
             // Sin 함수에 연속적으로 증가하는 값을 대입하면 0~1~0~-1~0... 순으로 변화
-
             float value = Mathf.Sin(Time.time * 30);
+            
             if (value > 0)
             {
                 gameObject.GetComponent<SpriteRenderer>().enabled = true;
-                Color pilotOtherHandColor = GameObject.Find("PilotOtherHand(Clone)").GetComponent<SpriteRenderer>().color;
-                pilotOtherHandColor.a = 1;
-                GameObject.Find("PilotOtherHand(Clone)").GetComponent<SpriteRenderer>().color = pilotOtherHandColor;
+                GameObject[] handObjects = GameObject.FindGameObjectsWithTag("Hand");   //"Hand"태그있는 오브젝트들 찾기
+                foreach (GameObject handObject in handObjects)      //배열들 하나마다
+                {
+                    // handObject의 SpriteRenderer를 가져옴
+                    SpriteRenderer handSpriteRenderer = handObject.GetComponent<SpriteRenderer>();
+
+                    if (handSpriteRenderer != null)
+                    {
+                        Color handColor = handSpriteRenderer.color;
+                        handColor.a = 1;    // 불투명하게
+                        handSpriteRenderer.color = handColor;   //투명도 적용
+                    }
+                }
+                // 총에 따라 불투명도 바꾸기
+                if (gunNumber == 1)
+                    transform.Find("PilotGun(Clone)").GetComponent<SpriteRenderer>().enabled = true;
+                if (gunNumber == 2)
+                    transform.Find("RedGun(Clone)").GetComponent<SpriteRenderer>().enabled = true;
             }
             else
             {
                 gameObject.GetComponent<SpriteRenderer>().enabled = false;
-                Color pilotOtherHandColor = GameObject.Find("PilotOtherHand(Clone)").GetComponent<SpriteRenderer>().color;
-                pilotOtherHandColor.a = 0;
-                GameObject.Find("PilotOtherHand(Clone)").GetComponent<SpriteRenderer>().color = pilotOtherHandColor;
+                GameObject[] handObjects = GameObject.FindGameObjectsWithTag("Hand");   //"Hand"태그있는 오브젝트들 찾기
+                foreach (GameObject handObject in handObjects)
+                {
+                    // handObject의 SpriteRenderer를 가져옴
+                    SpriteRenderer handSpriteRenderer = handObject.GetComponent<SpriteRenderer>();
+
+                    if (handSpriteRenderer != null)
+                    {
+                        Color handColor = handSpriteRenderer.color;
+                        handColor.a = 0;    // 투명하게
+                        handSpriteRenderer.color = handColor;
+                    }
+                }
+                if(gunNumber ==1)
+                    transform.Find("PilotGun(Clone)").GetComponent<SpriteRenderer>().enabled = false;
+                if (gunNumber == 2)
+                    transform.Find("RedGun(Clone)").GetComponent<SpriteRenderer>().enabled = false;
             }
-            return;
+            
         }
 
         // 이동 속도를 더하여 캐릭터를 움직여준다
@@ -412,7 +446,7 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Enemy와 물리적으로 충돌 발생
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy" && gameState =="playing")
         {
             // 데미지 계산
             GetDamage(collision.gameObject);
@@ -439,7 +473,7 @@ public class PlayerController : MonoBehaviour
             animator.Play("PilotFall");
 
             // 데미지 계산
-            //GetDamage(collision.gameObject);
+            hp--;   
 
             // 추락 애니메이션이 재생된 후에 떨어지기 전 위치로 이동하기 위해 1초 대기
             Invoke("BeforePos", 1.0f);
@@ -464,21 +498,21 @@ public class PlayerController : MonoBehaviour
     void GetDamage(GameObject enemy)
     {
         hp--;   // HP감소
-        
-        if(gameState=="playing")
+        gameObject.GetComponent<Collider2D>().enabled = false;  // 콜라이더 없어서 무적상태
+
+        if (gameState=="playing")
         {
             if (hp > 0)
             {               
                 // 현재 공격받고 있음
                 inDamage = true;
-                Invoke("DamageEnd", 0.3f);
+                Invoke("DamageEnd", 2.0f);
             }
             else
             {
                 // 체력이 없으면 게임오버
                 GameOver();
             }
-
             Destroy(enemy.gameObject);
         }
     }
@@ -487,25 +521,28 @@ public class PlayerController : MonoBehaviour
     void DamageEnd()
     {
         inDamage = false;
+        gameObject.GetComponent<Collider2D>().enabled = true;  // 콜라이더 생겨서 무적풀림
+
+        // 플레이어 투명한거 해제
         gameObject.GetComponent<SpriteRenderer>().enabled = true;
         GameObject[] handObjects = GameObject.FindGameObjectsWithTag("Hand");
         foreach (GameObject handObject in handObjects)
         {
-            // 현재 GameObject의 SpriteRenderer를 가져옴
+            // handObject의 SpriteRenderer를 가져옴
             SpriteRenderer handSpriteRenderer = handObject.GetComponent<SpriteRenderer>();
-
-            // SpriteRenderer가 있을 때만 색상을 변경
+                        
             if (handSpriteRenderer != null)
             {
                 Color handColor = handSpriteRenderer.color;
-                handColor.a = 1;
+                handColor.a = 1;    // 손 보이게
                 handSpriteRenderer.color = handColor;
             }
-            else
-            {
-                Debug.LogError("SpriteRenderer not found on a 'Hand' GameObject!");
-            }
         }
+        // 총에따라 불투명도 바꾸기
+        if (gunNumber == 1)
+            transform.Find("PilotGun(Clone)").GetComponent<SpriteRenderer>().enabled = true;
+        if (gunNumber == 2)
+            transform.Find("RedGun(Clone)").GetComponent<SpriteRenderer>().enabled = true;
     }
 
     //게임오버 처리
@@ -513,15 +550,20 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("게임오버!");
         gameState = "gameover";
-
         // 게임오버 연출
-        // 충돌 판정 비활성화
-        GetComponent<CircleCollider2D>().enabled = false;
+
         // 이동 중지
         rbody.velocity = new Vector2(0, 0);
-        // 애니메이션 변경
-        GetComponent<Animator>().Play(deadAnime);
+        // 애니메이션 변경        
+        animator.Play(deadAnime1);
+        Invoke("AfterDead", 2.0f);
 
+        
+    }
+
+    void AfterDead()
+    {
+        animator.Play(deadAnime2);
     }
 
 }

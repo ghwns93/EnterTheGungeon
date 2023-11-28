@@ -205,7 +205,7 @@ MonoBehaviour:
   dodgeLeftDownAnime: PilotDodgeRightDown
   dodgeRightUpAnime: PilotDodgeRightUp
   dodgeRightDownAnime: PilotDodgeRightDown
-  deadAnime: PlayerDead
+  deadAnime: PilotDead
   fallAnime: PilotFall
   pilotOpenAnime: PilotOpenItem
   angleZ: -90

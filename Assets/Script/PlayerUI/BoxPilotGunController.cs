@@ -47,9 +47,17 @@ public class BoxPilotGunController : MonoBehaviour
         // gunNumber 변수 가져오기
         GameObject player = GameObject.FindWithTag("Player");
         int gunNumber = player.GetComponent<GunController>().gunNumber;
+        pilotGunBulletCount = player.GetComponent<GunController>().pilotGunBulletCount;
+        string gameState = player.GetComponent<PlayerController>().gameState;
+
+        // gameover 일때는 아무 것도 하지 않음
+        if (gameState == "gameover")
+        {
+            return;
+        }
 
         // 플레이어 가진 총에 따라 박스 ui 총 보이거나 안보이게
-        if(gunNumber == 1)
+        if (gunNumber == 1)
         {
             GetComponent<SpriteRenderer>().enabled = true;
         }
