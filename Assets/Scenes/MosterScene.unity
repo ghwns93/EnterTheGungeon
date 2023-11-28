@@ -385,9 +385,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25509dabd9573c040ab82ceb139291c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 1586123153232276774, guid: 165cd03a9e7a0c84bb3636d616242bae, type: 3}
   shootSpeed: 5
   isAttack: 0
+  bulletPrefab: {fileID: 1823372486241522438, guid: f0f9d97eb46240b4ca7bffb33f7d36db, type: 3}
   shootWatingTime: 0.1
   minAngle: 0
   maxAngle: 360
@@ -395,6 +395,8 @@ MonoBehaviour:
   MaxBullet: 6
   bulletTwoWay: 0
   spinAttackTime: 4
+  shotgunBulletPrefab: {fileID: 2564994599411822171, guid: dffe61f529435844b9d00971d875043a, type: 3}
+  shotgunCount: 3
 --- !u!114 &561593610
 MonoBehaviour:
   m_ObjectHideFlags: 0
