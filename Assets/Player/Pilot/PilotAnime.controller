@@ -1,5 +1,31 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1102 &-7877113568159785212
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: PilotDead1
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 9fdf684c5c2c7c745b05d360d603d831, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1102 &-5690755689538313605
 AnimatorState:
   serializedVersion: 6
@@ -151,32 +177,6 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: e4dd13a8883017c459cf2d6084b1da50, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
---- !u!1102 &-264182318401970145
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: PilotDead
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: da0d942bdfcfc5b499ed5d98b7bce7f9, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -334,6 +334,32 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1102 &2924382604748397503
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: PilotDead2
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: da0d942bdfcfc5b499ed5d98b7bce7f9, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1102 &3228142214840468583
 AnimatorState:
   serializedVersion: 6
@@ -382,9 +408,6 @@ AnimatorStateMachine:
     m_State: {fileID: -2281811611966476678}
     m_Position: {x: 370, y: -30, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: -264182318401970145}
-    m_Position: {x: 40, y: 190, z: 0}
-  - serializedVersion: 1
     m_State: {fileID: 2644052020879720710}
     m_Position: {x: 290, y: 340, z: 0}
   - serializedVersion: 1
@@ -398,10 +421,10 @@ AnimatorStateMachine:
     m_Position: {x: 290, y: 190, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2565942502307891323}
-    m_Position: {x: 40, y: 250, z: 0}
+    m_Position: {x: 40, y: 280, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2890395737746517533}
-    m_Position: {x: 40, y: 310, z: 0}
+    m_Position: {x: 40, y: 330, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2729486392174390251}
     m_Position: {x: 690, y: 340, z: 0}
@@ -414,6 +437,12 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 1765096193138738237}
     m_Position: {x: 700, y: 180, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -7877113568159785212}
+    m_Position: {x: 40, y: 170, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 2924382604748397503}
+    m_Position: {x: 40, y: 220, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
