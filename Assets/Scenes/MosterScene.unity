@@ -297,6 +297,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1653825035}
+  - {fileID: 703736148}
   m_Father: {fileID: 1765032106}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -340,7 +341,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: -201654106, guid: 96575d476254cdc4f80f9556f3f5dd59, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -387,16 +388,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootSpeed: 5
   isAttack: 0
-  bulletPrefab: {fileID: 1823372486241522438, guid: f0f9d97eb46240b4ca7bffb33f7d36db, type: 3}
   shootWatingTime: 0.1
+  bulletPrefab: {fileID: 1823372486241522438, guid: f0f9d97eb46240b4ca7bffb33f7d36db, type: 3}
   minAngle: 0
   maxAngle: 360
   angleCount: 4
   MaxBullet: 6
-  bulletTwoWay: 0
   spinAttackTime: 4
-  shotgunBulletPrefab: {fileID: 2564994599411822171, guid: dffe61f529435844b9d00971d875043a, type: 3}
+  bulletTwoWay: 0
+  shotgunBulletPrefab: {fileID: 1823372486241522438, guid: f0f9d97eb46240b4ca7bffb33f7d36db, type: 3}
   shotgunCount: 3
+  shotgunFireCount: 2
+  shotAngle: 10
+  shotAttackTime: 0.2
 --- !u!114 &561593610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -413,6 +417,7 @@ MonoBehaviour:
   chairAttacking: BossChairAttacking
   chairLeftAttack: BossChiarLeftAttack
   chairRightAttack: BossChiarRightAttack
+  chairShotgunAttack: BossChiarShotgunAttack
   chairDead: BossChiarDead
   bodyIdle: BossBodyIdle
   bodyAttack: BossBodyAttack
@@ -503,6 +508,37 @@ MonoBehaviour:
   attackDistance: 10
   moveDistance: 5
   callMoveTime: 20
+--- !u!1 &703736147
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 703736148}
+  m_Layer: 0
+  m_Name: FireBulletPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &703736148
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703736147}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 561593606}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &932204547
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,7 +739,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 1173602772, guid: 96575d476254cdc4f80f9556f3f5dd59, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -835,3 +871,68 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fac1b2573137d324b960d66cc9bc1c8a, type: 3}
+--- !u!1001 &1648724860190324371
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 63745410651331801, guid: eeda83e39e0c1ae49864c94e11ce5bef, type: 3}
+      propertyPath: m_Name
+      value: EnemyFireBulletMain
+      objectReference: {fileID: 0}
+    - target: {fileID: 93061533550691673, guid: eeda83e39e0c1ae49864c94e11ce5bef, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 93061533550691673, guid: eeda83e39e0c1ae49864c94e11ce5bef, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 93061533550691673, guid: eeda83e39e0c1ae49864c94e11ce5bef, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 93061533550691673, guid: eeda83e39e0c1ae49864c94e11ce5bef, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 93061533550691673, guid: eeda83e39e0c1ae49864c94e11ce5bef, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 93061533550691673, guid: eeda83e39e0c1ae49864c94e11ce5bef, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 93061533550691673, guid: eeda83e39e0c1ae49864c94e11ce5bef, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 93061533550691673, guid: eeda83e39e0c1ae49864c94e11ce5bef, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 93061533550691673, guid: eeda83e39e0c1ae49864c94e11ce5bef, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 93061533550691673, guid: eeda83e39e0c1ae49864c94e11ce5bef, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 93061533550691673, guid: eeda83e39e0c1ae49864c94e11ce5bef, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 554148363433060595, guid: eeda83e39e0c1ae49864c94e11ce5bef, type: 3}
+      propertyPath: firePower
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 554148363433060595, guid: eeda83e39e0c1ae49864c94e11ce5bef, type: 3}
+      propertyPath: fireBullet
+      value: 
+      objectReference: {fileID: 1823372486241522438, guid: f0f9d97eb46240b4ca7bffb33f7d36db, type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: eeda83e39e0c1ae49864c94e11ce5bef, type: 3}
