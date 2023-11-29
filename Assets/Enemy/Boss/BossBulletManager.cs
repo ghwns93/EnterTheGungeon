@@ -35,6 +35,8 @@ public class BossBulletManager : MonoBehaviour
     public float shotAngle = 90.0f;         //샷건 탄 퍼짐 각도
     public float shotAttackTime = 0.5f;     //샷건 발사 속도
 
+    //샷건 발사
+    public GameObject fireBulletPrefab;     //폭죽 총알 프리팹
 
     //이하 private
     List<GameObject> bulletStats;           //총알을 표현후 한번에 쏘기 위해 List에 저장
@@ -123,6 +125,19 @@ public class BossBulletManager : MonoBehaviour
                 {
                     rDelay += Time.deltaTime;
                 }
+                #endregion
+            }
+            else if (patten == PattenNumber.FIRE)
+            {
+                #region [ 폭죽 공격 ]
+                Transform tr = transform.Find("FireBulletPos");
+                GameObject gate = tr.gameObject;
+
+                //프리팹을 이용하여 총알 오브젝트 만들기 (진행 방향으로 회전)
+                Quaternion r = Quaternion.Euler(0, 0, 0);
+                GameObject bullet = Instantiate(fireBulletPrefab, gate.transform.position, r);
+
+                isAttack = false;
                 #endregion
             }
         }
@@ -266,8 +281,6 @@ public class BossBulletManager : MonoBehaviour
             float plusAngle = (shotAngle / (shotgunCount - 1)) * i;
             Quaternion r = Quaternion.Euler(0, 0, minAngle - plusAngle);
             GameObject bullet = Instantiate(shotgunBulletPrefab, transform.position, r);
-
-            Debug.Log("angle : " + (minAngle - plusAngle) + " bulletZ : " + bullet.transform.rotation.z);
 
             float localRad = (minAngle - plusAngle) * Mathf.Deg2Rad;
 
