@@ -34,6 +34,13 @@ public class PlayerController : MonoBehaviour
     public string fallAnime = "PilotFall";
     public string pilotOpenAnime = "PilotOpenItem";
 
+    public GameObject deadSquareUp;     //죽을때 위에서 내려오는 네모
+    public GameObject deadSquareDown;
+    public GameObject deadShadow;       //죽으면 밑에 그림자
+
+    GameObject deadSquareUpObj;         //여러함수에서 쓸수있게 선언해둠
+    GameObject deadSquareDownObj;
+    GameObject deadShadowObj;
 
     string nowAnimation = "";       // 현재 애니메이션
     string oldAnimation = "";       // 이전 애니메이션       
@@ -77,7 +84,7 @@ public class PlayerController : MonoBehaviour
         // 게임 상태 지정
         gameState = "playing";
 
-        maxHp = 1;
+        maxHp = 1;      //잠시 1로해둠
         // HP 불러오기
         hp = maxHp;
     }
@@ -208,14 +215,7 @@ public class PlayerController : MonoBehaviour
             {
                 nowAnimation = stopDownAnime;
             }
-        }              
-
-        // 애니메이션 변경
-        if (nowAnimation != oldAnimation)
-        {
-            oldAnimation = nowAnimation;
-            GetComponent<Animator>().Play(nowAnimation);
-        }
+        }                             
 
         // 8방향 벡터 구하기
         angleDodge = GetAngleDodge(fromPt, toPt);
@@ -277,7 +277,12 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        
+        // 애니메이션 변경
+        if (nowAnimation != oldAnimation)
+        {
+            oldAnimation = nowAnimation;
+            GetComponent<Animator>().Play(nowAnimation);
+        }
     }
 
     // (유니티 초기 설정 기준) 0.02초마다 호출되며, 1초에 총 50번 호출되는 함수
@@ -446,10 +451,14 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Enemy와 물리적으로 충돌 발생
-        if (collision.gameObject.tag == "Enemy" && gameState =="playing")
+        if ((collision.gameObject.tag == "Enemy"|| collision.gameObject.tag == "EnemyBullet") && gameState =="playing")
         {
             // 데미지 계산
             GetDamage(collision.gameObject);
+
+            // 총알에 맞았을경우 총알 삭제
+            if(collision.gameObject.tag == "EnemyBullet")
+                Destroy(collision.gameObject);
         }
     }
 
@@ -498,14 +507,14 @@ public class PlayerController : MonoBehaviour
     void GetDamage(GameObject enemy)
     {
         hp--;   // HP감소
-        gameObject.GetComponent<Collider2D>().enabled = false;  // 콜라이더 없어서 무적상태
+        gameObject.GetComponent<Collider2D>().enabled = false;  // 콜라이더 비활성화해서 무적상태효과
 
         if (gameState=="playing")
         {
             if (hp > 0)
             {               
                 // 현재 공격받고 있음
-                inDamage = true;
+                inDamage = true;    //inDamage == true 일경우 FixedUpdate에서 if(inDamage)조건문 실행
                 Invoke("DamageEnd", 2.0f);
             }
             else
@@ -513,7 +522,6 @@ public class PlayerController : MonoBehaviour
                 // 체력이 없으면 게임오버
                 GameOver();
             }
-            Destroy(enemy.gameObject);
         }
     }
 
@@ -523,7 +531,7 @@ public class PlayerController : MonoBehaviour
         inDamage = false;
         gameObject.GetComponent<Collider2D>().enabled = true;  // 콜라이더 생겨서 무적풀림
 
-        // 플레이어 투명한거 해제
+        // 플레이어 투명하면 해제
         gameObject.GetComponent<SpriteRenderer>().enabled = true;
         GameObject[] handObjects = GameObject.FindGameObjectsWithTag("Hand");
         foreach (GameObject handObject in handObjects)
@@ -558,12 +566,29 @@ public class PlayerController : MonoBehaviour
         animator.Play(deadAnime1);
         Invoke("AfterDead", 2.0f);
 
-        
+        // 위에서 내려오는 검정박스
+        deadSquareUpObj = Instantiate(deadSquareUp);
+        deadSquareUpObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -5.0f), ForceMode2D.Impulse);
+        // 아래에서 올라오는 검정박스
+        deadSquareDownObj = Instantiate(deadSquareUp,new Vector3(0,-7f,0),new Quaternion(0,0,0,0));
+        deadSquareDownObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, +5.0f),ForceMode2D.Impulse);
+        Invoke("StopSquare", 0.5f);
+        // 플레이어 밑에 그림자 생성
+        deadShadowObj = Instantiate(deadShadow,transform.position+new Vector3(0,0.2f,0),transform.rotation);
     }
 
     void AfterDead()
     {
-        animator.Play(deadAnime2);
+        //시계나와서 쏘기
+        animator.Play(deadAnime2);      //시계총 맞고 쓰러지는 애니메이션
+        Destroy(transform.Find("PilotShadow").gameObject);  // 그림자 제거
+    }
+
+    void StopSquare()
+    {
+        //올라오거나 내려오는거 정지
+        deadSquareUpObj.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+        deadSquareDownObj.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
     }
 
 }

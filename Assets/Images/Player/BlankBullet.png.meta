@@ -1,0 +1,563 @@
+fileFormatVersion: 2
+guid: 689d1d49b0fcc1048b85df75f091ee7e
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BlankBullet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 149.5
+        width: 150
+        height: 149.5
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 810e2cc7adf7eb24cba5b4f5d1b7e11a
+      internalID: 148409875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlankBullet_1
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 149.5
+        width: 150
+        height: 149.5
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85607d15e67bbd54db69e10a99c7010c
+      internalID: -797786786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlankBullet_2
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 149.5
+        width: 150
+        height: 149.5
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 395ebc4631bebd9419ccc6b2f536268e
+      internalID: -702264162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlankBullet_3
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 149.5
+        width: 150
+        height: 149.5
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f240831c20103c34aa7a4de9d447d923
+      internalID: 733457494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlankBullet_4
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 149.5
+        width: 150
+        height: 149.5
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 471e5ba25a709884993baa09895c37e5
+      internalID: 933346268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlankBullet_5
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 149.5
+        width: 150
+        height: 149.5
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e586b29f2344af444b12e719a647e8d2
+      internalID: -1753179910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlankBullet_6
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 149.5
+        width: 150
+        height: 149.5
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ad0f83d80a227f4cbf1a7e4b6879ce9
+      internalID: 464115899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlankBullet_7
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 149.5
+        width: 150
+        height: 149.5
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdf36fb355f97344286bf175de64b195
+      internalID: 2113669782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlankBullet_8
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 149.5
+        width: 150
+        height: 149.5
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9924d685c6c1ac24ab33211f90d608bc
+      internalID: 95567082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlankBullet_9
+      rect:
+        serializedVersion: 2
+        x: 1350
+        y: 149.5
+        width: 150
+        height: 149.5
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b8b78338db12ee48b2115666d45c552
+      internalID: 1440999849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlankBullet_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0.5
+        width: 150
+        height: 149.5
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f11da3ea8520e04c86f56953760dbe9
+      internalID: 941704111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlankBullet_11
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0.5
+        width: 150
+        height: 149.5
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5549fe9946b2f9144928be6afb09bd4b
+      internalID: 1978632158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlankBullet_12
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0.5
+        width: 150
+        height: 149.5
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c5d76e3f35999b41893b8945259b3c0
+      internalID: -1728652286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlankBullet_13
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 0.5
+        width: 150
+        height: 149.5
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4a5db1e19d90144dbd8314153de8d7a
+      internalID: -40973957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlankBullet_14
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0.5
+        width: 150
+        height: 149.5
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d42e66522393afb4e8e5e2e97e15b45d
+      internalID: -1141629382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlankBullet_15
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 0.5
+        width: 150
+        height: 149.5
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd733535fca1cde4dac62d2bec8c32ca
+      internalID: -2114335367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlankBullet_16
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 0.5
+        width: 150
+        height: 149.5
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f927d4da807e85b4b868d9e85c2526e5
+      internalID: -527400191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlankBullet_17
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 0.5
+        width: 150
+        height: 149.5
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfcafee9d31f1664a9a56d1dbdf50378
+      internalID: -1339653029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlankBullet_18
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0.5
+        width: 150
+        height: 149.5
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68f25e7d7d31da14dbf2e5911666a27b
+      internalID: -1864114055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlankBullet_19
+      rect:
+        serializedVersion: 2
+        x: 1350
+        y: 0.5
+        width: 150
+        height: 149.5
+      alignment: 9
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d9b9f4c7b21e26479977bbc3d5ffd00
+      internalID: -912211592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      BlankBullet_0: 148409875
+      BlankBullet_1: -797786786
+      BlankBullet_10: 941704111
+      BlankBullet_11: 1978632158
+      BlankBullet_12: -1728652286
+      BlankBullet_13: -40973957
+      BlankBullet_14: -1141629382
+      BlankBullet_15: -2114335367
+      BlankBullet_16: -527400191
+      BlankBullet_17: -1339653029
+      BlankBullet_18: -1864114055
+      BlankBullet_19: -912211592
+      BlankBullet_2: -702264162
+      BlankBullet_3: 733457494
+      BlankBullet_4: 933346268
+      BlankBullet_5: -1753179910
+      BlankBullet_6: 464115899
+      BlankBullet_7: 2113669782
+      BlankBullet_8: 95567082
+      BlankBullet_9: 1440999849
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
