@@ -37,10 +37,14 @@ public class PlayerController : MonoBehaviour
     public GameObject deadSquareUp;     //죽을때 위에서 내려오는 네모
     public GameObject deadSquareDown;
     public GameObject deadShadow;       //죽으면 밑에 그림자
+    public GameObject watch1;           //시계1프리팹
+    public GameObject watch2;           //시계2프리팹
 
     GameObject deadSquareUpObj;         //여러함수에서 쓸수있게 선언해둠
     GameObject deadSquareDownObj;
     GameObject deadShadowObj;
+    GameObject watch1Obj;
+    GameObject watch2Obj;
 
     string nowAnimation = "";       // 현재 애니메이션
     string oldAnimation = "";       // 이전 애니메이션       
@@ -556,7 +560,6 @@ public class PlayerController : MonoBehaviour
     //게임오버 처리
     void GameOver()
     {
-        Debug.Log("게임오버!");
         gameState = "gameover";
         // 게임오버 연출
 
@@ -564,7 +567,7 @@ public class PlayerController : MonoBehaviour
         rbody.velocity = new Vector2(0, 0);
         // 애니메이션 변경        
         animator.Play(deadAnime1);
-        Invoke("AfterDead", 2.0f);
+        Invoke("AfterDead", 3.0f);
 
         // 위에서 내려오는 검정박스
         deadSquareUpObj = Instantiate(deadSquareUp);
@@ -575,20 +578,29 @@ public class PlayerController : MonoBehaviour
         Invoke("StopSquare", 0.5f);
         // 플레이어 밑에 그림자 생성
         deadShadowObj = Instantiate(deadShadow,transform.position+new Vector3(0,0.2f,0),transform.rotation);
+                
     }
-
-    void AfterDead()
-    {
-        //시계나와서 쏘기
-        animator.Play(deadAnime2);      //시계총 맞고 쓰러지는 애니메이션
-        Destroy(transform.Find("PilotShadow").gameObject);  // 그림자 제거
-    }
-
     void StopSquare()
     {
         //올라오거나 내려오는거 정지
         deadSquareUpObj.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         deadSquareDownObj.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+    }
+    void AfterDead()
+    {
+        //시계나오기
+        watch1Obj = Instantiate(watch1, transform.position, transform.rotation);
+        Invoke("WatchShot", 1.5f);
+        Destroy(transform.Find("PilotShadow(Clone)"));  // 플레이어 그림자 제거
+    }
+
+    //이벤트함수
+    void WatchShot()
+    {
+        Destroy(watch1Obj);
+        watch2Obj = Instantiate(watch2, transform.position , transform.rotation); 
+        animator.Play(deadAnime2);      //시계총 맞고 쓰러지는 애니메이션
+        Destroy(watch2Obj, 1.0f);
     }
 
 }

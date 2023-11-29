@@ -223,6 +223,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2690403611829605194, guid: fac1b2573137d324b960d66cc9bc1c8a, type: 3}
+      propertyPath: watch1
+      value: 
+      objectReference: {fileID: 1605266719208224067, guid: 4fb9a2ed236af4343908a187ad1a382c, type: 3}
+    - target: {fileID: 2690403611829605194, guid: fac1b2573137d324b960d66cc9bc1c8a, type: 3}
+      propertyPath: watch2
+      value: 
+      objectReference: {fileID: 5108197585148324043, guid: 6c61e5ba20852a64d81310b22130c755, type: 3}
+    - target: {fileID: 2690403611829605194, guid: fac1b2573137d324b960d66cc9bc1c8a, type: 3}
       propertyPath: deadShadow
       value: 
       objectReference: {fileID: 7308772830113612853, guid: c79a80cc07c04024682583b237ac5f84, type: 3}
