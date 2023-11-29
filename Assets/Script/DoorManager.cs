@@ -1,122 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 
 public class DoorManager : MonoBehaviour
 {
-    [SerializeField] private Animator _door = null;
-    public GameObject BattleArea;
-    public static bool isOpening = false;
-    public static bool firstOpen = true;
-    
-    private void Awake()
+    private Animator animator;
+    private bool isPlayerInside = false;
+
+    public string openAnimationName; // 열릴 때의 애니메이션 이름
+    public string closeAnimationName; // 닫힐 때의 애니메이션 이름
+
+    void Start()
     {
-        _door = GetComponent<Animator>();
+        Debug.Log("애니메이터 준비상태");
+        animator = GetComponent<Animator>();
     }
 
-    private void Update()
+    void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("check1");
-        if(BattleAreaManager.enemyCheck && !isOpening)
+        if (other.gameObject.tag == "Player" && !isPlayerInside)
         {
-            Debug.Log("check2");
-            if(!BattleAreaManager.enemyCheck)
-            {
-              OpenDoor();
-                Debug.Log("check3");
-                
-            }
+            Debug.Log("문 열림 판단");
+            isPlayerInside = true;
+            animator.Play(openAnimationName);
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void CloseDoor()
     {
-        if (collision.gameObject.tag == "Player")
+        if (isPlayerInside)
         {
-            OpenDoor();
-            Debug.Log("충돌로 문열기");
+            Debug.Log("문 닫는 메서드");
+            animator.Play(closeAnimationName);
         }
     }
 
-    // 문을 열기 위한 함수
-    private void OpenDoor()
+    public void OpenDoor()
     {
-        if (!isOpening) // 이미 열려있지 않은 경우에만 열기
+        if (isPlayerInside)
         {
-            _door.Play("UD_Open");
-            isOpening = true;
+            Debug.Log("문 여는 메서드");
+            animator.Play(openAnimationName);
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-/*
-private Animator _door;
-public GameObject BattleArea;
-
-private bool isDoorClosed = true;
-private bool hasEnemy = false;
-
-void Start()
-{
-    _door = GetComponent<Animator>();
-}
-
-void OnTriggerEnter2D(Collider2D collision)
-{
-    if (collision.gameObject.tag == "Player")
-    {
-        if (isDoorClosed)
-        {
-            _door.Play("UD_Open");
-            isDoorClosed = false;
-        }
-    }
-}
-
-void OnTriggerExit2D(Collider2D collision)
-{
-    if (collision.gameObject.tag == "Enemy")
-    {
-        // BattleArea에 Enemy 태그를 가진 오브젝트가 있는지 확인
-        if (BattleArea != null)
-        {
-            Collider2D[] colliders = Physics2D.OverlapBoxAll(BattleArea.transform.position, BattleArea.transform.localScale, 0f);
-
-            hasEnemy = true;
-
-            foreach (Collider2D collider in colliders)
-            {
-                if (collider.gameObject.tag == "Enemy" && collider.gameObject.activeSelf)
-                {
-
-                    _door.Play("UD_Close");
-                    break;
-                }
-            }
-        }
-    }
-
-}
-
-private void Update()
-{
-
-    if (hasEnemy && isDoorClosed)
-    {
-        Debug.Log("check");
-        // BattleArea에 Enemy 태그를 가진 오브젝트가 더 이상 없고, 문이 닫혀 있는 경우에만 문을 열음
-        _door.Play("UD_Open");
-    }
-}
- */
