@@ -15,6 +15,8 @@ public class GunController : MonoBehaviour
     public string pilotGunReturn = "PilotGunReturn";
     public string pilotGunReload = "PilotGunReload";
 
+    string gameState;           //PlayerController 에서 가져다 저장할곳
+
     public float shootSpeed;    //화살 속도
     public float shootDelay;    //발사 간격 0.5로 인스펙터에 되있음
 
@@ -22,7 +24,7 @@ public class GunController : MonoBehaviour
     public int redGunBulletCount;     //총알 개수
 
     public int gunNumber;       //총 종류 식별 숫자
-    public int gunMaxCount;     //가지고 있는 총의 개수
+    public int gunMaxCount;     //가지고 있는 총의 개수    
 
     public GameObject pilotGunPrefab;           //파일럿 총 프리팹
     public GameObject redGunPrefab;             //빨간 총 프리팹
@@ -79,6 +81,13 @@ public class GunController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        gameState = GetComponent<PlayerController>().gameState;
+        // gameover 일때는 아무 것도 하지 않음
+        if (gameState == "gameover")
+        {
+            gunObj.GetComponent<SpriteRenderer>().enabled=false;
+            return;
+        }
         // 마우스 휠 스크롤 값을 얻기
         float scrollValue = Input.GetAxis("Mouse ScrollWheel");
 
@@ -515,22 +524,16 @@ public class GunController : MonoBehaviour
 
 /*
 
-캐릭터 데미지 입을때 
-총든손왜 안깜빡거리징..
+죽을때
 
-체력줄어들기 플레이어 주석해놓은것들
+카메라 캐릭터 중앙으로가고
+죽는 애니메이션1 중앙에 이펙트
+위아래 어두운거 내려오고 올라오고
+시계가 나와서 시간가르키고 총쏘면 죽는애니메이션2
+책등장 총쏘면 펼쳐지고 내용,, 재시작
 
-적총알에 istrigger 되어잇어서 캐릭터가 피해안입음
--적총알이랑 적이랑 총알 layer 충돌안하게하는 방법
 
-아이템 구현
-
-공포탄
-
-빨간총 최대 탄창수 설정
-
-장전도중에 총바꾸면 장전 취소
-장전 끝나면 총알 다차게
+공포탄 적총알에에 태그 따로달아서 다 삭제시키면되려나
 
 어느정도 거리이동하면 총알 없애거나 부딪힐때 이펙트나 파티클이나 애니메이션
 총쏠때 이펙트
@@ -538,4 +541,12 @@ public class GunController : MonoBehaviour
 총쏘면 화면 흔들리기
 (흔들림 수준 설정 옵션)
 
+약간 자잘한거
+빨간총 최대 탄창수 설정 ,장전하면 남은총알고려 계산
+
+장전도중에 총바꾸면 장전 취소
+장전 끝나면 총알 다차게
+
+아이템 구현
+상점구현?
  */

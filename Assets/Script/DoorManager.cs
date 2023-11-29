@@ -4,42 +4,62 @@ using UnityEngine;
 
 public class DoorManager : MonoBehaviour
 {
-    public Animator ulDoorAnimator;
-    public Animator urDoorAnimator;
+    private Animator _door;
+    public GameObject BattleArea;
 
-    private bool doorsOpen = false;
+    private bool isDoorClosed = true;
+    private bool hasEnemy = false;
 
     void Start()
     {
-        ulDoorAnimator = transform.Find("ULDoor").GetComponent<Animator>();
-        urDoorAnimator = transform.Find("URDoor").GetComponent<Animator>();
+        _door = GetComponent<Animator>();
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D collision)
     {
-
-        if (other.gameObject.tag == "Player" && doorsOpen == false)
+        if (collision.gameObject.tag == "Player")
         {
-            OpenDoors();
-            CloseDoors();
+            if (isDoorClosed)
+            {
+                _door.Play("UD_Open");
+                isDoorClosed = false;
+            }
         }
-        
     }
 
-    void OpenDoors()
+    void OnTriggerExit2D(Collider2D collision)
     {
-        ulDoorAnimator.Play("ULD_Open");
-        urDoorAnimator.Play("URD_Open");
+        if (collision.gameObject.tag == "Enemy")
+        {
+            // BattleArea에 Enemy 태그를 가진 오브젝트가 있는지 확인
+            if (BattleArea != null)
+            {
+                Collider2D[] colliders = Physics2D.OverlapBoxAll(BattleArea.transform.position, BattleArea.transform.localScale, 0f);
 
-        GetComponent<BoxCollider2D>().enabled = true;
+                hasEnemy = true;
 
-       // doorsOpen = true;
+                foreach (Collider2D collider in colliders)
+                {
+                    if (collider.gameObject.tag == "Enemy" && collider.gameObject.activeSelf)
+                    {
+
+                        _door.Play("UD_Close");
+                        break;
+                    }
+                }
+            }
+        }
+
     }
 
-    void CloseDoors()
+    private void Update()
     {
 
+        if (hasEnemy && isDoorClosed)
+        {
+            Debug.Log("check");
+            // BattleArea에 Enemy 태그를 가진 오브젝트가 더 이상 없고, 문이 닫혀 있는 경우에만 문을 열음
+            _door.Play("UD_Open");
+        }
     }
 }
-
-/**/

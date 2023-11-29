@@ -8,17 +8,17 @@ public class BossBulletManager : MonoBehaviour
     internal enum PattenNumber
     {
         SPIN = 0,
-        SHOOTGUN = 1,
+        SHOTGUN = 1,
         FIRE = 2
     }
 
     //총알 관련 옵션
-    public GameObject bulletPrefab;
     public float shootSpeed = 5.0f;         //총알 속도
 
     public bool isAttack = false;                   //공격 가능한 상태인지 확인
 
     //회전 공격 옵션
+    public GameObject bulletPrefab;
     public float shootWatingTime = 3.0f;    //총알 발사 간격
     public float minAngle = 45.0f;          //최소 각도 (왼쪽 0 , 아랫쪽 90 , 오른쪽 180, 윗쪽 270)
     public float maxAngle = 135.0f;         //최대 각도 (왼쪽 0 , 아랫쪽 90 , 오른쪽 180, 윗쪽 270)
@@ -27,8 +27,11 @@ public class BossBulletManager : MonoBehaviour
     public bool bulletTwoWay = true;        //총알 왔다 갔다 설정.
     public float spinAttackTime = 4.0f;     //총 회전 시간
 
-    //이하 private
+    //샷건 발사
+    public GameObject shotgunBulletPrefab;  //샷건 총알 프리팹
+    public int shotgunCount = 3;            //샷건 발사 개수
 
+    //이하 private
     List<GameObject> bulletStats;           //총알을 표현후 한번에 쏘기 위해 List에 저장
     int count = 0;                          //총알 갯수 카운트
     int routineCount = 0;                   //몇번째 발사중인지 카운트
@@ -55,6 +58,10 @@ public class BossBulletManager : MonoBehaviour
                 {
                     attackTime = spinAttackTime;
                 }
+                else if (patten == PattenNumber.SHOTGUN)
+                {
+
+                }
             }
 
             if (rDelay >= shootWatingTime)
@@ -69,9 +76,14 @@ public class BossBulletManager : MonoBehaviour
                     {
                         isAttack = false;
                         SpinAttackFinish();
-                        attackTime = 0.0f;
+                        attackTime = spinAttackTime;
                     }
                 }
+                else if (patten == PattenNumber.SHOTGUN)
+                {
+                    
+                }
+
                 rDelay = 0;
             }
             else
@@ -204,6 +216,43 @@ public class BossBulletManager : MonoBehaviour
 
             count++;
         }
+
+        #endregion
+    }
+
+    private void ShotgunAttack()
+    {
+        #region [ 샷건 공격 ]
+
+        float objX = 0, objY = 0;
+
+        float rad = 0.0f;
+        float halfCount = shotgunCount / 2;
+        float limit = 0.0f;
+
+        limit = (float)(minAngle + (((maxAngle - minAngle) / shotgunCount) * count));
+
+        limit = limit >= maxAngle ? maxAngle : limit;
+
+        rad = (limit + plusAngle + (attackTime * 20)) * Mathf.Deg2Rad;
+        objX = transform.position.x + ((float)Math.Cos(rad));
+        objY = transform.position.y - ((float)Math.Sin(rad));
+            
+        //라디안을 각도(육십분법)로 변환
+        float angle = rad * Mathf.Rad2Deg;
+
+        Vector3 v = new Vector3(objX, objY);
+
+        Quaternion r = Quaternion.Euler(0, 0, angle);
+        GameObject bullet = Instantiate(bulletPrefab, v, r);
+
+        float dx = transform.position.x - bullet.transform.position.x;
+        float dy = transform.position.y - bullet.transform.position.y;
+
+        Vector2 v2 = new Vector3(dx * -1, dy * -1) * shootSpeed;
+
+        Rigidbody2D rbody = bullet.GetComponent<Rigidbody2D>();
+        rbody.AddForce(v2, ForceMode2D.Impulse);
 
         #endregion
     }
