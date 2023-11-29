@@ -198,6 +198,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7173136980347401022, guid: fac1b2573137d324b960d66cc9bc1c8a, type: 3}
+      propertyPath: blankBullet
+      value: 
+      objectReference: {fileID: 2997166369146760917, guid: a38c20fac1a8f2a41852aa5ce8601604, type: 3}
     - target: {fileID: 2532951662358283262, guid: fac1b2573137d324b960d66cc9bc1c8a, type: 3}
       propertyPath: m_Size.x
       value: 0.40887952
@@ -218,6 +222,18 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2690403611829605194, guid: fac1b2573137d324b960d66cc9bc1c8a, type: 3}
+      propertyPath: deadShadow
+      value: 
+      objectReference: {fileID: 7308772830113612853, guid: c79a80cc07c04024682583b237ac5f84, type: 3}
+    - target: {fileID: 2690403611829605194, guid: fac1b2573137d324b960d66cc9bc1c8a, type: 3}
+      propertyPath: deadSquareUp
+      value: 
+      objectReference: {fileID: 4899834299607645822, guid: 5c9c0bb1191ac5849b88832f6f8a3261, type: 3}
+    - target: {fileID: 2690403611829605194, guid: fac1b2573137d324b960d66cc9bc1c8a, type: 3}
+      propertyPath: deadSquareDown
+      value: 
+      objectReference: {fileID: 1996914717263976875, guid: 6513eebc1186b724687014e266f697eb, type: 3}
     - target: {fileID: 4324113510877881842, guid: fac1b2573137d324b960d66cc9bc1c8a, type: 3}
       propertyPath: m_Mass
       value: 1
@@ -527,6 +543,10 @@ PrefabInstance:
     - target: {fileID: 2925039642743653916, guid: d2ed88babbf6b644e908aa3798448427, type: 3}
       propertyPath: m_Name
       value: PlayerCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2925039642743653916, guid: d2ed88babbf6b644e908aa3798448427, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2ed88babbf6b644e908aa3798448427, type: 3}

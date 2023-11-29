@@ -10,6 +10,7 @@ TagManager:
   - BeforePos
   - PlayerBullet
   - Hand
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX

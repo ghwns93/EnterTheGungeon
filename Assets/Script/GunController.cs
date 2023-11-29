@@ -35,6 +35,7 @@ public class GunController : MonoBehaviour
     public GameObject reloadBack;       //장전시 긴 막대
     public GameObject reloadBar;        //장전시 작은 막대
     public GameObject reloadText;       //재장전 프리팹
+    public GameObject blankBullet;      //공포탄 프리팹
 
     GameObject gunObj;                  //총오브젝트
     GameObject gunGateObj;              //포구
@@ -94,11 +95,11 @@ public class GunController : MonoBehaviour
         // 위로 스크롤 
         if (scrollValue > 0.0f)
         {            
-            gunNumber++;
+            gunNumber++;        // 총번호 바꾸기
             if (gunNumber > gunMaxCount)
                 gunNumber = 1;
-            Destroy(gunObj);
-            InstantiateGun();
+            Destroy(gunObj);    //들고있던총 없애기
+            InstantiateGun();   //총 생성
         }
         else if (scrollValue < 0.0f)    // 아래쪽으로 스크롤
         {
@@ -331,6 +332,22 @@ public class GunController : MonoBehaviour
             float barspeed = 0.8f;
             ReloadBar.transform.Translate(Vector3.right * barspeed * Time.deltaTime, Space.Self);
         }        
+
+        // Q눌러서 공포탄 사용
+        if(Input.GetKeyDown(KeyCode.Q) && !inlobby && ItemData.hasBlankBullets>0)
+        {
+            ItemData.hasBlankBullets--;
+            Vector2 blankBulletPos = new Vector2(transform.position.x -4.7f,transform.position.y - 4.7f);   //공포탄 생성위치
+            GameObject blankBulletInstance = Instantiate(blankBullet, blankBulletPos, transform.rotation);  //공포탄 객체생성,객체 변수
+            GameObject.Find("BlankBullet(Clone)").GetComponent<Animator>().Play("BlankBulletFire");
+            Destroy(blankBulletInstance, 2.0f);
+
+            GameObject[] enemyBullets = GameObject.FindGameObjectsWithTag("EnemyBullet");   //"EnemyBullet"태그있는 오브젝트들 찾기
+            foreach (GameObject enemyBullet in enemyBullets)      //배열들 하나마다
+            {
+                Destroy(enemyBullet);
+            }
+        }
     }
 
     void FixedUpdate()
@@ -526,14 +543,10 @@ public class GunController : MonoBehaviour
 
 죽을때
 
-카메라 캐릭터 중앙으로가고
-죽는 애니메이션1 중앙에 이펙트
 위아래 어두운거 내려오고 올라오고
 시계가 나와서 시간가르키고 총쏘면 죽는애니메이션2
 책등장 총쏘면 펼쳐지고 내용,, 재시작
 
-
-공포탄 적총알에에 태그 따로달아서 다 삭제시키면되려나
 
 어느정도 거리이동하면 총알 없애거나 부딪힐때 이펙트나 파티클이나 애니메이션
 총쏠때 이펙트
@@ -541,11 +554,11 @@ public class GunController : MonoBehaviour
 총쏘면 화면 흔들리기
 (흔들림 수준 설정 옵션)
 
-약간 자잘한거
+약간 자잘한거들
+-
 빨간총 최대 탄창수 설정 ,장전하면 남은총알고려 계산
 
-장전도중에 총바꾸면 장전 취소
-장전 끝나면 총알 다차게
+장전도중에 총바꾸면 장전 취소, 장전 끝나면 총알 다차게
 
 아이템 구현
 상점구현?

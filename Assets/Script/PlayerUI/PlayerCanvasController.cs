@@ -20,7 +20,8 @@ public class PlayerCanvasController : MonoBehaviour
 
     Text keyCount;
     Text moneyBulletCount;
-    
+
+    string gameState;           //PlayerController 에서 가져다 저장할곳
 
     // Start is called before the first frame update
     void Start()
@@ -42,7 +43,18 @@ public class PlayerCanvasController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(PlayerController.hp==6)
+        gameState = GameObject.Find("Pilot").GetComponent<PlayerController>().gameState;
+        // gameover 일때는 캔버스 비활성화 이후 아무것도 하지 않음
+        if (gameState == "gameover")
+        {
+            if(gameObject.activeSelf == true)
+            {
+                gameObject.SetActive(false);
+            }
+            return;
+        }
+
+        if (PlayerController.hp==6)
         {
             heartNo1Spr.sprite = heart2;
             heartNo2Spr.sprite = heart2;
