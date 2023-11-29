@@ -142,8 +142,18 @@ public class BossController : MonoBehaviour
             {
                 isActive = false;
 
+                SpriteRenderer chairSprite = transform.Find("BossMoveObject").transform.Find("BossChair").GetComponent<SpriteRenderer>();
+                SpriteRenderer bodySprite = transform.Find("BossMoveObject").transform.Find("BossChair").transform.Find("BossBody").GetComponent<SpriteRenderer>();
+
+                Color DefaultColor = new Color(1, 1, 1, 1);
+
+                chairSprite.color = DefaultColor;
+                bodySprite.color = DefaultColor;
+
+                chairManager.isDead = true;
+
                 rbody.velocity = Vector2.zero;
-                GetComponent<BoxCollider2D>().enabled = false;
+                GetComponent<CapsuleCollider2D>().enabled = false;
 
                 Destroy(gameObject, 1);
             }
@@ -165,16 +175,19 @@ public class BossController : MonoBehaviour
     {
         isHit = true;
 
-        SpriteRenderer playerSprite = GetComponent<SpriteRenderer>();
+        SpriteRenderer chairSprite = transform.Find("BossMoveObject").transform.Find("BossChair").GetComponent<SpriteRenderer>();
+        SpriteRenderer bodySprite = transform.Find("BossMoveObject").transform.Find("BossChair").transform.Find("BossBody").GetComponent<SpriteRenderer>();
 
-        Color defaultColor = new Color(1, 1, 1, 1);
+        Color chairDefaultColor = new Color(1, 1, 1, 1);
+        Color bodyDefaultColor = bodySprite.color;
 
-        playerSprite.color = new Color(1, 0, 0, 1);
+        chairSprite.color = new Color(1, 0, 0, 1);
+        bodySprite.color = new Color(1, 0, 0, bodyDefaultColor.a);
 
         yield return new WaitForSeconds(0.2f);
 
-        playerSprite.color = defaultColor;
-
+        chairSprite.color = chairDefaultColor;
+        bodySprite.color = bodyDefaultColor;
 
         isHit = false;
     }

@@ -401,6 +401,7 @@ MonoBehaviour:
   shotgunFireCount: 2
   shotAngle: 10
   shotAttackTime: 0.2
+  fireBulletPrefab: {fileID: 63745410651331801, guid: eeda83e39e0c1ae49864c94e11ce5bef, type: 3}
 --- !u!114 &561593610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -418,6 +419,7 @@ MonoBehaviour:
   chairLeftAttack: BossChiarLeftAttack
   chairRightAttack: BossChiarRightAttack
   chairShotgunAttack: BossChiarShotgunAttack
+  chairFireAttack: BossChiarFireAttack
   chairDead: BossChiarDead
   bodyIdle: BossBodyIdle
   bodyAttack: BossBodyAttack
@@ -435,6 +437,7 @@ GameObject:
   - component: {fileID: 674527201}
   - component: {fileID: 674527202}
   - component: {fileID: 674527203}
+  - component: {fileID: 674527204}
   m_Layer: 0
   m_Name: BossObject
   m_TagString: Enemy
@@ -508,6 +511,22 @@ MonoBehaviour:
   attackDistance: 10
   moveDistance: 5
   callMoveTime: 20
+--- !u!70 &674527204
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674527199}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.1}
+  m_Size: {x: 2, y: 2.4}
+  m_Direction: 0
 --- !u!1 &703736147
 GameObject:
   m_ObjectHideFlags: 0
@@ -871,68 +890,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fac1b2573137d324b960d66cc9bc1c8a, type: 3}
---- !u!1001 &1648724860190324371
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 63745410651331801, guid: eeda83e39e0c1ae49864c94e11ce5bef, type: 3}
-      propertyPath: m_Name
-      value: EnemyFireBulletMain
-      objectReference: {fileID: 0}
-    - target: {fileID: 93061533550691673, guid: eeda83e39e0c1ae49864c94e11ce5bef, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 93061533550691673, guid: eeda83e39e0c1ae49864c94e11ce5bef, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3.41
-      objectReference: {fileID: 0}
-    - target: {fileID: 93061533550691673, guid: eeda83e39e0c1ae49864c94e11ce5bef, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 93061533550691673, guid: eeda83e39e0c1ae49864c94e11ce5bef, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 93061533550691673, guid: eeda83e39e0c1ae49864c94e11ce5bef, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 93061533550691673, guid: eeda83e39e0c1ae49864c94e11ce5bef, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 93061533550691673, guid: eeda83e39e0c1ae49864c94e11ce5bef, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 93061533550691673, guid: eeda83e39e0c1ae49864c94e11ce5bef, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 93061533550691673, guid: eeda83e39e0c1ae49864c94e11ce5bef, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 93061533550691673, guid: eeda83e39e0c1ae49864c94e11ce5bef, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 93061533550691673, guid: eeda83e39e0c1ae49864c94e11ce5bef, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 554148363433060595, guid: eeda83e39e0c1ae49864c94e11ce5bef, type: 3}
-      propertyPath: firePower
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 554148363433060595, guid: eeda83e39e0c1ae49864c94e11ce5bef, type: 3}
-      propertyPath: fireBullet
-      value: 
-      objectReference: {fileID: 1823372486241522438, guid: f0f9d97eb46240b4ca7bffb33f7d36db, type: 3}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: eeda83e39e0c1ae49864c94e11ce5bef, type: 3}

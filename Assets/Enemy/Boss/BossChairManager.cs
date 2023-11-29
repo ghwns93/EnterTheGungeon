@@ -11,6 +11,7 @@ public class BossChairManager : MonoBehaviour
     public string chairLeftAttack = "BossChiarLeftAttack";
     public string chairRightAttack = "BossChiarRightAttack";
     public string chairShotgunAttack = "BossChiarShotgunAttack";
+    public string chairFireAttack = "BossChiarFireAttack";
     public string chairDead = "BossChiarDead";
 
     public string bodyIdle = "BossBodyIdle";
@@ -28,6 +29,7 @@ public class BossChairManager : MonoBehaviour
     private string newChairAnimation = "";
 
     internal bool isAttack = false;
+    internal bool isDead = false;
 
     private bool OnceOk = true;
     private Animator bodyAnimator;
@@ -51,33 +53,55 @@ public class BossChairManager : MonoBehaviour
 
     private void Update()
     {
-        if (isAttack && OnceOk && realAttackTime <= 0.0f)
+        if (!isDead)
         {
-            OnceOk = false;
-            realAttackTime = attackDelay;
-
-            int bolletShape = UnityEngine.Random.Range(0, 2);
-
-            bulletManager.patten = (BossBulletManager.PattenNumber)bolletShape;
-
-            if (newChairAnimation == chairIdle)
+            if (isAttack && OnceOk && realAttackTime <= 0.0f)
             {
-                if (bulletManager.patten == BossBulletManager.PattenNumber.SPIN)
+                OnceOk = false;
+                realAttackTime = attackDelay;
+
+                int bolletShape = UnityEngine.Random.Range(0, 100);
+
+                if (0 <= bolletShape && bolletShape < 25)
+                    bulletManager.patten = (BossBulletManager.PattenNumber)0;
+                else if (25 <= bolletShape && bolletShape < 75)
+                    bulletManager.patten = (BossBulletManager.PattenNumber)1;
+                else if (75 <= bolletShape && bolletShape < 100)
+                    bulletManager.patten = (BossBulletManager.PattenNumber)2;
+
+                //bulletManager.patten = (BossBulletManager.PattenNumber)bolletShape;
+                //bulletManager.patten = (BossBulletManager.PattenNumber)2; // 테스트용
+
+                if (newChairAnimation == chairIdle)
                 {
-                    newChairAnimation = chairLeftAttack;
-                }
-                else if (bulletManager.patten == BossBulletManager.PattenNumber.SHOTGUN)
-                {
-                    newChairAnimation = chairShotgunAttack;
+                    if (bulletManager.patten == BossBulletManager.PattenNumber.SPIN)
+                    {
+                        newChairAnimation = chairLeftAttack;
+                    }
+                    else if (bulletManager.patten == BossBulletManager.PattenNumber.SHOTGUN)
+                    {
+                        newChairAnimation = chairShotgunAttack;
+                    }
+                    else if (bulletManager.patten == BossBulletManager.PattenNumber.FIRE)
+                    {
+                        newChairAnimation = chairFireAttack;
+                    }
                 }
             }
-        }
-        else if(isAttack && OnceOk)
-        {
-            newBodyAnimation = bodyIdle;
-            newChairAnimation = chairIdle;
+            else if (isAttack && OnceOk)
+            {
+                newBodyAnimation = bodyIdle;
+                newChairAnimation = chairIdle;
 
-            realAttackTime -= Time.deltaTime;
+                realAttackTime -= Time.deltaTime;
+            }
+        }
+        else
+        {
+            bulletManager.isAttack = false;
+
+            newBodyAnimation = bodyDead;
+            newChairAnimation = chairDead;
         }
 
         if(oldBodyAnimation != newBodyAnimation)
@@ -114,6 +138,12 @@ public class BossChairManager : MonoBehaviour
         {
             ReturnIdle();
         }
+    }
+
+    private void FireAttack()
+    {
+        if (bulletManager.isAttack == false) bulletManager.isAttack = true;
+        ReturnIdle();
     }
 
     private void ReturnIdle()
