@@ -37,22 +37,25 @@ public class UnitMove : MonoBehaviour
 
     IEnumerator FollowPath()
     {
-        Vector3 currenWayPoint = path[0];
-
-        while(true) 
+        if (path.Length > 0)
         {
-            if (transform.position == currenWayPoint) 
-            {
-                targetIndex++;
-                if(targetIndex >= path.Length) 
-                {
-                    yield break;
-                }
-                currenWayPoint = path[targetIndex];
-            }
+            Vector3 currenWayPoint = path[0];
 
-            transform.position = Vector2.MoveTowards(transform.position, currenWayPoint, speed * Time.deltaTime);
-            yield return null;
+            while (true)
+            {
+                if (transform.position == currenWayPoint)
+                {
+                    targetIndex++;
+                    if (targetIndex >= path.Length)
+                    {
+                        yield break;
+                    }
+                    currenWayPoint = path[targetIndex];
+                }
+
+                transform.position = Vector2.MoveTowards(transform.position, currenWayPoint, speed * Time.deltaTime);
+                yield return null;
+            }
         }
     }
 }
