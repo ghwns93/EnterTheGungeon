@@ -21,7 +21,9 @@ public class PlayerCanvasController : MonoBehaviour
     Text keyCount;
     Text moneyBulletCount;
 
-    string gameState;           //PlayerController 에서 가져다 저장할곳
+    // PlayerController 에서 가져다 저장할곳
+    string gameState;                  
+    bool inlobby;                         
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +38,8 @@ public class PlayerCanvasController : MonoBehaviour
         blankBullet2Spr = blankBullets.transform.Find("BlankBullet2").GetComponent<SpriteRenderer>();
         blankBullet3Spr = blankBullets.transform.Find("BlankBullet3").GetComponent<SpriteRenderer>();
 
+        inlobby = GameObject.Find("Pilot").GetComponent<PlayerController>().inlobby;
+
         //keyCount = transform.Find("KeyCount").gameObject.GetComponent<Text>();
         //moneyBulletCount = transform.Find("MoneyBulletCount").gameObject.GetComponent<Text>();
     }
@@ -45,7 +49,7 @@ public class PlayerCanvasController : MonoBehaviour
     {
         gameState = GameObject.Find("Pilot").GetComponent<PlayerController>().gameState;
         // gameover 일때는 캔버스 비활성화 이후 아무것도 하지 않음
-        if (gameState == "gameover")
+        if (gameState == "gameover" || inlobby)
         {
             if(gameObject.activeSelf == true)
             {

@@ -485,8 +485,17 @@ public class PlayerController : MonoBehaviour
             // 추락 애니메이션 재생
             animator.Play("PilotFall");
 
-            // 데미지 계산
-            hp--;   
+            // 로비가 아닐경우 데미지 계산
+            if(!inlobby)
+            {
+                hp--;
+                if (hp <= 0)
+                {
+                    // 체력이 없으면 게임오버
+                    GameOver();
+                }
+            }
+                
 
             // 추락 애니메이션이 재생된 후에 떨어지기 전 위치로 이동하기 위해 1초 대기
             Invoke("BeforePos", 1.0f);
@@ -524,7 +533,7 @@ public class PlayerController : MonoBehaviour
             else
             {
                 // 체력이 없으면 게임오버
-                GameOver();
+                GameOver();     //떨어져서 죽을때 구덩이에서 시계총안맞으면 고쳐야함
             }
         }
     }

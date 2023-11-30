@@ -20,21 +20,13 @@ public class PilotGunMagazine : MonoBehaviour
     {
         // inlobby 변수 가져오기
         inlobby = GameObject.Find("Pilot").GetComponent<PlayerController>().inlobby;
-        // 로비에 있으면 탄창 안보이게
-        if (inlobby)
-        {
-            enabled = false;    //여기 고쳐야함
-        }
-        else
-        {
-            enabled = true;
-        }
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        // 로비에 있으면 조건문 이후 실행 x
+        // 로비에 있으면 캔버스 안보이게하고(캔버스 컨트롤러에서) 조건문 이후 실행 x
         if (inlobby)
         {
             return;
