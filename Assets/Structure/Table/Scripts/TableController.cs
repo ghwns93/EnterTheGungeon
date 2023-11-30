@@ -9,12 +9,7 @@ public class TableController : MonoBehaviour
     public string TableLeft = "TableLeft";
     public string TableUp = "TableUp";
     public string TableDown = "TableDown";
-
-    public string Table_ShadowIdel = "Table_ShadowIdle";
-    public string Table_ShadowRight = "Table_ShadowRight";
-    public string Table_ShadowLeft = "Table_ShadowLeft";
-    public string Table_ShadowUp = "Table_ShadowUp";
-    public string Table_ShadowDown = "Table_ShadowDown";
+    public bool guardOn = false;
 
     public Animator animator;
 
@@ -37,13 +32,10 @@ public class TableController : MonoBehaviour
             animator.Play("TableIdle");
             animator.Play("Table_ShadowIdle");
         }
-        /*
- HEAD
-
-        //if ()
-=======
-        if ()
- cd6cef687342c04375656a52e99f2275f9e30f6d
-         */
     }
+
+//    private void OnCollisionEnter2D(Collider2D collision)
+//    {
+        
+//    }
 }
