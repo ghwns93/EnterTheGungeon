@@ -36,8 +36,8 @@ public class PlayerCanvasController : MonoBehaviour
         blankBullet2Spr = blankBullets.transform.Find("BlankBullet2").GetComponent<SpriteRenderer>();
         blankBullet3Spr = blankBullets.transform.Find("BlankBullet3").GetComponent<SpriteRenderer>();
 
-        keyCount = transform.Find("KeyCount").gameObject.GetComponent<Text>();
-        moneyBulletCount = transform.Find("MoneyBulletCount").gameObject.GetComponent<Text>();
+        //keyCount = transform.Find("KeyCount").gameObject.GetComponent<Text>();
+        //moneyBulletCount = transform.Find("MoneyBulletCount").gameObject.GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -122,8 +122,9 @@ public class PlayerCanvasController : MonoBehaviour
             blankBullet3Spr.enabled = true;
         }
 
-        keyCount.text = ItemData.hasKeys.ToString();
-        moneyBulletCount.text = ItemData.hasMoneyBullet.ToString();
+        // ¿­¼è °¡Áø °¹¼ö ÅØ½ºÆ®, µ· ÅØ½ºÆ®
+        //keyCount.text = ItemData.hasKeys.ToString();
+        //moneyBulletCount.text = ItemData.hasMoneyBullet.ToString();
     }
 
 }

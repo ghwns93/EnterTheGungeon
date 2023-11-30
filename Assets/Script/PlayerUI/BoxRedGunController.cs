@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BoxRedGunController : MonoBehaviour
 {
@@ -22,8 +23,9 @@ public class BoxRedGunController : MonoBehaviour
     private bool canAttack;     //공격 딜레이 할때 사용
     private bool isReloading;  //장전하는중 장전 안되게
     private bool isAttack;     //공격누르고있을때 장전안되게
-    private bool inlobby;              //PlayerController의 변수 가져와서 저장할 변수 //일단 false
+    private bool inlobby;      //PlayerController의 변수 가져와서 저장할 변수 
 
+    public Image parentImage;
 
     // Start is called before the first frame update
     void Start()
@@ -37,12 +39,31 @@ public class BoxRedGunController : MonoBehaviour
         canAttack = true;
         isReloading = false;
         isAttack = false;
-        inlobby = false;
+
+        // inlobby 변수 가져오기
+        inlobby = GameObject.Find("Pilot").GetComponent<PlayerController>().inlobby;
+        // 로비에 있으면 총이랑 박스 안보이게
+        if (inlobby)
+        {
+            GetComponent<SpriteRenderer>().enabled = false;
+            parentImage.enabled = false;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().enabled = true;
+            parentImage.enabled = true;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        // 로비에 있으면 총이랑 박스 안보이게하고 조건문 이후 실행 x
+        if (inlobby)
+        {
+            return;
+        }
+
         // gunNumber 변수 가져오기
         GameObject player = GameObject.FindWithTag("Player");
         int gunNumber = player.GetComponent<GunController>().gunNumber;

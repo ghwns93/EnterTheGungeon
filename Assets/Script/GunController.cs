@@ -541,6 +541,8 @@ public class GunController : MonoBehaviour
 
 /*
 
+시계총맞고 검은 배경에 GameOver 이후 타이틀화면 or 재시작
+
 책등장 총쏘면 펼쳐지고 내용,, 재시작
 
 어느정도 거리이동하면 총알 없애거나 부딪힐때 이펙트나 파티클이나 애니메이션

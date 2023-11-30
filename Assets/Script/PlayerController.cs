@@ -576,7 +576,9 @@ public class PlayerController : MonoBehaviour
         deadSquareDownObj = Instantiate(deadSquareUp,new Vector3(0,-7f,0),new Quaternion(0,0,0,0));
         deadSquareDownObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, +5.0f),ForceMode2D.Impulse);
         Invoke("StopSquare", 0.5f);
-        // 플레이어 밑에 그림자 생성
+
+        Destroy(transform.Find("PilotShadow").gameObject);  // 플레이어 그림자 제거
+        // 플레이어 밑에 큰 그림자 생성
         deadShadowObj = Instantiate(deadShadow,transform.position+new Vector3(0,0.2f,0),transform.rotation);
                 
     }
@@ -591,7 +593,6 @@ public class PlayerController : MonoBehaviour
         //시계나오기
         watch1Obj = Instantiate(watch1, transform.position, transform.rotation);
         Invoke("WatchShot", 1.5f);
-        Destroy(transform.Find("PilotShadow(Clone)"));  // 플레이어 그림자 제거
     }
 
     //이벤트함수
