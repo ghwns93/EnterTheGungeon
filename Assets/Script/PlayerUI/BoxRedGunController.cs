@@ -22,7 +22,6 @@ public class BoxRedGunController : MonoBehaviour
 
     private bool canAttack;     //공격 딜레이 할때 사용
     private bool isReloading;  //장전하는중 장전 안되게
-    private bool isAttack;     //공격누르고있을때 장전안되게
     private bool inlobby;      //PlayerController의 변수 가져와서 저장할 변수 
 
     public Image parentImage;
@@ -38,7 +37,6 @@ public class BoxRedGunController : MonoBehaviour
         redGunBulletCount = 20;
         canAttack = true;
         isReloading = false;
-        isAttack = false;
 
         // inlobby 변수 가져오기
         inlobby = GameObject.Find("Pilot").GetComponent<PlayerController>().inlobby;
@@ -79,7 +77,6 @@ public class BoxRedGunController : MonoBehaviour
         // 마우스 왼클릭시 공격
         if (Input.GetMouseButton(0) && canAttack && !inlobby && redGunBulletCount > 0 && !isReloading)
         {
-            isAttack = true;
 
             // 공격 키 입력 및 딜레이 시작
             StartCoroutine(AttackWithDelay());
@@ -89,7 +86,6 @@ public class BoxRedGunController : MonoBehaviour
         if (Input.GetMouseButtonUp(0) && !inlobby && !isReloading)
         {
             gunAnimator.Play(redGunHold);
-            isAttack = false;
         }
 
         // 총알 다썼을 때 마우스 왼클릭시 장전

@@ -214,6 +214,7 @@ MonoBehaviour:
   deadShadow: {fileID: 7308772830113612853, guid: c79a80cc07c04024682583b237ac5f84, type: 3}
   watch1: {fileID: 1605266719208224067, guid: 4fb9a2ed236af4343908a187ad1a382c, type: 3}
   watch2: {fileID: 5108197585148324043, guid: 6c61e5ba20852a64d81310b22130c755, type: 3}
+  bulletBombPrefab: {fileID: 0}
   angleZ: -90
   isDodging: 0
   inlobby: 0
@@ -319,4 +320,6 @@ MonoBehaviour:
   reloadBar: {fileID: 3430188339099538438, guid: b24b3ffd492760d459906fc8f7d54138, type: 3}
   reloadText: {fileID: 4857945407521960450, guid: d784f53dc05d5d547818f1bba2c04af4, type: 3}
   blankBullet: {fileID: 2997166369146760917, guid: a38c20fac1a8f2a41852aa5ce8601604, type: 3}
+  pilotgunFireEffectPrefab: {fileID: 2824695725571382264, guid: 1ded0af0be337644da4ef52fc878d6a2, type: 3}
+  redgunFireEffectPrefab: {fileID: 0}
   canAttack: 0

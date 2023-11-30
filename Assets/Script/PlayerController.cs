@@ -39,12 +39,14 @@ public class PlayerController : MonoBehaviour
     public GameObject deadShadow;       //죽으면 밑에 그림자
     public GameObject watch1;           //시계1프리팹
     public GameObject watch2;           //시계2프리팹
+    public GameObject bulletBombPrefab; //총알 터지는 애니메이션가진 프리팹
 
     GameObject deadSquareUpObj;         //여러함수에서 쓸수있게 선언해둠
     GameObject deadSquareDownObj;
     GameObject deadShadowObj;
     GameObject watch1Obj;
     GameObject watch2Obj;
+    GameObject bulletBombObj;
 
     string nowAnimation = "";       // 현재 애니메이션
     string oldAnimation = "";       // 이전 애니메이션       
@@ -462,7 +464,11 @@ public class PlayerController : MonoBehaviour
 
             // 총알에 맞았을경우 총알 삭제
             if(collision.gameObject.tag == "EnemyBullet")
+            {
+                bulletBombObj = Instantiate(bulletBombPrefab,
+                    collision.gameObject.transform.position,collision.gameObject.transform.rotation);   //되는지 확인안해봄
                 Destroy(collision.gameObject);
+            }
         }
     }
 
