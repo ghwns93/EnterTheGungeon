@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2593661553984653645}
   - component: {fileID: 3331978336477132500}
   - component: {fileID: 3862757913986596190}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EnemyShotgunBullet
   m_TagString: Enemy
   m_Icon: {fileID: 0}

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7915825620288441041}
   - component: {fileID: 4622885664601902323}
   - component: {fileID: 4064125905906050832}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: RedGunBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
