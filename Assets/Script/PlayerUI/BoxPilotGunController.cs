@@ -46,23 +46,13 @@ public class BoxPilotGunController : MonoBehaviour
 
         // inlobby 변수 가져오기
         inlobby = GameObject.Find("Pilot").GetComponent<PlayerController>().inlobby;
-        // 로비에 있으면 총이랑 박스 안보이게
-        if (inlobby)
-        {
-            GetComponent<SpriteRenderer>().enabled = false;
-            parentImage.enabled = false;
-        }
-        else
-        {
-            GetComponent<SpriteRenderer>().enabled = true;
-            parentImage.enabled = true;
-        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        // 로비에 있으면 총이랑 박스 안보이게하고 조건문 이후 실행 x
+        // 로비에 있으면 캔버스 안보이게하고(캔버스 컨트롤러에서) 조건문 이후 실행 x
         if (inlobby)
         {
             return;
