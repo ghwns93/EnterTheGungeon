@@ -34,7 +34,7 @@ public class BossChairManager : MonoBehaviour
     private bool OnceOk = true;
     private Animator bodyAnimator;
     private SpriteRenderer bodyRenderer;
-    BossBulletManager bulletManager;
+    private BossBulletManager bulletManager;
 
     // 애니메이터
     private Animator chairAnimator;
