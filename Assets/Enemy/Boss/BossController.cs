@@ -14,7 +14,7 @@ public class BossController : MonoBehaviour
     public float attackDistance = 10;    //공격 거리
     public float moveDistance = 10;    //추격 거리
 
-    bool isActive = true;
+    bool isActive = false;
     bool isAttack = false;  //공격 상태
     bool isMove = false;  //추격 상태
     bool isAct = true;
@@ -32,6 +32,8 @@ public class BossController : MonoBehaviour
     GameObject player;
 
     BossChairManager chairManager;
+    MonsterAwakeManager monsterAwakeManager;
+    bool awakeOnce = true;
 
     //ui 슬라이더
     private Slider slider;
@@ -43,6 +45,7 @@ public class BossController : MonoBehaviour
 
         // Rigidbody2D 가져오기
         rbody = GetComponent<Rigidbody2D>();
+        monsterAwakeManager = GetComponent<MonsterAwakeManager>();
 
         chairManager = transform.Find("BossMoveObject").transform.Find("BossChair").GetComponent<BossChairManager>();
         slider = transform.Find("Canvas").transform.Find("Slider").GetComponent<Slider>();
@@ -55,10 +58,10 @@ public class BossController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-
         if (isActive)
         {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+
             if (player != null)
             {
                 isActive = true;
@@ -102,6 +105,11 @@ public class BossController : MonoBehaviour
                 rbody.velocity = Vector2.zero;
                 isActive = false;
             }
+        }
+        else if(awakeOnce)
+        {
+            isActive = monsterAwakeManager.isAwake;
+            if(isActive) awakeOnce = false;
         }
     }
 

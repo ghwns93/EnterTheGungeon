@@ -91,7 +91,6 @@ public class AGrid : MonoBehaviour
         Gizmos.DrawWireCube(transform.position, new Vector3(gridWorldSize.x, gridWorldSize.y, 1));
         if(grid != null)
         {
-            Debug.Log("grid is not null");
             foreach(ANode n in grid)
             {
                 Gizmos.color = (n.isWalkAble) ? Color.white : Color.red;
@@ -101,7 +100,6 @@ public class AGrid : MonoBehaviour
                 {
                     if (path.Contains(n))
                     {
-                        Debug.Log("black draw");
                         Gizmos.color = Color.black;
                     }
                 }

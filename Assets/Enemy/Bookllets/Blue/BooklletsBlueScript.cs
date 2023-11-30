@@ -59,12 +59,16 @@ public class BooklletsBlueScript : MonoBehaviour
 
     bool RShoot = false;
 
+    MonsterAwakeManager monsterAwake;
+    bool awakeOnce = true;
+
     // Start is called before the first frame update
     void Start()
     {
         rbody = GetComponent<Rigidbody2D>();
         bulletStats = new List<GameObject>();
         pulseStats = new List<GameObject>();
+        monsterAwake = GetComponent<MonsterAwakeManager>();
 
         pulseNowTime = pulseMaxTime;
     }
@@ -72,47 +76,53 @@ public class BooklletsBlueScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-
-        if (player != null)
+        if (isActive)
         {
-            isActive = true;
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
 
-            //플레이어와의 거리 확인
-            Vector3 plpos = player.transform.position;
-            float dist = Vector2.Distance(transform.position, plpos);
-
-            if (!isAttack)
+            if (player != null)
             {
-                //플레이어가 범위 안에 있고 공격 중이 아닌 경우
-                if (dist <= attackDistance)
+                //플레이어와의 거리 확인
+                Vector3 plpos = player.transform.position;
+                float dist = Vector2.Distance(transform.position, plpos);
+
+                if (!isAttack)
                 {
-                    isAttack = true;
+                    //플레이어가 범위 안에 있고 공격 중이 아닌 경우
+                    if (dist <= attackDistance)
+                    {
+                        isAttack = true;
 
-                    axisH = 0.0f;
-                    axisV = 0.0f;
-                    nowAnimation = attackAnime;
-                }
-                //플레이어가 인식 범위를 벗어난 경우
-                else if (dist > attackDistance)
-                {
-                    //플레이어와의 거리를 바탕으로 각도를 구하기
-                    float dx = player.transform.position.x - transform.position.x;
-                    float dy = player.transform.position.y - transform.position.y;
-                    float rad = Mathf.Atan2(dy, dx);
-                    float angleZ = rad * Mathf.Rad2Deg;
+                        axisH = 0.0f;
+                        axisV = 0.0f;
+                        nowAnimation = attackAnime;
+                    }
+                    //플레이어가 인식 범위를 벗어난 경우
+                    else if (dist > attackDistance)
+                    {
+                        //플레이어와의 거리를 바탕으로 각도를 구하기
+                        float dx = player.transform.position.x - transform.position.x;
+                        float dy = player.transform.position.y - transform.position.y;
+                        float rad = Mathf.Atan2(dy, dx);
+                        float angleZ = rad * Mathf.Rad2Deg;
 
-                    nowAnimation = idleAnime;
+                        nowAnimation = idleAnime;
 
-                    //이동 벡터
-                    axisH = Mathf.Cos(rad) * speed;
-                    axisV = Mathf.Sin(rad) * speed;
+                        //이동 벡터
+                        axisH = Mathf.Cos(rad) * speed;
+                        axisV = Mathf.Sin(rad) * speed;
+                    }
                 }
             }
+            else
+            {
+                rbody.velocity = Vector2.zero;
+            }
         }
-        else
+        else if (awakeOnce)
         {
-            rbody.velocity = Vector2.zero;
+            isActive = monsterAwake.isAwake;
+            if (isActive) awakeOnce = false;
         }
     }
 

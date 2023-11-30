@@ -51,11 +51,15 @@ public class AgonizerScript : MonoBehaviour
 
     bool RShoot = false;
 
+    MonsterAwakeManager monsterAwake;
+    bool awakeOnce = true;
+
     // Start is called before the first frame update
     void Start()
     {
         rbody = GetComponent<Rigidbody2D>();
         bulletStats = new List<GameObject>();
+        monsterAwake = GetComponent<MonsterAwakeManager>();
     }
 
     // Update is called once per frame
@@ -63,33 +67,41 @@ public class AgonizerScript : MonoBehaviour
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
-        if (player != null)
+        if (isActive)
         {
-            isActive = true;
-
-            //플레이어와의 거리 확인
-            Vector3 plpos = player.transform.position;
-            float dist = Vector2.Distance(transform.position, plpos);
-
-            Debug.Log("dist :" + dist);
-            if (dist <= attackDistance)
+            if (player != null)
             {
-                if (!isAttack)
+                isActive = true;
+
+                //플레이어와의 거리 확인
+                Vector3 plpos = player.transform.position;
+                float dist = Vector2.Distance(transform.position, plpos);
+
+                Debug.Log("dist :" + dist);
+                if (dist <= attackDistance)
                 {
-                    //플레이어가 범위 안에 있고 공격 중이 아닌 경우
-                    isAttack = true;
-                    nowAnimation = attackAnime;
+                    if (!isAttack)
+                    {
+                        //플레이어가 범위 안에 있고 공격 중이 아닌 경우
+                        isAttack = true;
+                        nowAnimation = attackAnime;
+                    }
+                }
+                //플레이어가 인식 범위를 벗어난 경우
+                else if (dist > attackDistance)
+                {
+                    if (nowAnimation == attackingAnime || nowAnimation == attackAnime) nowAnimation = attackFinishAnime;
                 }
             }
-            //플레이어가 인식 범위를 벗어난 경우
-            else if (dist > attackDistance)
+            else
             {
-                if(nowAnimation == attackingAnime || nowAnimation == attackAnime) nowAnimation = attackFinishAnime;
+                rbody.velocity = Vector2.zero;
             }
         }
-        else
+        else if (awakeOnce)
         {
-            rbody.velocity = Vector2.zero;
+            isActive = monsterAwake.isAwake;
+            if (isActive) awakeOnce = false;
         }
     }
 
