@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossController : MonoBehaviour
 {
     // 이동속도
     public float speed = 1.0f;
 
-    public static int hp = 3;       // 적의 HP
+    public int maxhp = 10;   // 적의 최대 HP
+    private int nowhp;       // 적의 현재 HP
 
     public float attackDistance = 10;    //공격 거리
     public float moveDistance = 10;    //추격 거리
 
-    bool isActive = true;
+    bool isActive = false;
     bool isAttack = false;  //공격 상태
     bool isMove = false;  //추격 상태
     bool isAct = true;
@@ -30,14 +32,23 @@ public class BossController : MonoBehaviour
     GameObject player;
 
     BossChairManager chairManager;
+    MonsterAwakeManager monsterAwakeManager;
+    bool awakeOnce = true;
+
+    //ui 슬라이더
+    private Slider slider;
 
     // Start is called before the first frame update
     void Start()
     {
+        nowhp = maxhp;
+
         // Rigidbody2D 가져오기
         rbody = GetComponent<Rigidbody2D>();
+        monsterAwakeManager = GetComponent<MonsterAwakeManager>();
 
         chairManager = transform.Find("BossMoveObject").transform.Find("BossChair").GetComponent<BossChairManager>();
+        slider = transform.Find("Canvas").transform.Find("Slider").GetComponent<Slider>();
 
         unitMove = GetComponent<UnitMove>();
 
@@ -47,10 +58,10 @@ public class BossController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-
         if (isActive)
         {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+
             if (player != null)
             {
                 isActive = true;
@@ -95,12 +106,17 @@ public class BossController : MonoBehaviour
                 isActive = false;
             }
         }
+        else if(awakeOnce)
+        {
+            isActive = monsterAwakeManager.isAwake;
+            if(isActive) awakeOnce = false;
+        }
     }
 
     // (유니티 초기 설정 기준) 0.02초마다 호출되며, 1초에 총 50번 호출되는 함수
     void FixedUpdate()
     {
-        if (isActive && hp > 0)
+        if (isActive && nowhp > 0)
         {
             if (isMove)
             {
@@ -135,10 +151,12 @@ public class BossController : MonoBehaviour
     {
         if (collision.gameObject.tag == "PlayerBullet")
         {
-            hp--; //체력 감소
+            nowhp--; //체력 감소
+
+            slider.value = ((float)nowhp / (float)maxhp);
 
             //체력이 0 이하가 되는 경우는 사망처리
-            if (hp <= 0)
+            if (nowhp <= 0)
             {
                 isActive = false;
 

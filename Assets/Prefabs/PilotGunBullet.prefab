@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4566102399501587369}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.22, y: -0.98, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.35, z: 0.5}
+  m_LocalScale: {x: 0.75, y: 0.525, z: 0.75}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deleteTime: 3
+  bulletBombPrefab: {fileID: 5735827807862232091, guid: d70ea266c444a9a47b317f3394bafd0e, type: 3}
 --- !u!70 &3404759667440415698
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

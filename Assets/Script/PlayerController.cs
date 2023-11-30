@@ -39,12 +39,14 @@ public class PlayerController : MonoBehaviour
     public GameObject deadShadow;       //죽으면 밑에 그림자
     public GameObject watch1;           //시계1프리팹
     public GameObject watch2;           //시계2프리팹
+    public GameObject bulletBombPrefab; //총알 터지는 애니메이션가진 프리팹
 
     GameObject deadSquareUpObj;         //여러함수에서 쓸수있게 선언해둠
     GameObject deadSquareDownObj;
     GameObject deadShadowObj;
     GameObject watch1Obj;
     GameObject watch2Obj;
+    GameObject bulletBombObj;
 
     string nowAnimation = "";       // 현재 애니메이션
     string oldAnimation = "";       // 이전 애니메이션       
@@ -462,7 +464,11 @@ public class PlayerController : MonoBehaviour
 
             // 총알에 맞았을경우 총알 삭제
             if(collision.gameObject.tag == "EnemyBullet")
+            {
+                bulletBombObj = Instantiate(bulletBombPrefab,
+                    collision.gameObject.transform.position,collision.gameObject.transform.rotation);   //되는지 확인안해봄
                 Destroy(collision.gameObject);
+            }
         }
     }
 
@@ -485,8 +491,17 @@ public class PlayerController : MonoBehaviour
             // 추락 애니메이션 재생
             animator.Play("PilotFall");
 
-            // 데미지 계산
-            hp--;   
+            // 로비가 아닐경우 데미지 계산
+            if(!inlobby)
+            {
+                hp--;
+                if (hp <= 0)
+                {
+                    // 체력이 없으면 게임오버
+                    GameOver();
+                }
+            }
+                
 
             // 추락 애니메이션이 재생된 후에 떨어지기 전 위치로 이동하기 위해 1초 대기
             Invoke("BeforePos", 1.0f);
@@ -524,7 +539,7 @@ public class PlayerController : MonoBehaviour
             else
             {
                 // 체력이 없으면 게임오버
-                GameOver();
+                GameOver();     //떨어져서 죽을때 구덩이에서 시계총안맞으면 고쳐야함
             }
         }
     }
@@ -576,7 +591,9 @@ public class PlayerController : MonoBehaviour
         deadSquareDownObj = Instantiate(deadSquareUp,new Vector3(0,-7f,0),new Quaternion(0,0,0,0));
         deadSquareDownObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, +5.0f),ForceMode2D.Impulse);
         Invoke("StopSquare", 0.5f);
-        // 플레이어 밑에 그림자 생성
+
+        Destroy(transform.Find("PilotShadow").gameObject);  // 플레이어 그림자 제거
+        // 플레이어 밑에 큰 그림자 생성
         deadShadowObj = Instantiate(deadShadow,transform.position+new Vector3(0,0.2f,0),transform.rotation);
                 
     }
@@ -591,7 +608,6 @@ public class PlayerController : MonoBehaviour
         //시계나오기
         watch1Obj = Instantiate(watch1, transform.position, transform.rotation);
         Invoke("WatchShot", 1.5f);
-        Destroy(transform.Find("PilotShadow(Clone)"));  // 플레이어 그림자 제거
     }
 
     //이벤트함수

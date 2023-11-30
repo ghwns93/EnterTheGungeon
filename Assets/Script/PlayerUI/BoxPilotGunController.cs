@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BoxPilotGunController : MonoBehaviour
 {
@@ -21,8 +22,11 @@ public class BoxPilotGunController : MonoBehaviour
 
     private bool canAttack;     //공격 딜레이 할때 사용
     private bool isReloading;  //장전하는중 장전 안되게
-    private bool isAttack;     //공격누르고있을때 장전안되게
-    private bool inlobby;              //PlayerController의 변수 가져와서 저장할 변수 //일단 false
+    private bool inlobby;      //PlayerController의 변수 가져와서 저장할 변수 //일단 false
+
+    //로비에서 안보이게
+
+    public Image parentImage;
 
 
     // Start is called before the first frame update
@@ -37,18 +41,27 @@ public class BoxPilotGunController : MonoBehaviour
 
         canAttack = true;
         isReloading = false;
-        isAttack = false;
-        inlobby = false;
+
+        // inlobby 변수 가져오기
+        inlobby = GameObject.Find("Pilot").GetComponent<PlayerController>().inlobby;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        // 로비에 있으면 캔버스 안보이게하고(캔버스 컨트롤러에서) 조건문 이후 실행 x
+        if (inlobby)
+        {
+            return;
+        }
+
         // gunNumber 변수 가져오기
         GameObject player = GameObject.FindWithTag("Player");
         int gunNumber = player.GetComponent<GunController>().gunNumber;
         pilotGunBulletCount = player.GetComponent<GunController>().pilotGunBulletCount;
         string gameState = player.GetComponent<PlayerController>().gameState;
+
 
         // gameover 일때는 아무 것도 하지 않음
         if (gameState == "gameover")
@@ -69,7 +82,6 @@ public class BoxPilotGunController : MonoBehaviour
         // 마우스 왼클릭시 공격
         if (Input.GetMouseButton(0) && canAttack && !inlobby && pilotGunBulletCount > 0 && !isReloading)
         {
-            isAttack = true;
 
             // 공격 키 입력 및 딜레이 시작
             StartCoroutine(AttackWithDelay());
@@ -79,7 +91,6 @@ public class BoxPilotGunController : MonoBehaviour
         if (Input.GetMouseButtonUp(0) && !inlobby && !isReloading)
         {
             gunAnimator.Play(pilotGunReturn);
-            isAttack = false;
         }
 
         // 총알 다썼을 때 마우스 왼클릭시 장전

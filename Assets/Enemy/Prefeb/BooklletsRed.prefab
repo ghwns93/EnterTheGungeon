@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3387350584522123738}
   - component: {fileID: 3387350584522123739}
   - component: {fileID: -7843109013583132173}
+  - component: {fileID: 5132808040250851499}
   m_Layer: 0
   m_Name: BooklletsRed
   m_TagString: Enemy
@@ -180,3 +181,15 @@ MonoBehaviour:
   mjscAnime: booklletsRedMjsc
   bulletPrefab: {fileID: 1586123153232276774, guid: 165cd03a9e7a0c84bb3636d616242bae, type: 3}
   shootSpeed: 5
+--- !u!114 &5132808040250851499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3387350584522123729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a964479f6dca314fb2b10c6911c0dd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

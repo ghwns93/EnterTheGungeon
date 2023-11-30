@@ -27,7 +27,7 @@ public class BulletKinScript : MonoBehaviour
     // 이전 애니메이션
     string oldAnimation = "";
 
-    bool isActive = true;
+    bool isActive = false;
     bool isAttack = false;  //공격 상태
     bool isAct = true;
     bool isHit = false;
@@ -54,12 +54,16 @@ public class BulletKinScript : MonoBehaviour
 
     GameObject player;
     EnemyGunManager enemyGunManager;
+    MonsterAwakeManager monsterAwakeManager;
+    bool awakeOnce = true;
 
     // Start is called before the first frame update
     void Start()
     {
         // Rigidbody2D 가져오기
         rbody = GetComponent<Rigidbody2D>();
+
+        monsterAwakeManager = GetComponent<MonsterAwakeManager>();
 
         // 애니메이터 가져오기
         animator = GetComponent<Animator>();
@@ -197,6 +201,11 @@ public class BulletKinScript : MonoBehaviour
                 rbody.velocity = Vector2.zero;
                 isActive = false;
             }
+        }
+        else if (awakeOnce)
+        {
+            isActive = monsterAwakeManager.isAwake;
+            if (isActive) awakeOnce = false;
         }
     }
 

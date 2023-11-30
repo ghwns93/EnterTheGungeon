@@ -13,16 +13,25 @@ public class PilotGunMagazine : MonoBehaviour
     Transform bulletSquareTransform6;
     Transform bulletSquareTransform7;
     Transform bulletSquareTransform8;
+    private bool inlobby;      //PlayerController의 변수 가져와서 저장할 변수 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        // inlobby 변수 가져오기
+        inlobby = GameObject.Find("Pilot").GetComponent<PlayerController>().inlobby;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        // 로비에 있으면 캔버스 안보이게하고(캔버스 컨트롤러에서) 조건문 이후 실행 x
+        if (inlobby)
+        {
+            return;
+        }
+
         // gunNumber 변수 가져오기
         GameObject player = GameObject.FindWithTag("Player");
         int gunNumber = player.GetComponent<GunController>().gunNumber;

@@ -12,6 +12,7 @@ TagManager:
   - Hand
   - EnemyBullet
   - BattleArea
+  - Table
   layers:
   - Default
   - TransparentFX
