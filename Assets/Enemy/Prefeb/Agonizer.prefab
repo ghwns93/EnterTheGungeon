@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1176442525028340503}
   - component: {fileID: 1176442525028340496}
   - component: {fileID: 7139249303100687602}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Agonizer
   m_TagString: Enemy
   m_Icon: {fileID: 0}

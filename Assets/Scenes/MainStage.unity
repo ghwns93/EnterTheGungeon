@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 82935763}
   m_Layer: 7
   m_Name: collider
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51132,6 +51132,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LTDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 5038872634097816524, guid: 31b088a57606f484785760ba48446704, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5038872634097816527, guid: 31b088a57606f484785760ba48446704, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -51158,7 +51162,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5038872634097816527, guid: 31b088a57606f484785760ba48446704, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.1454544
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5038872634097816527, guid: 31b088a57606f484785760ba48446704, type: 3}
       propertyPath: m_LocalRotation.w

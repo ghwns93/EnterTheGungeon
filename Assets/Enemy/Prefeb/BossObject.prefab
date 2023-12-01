@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3728529032537241678}
   - component: {fileID: 3728529032537241677}
   - component: {fileID: 3728529032537241676}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3728529032538032494}
   - component: {fileID: 3728529032538032495}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,7 +201,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3728529032794358766}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: FireBulletPos
   m_TagString: Untagged
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 3728529033195960597}
   - component: {fileID: 3728529033195960599}
   - component: {fileID: 3728529033195960598}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -309,7 +309,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3728529033366126132}
   - component: {fileID: 3728529033366126133}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: BossMoveObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -364,7 +364,7 @@ GameObject:
   - component: {fileID: 3728529033400635240}
   - component: {fileID: 3728529033400635242}
   - component: {fileID: 3728529033400635241}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -444,7 +444,7 @@ GameObject:
   - component: {fileID: 3728529033705670065}
   - component: {fileID: 3728529033705670064}
   - component: {fileID: 3728529033705670077}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: BossObject
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -655,7 +655,7 @@ GameObject:
   - component: {fileID: 3728529033856982985}
   - component: {fileID: 3728529033856982987}
   - component: {fileID: 3728529033856982986}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -731,7 +731,7 @@ GameObject:
   - component: {fileID: 3728529033904481916}
   - component: {fileID: 3728529033904481918}
   - component: {fileID: 3728529033904481917}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: BossBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -835,7 +835,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3728529033940208513}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -877,7 +877,7 @@ GameObject:
   - component: {fileID: 3728529034003590760}
   - component: {fileID: 3728529034003590767}
   - component: {fileID: 3728529034003590765}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: BossChair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1133,7 +1133,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3728529034359987255}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: Handle Slide Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1172,7 +1172,7 @@ GameObject:
   - component: {fileID: 3728529034414940119}
   - component: {fileID: 3728529034414940113}
   - component: {fileID: 3728529034414940112}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: BossShadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
