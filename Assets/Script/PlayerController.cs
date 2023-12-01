@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -36,10 +38,13 @@ public class PlayerController : MonoBehaviour
 
     public GameObject deadSquareUp;     //죽을때 위에서 내려오는 네모
     public GameObject deadSquareDown;
-    public GameObject deadShadow;       //죽으면 밑에 그림자
-    public GameObject watch1;           //시계1프리팹
-    public GameObject watch2;           //시계2프리팹
-    public GameObject bulletBombPrefab; //총알 터지는 애니메이션가진 프리팹
+    public GameObject deadShadow;           //죽으면 밑에 그림자
+    public GameObject watch1;               //시계1프리팹
+    public GameObject watch2;               //시계2프리팹
+    public GameObject bulletBombPrefab;     //총알 터지는 애니메이션가진 프리팹
+    public GameObject deadBookOpenPrefab;   //책 펼쳐지는 애니메이션가진 프리팹
+
+    public Canvas bookCanvasPrefab;               //책 안의 버튼있는 캔버스 프리팹
 
     GameObject deadSquareUpObj;         //여러함수에서 쓸수있게 선언해둠
     GameObject deadSquareDownObj;
@@ -47,6 +52,9 @@ public class PlayerController : MonoBehaviour
     GameObject watch1Obj;
     GameObject watch2Obj;
     GameObject bulletBombObj;
+    GameObject deadBookOpenObj;
+
+    Canvas bookCanvasObj;
 
     string nowAnimation = "";       // 현재 애니메이션
     string oldAnimation = "";       // 이전 애니메이션       
@@ -98,7 +106,19 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // gameover 일때는 아무 것도 하지 않음
+        if (bookCanvasObj)      // 죽은후 책이 생겼을 때
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                SceneManager.LoadScene("MainStage");
+            }
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                SceneManager.LoadScene("Lobby");
+            }
+        }
+
+        // gameover 일때는 이 조건문 밑으로는아무 것도 하지 않음
         if (gameState == "gameover")
         {
             return;
@@ -289,6 +309,8 @@ public class PlayerController : MonoBehaviour
             oldAnimation = nowAnimation;
             GetComponent<Animator>().Play(nowAnimation);
         }
+
+        
     }
 
     // (유니티 초기 설정 기준) 0.02초마다 호출되며, 1초에 총 50번 호출되는 함수
@@ -458,13 +480,16 @@ public class PlayerController : MonoBehaviour
             // 데미지 계산
             GetDamage(collision.gameObject);
 
-            // 총알에 맞았을경우 총알 삭제
-            if(collision.gameObject.tag == "EnemyBullet")
+            // 적 총알에 맞았을경우
+            if (collision.gameObject.tag == "EnemyBullet")
             {
-                bulletBombObj = Instantiate(bulletBombPrefab,
-                    collision.gameObject.transform.position,collision.gameObject.transform.rotation);   //되는지 확인안해봄
-                Destroy(collision.gameObject);
-                Destroy(bulletBombObj, 1f);
+                if(gameState!="gameover")
+                {
+                    bulletBombObj = Instantiate(bulletBombPrefab,
+                    collision.gameObject.transform.position, collision.gameObject.transform.rotation);   //총알 터지는 효과                
+                    Destroy(bulletBombObj, 1f);
+                }                
+                Destroy(collision.gameObject);      //  총알 삭제
             }
         }
     }
@@ -581,18 +606,22 @@ public class PlayerController : MonoBehaviour
         animator.Play(deadAnime1);
         Invoke("AfterDead", 3.0f);
 
-        // 위에서 내려오는 검정박스
-        deadSquareUpObj = Instantiate(deadSquareUp);
-        deadSquareUpObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -5.0f), ForceMode2D.Impulse);
-        // 아래에서 올라오는 검정박스
-        deadSquareDownObj = Instantiate(deadSquareUp,new Vector3(0,-7f,0),new Quaternion(0,0,0,0));
-        deadSquareDownObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, +5.0f),ForceMode2D.Impulse);
-        Invoke("StopSquare", 0.5f);
-
+        foreach (Transform child in transform)  // 플레이어 자식 오브젝트들 모두 안보이게
+        {
+            child.gameObject.SetActive(false);  
+        }        
+        Destroy(GameObject.Find("PilotOtherHand(Clone)"));  // 플레이어 다른손 제거
         Destroy(transform.Find("PilotShadow").gameObject);  // 플레이어 그림자 제거
         // 플레이어 밑에 큰 그림자 생성
-        deadShadowObj = Instantiate(deadShadow,transform.position+new Vector3(0,0.2f,0),transform.rotation);
-                
+        deadShadowObj = Instantiate(deadShadow, transform.position + new Vector3(0, 0.2f, 0), transform.rotation);
+
+        // 위에서 내려오는 검정박스
+        deadSquareUpObj = Instantiate(deadSquareUp,transform.position + new Vector3(0, +7f, 0), transform.rotation);
+        deadSquareUpObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -5.0f), ForceMode2D.Impulse);
+        // 아래에서 올라오는 검정박스
+        deadSquareDownObj = Instantiate(deadSquareUp, transform.position+new Vector3(0,-7f,0), transform.rotation);
+        deadSquareDownObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, +5.0f),ForceMode2D.Impulse);
+        Invoke("StopSquare", 0.5f);
     }
     void StopSquare()
     {
@@ -614,17 +643,19 @@ public class PlayerController : MonoBehaviour
         watch2Obj = Instantiate(watch2, transform.position , transform.rotation); 
         animator.Play(deadAnime2);      //시계총 맞고 쓰러지는 애니메이션
         Destroy(watch2Obj, 1.0f);
+        Invoke("DeadBookOpen", 2.0f);
     }
 
+    void DeadBookOpen()
+    {
+        deadBookOpenObj = Instantiate(deadBookOpenPrefab, transform.position, transform.rotation);
+        bookCanvasObj = Instantiate(bookCanvasPrefab, transform.position, transform.rotation);
+    }
 }
 
 // 키 입력 관련 함수 목록
 /*
-    
-gamestate가 dodging에서 안바뀜 end함수에서
-bulletbomb이 destroy없나봄
-
-
+    죽었을때 검정내려오는거 위치설정
 
     // 키보드의 특정 키 입력에 대한 검사
     bool down = Input.GetKeyDown(KeyCode.Space);

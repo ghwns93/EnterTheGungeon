@@ -578,9 +578,6 @@ public class GunController : MonoBehaviour
 시계총맞고 검은 배경에 GameOver 이후 타이틀화면 or 재시작
 -ui버튼만들고 sceneChange,,
 
-어느정도 거리이동하면 없어지면서 이펙트 - bulletDelete script?
-총알 부딪힐때 이펙트 - on trigger enemy랑player
-
 
 총쏘면 화면 흔들리기
 (흔들림 수준 설정 옵션)

@@ -8,13 +8,6 @@ public class BookSceneChange : MonoBehaviour
 {
     void Start()
     {
-        // Button 컴포넌트 가져오기
-    }
-
-    public void ButtonClicked()
-    {
-        Debug.Log("Button Clicked!");
-        // 원하는 동작 추가
     }
 
     // Update is called once per frame
@@ -22,8 +15,12 @@ public class BookSceneChange : MonoBehaviour
     {        
     }
 
-    public void ChangeScene()
+    public void ChangeSceneToLobby()
     {
         SceneManager.LoadScene("Lobby");
+    }
+    public void ChangeSceneToMainStage()
+    {
+        SceneManager.LoadScene("MainStage");
     }
 }
