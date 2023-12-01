@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
+    public string Lobby;    // ºÒ·¯¿Ã scene
+
     // Start is called before the first frame update
     void Start()
     {        
@@ -16,6 +18,6 @@ public class SceneChanger : MonoBehaviour
 
     public void ChangeScene()
     {
-        //SceneManager.LoadScene("SecondScene");
+        SceneManager.LoadScene("Lobby");
     }
 }

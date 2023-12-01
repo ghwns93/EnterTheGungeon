@@ -38,6 +38,9 @@ public class BossController : MonoBehaviour
     //ui 슬라이더
     private Slider slider;
 
+    public AudioClip audioDead;
+    AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +49,7 @@ public class BossController : MonoBehaviour
         // Rigidbody2D 가져오기
         rbody = GetComponent<Rigidbody2D>();
         monsterAwakeManager = GetComponent<MonsterAwakeManager>();
+        audioSource = GetComponent<AudioSource>();
 
         chairManager = transform.Find("BossMoveObject").transform.Find("BossChair").GetComponent<BossChairManager>();
         slider = transform.Find("Canvas").transform.Find("Slider").GetComponent<Slider>();
@@ -160,20 +164,23 @@ public class BossController : MonoBehaviour
             {
                 isActive = false;
 
+                audioSource.PlayOneShot(audioDead);
+
                 SpriteRenderer chairSprite = transform.Find("BossMoveObject").transform.Find("BossChair").GetComponent<SpriteRenderer>();
-                SpriteRenderer bodySprite = transform.Find("BossMoveObject").transform.Find("BossChair").transform.Find("BossBody").GetComponent<SpriteRenderer>();
+                GameObject bodySprite = transform.Find("BossMoveObject").transform.Find("BossChair").transform.Find("BossBody").gameObject;
 
                 Color DefaultColor = new Color(1, 1, 1, 1);
 
                 chairSprite.color = DefaultColor;
-                bodySprite.color = DefaultColor;
+                bodySprite.SetActive(true);
 
                 chairManager.isDead = true;
 
                 rbody.velocity = Vector2.zero;
+                unitMove.StopRoutine();
                 GetComponent<CapsuleCollider2D>().enabled = false;
 
-                Destroy(gameObject, 1);
+                Destroy(gameObject, 4.0f);
             }
             else
             {

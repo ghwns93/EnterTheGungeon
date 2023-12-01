@@ -49,9 +49,19 @@ public class BossBulletManager : MonoBehaviour
     float rDelay = 0;
     internal PattenNumber patten;
 
+    private bool audioEnd;
+
+    public AudioClip audioSpinAttack;
+    public AudioClip audioShotgunAttack;
+    public AudioClip audioFireAttack;
+    private AudioSource audioSource;
+
     private void Awake()
     {
         rDelay = shootWatingTime;
+        audioSource = GetComponent<AudioSource>();
+
+        audioEnd = true;
     }
 
     // Update is called once per frame
@@ -59,6 +69,8 @@ public class BossBulletManager : MonoBehaviour
     {
         if (isAttack)
         {
+            if (audioEnd) AudioOneShot();
+
             if (patten == PattenNumber.SPIN)
             {
                 #region [ ½ºÇÉ °ø°Ý ]
@@ -78,6 +90,7 @@ public class BossBulletManager : MonoBehaviour
                         else
                         {
                             isAttack = false;
+                            audioEnd = true;
                             SpinAttackFinish();
                             attackTime = spinAttackTime;
                         }
@@ -115,8 +128,12 @@ public class BossBulletManager : MonoBehaviour
                         float angle = rad * Mathf.Rad2Deg;
 
                         ShotgunAttack(angle);
+                        audioEnd = true;
 
-                        if (++realFireCount == shotgunFireCount) isAttack = false;
+                        if (++realFireCount == shotgunFireCount)
+                        {
+                            isAttack = false;
+                        }
                     }
 
                     rDelay = 0;
@@ -138,8 +155,28 @@ public class BossBulletManager : MonoBehaviour
                 GameObject bullet = Instantiate(fireBulletPrefab, gate.transform.position, r);
 
                 isAttack = false;
+                audioEnd = true;
+
                 #endregion
             }
+        }
+    }
+
+    private void AudioOneShot()
+    {
+        audioEnd = false;
+
+        if (patten == PattenNumber.SPIN)
+        {
+            audioSource.PlayOneShot(audioSpinAttack);
+        }
+        else if (patten == PattenNumber.SHOTGUN)
+        {
+            audioSource.PlayOneShot(audioShotgunAttack);
+        }
+        else if(patten == PattenNumber.FIRE)
+        {
+            audioSource.PlayOneShot(audioFireAttack);
         }
     }
 

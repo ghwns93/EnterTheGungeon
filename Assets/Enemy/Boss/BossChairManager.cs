@@ -33,7 +33,7 @@ public class BossChairManager : MonoBehaviour
 
     private bool OnceOk = true;
     private Animator bodyAnimator;
-    private SpriteRenderer bodyRenderer;
+    private GameObject bodyRenderer;
     private BossBulletManager bulletManager;
 
     // 애니메이터
@@ -42,7 +42,7 @@ public class BossChairManager : MonoBehaviour
     private void Start()
     {
         bodyAnimator = transform.Find("BossBody").GetComponent<Animator>();
-        bodyRenderer = transform.Find("BossBody").GetComponent<SpriteRenderer>();
+        bodyRenderer = transform.Find("BossBody").gameObject;
 
         chairAnimator = GetComponent<Animator>();
         bulletManager = GetComponent<BossBulletManager>();
@@ -70,7 +70,7 @@ public class BossChairManager : MonoBehaviour
                     bulletManager.patten = (BossBulletManager.PattenNumber)2;
 
                 //bulletManager.patten = (BossBulletManager.PattenNumber)bolletShape;
-                //bulletManager.patten = (BossBulletManager.PattenNumber)2; // 테스트용
+                //bulletManager.patten = (BossBulletManager.PattenNumber)1; // 테스트용
 
                 if (newChairAnimation == chairIdle)
                 {
@@ -124,7 +124,8 @@ public class BossChairManager : MonoBehaviour
         if (bulletManager.patten == BossBulletManager.PattenNumber.SPIN)
         {
             newChairAnimation = chairAttacking;
-            bodyRenderer.color = new Color(1, 1, 1, 0); // 회전중 바디가 안보이게 변경
+            //bodyRenderer.color = new Color(1, 1, 1, 0); // 회전중 바디가 안보이게 변경
+            bodyRenderer.SetActive(false);
         }
         else
         {
@@ -150,7 +151,8 @@ public class BossChairManager : MonoBehaviour
     {
         newChairAnimation = chairIdle;
         newBodyAnimation = bodyIdle;
-        bodyRenderer.color = new Color(1, 1, 1, 1);
+        //bodyRenderer.color = new Color(1, 1, 1, 1);
+        bodyRenderer.SetActive(true);
         OnceOk = true;
     }
 }
