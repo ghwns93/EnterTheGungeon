@@ -90,7 +90,7 @@ public class PlayerController : MonoBehaviour
         // 게임 상태 지정
         gameState = "playing";
 
-        maxHp = 1;      //잠시 1로해둠
+        maxHp = 6;      //잠시 1로해둠
         // HP 불러오기
         hp = maxHp;
     }

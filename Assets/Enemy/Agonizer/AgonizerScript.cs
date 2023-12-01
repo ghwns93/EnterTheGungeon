@@ -77,7 +77,7 @@ public class AgonizerScript : MonoBehaviour
                 Vector3 plpos = player.transform.position;
                 float dist = Vector2.Distance(transform.position, plpos);
 
-                Debug.Log("dist :" + dist);
+                //Debug.Log("dist :" + dist);
                 if (dist <= attackDistance)
                 {
                     if (!isAttack)
@@ -119,7 +119,7 @@ public class AgonizerScript : MonoBehaviour
                 {
                     if (!isAct)
                     {
-                        Debug.Log("rDelay : " + rDelay);
+                        //Debug.Log("rDelay : " + rDelay);
 
                         if (count < MaxBullet + 1 && 0 <= count && rDelay == 0)
                         {
@@ -144,13 +144,13 @@ public class AgonizerScript : MonoBehaviour
                 }
             }
 
-            if (nowAnimation == idleAnime) Debug.Log("oldAnime : " + oldAnimation);
-            if (nowAnimation == idleAnime) Debug.Log("nowAnime : " + nowAnimation);
+            if (nowAnimation == idleAnime) //Debug.Log("oldAnime : " + oldAnimation);
+            if (nowAnimation == idleAnime) //Debug.Log("nowAnime : " + nowAnimation);
 
             //애니메이션 변경하기
             if (nowAnimation != oldAnimation)
             {
-                Debug.Log("nowAnime : " + nowAnimation);
+                //Debug.Log("nowAnime : " + nowAnimation);
                 oldAnimation = nowAnimation;
                 Animator animator = GetComponent<Animator>();
                 animator.Play(nowAnimation);

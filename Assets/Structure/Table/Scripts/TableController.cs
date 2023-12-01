@@ -88,25 +88,25 @@ public class TableController : MonoBehaviour
             {
                 if (direction.x > 0.5 && direction.x <= 1)
                 {
-                    Debug.Log("좌로밀기");
+                    //Debug.Log("좌로밀기");
                     animator.Play("TableLeft");
                     canMove = true;
                 }
                 else if (direction.x < -0.5 && direction.x >= -1)
                 {
-                    Debug.Log("우로밀기");
+                    //Debug.Log("우로밀기");
                     animator.Play("TableRight");
                     canMove = true;
                 }
                 else if (direction.y > 0.5 && direction.y <= 1 )
                 {
-                    Debug.Log("아래로밀기");
+                    //Debug.Log("아래로밀기");
                     animator.Play("TableDown");
                     canMove = true;
                 }
                 else if (direction.y < -0.5 && direction.y >= -1)
                 {
-                    Debug.Log("위로 밀기");
+                    //Debug.Log("위로 밀기");
                     animator.Play("TableUp");
                     canMove = true;
                 }

@@ -131,7 +131,7 @@ public class EnemyScript : MonoBehaviour
                                     #region [ N 형태 발사 ]
                                     if (count < NshapeMaxBullet)
                                     {
-                                        Debug.Log("Charge" + count);
+                                        //Debug.Log("Charge" + count);
                                         isAct = true;
                                         float objX = 0, objY = 0;
 
@@ -169,7 +169,7 @@ public class EnemyScript : MonoBehaviour
                                     #region [ R 형태 발사 ]
                                     if (count < RshapeMaxBullet)
                                     {
-                                        Debug.Log("Charge" + count);
+                                        //Debug.Log("Charge" + count);
                                         isAct = true;
                                         float objX = 0, objY = 0;
 
@@ -191,7 +191,7 @@ public class EnemyScript : MonoBehaviour
                                             objX = transform.position.x - 0.6f + (Mathf.Cos((0 + (float)Math.Truncate(Math.Abs((count - 10.5f)))) * 0.3f));
                                             objY = transform.position.y + maxY - (maxY * ((float)(count - 8) / 6));
 
-                                            Debug.Log(objY);
+                                            //Debug.Log(objY);
                                         }
                                         else if (count < 17)
                                         {
@@ -222,7 +222,7 @@ public class EnemyScript : MonoBehaviour
                                     #region [ Φ 형태 발사 ]
                                     if (count < PshapeMaxBullet)
                                     {
-                                        Debug.Log("Charge" + count);
+                                        //Debug.Log("Charge" + count);
                                         isAct = true;
                                         float objX = 0, objY = 0;
 
@@ -240,7 +240,7 @@ public class EnemyScript : MonoBehaviour
                                             float newCount = count - 22;
                                             float remainBulletCnt = PshapeMaxBullet - 22 - 1;
 
-                                            Debug.Log(maxY - ((maxY - minY) * (newCount / remainBulletCnt)));
+                                            //Debug.Log(maxY - ((maxY - minY) * (newCount / remainBulletCnt)));
 
                                             objX = transform.position.x;
                                             objY = transform.position.y + (float)maxY - ((maxY - minY) * (newCount / remainBulletCnt));
@@ -264,7 +264,7 @@ public class EnemyScript : MonoBehaviour
                         }
                         else if(RShoot)
                         {
-                            Debug.Log("Shoot1");
+                            //Debug.Log("Shoot1");
 
                             if (rDelay == 0)
                             {
@@ -285,12 +285,12 @@ public class EnemyScript : MonoBehaviour
                                 float y = Mathf.Sin(rad);
                                 Vector3 v = new Vector3(x, y) * shootSpeed;
 
-                                Debug.Log("Shoot2");
+                                //Debug.Log("Shoot2");
 
                                 Rigidbody2D rbody = bs.GetComponent<Rigidbody2D>();
                                 rbody.AddForce(v, ForceMode2D.Impulse);
 
-                                Debug.Log("Shoot3");
+                                //Debug.Log("Shoot3");
                                 bulletStats.Remove(bs);
 
                                 if (bulletStats.Count == 0)
@@ -402,7 +402,7 @@ public class EnemyScript : MonoBehaviour
     {
         isHit = true;
 
-        Debug.Log("blink");
+        //Debug.Log("blink");
         SpriteRenderer playerSprite = GetComponent<SpriteRenderer>();
 
         Color defaultColor = new Color(1, 1, 1, 1);
@@ -423,7 +423,7 @@ public class EnemyScript : MonoBehaviour
             #region [ N 모양 일제히 플레이어에게 발사 ]
             if (count == NshapeMaxBullet)
             {
-                Debug.Log("Shoot!");
+                //Debug.Log("Shoot!");
                 isAct = true;
 
                 GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -464,7 +464,7 @@ public class EnemyScript : MonoBehaviour
             #region [ R 모양 한개씩 발사 ]
             if (count == RshapeMaxBullet)
             {
-                Debug.Log("Shoot!");
+                //Debug.Log("Shoot!");
                 RShoot = true;
 
                 isAct = true;
@@ -476,7 +476,7 @@ public class EnemyScript : MonoBehaviour
             #region [ Φ 모양 일제히 플레이어에게 발사 ]
             if (count == PshapeMaxBullet)
             {
-                Debug.Log("Shoot!");
+                //Debug.Log("Shoot!");
                 isAct = true;
 
                 foreach (var bs in bulletStats)

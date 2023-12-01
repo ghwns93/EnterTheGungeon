@@ -17,7 +17,7 @@ public class BookSceneChange : MonoBehaviour
 
     void ButtonClicked()
     {
-        Debug.Log("Button Clicked!");
+        //Debug.Log("Button Clicked!");
         // 원하는 동작 추가
     }
 

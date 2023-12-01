@@ -71,7 +71,7 @@ public class AreaManager : MonoBehaviour
                 // "Enemy" 태그인 오브젝트가 하나라도 있으면 문을 닫습니다.
                 if (collider.gameObject.tag == "Enemy")
                 {
-                    Debug.Log("닫힘 체크");
+                    //Debug.Log("닫힘 체크");
                     foreach (var doorManager in doorManagers)
                     {
                         doorManager.CloseDoor();
@@ -88,7 +88,7 @@ public class AreaManager : MonoBehaviour
         // BattleArea 내에 Enemy 태그를 가진 오브젝트가 없다면 문을 엽니다.
         if (GameObject.FindGameObjectWithTag("Enemy") == null)
         {
-            Debug.Log("열림 체크");
+            //Debug.Log("열림 체크");
             foreach (var doorManager in doorManagers)
             {
                 doorManager.OpenDoor();

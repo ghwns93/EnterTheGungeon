@@ -66,12 +66,12 @@ public class GOM: MonoBehaviour
             }
             else
             {
-                Debug.LogError("메인카메라가 없음");
+                //Debug.LogError("메인카메라가 없음");
             }
         }
         else
         {
-            Debug.LogError("프리팹에 Canvas 컴포넌트가 없음");
+            //Debug.LogError("프리팹에 Canvas 컴포넌트가 없음");
         }
 
     }
@@ -107,12 +107,12 @@ public class GOM: MonoBehaviour
             }
             else
             {
-                Debug.LogError("메인카메라가 없음");
+                //Debug.LogError("메인카메라가 없음");
             }
         }
         else
         {
-            Debug.LogError("프리팹에 Canvas 컴포넌트가 없음");
+            //Debug.LogError("프리팹에 Canvas 컴포넌트가 없음");
         }
 
         // ESC 키를 누르면 옵션창이 뜨도록 설정

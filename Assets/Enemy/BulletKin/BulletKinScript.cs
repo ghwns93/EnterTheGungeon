@@ -212,16 +212,16 @@ public class BulletKinScript : MonoBehaviour
     // (유니티 초기 설정 기준) 0.02초마다 호출되며, 1초에 총 50번 호출되는 함수
     void FixedUpdate()
     {
-        //Debug.Log(hp);
+        ////Debug.Log(hp);
 
         if (isActive && hp > 0)
         {
-            //Debug.Log("Move1");
+            ////Debug.Log("Move1");
             if (!isAttack)
             {
                 gunAnimator.Play(GunIdleAnime);
 
-                //Debug.Log("Move");
+                ////Debug.Log("Move");
                 //몬스터 이동시키기
                 //rbody.velocity = new Vector2(axisH, axisV);
                 if (moveTime == callMoveTime)

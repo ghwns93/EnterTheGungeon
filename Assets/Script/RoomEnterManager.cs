@@ -20,11 +20,11 @@ public class RoomEnterManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("collision : " + collision.gameObject.tag);
+        //Debug.Log("collision : " + collision.gameObject.tag);
 
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("Enter!");
+            //Debug.Log("Enter!");
             foreach(var monster in mList) 
             {
                 monster.isAwake = true;

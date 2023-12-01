@@ -12,7 +12,7 @@ public class DoorManager : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("애니메이터 준비상태");
+        //Debug.Log("애니메이터 준비상태");
         animator = GetComponent<Animator>();
     }
 
@@ -20,7 +20,7 @@ public class DoorManager : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" && !isPlayerInside)
         {
-            Debug.Log("문 열림 판단");
+            //Debug.Log("문 열림 판단");
             isPlayerInside = true;
             animator.Play(openAnimationName);
         }
@@ -30,7 +30,7 @@ public class DoorManager : MonoBehaviour
     {
         if (isPlayerInside)
         {
-            Debug.Log("문 닫는 메서드");
+            //Debug.Log("문 닫는 메서드");
             animator.Play(closeAnimationName);
         }
     }
@@ -39,7 +39,7 @@ public class DoorManager : MonoBehaviour
     {
         if (isPlayerInside)
         {
-            Debug.Log("문 여는 메서드");
+            //Debug.Log("문 여는 메서드");
             animator.Play(openAnimationName);
         }
     }

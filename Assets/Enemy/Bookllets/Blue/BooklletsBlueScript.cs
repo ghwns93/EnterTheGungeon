@@ -239,14 +239,14 @@ public class BooklletsBlueScript : MonoBehaviour
 
                     if (player != null)
                     {
-                        //Debug.Log("isPulseOn : " + isPulseOn);
+                        ////Debug.Log("isPulseOn : " + isPulseOn);
                         if (isPulseOn)
                         {
                             #region [ 주위를 도는 총알 배리어 ]
 
                             if (pulseCount < PulseMaxBullet)
                             {
-                                //Debug.Log("PulseCount : " + pulseCount);
+                                ////Debug.Log("PulseCount : " + pulseCount);
 
                                 float objX = 0, objY = 0;
 
