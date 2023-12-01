@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public enum BGMType { None, Title, Lobby, InGame, Boss }
-public enum SEType { UI, InGameSE, Shoot }
+public enum SEType { UI, InGameSE, Shoot, Enemy,}
 
 public class SoundManager : MonoBehaviour
 {
@@ -13,9 +13,10 @@ public class SoundManager : MonoBehaviour
     public AudioClip bgmInGame;    // BGM(게임 중)
     public AudioClip bgmBoss;          // BGM(보스전)
 
+    public AudioClip seUI;            // SE UI
     public AudioClip seInGame;  // SE 인게임
     public AudioClip seShoot;     // SE 쏘는 소리
-    public AudioClip seUI;            // SE UI
+    public AudioClip seEnemy;     // SE 쏘는 소리
 
     // 사운드매니저를 저장할 변수
     public static SoundManager soundManager;
@@ -91,6 +92,8 @@ public class SoundManager : MonoBehaviour
             GetComponent<AudioSource>().PlayOneShot(seInGame);
         else if (type == SEType.Shoot)
             GetComponent<AudioSource>().PlayOneShot(seShoot);
+        else if (type == SEType.Shoot)
+            GetComponent<AudioSource>().PlayOneShot(seEnemy);
     }
 }
 

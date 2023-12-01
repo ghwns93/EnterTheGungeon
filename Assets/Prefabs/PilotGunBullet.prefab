@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5055282226954448041}
   - component: {fileID: 4229626320763531450}
   - component: {fileID: 3404759667440415698}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: PilotGunBullet
   m_TagString: PlayerBullet
   m_Icon: {fileID: 0}
