@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 167497514165158090}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Gate
   m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 7262868238619209937}
   - component: {fileID: 167497514760258654}
   - component: {fileID: 167497514760258655}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1574763511668866648}
   - component: {fileID: 677003510661283222}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 3418080755581283372}
   - component: {fileID: 6283965340657165871}
   - component: {fileID: 746399350735215247}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: BulletKin
   m_TagString: Enemy
   m_Icon: {fileID: 0}

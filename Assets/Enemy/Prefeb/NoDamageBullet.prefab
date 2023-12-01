@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4765776769486225014}
   - component: {fileID: 1813774254325298192}
   - component: {fileID: 1506678129339206537}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: NoDamageBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2423050918864641072}
   - component: {fileID: 2423050918864641071}
   - component: {fileID: 2423050918864641077}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: BooklletsRed
   m_TagString: Enemy
   m_Icon: {fileID: 0}
