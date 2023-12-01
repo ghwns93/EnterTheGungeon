@@ -9,7 +9,7 @@ public class ChangeCursor : MonoBehaviour
     void Start()
     {        
         // 커서 이미지를 지정된 이미지로 변경
-        Cursor.SetCursor(customCursor, Vector2.zero, CursorMode.Auto);
+        Cursor.SetCursor(customCursor,new Vector2(7f,6f), CursorMode.Auto); // 마우스 커서 hotspot위치 변경
     }
 
     // Update is called once per frame
