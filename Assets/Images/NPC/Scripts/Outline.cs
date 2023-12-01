@@ -23,6 +23,7 @@ public class Outline : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        pilot = GameObject.Find("Pilot");
         Distance = Vector3.Distance(pilot.transform.position, otherObject.transform.position);
         if (Distance <= 0.5f)
         {
