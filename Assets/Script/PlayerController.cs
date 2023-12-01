@@ -228,7 +228,7 @@ public class PlayerController : MonoBehaviour
         Vector2 dodgePos = new Vector2(Mathf.Cos(angleDodge), Mathf.Sin(angleDodge));
         
         // 키입력을 받은 상태에서 마우스 우클릭을 했을 때만 구르기
-        if ((axisH != 0 || axisV != 0) && Input.GetButtonDown("Fire2"))
+        if ((axisH != 0 || axisV != 0) && Input.GetButton("Fire2"))
         {
             // 오른쪽, 오른쪽 아래로 구르기
             if (angleZ > -60 && angleZ < 15)

@@ -60,6 +60,8 @@ public class BulletKinScript : MonoBehaviour
     public AudioClip audioDead;
     AudioSource audioSource;
 
+    PlayerController playerController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -84,12 +86,14 @@ public class BulletKinScript : MonoBehaviour
 
         // (기본) 애니메이션 설정
         oldAnimation = stopDownAnime;
+
+        playerController = player.GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (playerController.gameState == "gameover") isActive = false;
 
         enemyGunManager.isActive = isActive;
 

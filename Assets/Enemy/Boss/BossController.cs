@@ -41,6 +41,8 @@ public class BossController : MonoBehaviour
     public AudioClip audioDead;
     AudioSource audioSource;
 
+    PlayerController playerController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,15 +59,16 @@ public class BossController : MonoBehaviour
         unitMove = GetComponent<UnitMove>();
 
         player = GameObject.FindGameObjectWithTag("Player");
+        playerController = player.GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (playerController.gameState == "gameover") isActive = false;
+
         if (isActive)
         {
-            GameObject player = GameObject.FindGameObjectWithTag("Player");
-
             if (player != null)
             {
                 isActive = true;
@@ -137,6 +140,10 @@ public class BossController : MonoBehaviour
             }
 
             chairManager.isAttack = isAttack;
+        }
+        else
+        {
+            chairManager.isAttack = false;
         }
     }
 
