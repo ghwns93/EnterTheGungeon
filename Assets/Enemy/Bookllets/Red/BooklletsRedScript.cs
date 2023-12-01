@@ -52,12 +52,19 @@ public class BooklletsRedScript : MonoBehaviour
     MonsterAwakeManager monsterAwakeManager;
     bool awakeOnce = true;
 
+    public AudioClip audioCharge;
+    public AudioClip audioShot;
+    public AudioClip audioRShot;
+    public AudioClip audioDead;
+    AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
         rbody = GetComponent<Rigidbody2D>();
         bulletStats = new List<GameObject>();
         monsterAwakeManager = GetComponent<MonsterAwakeManager>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -273,34 +280,45 @@ public class BooklletsRedScript : MonoBehaviour
                         }
                         else if(RShoot)
                         {
-                            Debug.Log("Shoot1");
-
                             if (rDelay == 0)
                             {
-                                var bs = bulletStats[0];
+                                if (bulletStats.Count > 0)
+                                {
+                                    try
+                                    {
+                                        var bs = bulletStats[0];
 
-                                float dx = player.transform.position.x - bs.transform.position.x;
-                                float dy = player.transform.position.y - bs.transform.position.y;
+                                        float dx = player.transform.position.x - bs.transform.position.x;
+                                        float dy = player.transform.position.y - bs.transform.position.y;
 
-                                //아크탄젠트2 함수로 라디안(호도법) 구하기
-                                float rad = Mathf.Atan2(dy, dx);
+                                        //아크탄젠트2 함수로 라디안(호도법) 구하기
+                                        float rad = Mathf.Atan2(dy, dx);
 
-                                //라디안을 각도(육십분법)로 변환
-                                float angle = rad * Mathf.Rad2Deg;
+                                        //라디안을 각도(육십분법)로 변환
+                                        float angle = rad * Mathf.Rad2Deg;
 
-                                bs.transform.rotation = Quaternion.Euler(0, 0, angle);
+                                        bs.transform.rotation = Quaternion.Euler(0, 0, angle);
 
-                                float x = Mathf.Cos(rad);
-                                float y = Mathf.Sin(rad);
-                                Vector3 v = new Vector3(x, y) * shootSpeed;
+                                        float x = Mathf.Cos(rad);
+                                        float y = Mathf.Sin(rad);
+                                        Vector3 v = new Vector3(x, y) * shootSpeed;
 
-                                Debug.Log("Shoot2");
+                                        Debug.Log("Shoot2");
 
-                                Rigidbody2D rbody = bs.GetComponent<Rigidbody2D>();
-                                rbody.AddForce(v, ForceMode2D.Impulse);
+                                        Rigidbody2D rbody = bs.GetComponent<Rigidbody2D>();
+                                        rbody.AddForce(v, ForceMode2D.Impulse);
 
-                                Debug.Log("Shoot3");
-                                bulletStats.Remove(bs);
+                                        Debug.Log("Shoot3");
+                                        bulletStats.Remove(bs);
+
+                                        audioSource.PlayOneShot(audioRShot);
+                                    }
+                                    catch (Exception e) 
+                                    {
+                                        Debug.Log(e);
+                                        bulletStats.Clear();
+                                    }
+                                }
 
                                 if (bulletStats.Count == 0)
                                 {
@@ -371,6 +389,12 @@ public class BooklletsRedScript : MonoBehaviour
 
     void InBulletCharge()
     {
+        if (bolletShape == 1)
+            audioSource.PlayOneShot(audioCharge);
+        else
+            audioSource.PlayOneShot(audioShot);
+
+
         nowAnimation = attackingAnime;
     }
 
@@ -379,10 +403,13 @@ public class BooklletsRedScript : MonoBehaviour
         if (collision.gameObject.tag == "PlayerBullet")
         {
             hp--; //체력 감소
+            Destroy(collision.gameObject);
 
             //체력이 0 이하가 되는 경우는 사망처리
             if (hp <= 0)
             {
+                audioSource.PlayOneShot(audioDead);
+
                 rbody.velocity = Vector2.zero;
                 GetComponent<BoxCollider2D>().enabled = false;
                 GetComponent<Animator>().Play(deadAnime);

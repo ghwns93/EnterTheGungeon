@@ -62,6 +62,12 @@ public class BooklletsBlueScript : MonoBehaviour
     MonsterAwakeManager monsterAwake;
     bool awakeOnce = true;
 
+    public AudioClip audioCharge;
+    public AudioClip audioShot;
+    public AudioClip audioRShot;
+    public AudioClip audioDead;
+    AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -69,6 +75,7 @@ public class BooklletsBlueScript : MonoBehaviour
         bulletStats = new List<GameObject>();
         pulseStats = new List<GameObject>();
         monsterAwake = GetComponent<MonsterAwakeManager>();
+        audioSource = GetComponent<AudioSource>();
 
         pulseNowTime = pulseMaxTime;
     }
@@ -135,56 +142,62 @@ public class BooklletsBlueScript : MonoBehaviour
                 #region [ 돌아가는 베리어 실행 ]
                 if (pulseNowTime > 0)
                 {
-                    for (int i = 0; i < pulseStats.Count; i++)
+                    try
                     {
-                        #region [ 점점 줄어듬 ]
-                        //var nowBs = pulseStats[i];
-                        //var beforeBs = pulseStats[i - 1 < 0 ? pulseStats.Count - 1 : i - 1];
+                        for (int i = 0; i < pulseStats.Count; i++)
+                        {
+                            #region [ 점점 줄어듬 ]
+                            //var nowBs = pulseStats[i];
+                            //var beforeBs = pulseStats[i - 1 < 0 ? pulseStats.Count - 1 : i - 1];
 
-                        //float dx = beforeBs.transform.position.x - nowBs.transform.position.x;
-                        //float dy = beforeBs.transform.position.y - nowBs.transform.position.y;
+                            //float dx = beforeBs.transform.position.x - nowBs.transform.position.x;
+                            //float dy = beforeBs.transform.position.y - nowBs.transform.position.y;
 
-                        ////아크탄젠트2 함수로 라디안(호도법) 구하기
-                        //float rad = Mathf.Atan2(dy, dx);
+                            ////아크탄젠트2 함수로 라디안(호도법) 구하기
+                            //float rad = Mathf.Atan2(dy, dx);
 
-                        ////라디안을 각도(육십분법)로 변환
-                        //float angle = rad * Mathf.Rad2Deg;
+                            ////라디안을 각도(육십분법)로 변환
+                            //float angle = rad * Mathf.Rad2Deg;
 
-                        //nowBs.transform.rotation = Quaternion.Euler(0, 0, angle);
+                            //nowBs.transform.rotation = Quaternion.Euler(0, 0, angle);
 
-                        //float x = Mathf.Cos(rad);
-                        //float y = Mathf.Sin(rad);
-                        //Vector3 v = new Vector3(x, y) * pulseSpeed;
+                            //float x = Mathf.Cos(rad);
+                            //float y = Mathf.Sin(rad);
+                            //Vector3 v = new Vector3(x, y) * pulseSpeed;
 
-                        //Rigidbody2D rbody = nowBs.GetComponent<Rigidbody2D>();
-                        //rbody.velocity = Vector2.zero;
-                        //rbody.AddForce(v, ForceMode2D.Impulse);
-                        #endregion
+                            //Rigidbody2D rbody = nowBs.GetComponent<Rigidbody2D>();
+                            //rbody.velocity = Vector2.zero;
+                            //rbody.AddForce(v, ForceMode2D.Impulse);
+                            #endregion
 
-                        #region [ 원형 그대로 발사 ]
+                            #region [ 원형 그대로 발사 ]
 
-                        //var nowBs = pulseStats[i];
+                            //var nowBs = pulseStats[i];
 
-                        ////라디안을 각도(육십분법)로 변환
-                        //float rad = (float)((pulseCount * 360.0f / pulseCount) * Math.PI / 180.0f);
-                        //float angle = rad * Mathf.Rad2Deg;
+                            ////라디안을 각도(육십분법)로 변환
+                            //float rad = (float)((pulseCount * 360.0f / pulseCount) * Math.PI / 180.0f);
+                            //float angle = rad * Mathf.Rad2Deg;
 
-                        //nowBs.transform.rotation = Quaternion.Euler(0, 0, angle);
+                            //nowBs.transform.rotation = Quaternion.Euler(0, 0, angle);
 
-                        //float x = Mathf.Cos(rad);
-                        //float y = Mathf.Sin(rad);
-                        //Vector3 v = new Vector3(x, y) * pulseSpeed;
+                            //float x = Mathf.Cos(rad);
+                            //float y = Mathf.Sin(rad);
+                            //Vector3 v = new Vector3(x, y) * pulseSpeed;
 
-                        //Rigidbody2D rbody = nowBs.GetComponent<Rigidbody2D>();
-                        //rbody.velocity = Vector2.zero;
-                        //rbody.AddForce(v, ForceMode2D.Impulse);
+                            //Rigidbody2D rbody = nowBs.GetComponent<Rigidbody2D>();
+                            //rbody.velocity = Vector2.zero;
+                            //rbody.AddForce(v, ForceMode2D.Impulse);
 
-                        #endregion
+                            #endregion
 
-                        var ps = pulseStats[i];
-                        ps.transform.RotateAround(gameObject.transform.position, new Vector3(0, 0, 1), pulseSpeed);
+                            var ps = pulseStats[i];
+                            ps.transform.RotateAround(gameObject.transform.position, new Vector3(0, 0, 1), pulseSpeed);
+                        }
                     }
-
+                    catch (Exception e) 
+                    {
+                        pulseStats.Clear();
+                    }
                     pulseNowTime -= Time.deltaTime;
                 }
                 else
@@ -393,26 +406,38 @@ public class BooklletsBlueScript : MonoBehaviour
                             #region [ R형태 총알 발사 ]
                             if (rDelay == 0)
                             {
-                                var bs = bulletStats[0];
+                                if (bulletStats.Count > 0)
+                                {
+                                    try
+                                    {
+                                        var bs = bulletStats[0];
 
-                                float dx = player.transform.position.x - bs.transform.position.x;
-                                float dy = player.transform.position.y - bs.transform.position.y;
+                                        float dx = player.transform.position.x - bs.transform.position.x;
+                                        float dy = player.transform.position.y - bs.transform.position.y;
 
-                                //아크탄젠트2 함수로 라디안(호도법) 구하기
-                                float rad = Mathf.Atan2(dy, dx);
+                                        //아크탄젠트2 함수로 라디안(호도법) 구하기
+                                        float rad = Mathf.Atan2(dy, dx);
 
-                                //라디안을 각도(육십분법)로 변환
-                                float angle = rad * Mathf.Rad2Deg;
+                                        //라디안을 각도(육십분법)로 변환
+                                        float angle = rad * Mathf.Rad2Deg;
 
-                                bs.transform.rotation = Quaternion.Euler(0, 0, angle);
+                                        bs.transform.rotation = Quaternion.Euler(0, 0, angle);
 
-                                float x = Mathf.Cos(rad);
-                                float y = Mathf.Sin(rad);
-                                Vector3 v = new Vector3(x, y) * shootSpeed;
+                                        float x = Mathf.Cos(rad);
+                                        float y = Mathf.Sin(rad);
+                                        Vector3 v = new Vector3(x, y) * shootSpeed;
 
-                                Rigidbody2D rbody = bs.GetComponent<Rigidbody2D>();
-                                rbody.AddForce(v, ForceMode2D.Impulse);
-                                bulletStats.Remove(bs);
+                                        Rigidbody2D rbody = bs.GetComponent<Rigidbody2D>();
+                                        rbody.AddForce(v, ForceMode2D.Impulse);
+                                        bulletStats.Remove(bs);
+
+                                        audioSource.PlayOneShot(audioRShot);
+                                    }
+                                    catch (Exception e) 
+                                    {
+                                        bulletStats.Clear();
+                                    }
+                                }
 
                                 if (bulletStats.Count == 0)
                                 {
@@ -488,6 +513,11 @@ public class BooklletsBlueScript : MonoBehaviour
 
     void InBulletCharge()
     {
+        if (bolletShape == 1)
+            audioSource.PlayOneShot(audioCharge);
+        else
+            audioSource.PlayOneShot(audioShot);
+
         nowAnimation = attackingAnime;
     }
 
@@ -497,10 +527,13 @@ public class BooklletsBlueScript : MonoBehaviour
         if (collision.gameObject.tag == "PlayerBullet")
         {
             hp--; //체력 감소
+            Destroy(collision.gameObject);
 
             //체력이 0 이하가 되는 경우는 사망처리
             if (hp <= 0)
             {
+                audioSource.PlayOneShot(audioDead);
+
                 rbody.velocity = Vector2.zero;
                 GetComponent<BoxCollider2D>().enabled = false;
                 GetComponent<Animator>().Play(deadAnime);

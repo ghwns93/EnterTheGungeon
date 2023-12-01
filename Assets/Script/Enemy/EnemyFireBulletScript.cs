@@ -39,7 +39,7 @@ public class EnemyFireBulletScript : MonoBehaviour
 
     private void SpinAttackFinish()
     {
-        #region [ 회전 공격 마무리 ]
+        #region [ 불꽃 공격 ]
 
         float objX = 0, objY = 0;
 
