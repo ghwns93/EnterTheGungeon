@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -47,8 +48,8 @@ public class RoomManager : MonoBehaviour
     // Scene 이동
     public static void ChangeScene(string sceneName, int doorNum)
     {
-        doorNumber = doorNum;   // 문 번호를 static 변수에 저장
+            doorNumber = doorNum;   // 문 번호를 static 변수에 저장
 
-        SceneManager.LoadScene(sceneName);  // 이동 실시
+            SceneManager.LoadScene(sceneName);  // 이동 실시
     }
 }

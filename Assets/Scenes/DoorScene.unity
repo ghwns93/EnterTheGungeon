@@ -292,10 +292,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RTGard
       objectReference: {fileID: 0}
-    - target: {fileID: 5378810823806603880, guid: 82f44f273b105bf42bbf0a21d3350669, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82f44f273b105bf42bbf0a21d3350669, type: 3}
 --- !u!1 &653732415 stripped
@@ -336,11 +332,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3026622049857266163, guid: 92be3700cf0d914478523a4e0cc7de4b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.51
+      value: -3.77
       objectReference: {fileID: 0}
     - target: {fileID: 3026622049857266163, guid: 92be3700cf0d914478523a4e0cc7de4b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.04
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: 3026622049857266163, guid: 92be3700cf0d914478523a4e0cc7de4b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -394,10 +390,6 @@ PrefabInstance:
     - target: {fileID: 7231091265602991586, guid: 2aa73fd8a260f3e44ac887a869a87ebc, type: 3}
       propertyPath: m_Name
       value: DDGard
-      objectReference: {fileID: 0}
-    - target: {fileID: 7231091265602991586, guid: 2aa73fd8a260f3e44ac887a869a87ebc, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7231091265602991612, guid: 2aa73fd8a260f3e44ac887a869a87ebc, type: 3}
       propertyPath: m_RootOrder
@@ -578,10 +570,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: FindGizmo
       objectReference: {fileID: 0}
-    - target: {fileID: 3424880968075100628, guid: 6f38f4a411adb4f479674b2f7107e816, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3424880968075100630, guid: 6f38f4a411adb4f479674b2f7107e816, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -695,10 +683,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LTGard
       objectReference: {fileID: 0}
-    - target: {fileID: 8850024603837044387, guid: cebc67a42f0c2cb49a05b3009a921b50, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cebc67a42f0c2cb49a05b3009a921b50, type: 3}
 --- !u!1001 &1827070885
@@ -708,9 +692,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1605802640865920509, guid: fac1b2573137d324b960d66cc9bc1c8a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 510389132643865053, guid: fac1b2573137d324b960d66cc9bc1c8a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 510389132643865053, guid: fac1b2573137d324b960d66cc9bc1c8a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 2532951662358283262, guid: fac1b2573137d324b960d66cc9bc1c8a, type: 3}
       propertyPath: m_Size.x
@@ -810,10 +798,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UDGard
       objectReference: {fileID: 0}
-    - target: {fileID: 7231091265602991586, guid: dc725c377ceedaa408bc4cd23b596515, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7231091265602991612, guid: dc725c377ceedaa408bc4cd23b596515, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -878,10 +862,6 @@ PrefabInstance:
     - target: {fileID: 4178910165373314561, guid: ea9936877ebad91478caabe7ae90a943, type: 3}
       propertyPath: m_Name
       value: UPDoor
-      objectReference: {fileID: 0}
-    - target: {fileID: 4178910165373314561, guid: ea9936877ebad91478caabe7ae90a943, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4178910165373314570, guid: ea9936877ebad91478caabe7ae90a943, type: 3}
       propertyPath: m_RootOrder
@@ -964,10 +944,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: RTDoor
       objectReference: {fileID: 0}
-    - target: {fileID: 4427630256954707857, guid: 983925408bc54294983d0741b1004856, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4427630256954707867, guid: 983925408bc54294983d0741b1004856, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -1040,10 +1016,6 @@ PrefabInstance:
     - target: {fileID: 5038872634097816521, guid: 31b088a57606f484785760ba48446704, type: 3}
       propertyPath: m_Name
       value: LTDoor
-      objectReference: {fileID: 0}
-    - target: {fileID: 5038872634097816521, guid: 31b088a57606f484785760ba48446704, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5038872634097816522, guid: 31b088a57606f484785760ba48446704, type: 3}
       propertyPath: m_Size.x
@@ -1174,10 +1146,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: DWDoor
       objectReference: {fileID: 0}
-    - target: {fileID: 5211985644796624735, guid: 929e1b7a9085d694bbfc207603792dec, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 929e1b7a9085d694bbfc207603792dec, type: 3}
 --- !u!1001 &5499680466936643465
@@ -1190,10 +1158,6 @@ PrefabInstance:
     - target: {fileID: 5499680468514247035, guid: e846ef998ae1df04abdc6112d031fb80, type: 3}
       propertyPath: m_Name
       value: BattleArea
-      objectReference: {fileID: 0}
-    - target: {fileID: 5499680468514247035, guid: e846ef998ae1df04abdc6112d031fb80, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5499680468514247037, guid: e846ef998ae1df04abdc6112d031fb80, type: 3}
       propertyPath: m_RootOrder
