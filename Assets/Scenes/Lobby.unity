@@ -6264,13 +6264,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1645449060246790860, guid: 892beef23f0e1d842af182b363e5edd4, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9158457202763866144, guid: 892beef23f0e1d842af182b363e5edd4, type: 3}
       propertyPath: m_Name
       value: Exit
       objectReference: {fileID: 0}
     - target: {fileID: 9158457202763866148, guid: 892beef23f0e1d842af182b363e5edd4, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9158457202763866148, guid: 892beef23f0e1d842af182b363e5edd4, type: 3}
+      propertyPath: sceneName
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 9158457202763866151, guid: 892beef23f0e1d842af182b363e5edd4, type: 3}
       propertyPath: m_RootOrder

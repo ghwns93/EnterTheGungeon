@@ -58,6 +58,9 @@ public class BooklletsRedScript : MonoBehaviour
     public AudioClip audioDead;
     AudioSource audioSource;
 
+    GameObject player;
+    PlayerController playerController;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -65,12 +68,20 @@ public class BooklletsRedScript : MonoBehaviour
         bulletStats = new List<GameObject>();
         monsterAwakeManager = GetComponent<MonsterAwakeManager>();
         audioSource = GetComponent<AudioSource>();
+
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerController = player.GetComponent<PlayerController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (playerController.gameState == "gameover")
+        {
+            isActive = false;
+            Animator animator = GetComponent<Animator>();
+            animator.Play(idleAnime);
+        }
 
         if (isActive)
         {
@@ -117,6 +128,10 @@ public class BooklletsRedScript : MonoBehaviour
         {
             isActive = monsterAwakeManager.isAwake;
             if (isActive) awakeOnce = false;
+        }
+        else
+        {
+            rbody.velocity = Vector2.zero;
         }
     }
 
