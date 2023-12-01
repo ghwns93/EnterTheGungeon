@@ -9,6 +9,14 @@ public class EnemyGunManager : MonoBehaviour
 
     public bool isActive = true;
 
+    public AudioClip audioShot;
+    AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     void Attack()
     {
         if (isActive)
@@ -41,6 +49,8 @@ public class EnemyGunManager : MonoBehaviour
                 //ÃÑ¾Ë ¹ß»ç
                 Rigidbody2D rbody = bullet.GetComponent<Rigidbody2D>();
                 rbody.AddForce(v, ForceMode2D.Impulse);
+
+                audioSource.PlayOneShot(audioShot);
             }
         }
     }

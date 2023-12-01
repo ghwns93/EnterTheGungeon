@@ -57,6 +57,9 @@ public class BulletKinScript : MonoBehaviour
     MonsterAwakeManager monsterAwakeManager;
     bool awakeOnce = true;
 
+    public AudioClip audioDead;
+    AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -64,6 +67,7 @@ public class BulletKinScript : MonoBehaviour
         rbody = GetComponent<Rigidbody2D>();
 
         monsterAwakeManager = GetComponent<MonsterAwakeManager>();
+        audioSource = GetComponent<AudioSource>();
 
         // 애니메이터 가져오기
         animator = GetComponent<Animator>();
@@ -287,6 +291,8 @@ public class BulletKinScript : MonoBehaviour
             if (hp <= 0)
             {
                 isActive = false;
+
+                audioSource.PlayOneShot(audioDead);
 
                 rbody.velocity = Vector2.zero;
                 GetComponent<BoxCollider2D>().enabled = false;

@@ -54,21 +54,26 @@ public class AgonizerScript : MonoBehaviour
     MonsterAwakeManager monsterAwake;
     bool awakeOnce = true;
 
+    public AudioClip audioShot;
+    public AudioClip audioDeath;
+    AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
         rbody = GetComponent<Rigidbody2D>();
         bulletStats = new List<GameObject>();
         monsterAwake = GetComponent<MonsterAwakeManager>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
 
         if (isActive)
         {
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
             if (player != null)
             {
                 isActive = true;
@@ -100,6 +105,7 @@ public class AgonizerScript : MonoBehaviour
         }
         else if (awakeOnce)
         {
+            Debug.Log(monsterAwake.isAwake);
             isActive = monsterAwake.isAwake;
             if (isActive) awakeOnce = false;
         }
@@ -119,7 +125,7 @@ public class AgonizerScript : MonoBehaviour
                 {
                     if (!isAct)
                     {
-                        //Debug.Log("rDelay : " + rDelay);
+                        Debug.Log("rDelay : " + rDelay);
 
                         if (count < MaxBullet + 1 && 0 <= count && rDelay == 0)
                         {
@@ -133,7 +139,7 @@ public class AgonizerScript : MonoBehaviour
                             //isAct = true;
                             //nowAnimation = attackFinishAnime;
                             count = 0;
-                            rDelay = 0;
+                            rDelay++;
                         }
                         else
                         {
@@ -143,9 +149,6 @@ public class AgonizerScript : MonoBehaviour
                     }
                 }
             }
-
-            if (nowAnimation == idleAnime) //Debug.Log("oldAnime : " + oldAnimation);
-            if (nowAnimation == idleAnime) //Debug.Log("nowAnime : " + nowAnimation);
 
             //애니메이션 변경하기
             if (nowAnimation != oldAnimation)
@@ -165,6 +168,7 @@ public class AgonizerScript : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
         {
+            Debug.Log("AttackIn!");
             isAct = false;
         }
     }
@@ -188,12 +192,15 @@ public class AgonizerScript : MonoBehaviour
         if (collision.gameObject.tag == "PlayerBullet")
         {
             hp--; //체력 감소
+            Destroy(collision.gameObject);
 
             //체력이 0 이하가 되는 경우는 사망처리
             if (hp <= 0)
             {
+                audioSource.PlayOneShot(audioDeath);
+
                 rbody.velocity = Vector2.zero;
-                GetComponent<BoxCollider2D>().enabled = false;
+                GetComponent<CapsuleCollider2D>().enabled = false;
                 GetComponent<Animator>().Play(deadAnime);
 
                 foreach (var bs in bulletStats)
@@ -289,6 +296,7 @@ public class AgonizerScript : MonoBehaviour
 
         Rigidbody2D rbody = bullet.GetComponent<Rigidbody2D>();
         rbody.AddForce(v2, ForceMode2D.Impulse);
+        audioSource.PlayOneShot(audioShot);
 
         rDelay++;
         count++;
