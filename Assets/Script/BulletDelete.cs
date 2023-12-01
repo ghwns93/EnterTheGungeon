@@ -24,10 +24,11 @@ public class BulletDelete : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(gameObject);
         // 닿은 곳에서 총알 터지는 애니메이션 가진 객체생성
         bulletBombObj = Instantiate(bulletBombPrefab, gameObject.transform.position, gameObject.transform.rotation);
         Destroy(bulletBombObj, 1.0f);
-        //이거 에네미에 달아야되나?
+        //이거 에네미에 달아야되려나
+
+        Destroy(gameObject);
     }
 }

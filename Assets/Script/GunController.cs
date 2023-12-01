@@ -476,28 +476,33 @@ public class GunController : MonoBehaviour
         // 총알 마우스 포인터 방향으로 날아가게 조정
         if (angleZ < 0 && angleZ > -90)         // 4사분면      
         {
-            directionX = Mathf.Cos((angleZ-3 + randomInt) * Mathf.Deg2Rad);
-            directionY = Mathf.Sin((angleZ-3 + randomInt) * Mathf.Deg2Rad);
+            directionX = Mathf.Cos((angleZ-4 + randomInt) * Mathf.Deg2Rad);
+            directionY = Mathf.Sin((angleZ-4 + randomInt) * Mathf.Deg2Rad);
         }
         else if (angleZ < -135 && angleZ > -180) // 3사분면 위쪽  
         {
-            directionX = Mathf.Cos((angleZ + 10 + randomInt) * Mathf.Deg2Rad);
-            directionY = Mathf.Sin((angleZ + 10 + randomInt) * Mathf.Deg2Rad);
+            directionX = Mathf.Cos((angleZ  + randomInt) * Mathf.Deg2Rad);
+            directionY = Mathf.Sin((angleZ  + randomInt) * Mathf.Deg2Rad);
         }
         else if (angleZ < -90 && angleZ > -135) // 3사분면 아래쪽 
         {
-            directionX = Mathf.Cos((angleZ+15 + randomInt) * Mathf.Deg2Rad);
-            directionY = Mathf.Sin((angleZ+15 + randomInt) * Mathf.Deg2Rad);
+            directionX = Mathf.Cos((angleZ+5 + randomInt) * Mathf.Deg2Rad);
+            directionY = Mathf.Sin((angleZ+5 + randomInt) * Mathf.Deg2Rad);
         }
-        else if (angleZ > 0 && angleZ < 90)          // 1사분면     
+        else if (angleZ > 60 && angleZ < 90)          // 1사분면 위쪽    
         {
-            directionX = Mathf.Cos((angleZ - 7 + randomInt) * Mathf.Deg2Rad);
-            directionY = Mathf.Sin((angleZ - 7 + randomInt) * Mathf.Deg2Rad);
+            directionX = Mathf.Cos((angleZ +8 + randomInt) * Mathf.Deg2Rad);
+            directionY = Mathf.Sin((angleZ +8 + randomInt) * Mathf.Deg2Rad);
+        }
+        else if (angleZ > 0 && angleZ < 60)          // 1사분면 아래쪽   
+        {
+            directionX = Mathf.Cos((angleZ  + randomInt) * Mathf.Deg2Rad);
+            directionY = Mathf.Sin((angleZ  + randomInt) * Mathf.Deg2Rad);
         }
         else if (angleZ > 90 && angleZ < 135)        // 2사분면 위쪽
         {
-            directionX = Mathf.Cos((angleZ - 10 + randomInt) * Mathf.Deg2Rad);
-            directionY = Mathf.Sin((angleZ - 10 + randomInt) * Mathf.Deg2Rad);
+            directionX = Mathf.Cos((angleZ -3 + randomInt) * Mathf.Deg2Rad);
+            directionY = Mathf.Sin((angleZ -3 + randomInt) * Mathf.Deg2Rad);
         }
         else if (angleZ >= 135 && angleZ < 180)    // 2사분면 아래쪽
         {
