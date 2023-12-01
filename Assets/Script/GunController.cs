@@ -136,7 +136,10 @@ public class GunController : MonoBehaviour
                 new Vector3(0.5f * Mathf.Cos(plmv.angleZ * Mathf.Deg2Rad), 0.5f * Mathf.Sin(plmv.angleZ * Mathf.Deg2Rad)+0.2f);//총구 위치
             if (plmv.angleZ < -45 && plmv.angleZ > -135)
                 gunGateObj.transform.position = gunObj.transform.position +
-                new Vector3(0.5f * Mathf.Cos(plmv.angleZ * Mathf.Deg2Rad) + 0.15f, 0.5f * Mathf.Sin(plmv.angleZ * Mathf.Deg2Rad));//밑에 볼때 총구위치 조정
+                new Vector3(0.5f * Mathf.Cos(plmv.angleZ * Mathf.Deg2Rad) + 0.15f, 0.5f * Mathf.Sin(plmv.angleZ * Mathf.Deg2Rad) );//밑에 볼때 총구위치 조정
+            else if (plmv.angleZ < 120 && plmv.angleZ > 60)
+                gunGateObj.transform.position = gunObj.transform.position +
+                new Vector3(0.5f * Mathf.Cos(plmv.angleZ * Mathf.Deg2Rad) + 0.15f, 0.5f * Mathf.Sin(plmv.angleZ * Mathf.Deg2Rad) + 0.3f);//위에 볼때 총구위치 조정
 
             childTransform.position = transform.position + new Vector3(0.35f, -0.2f, 0);            //손위치
             childTransform.rotation = Quaternion.Euler(0, 0, 0);                                    //손회전 x                        
@@ -171,6 +174,10 @@ public class GunController : MonoBehaviour
             if(plmv.angleZ<-45 && plmv.angleZ>-135)
                 gunGateObj.transform.position = gunObj.transform.position +
                 new Vector3(0.5f * Mathf.Cos(plmv.angleZ * Mathf.Deg2Rad) -0.15f, 0.5f * Mathf.Sin(plmv.angleZ * Mathf.Deg2Rad) );//밑에 볼때 총구위치 조정
+            else if (plmv.angleZ < -60 && plmv.angleZ > -120)
+                gunGateObj.transform.position = gunObj.transform.position +
+                new Vector3(0.5f * Mathf.Cos(plmv.angleZ * Mathf.Deg2Rad) + 0.3f, 0.5f * Mathf.Sin(plmv.angleZ * Mathf.Deg2Rad) + 0.5f);//위에 볼때 총구위치 조정
+
 
             childTransform.position = transform.position + new Vector3(-0.35f, -0.2f, 0);           //손위치
             childTransform.rotation = Quaternion.Euler(0, 0, 0);                                    //손회전 x
@@ -565,12 +572,10 @@ public class GunController : MonoBehaviour
 
 시계총맞고 검은 배경에 GameOver 이후 타이틀화면 or 재시작
 -ui버튼만들고 sceneChange,,
-스크린샷 기능 알아보고 넣기
 
 어느정도 거리이동하면 없어지면서 이펙트 - bulletDelete script?
 총알 부딪힐때 이펙트 - on trigger enemy랑player
 
-장전안하고 무기바꾸면 재장전표시 없애기
 
 총쏘면 화면 흔들리기
 (흔들림 수준 설정 옵션)
