@@ -20,7 +20,7 @@ public class TitleManager : MonoBehaviour
     void Start()
     {
         // 배경 음악 재생
-        SoundManager.soundManager.PlayBGM(BGMType.Title);
+        SoundManager.Instance.PlayBGM(BGMType.Title);
     }
 
     void Update()

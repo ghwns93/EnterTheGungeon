@@ -365,7 +365,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 132197035569661610}
         m_TargetAssemblyTypeName: SliderManager, Assembly-CSharp
-        m_MethodName: saveVolumeButton
+        m_MethodName: Confirm
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -575,7 +575,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 132197035569661610}
         m_TargetAssemblyTypeName: SliderManager, Assembly-CSharp
-        m_MethodName: CancelButton
+        m_MethodName: Cancel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1118,7 +1118,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 132197035569661610}
         m_TargetAssemblyTypeName: SliderManager, Assembly-CSharp
-        m_MethodName: resetVolumeButton
+        m_MethodName: Reset
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1493,8 +1493,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8e9d0cf61f77104c91480764bf5fe76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bgmslider: {fileID: 4468517905843623243}
-  SEslider: {fileID: 5102860959932714688}
+  bgmSlider: {fileID: 4468517905843623243}
+  seSlider: {fileID: 5102860959932714688}
+  confirmButton: {fileID: 2903416585251878603}
+  cancelButton: {fileID: 5184877088633283414}
+  resetButton: {fileID: 6267313290271193385}
 --- !u!1 &7706028681501080495
 GameObject:
   m_ObjectHideFlags: 0

@@ -21693,6 +21693,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1573206221}
   m_CullTransparentMesh: 1
+--- !u!82 &1574535149 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3482274184976304596, guid: 4bfe3b93a573e6b43b0687e946fcc220, type: 3}
+  m_PrefabInstance: {fileID: 3482274184907614773}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1660759938
 GameObject:
   m_ObjectHideFlags: 0
@@ -21813,7 +21818,7 @@ MonoBehaviour:
   OptionBtn: {fileID: 1573206221}
   QuitBtn: {fileID: 1369996718}
   btnCanvas: {fileID: 1660759938}
-  OptionPrefab: {fileID: 7410882215979763297, guid: c543416d5031f2945bdf8d1476393fad, type: 3}
+  OptionPrefab: {fileID: 7410882215979763297, guid: ae4060cb0ce972f4eb5381628edd462b, type: 3}
   firstSceneName: Lobby
 --- !u!1 &1879337901
 GameObject:
@@ -26741,6 +26746,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3482274184976304596, guid: 4bfe3b93a573e6b43b0687e946fcc220, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3482274184976304596, guid: 4bfe3b93a573e6b43b0687e946fcc220, type: 3}
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 0}
@@ -26748,6 +26757,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 3482274184976304598, guid: 4bfe3b93a573e6b43b0687e946fcc220, type: 3}
+      propertyPath: bgmBoss
+      value: 
+      objectReference: {fileID: 8300000, guid: a4a86dd280e5da44f8ce6d2f08e7e90c, type: 3}
+    - target: {fileID: 3482274184976304598, guid: 4bfe3b93a573e6b43b0687e946fcc220, type: 3}
+      propertyPath: bgmLobby
+      value: 
+      objectReference: {fileID: 8300000, guid: 1ee188330061d954abbf055bd497f61a, type: 3}
+    - target: {fileID: 3482274184976304598, guid: 4bfe3b93a573e6b43b0687e946fcc220, type: 3}
+      propertyPath: bgmTitle
+      value: 
+      objectReference: {fileID: 8300000, guid: c76a30c9cd07f7744893e62a681df962, type: 3}
+    - target: {fileID: 3482274184976304598, guid: 4bfe3b93a573e6b43b0687e946fcc220, type: 3}
+      propertyPath: seSource
+      value: 
+      objectReference: {fileID: 1574535149}
+    - target: {fileID: 3482274184976304598, guid: 4bfe3b93a573e6b43b0687e946fcc220, type: 3}
+      propertyPath: bgmInGame
+      value: 
+      objectReference: {fileID: 8300000, guid: eeafaa7c327b3c4449df61cc51e27599, type: 3}
+    - target: {fileID: 3482274184976304598, guid: 4bfe3b93a573e6b43b0687e946fcc220, type: 3}
+      propertyPath: bgmSource
+      value: 
+      objectReference: {fileID: 1574535149}
     - target: {fileID: 3482274184976304599, guid: 4bfe3b93a573e6b43b0687e946fcc220, type: 3}
       propertyPath: m_RootOrder
       value: 8
