@@ -365,7 +365,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 132197035569661610}
         m_TargetAssemblyTypeName: SliderManager, Assembly-CSharp
-        m_MethodName: saveVolumeButton
+        m_MethodName: SaveVolumeButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -908,13 +908,13 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: SoundManager, Assembly-CSharp
-        m_MethodName: BgmSliderValue
+      - m_Target: {fileID: 7410882215979763297}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1118,7 +1118,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 132197035569661610}
         m_TargetAssemblyTypeName: SliderManager, Assembly-CSharp
-        m_MethodName: resetVolumeButton
+        m_MethodName: ResetVolumeButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1218,7 +1218,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7410882214648246236}
   - component: {fileID: 7410882214648246235}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: option2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1278,9 +1278,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 13
+  m_SortingLayerID: -1899219981
+  m_SortingLayer: 1
+  m_SortingOrder: 15
   m_Sprite: {fileID: 21300000, guid: 86a76a60d556cd04b9c4fef3395cc247, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1439,7 +1439,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 14
+  m_SortingOrder: 16
   m_TargetDisplay: 0
 --- !u!114 &7410882215979763311
 MonoBehaviour:
@@ -1493,8 +1493,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8e9d0cf61f77104c91480764bf5fe76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bgmslider: {fileID: 4468517905843623243}
-  SEslider: {fileID: 5102860959932714688}
+  bgmSlider: {fileID: 4468517905843623243}
+  seSlider: {fileID: 5102860959932714688}
 --- !u!1 &7706028681501080495
 GameObject:
   m_ObjectHideFlags: 0
