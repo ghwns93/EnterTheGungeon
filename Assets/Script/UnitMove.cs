@@ -5,21 +5,23 @@ using UnityEngine;
 public class UnitMove : MonoBehaviour
 {
     Transform target;
-    float speed = 1;
+    public float speed = 1;
     Vector3[] path;
     int targetIndex;
+
+    GameObject player;
+    PlayerController playerController;
     
     // Start is called before the first frame update
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        player = GameObject.FindGameObjectWithTag("Player");
+        target = player.transform;
+        playerController = player.GetComponent<PlayerController>();
     }
 
     public void StartPathFind()
     {
-        Debug.Log("transform.position : " + transform.position);
-        Debug.Log("transform.position : " + target.position);
-
         PathRequestManager.RequestPath(transform.position, target.position, OnPathFound);
     }
 
@@ -55,6 +57,8 @@ public class UnitMove : MonoBehaviour
                     }
                     currenWayPoint = path[targetIndex];
                 }
+
+                if(playerController.gameState == "gameover") yield break;
 
                 transform.position = Vector2.MoveTowards(transform.position, currenWayPoint, speed * Time.deltaTime);
                 yield return null;

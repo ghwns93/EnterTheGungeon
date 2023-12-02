@@ -131,6 +131,8 @@ MonoBehaviour:
   watch1: {fileID: 1605266719208224067, guid: 4fb9a2ed236af4343908a187ad1a382c, type: 3}
   watch2: {fileID: 5108197585148324043, guid: 6c61e5ba20852a64d81310b22130c755, type: 3}
   bulletBombPrefab: {fileID: 5735827807862232091, guid: d70ea266c444a9a47b317f3394bafd0e, type: 3}
+  deadBookOpenPrefab: {fileID: 527044163045592906, guid: 985382b1f6d851f4da0a6d3c42737c1b, type: 3}
+  bookCanvasPrefab: {fileID: 3214386303301002611, guid: dd67d03aa22aff847a69f43f1b5cf6f2, type: 3}
   angleZ: -90
   isDodging: 0
   inlobby: 0
