@@ -73,8 +73,9 @@ public class PlayerController : MonoBehaviour
     public bool isDodging = false;  // 회피 중
     public bool inlobby = false;    // 로비에 있는지
 
-    public static int hp ;          // 플레이어의 HP
-    public static int maxHp;        // maxHp
+
+   public static int hp ;          // 플레이어의 HP
+   public static int maxHp;        // maxHp
 
     public string gameState;        // 게임 상태 (playing, gameover, falling)
     bool inDamage = false;          // 피격 상태
@@ -98,7 +99,7 @@ public class PlayerController : MonoBehaviour
         // 게임 상태 지정
         gameState = "playing";
 
-        maxHp = 1;      //잠시 1로해둠
+        maxHp = 12;      //잠시 1로해둠
         // HP 불러오기
         hp = maxHp;
     }
