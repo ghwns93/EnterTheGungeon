@@ -246,7 +246,8 @@ public class BooklletsBlueScript : MonoBehaviour
 
                     foreach (var ps in pulseStats)
                     {
-                        ps.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                        if(ps != null)
+                            ps.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
                     }
 
                     GameObject player = GameObject.FindGameObjectWithTag("Player");
