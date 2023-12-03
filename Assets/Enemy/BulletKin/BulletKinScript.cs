@@ -37,7 +37,7 @@ public class BulletKinScript : MonoBehaviour
     float axisH;
     float axisV;
 
-    public static int hp = 3;       // 적의 HP
+    public int hp = 3;       // 적의 HP
 
     public float attackDistance = 10;    //공격 거리
 
