@@ -1,5 +1,47 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
+public class DoorManager : MonoBehaviour
+{
+    private Animator animator;
+    private bool isPlayerInside = false;
+
+    public string openAnimationName; // 열릴 때의 애니메이션 이름
+    public string closeAnimationName; // 닫힐 때의 애니메이션 이름
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player" && !isPlayerInside)
+        {
+            isPlayerInside = true;
+            animator.Play(openAnimationName);
+        }
+    }
+
+    public void CloseDoor()
+    {
+        if (isPlayerInside)
+        {
+            animator.Play(closeAnimationName);
+        }
+    }
+
+    public void OpenDoor()
+    {
+        if (isPlayerInside)
+        {
+            animator.Play(openAnimationName);
+        }
+    }
+}
+
+/*
 // 게임에서 문과 도어 가드를 관리합니다.
 public class DoorManager : MonoBehaviour
 {
@@ -69,6 +111,7 @@ public class DoorManager : MonoBehaviour
     }
 }
 
+ */
 /*
 
 using System.Collections;

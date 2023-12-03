@@ -15,6 +15,7 @@ TagManager:
   - Table
   - Wall
   - Door
+  - RoomEnterManager
   layers:
   - Default
   - TransparentFX
