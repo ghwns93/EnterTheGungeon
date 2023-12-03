@@ -5209,8 +5209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8a421764f5c6b345933a70529dcada4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IngameOptionPrefab: {fileID: 4792363502667615709, guid: 7b281a1d1fe8bc04c8fc3cae0582fa76, type: 3}
-  SoundOptionPrefab: {fileID: 7410882215979763297, guid: c543416d5031f2945bdf8d1476393fad, type: 3}
+  SoundOptionPrefab: {fileID: 7410882215979763297, guid: ae4060cb0ce972f4eb5381628edd462b, type: 3}
 --- !u!1 &1922434059
 GameObject:
   m_ObjectHideFlags: 0

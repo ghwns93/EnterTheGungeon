@@ -54,9 +54,13 @@ public class SoundManager : MonoBehaviour
         {
             PlayBGM(BGMType.Lobby);
         }
-        else if (sceneName == "FirstStage")
+        else if (sceneName == "MainStage")
         {
             PlayBGM(BGMType.InGame);
+        }
+        else if (sceneName == "EndingCredit")
+        {
+            PlayBGM(BGMType.Title);
         }
     }
 

@@ -1493,8 +1493,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8e9d0cf61f77104c91480764bf5fe76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgmSlider: {fileID: 4468517905843623243}
-  seSlider: {fileID: 5102860959932714688}
+  Bgmslider: {fileID: 4468517905843623243}
+  SEslider: {fileID: 5102860959932714688}
 --- !u!1 &7706028681501080495
 GameObject:
   m_ObjectHideFlags: 0

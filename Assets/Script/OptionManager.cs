@@ -2,111 +2,64 @@ using UnityEngine;
 
 public class OptionManager : MonoBehaviour
 {
-    public GameObject IngameOptionPrefab; // 인게임 옵션 프리팹
-    public GameObject SoundOptionPrefab; // 사운드 옵션 프리팹
+    public GameObject SoundOptionPrefab; // SoundOption2 프리팹에 대한 참조
+    private GameObject soundOptionInstance; // 현재 활성화된 SoundOption2 인스턴스
 
-    private GameObject ingameOptionInstance; // 인게임 옵션 인스턴스
-    private GameObject soundOptionInstance; // 사운드 옵션 인스턴스
-
-    // 게임의 일시정지 상태를 추적하는 플래그
-    private bool isGamePaused = false;
-
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            HandleEscapeKeyPress();
+            if (soundOptionInstance == null)
+            {
+                OpenSoundOption();
+            }
+            else
+            {
+                CloseSoundOption();
+            }
         }
     }
 
-    public void HandleEscapeKeyPress()
+    private void OpenSoundOption()
     {
-        // 사운드 옵션이 활성화되어 있으면, 사운드 옵션을 닫고 인게임 옵션을 다시 연다.
+        soundOptionInstance = Instantiate(SoundOptionPrefab);
+        SetupCanvas(soundOptionInstance);
+        PauseGame(); // 게임을 일시 정지 상태로 만듭니다.
+    }
+
+    private void CloseSoundOption()
+    {
         if (soundOptionInstance != null)
         {
             Destroy(soundOptionInstance);
             soundOptionInstance = null;
-            if (ingameOptionInstance == null)
-            {
-                ingameOptionInstance = Instantiate(IngameOptionPrefab);
-                SetupCanvas(ingameOptionInstance);
-            }
         }
-        // 인게임 옵션이 활성화되어 있으면 닫는다.
-        else if (ingameOptionInstance != null)
-        {
-            Destroy(ingameOptionInstance);
-            ingameOptionInstance = null;
-            ResumeGame();
-        }
-        // 아무 옵션도 활성화되어 있지 않으면 인게임 옵션을 연다.
-        else
-        {
-            ingameOptionInstance = Instantiate(IngameOptionPrefab);
-            SetupCanvas(ingameOptionInstance);
-            PauseGame();
-        }
+        ResumeGame(); // 게임을 재개합니다.
     }
 
-    // 사운드 옵션을 열거나 닫는 메서드
-    public void ToggleSoundOption(bool open)
+    private void PauseGame()
     {
-        if (open)
-        {
-            if (soundOptionInstance == null)
-            {
-                soundOptionInstance = Instantiate(SoundOptionPrefab);
-                SetupCanvas(soundOptionInstance);
-            }
-        }
-        else
-        {
-            if (soundOptionInstance != null)
-            {
-                Destroy(soundOptionInstance);
-                soundOptionInstance = null;
-            }
-        }
+        Time.timeScale = 0; // 게임을 일시 정지합니다.
     }
 
-    // 게임을 일시 정지 또는 재개하는 메서드
-    public void PauseGame()
+    private void ResumeGame()
     {
-        Time.timeScale = 0;
-        isGamePaused = true;
-        // 기타 일시정지와 관련된 처리를 추가할 수 있습니다.
+        Time.timeScale = 1; // 게임의 시간 흐름을 정상으로 복원합니다.
     }
 
-    public void ResumeGame()
-    {
-        Time.timeScale = 1;
-        isGamePaused = false;
-        // 기타 재개와 관련된 처리를 추가할 수 있습니다.
-    }
-
-    // Canvas 설정을 위한 보조 메서드
     private void SetupCanvas(GameObject instance)
     {
-        if (instance != null)
+        Canvas canvas = instance.GetComponent<Canvas>();
+        if (canvas != null)
         {
-            Canvas canvas = instance.GetComponent<Canvas>();
-            if (canvas != null)
-            {
-                canvas.renderMode = RenderMode.ScreenSpaceCamera;
-                canvas.worldCamera = Camera.main;
-                canvas.sortingLayerName = "UI";
-            }
-            else
-            {
-                Debug.LogError("Instance does not have a Canvas component.");
-            }
+            canvas.renderMode = RenderMode.ScreenSpaceCamera;
+            canvas.worldCamera = Camera.main;
+            canvas.sortingLayerName = "UI";
         }
-    }
-
-    // 게임 종료 메서드 (옵셔널)
-    public void ExitGame()
-    {
-        Application.Quit();
+        else
+        {
+            Debug.LogError("Canvas component is missing on the prefab!");
+        }
     }
 }
 /*

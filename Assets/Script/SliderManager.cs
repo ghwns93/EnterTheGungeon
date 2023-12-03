@@ -1,54 +1,55 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+using UnityEngine;
+using UnityEngine.UI;
+
 public class SliderManager : MonoBehaviour
 {
-    public Slider bgmSlider;
-    public Slider seSlider;
-    public Button confirmButton;
-    public Button cancelButton;
-    public Button resetButton;
+    [SerializeField] private Slider Bgmslider;
+    [SerializeField] private Slider SEslider;
 
-    private float originalBGMVolume;
-    private float originalSEVolume;
-
-    void Start()
+    private void Start()
     {
-        originalBGMVolume = SoundManager.Instance.bgmVolume;
-        originalSEVolume = SoundManager.Instance.seVolume;
-
-        bgmSlider.value = originalBGMVolume;
-        seSlider.value = originalSEVolume;
-
-        confirmButton.onClick.AddListener(Confirm);
-        cancelButton.onClick.AddListener(Cancel);
-        resetButton.onClick.AddListener(Reset);
+        // 시작 시에 슬라이더 값 로드
+        Bgmslider.value = PlayerPrefs.GetFloat("BGMvolumeValue", 1f);
+        SEslider.value = PlayerPrefs.GetFloat("SEvolumeValue", 1f);
     }
 
-    public void Confirm()
+    public void SaveVolumeButton()
     {
-        // 슬라이더에서 설정한 볼륨 값을 SoundManager에 적용
-        SoundManager.Instance.SetBGMVolume(bgmSlider.value);
-        SoundManager.Instance.SetSEVolume(seSlider.value);
-        SliderManager.Destroy(gameObject);
+        // 슬라이더 값 저장
+        PlayerPrefs.SetFloat("BGMvolumeValue", Bgmslider.value);
+        PlayerPrefs.SetFloat("SEvolumeValue", SEslider.value);
+
+        // 사운드 옵션을 닫습니다.
+        CloseSoundOption();
     }
 
-    public void Cancel()
+    public void ResetVolumeButton()
     {
-        // 슬라이더를 이전 설정 값으로 되돌림
-        bgmSlider.value = originalBGMVolume;
-        seSlider.value = originalSEVolume;
-        SliderManager.Destroy(gameObject);
+        // 슬라이더 값을 기본값으로 리셋
+        Bgmslider.value = 1f;
+        SEslider.value = 1f;
+        PlayerPrefs.SetFloat("BGMvolumeValue", 1f);
+        PlayerPrefs.SetFloat("SEvolumeValue", 1f);
     }
 
-    public void Reset()
+    private void CloseSoundOption()
     {
-        // 슬라이더를 기본 설정 값으로 되돌림
-        bgmSlider.value = 1.0f;
-        seSlider.value = 1.0f;
+        // 이 오브젝트가 사운드 옵션 UI라면 비활성화합니다.
+        this.gameObject.SetActive(false);
+        Time.timeScale = 1; // 게임의 시간 흐름을 정상으로 복원합니다.
     }
+
+    public void DeskTop()
+    {
+        // 이 오브젝트가 사운드 옵션 UI라면 비활성화합니다.
+        Application.Quit();
+    }
+
+
 }
-
 /*
 using System.Collections;
 using System.Collections.Generic;
