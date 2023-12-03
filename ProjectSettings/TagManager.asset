@@ -14,6 +14,7 @@ TagManager:
   - BattleArea
   - Table
   - Wall
+  - Door
   layers:
   - Default
   - TransparentFX

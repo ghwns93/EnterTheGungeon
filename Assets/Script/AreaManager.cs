@@ -1,51 +1,112 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+// 게임에서 전투 영역을 관리합니다.
 public class AreaManager : MonoBehaviour
 {
-    public List<DoorManager> doorManagers; // 문 매니저들을 리스트로 관리합니다.
-    public Animator UDGardAnimator; // 위 문 가드의 애니메이터
-    public Animator DDGardAnimator; // 아래 문 가드의 애니메이터
-    public Animator LTGardAnimator; // 왼쪽 문 가드의 애니메이터
-    public Animator RTGardAnimator; // 오른쪽 문 가드의 애니메이터
+    DoorManager doorManager;
+    GameObject[] enemies;
+    GameObject[] doors;
 
     void Start()
     {
-        // 게임 시작 시 모든 가드를 비활성화합니다.
-        UDGardAnimator.gameObject.SetActive(false);
-        DDGardAnimator.gameObject.SetActive(false);
-        LTGardAnimator.gameObject.SetActive(false);
-        RTGardAnimator.gameObject.SetActive(false);
+        doorManager = FindObjectOfType<DoorManager>();
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        doors = GameObject.FindGameObjectsWithTag("Door");
+    }
+
+    // 영역 내의 적을 확인하고 적이 있으면 문을 닫습니다.
+    void Update()
+    {
+        CheckForEnemies();
+    }
+
+    void CheckForEnemies()
+    {
+        bool enemiesPresent = false;
+        foreach (var enemy in enemies)
+        {
+            if (enemy != null)
+            {
+                enemiesPresent = true;
+                break;
+            }
+        }
+
+        foreach (var door in doors)
+        {
+            DoorManager dm = door.GetComponent<DoorManager>();
+            if (enemiesPresent)
+            {
+                dm.CloseDoor();
+            }
+            else
+            {
+                dm.OpenDoor();
+            }
+        }
+    }
+}
+
+/*
+ 
+
+using System.Collections;
+using UnityEngine;
+
+public class AreaManager : MonoBehaviour
+{
+    private Animator[] guardAnimators; // 가드 애니메이터들의 배열입니다.
+    private DoorManager[] doorManagers; // 문 매니저들의 배열입니다.
+
+    private bool isInitialized = false;
+
+    private void InitializeArea()
+    {
+        // 초기화 로직을 여기에 구현합니다.
+        isInitialized = true;
+        SetGuardsActive(false); // 초기화 시 모든 가드를 비활성화합니다.
+    }
+
+    void Start()
+    {
+        // 자식 오브젝트들에서 문 매니저와 가드 애니메이터들을 찾습니다.
+        doorManagers = GetComponentsInChildren<DoorManager>(true);
+        guardAnimators = GetComponentsInChildren<Animator>(true);
+
+        InitializeArea(); // 영역을 초기화합니다.
+    }
+
+    private void SetGuardsActive(bool isActive)
+    {
+        // 모든 가드 애니메이터를 주어진 활성화 상태로 설정합니다.
+        foreach (var animator in guardAnimators)
+        {
+            animator.gameObject.SetActive(isActive);
+        }
     }
 
     private void CloseAllGuards()
     {
-        // 각 가드를 활성화하고 'Close' 애니메이션을 재생합니다.
-        UDGardAnimator.gameObject.SetActive(true);
-        UDGardAnimator.Play("UDGard_Down");
-
-        DDGardAnimator.gameObject.SetActive(true);
-        DDGardAnimator.Play("DDGard_Down");
-
-        LTGardAnimator.gameObject.SetActive(true);
-        LTGardAnimator.Play("LTGard_Down");
-
-        RTGardAnimator.gameObject.SetActive(true);
-        RTGardAnimator.Play("RTGard_Down");
+        // 각 가드 애니메이터를 활성화하고 'Close' 애니메이션을 재생합니다.
+        foreach (var animator in guardAnimators)
+        {
+            animator.gameObject.SetActive(true);
+            animator.Play("Gard_Down"); // 모든 가드에 대한 일반화된 애니메이션 이름을 사용합니다.
+        }
     }
 
     private void OpenAllGuards()
     {
-        // 'Up' 애니메이션 재생 후 가드를 비활성화합니다.
-        StartCoroutine(DeactivateGuardAfterAnimation(UDGardAnimator, "UDGard_Up"));
-        StartCoroutine(DeactivateGuardAfterAnimation(DDGardAnimator, "DDGard_Up"));
-        StartCoroutine(DeactivateGuardAfterAnimation(LTGardAnimator, "LTGard_Up"));
-        StartCoroutine(DeactivateGuardAfterAnimation(RTGardAnimator, "RTGard_Up"));
+        // 'Up' 애니메이션 재생 후 각 가드 애니메이터를 비활성화합니다.
+        foreach (var animator in guardAnimators)
+        {
+            StartCoroutine(DeactivateGuardAfterAnimation(animator, "Gard_Up"));
+        }
     }
 
     private IEnumerator DeactivateGuardAfterAnimation(Animator animator, string animationName)
     {
-        // 애니메이션 재생
+        // 애니메이션을 재생합니다.
         animator.Play(animationName);
 
         // 애니메이션이 끝날 때까지 기다립니다.
@@ -55,7 +116,7 @@ public class AreaManager : MonoBehaviour
             yield return null;
         }
 
-        // 애니메이션이 끝나면 해당 가드를 비활성화합니다.
+        // 애니메이션이 끝나면 가드 애니메이터를 비활성화합니다.
         animator.gameObject.SetActive(false);
     }
 
@@ -63,6 +124,11 @@ public class AreaManager : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            if (!isInitialized)
+            {
+                InitializeArea(); // 영역을 초기화합니다.
+            }
+
             // BattleArea 내의 모든 콜라이더들을 검사합니다.
             Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, GetComponent<BoxCollider2D>().size, 0);
 
@@ -71,7 +137,6 @@ public class AreaManager : MonoBehaviour
                 // "Enemy" 태그인 오브젝트가 하나라도 있으면 문을 닫습니다.
                 if (collider.gameObject.tag == "Enemy")
                 {
-                    //Debug.Log("닫힘 체크");
                     foreach (var doorManager in doorManagers)
                     {
                         doorManager.CloseDoor();
@@ -83,17 +148,42 @@ public class AreaManager : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            // BattleArea를 떠날 때 영역을 초기화합니다.
+            isInitialized = false;
+            SetGuardsActive(false); // 모든 가드를 비활성화합니다.
+        }
+    }
+
     void Update()
     {
         // BattleArea 내에 Enemy 태그를 가진 오브젝트가 없다면 문을 엽니다.
-        if (GameObject.FindGameObjectWithTag("Enemy") == null)
+        if (isInitialized)
         {
-            //Debug.Log("열림 체크");
-            foreach (var doorManager in doorManagers)
+            Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, GetComponent<BoxCollider2D>().size, 0);
+            bool enemyFound = false;
+
+            foreach (var collider in colliders)
             {
-                doorManager.OpenDoor();
+                if (collider.gameObject.tag == "Enemy")
+                {
+                    enemyFound = true;
+                    break; // Enemy를 찾았으니 더 이상 반복할 필요가 없습니다.
+                }
             }
-            OpenAllGuards(); // 모든 가드를 비활성화합니다.
+
+            if (!enemyFound)
+            {
+                foreach (var doorManager in doorManagers)
+                {
+                    doorManager.OpenDoor();
+                }
+                OpenAllGuards(); // 모든 가드를 비활성화합니다.
+            }
         }
     }
 }
+ */
