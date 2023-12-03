@@ -84,7 +84,7 @@ public class TableController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            if (Input.GetButton("E"))
+            if (Input.GetButton("E") && canMove == false)
             {
                 if (direction.x > 0.5 && direction.x <= 1)
                 {
