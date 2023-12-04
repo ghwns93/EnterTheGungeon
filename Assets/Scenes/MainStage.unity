@@ -1100,7 +1100,7 @@ MonoBehaviour:
   - {fileID: 1231087038}
   - {fileID: 1763685213}
   gardManagers:
-  - {fileID: 0}
+  - {fileID: 1932822783}
   - {fileID: 687964247}
   roomEnterManager: {fileID: 87038774}
 --- !u!1 &100615192
@@ -34302,7 +34302,39 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1182227084544967193, guid: cebc67a42f0c2cb49a05b3009a921b50, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1182227084544967193, guid: cebc67a42f0c2cb49a05b3009a921b50, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1182227084544967193, guid: cebc67a42f0c2cb49a05b3009a921b50, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1182227084544967193, guid: cebc67a42f0c2cb49a05b3009a921b50, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1182227084544967193, guid: cebc67a42f0c2cb49a05b3009a921b50, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 2008997128659196237, guid: cebc67a42f0c2cb49a05b3009a921b50, type: 3}
+      propertyPath: m_Size.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2008997128659196237, guid: cebc67a42f0c2cb49a05b3009a921b50, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2008997128659196237, guid: cebc67a42f0c2cb49a05b3009a921b50, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2008997128659196237, guid: cebc67a42f0c2cb49a05b3009a921b50, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2070455903785649465, guid: cebc67a42f0c2cb49a05b3009a921b50, type: 3}
       propertyPath: m_RootOrder
@@ -34363,6 +34395,10 @@ PrefabInstance:
     - target: {fileID: 5383326267889513676, guid: cebc67a42f0c2cb49a05b3009a921b50, type: 3}
       propertyPath: m_SortingOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7682180407728443081, guid: cebc67a42f0c2cb49a05b3009a921b50, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8850024603837044387, guid: cebc67a42f0c2cb49a05b3009a921b50, type: 3}
       propertyPath: m_Name
@@ -35834,6 +35870,10 @@ PrefabInstance:
     - target: {fileID: 5907841089783412817, guid: 92be3700cf0d914478523a4e0cc7de4b, type: 3}
       propertyPath: m_LocalPosition.y
       value: 6.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 5907841089783412846, guid: 92be3700cf0d914478523a4e0cc7de4b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7657842366101855990, guid: 92be3700cf0d914478523a4e0cc7de4b, type: 3}
       propertyPath: m_Name
@@ -50405,7 +50445,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5038872634097816527, guid: 31b088a57606f484785760ba48446704, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5038872634097816527, guid: 31b088a57606f484785760ba48446704, type: 3}
       propertyPath: m_LocalScale.x
@@ -53010,6 +53050,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2458429299003350972, guid: 51f983e2cfaccd64f8c537ad9150689c, type: 3}
   m_PrefabInstance: {fileID: 1501053377}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1932822778 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5378810823806603880, guid: cebc67a42f0c2cb49a05b3009a921b50, type: 3}
+  m_PrefabInstance: {fileID: 706168819}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1932822783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932822778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1865ddfdba26f3c43a1e11fa2e7cabc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openGardName: RTGard_Up
+  closeGardName: RTGard_Down
 --- !u!1 &1992704944
 GameObject:
   m_ObjectHideFlags: 0
@@ -53657,8 +53716,8 @@ Transform:
   m_Children:
   - {fileID: 1820065088}
   - {fileID: 92416273}
-  - {fileID: 1231087037}
   - {fileID: 706168820}
+  - {fileID: 1231087037}
   - {fileID: 1763685212}
   - {fileID: 162431126}
   m_Father: {fileID: 0}
