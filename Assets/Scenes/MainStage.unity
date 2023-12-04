@@ -51093,7 +51093,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3347810483116990850, guid: dfd8c9454b8da804cb39ef0d98f29281, type: 3}
       propertyPath: m_Name
-      value: Agonizer (1)
+      value: Agonizer
       objectReference: {fileID: 0}
     - target: {fileID: 3347810483116990859, guid: dfd8c9454b8da804cb39ef0d98f29281, type: 3}
       propertyPath: m_RootOrder
