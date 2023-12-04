@@ -175,6 +175,7 @@ public class PlayerController : MonoBehaviour
             {
                 child.gameObject.SetActive(false);
             }
+            transform.Find("PilotShadow").gameObject.SetActive(true);
         }
         else
         {
