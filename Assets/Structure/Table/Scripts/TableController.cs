@@ -89,6 +89,7 @@ public class TableController : MonoBehaviour
         {
             if (Input.GetButton("E") && canMove == false)
             {
+                gameObject.tag = "Wall";
                 if (direction.x > 0.5 && direction.x <= 1)
                 {
                     //Debug.Log("ÁÂ·Î¹Ð±â");

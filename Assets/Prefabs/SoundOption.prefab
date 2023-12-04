@@ -363,7 +363,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 132197035569661610}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SliderManager, Assembly-CSharp
         m_MethodName: SaveVolumeButton
         m_Mode: 1
@@ -573,7 +573,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 132197035569661610}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SliderManager, Assembly-CSharp
         m_MethodName: CancelButton
         m_Mode: 1
@@ -1116,7 +1116,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 132197035569661610}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SliderManager, Assembly-CSharp
         m_MethodName: ResetVolumeButton
         m_Mode: 1
@@ -1384,7 +1384,7 @@ GameObject:
   - component: {fileID: 7410882215979763310}
   - component: {fileID: 7410882215979763311}
   - component: {fileID: 7410882215979763296}
-  - component: {fileID: 132197035569661610}
+  - component: {fileID: 6907106846199170905}
   m_Layer: 5
   m_Name: SoundOption
   m_TagString: Untagged
@@ -1481,7 +1481,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &132197035569661610
+--- !u!114 &6907106846199170905
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1490,11 +1490,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7410882215979763297}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8e9d0cf61f77104c91480764bf5fe76, type: 3}
+  m_Script: {fileID: 11500000, guid: f8a421764f5c6b345933a70529dcada4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bgmslider: {fileID: 4468517905843623243}
-  SEslider: {fileID: 5102860959932714688}
+  SoundOptionPrefab: {fileID: 0}
 --- !u!1 &7706028681501080495
 GameObject:
   m_ObjectHideFlags: 0
