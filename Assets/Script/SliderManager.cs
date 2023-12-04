@@ -60,8 +60,10 @@ public class SliderManager : MonoBehaviour
 
     public void BackTitle()
     {
-            targetButton.gameObject.SetActive(true);
-            SceneManager.LoadScene("Title");
+        targetButton.gameObject.SetActive(true);
+        Time.timeScale = 1; // 게임의 시간 흐름을 정상으로 복원합니다.
+        SceneManager.LoadScene("Title");
+            
     }
 }
 /*
