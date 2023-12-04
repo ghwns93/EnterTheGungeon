@@ -16,6 +16,8 @@ TagManager:
   - Wall
   - Door
   - RoomEnterManager
+  - Outline
+  - ExitCurtain
   layers:
   - Default
   - TransparentFX
