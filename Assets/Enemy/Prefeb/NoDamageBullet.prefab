@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4765776769486225014}
   - component: {fileID: 1813774254325298192}
   - component: {fileID: 1506678129339206537}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: NoDamageBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1875
+  m_Radius: 0.16
 --- !u!50 &1813774254325298192
 Rigidbody2D:
   serializedVersion: 4

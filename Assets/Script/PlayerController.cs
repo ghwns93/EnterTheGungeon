@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -36,10 +38,13 @@ public class PlayerController : MonoBehaviour
 
     public GameObject deadSquareUp;     //죽을때 위에서 내려오는 네모
     public GameObject deadSquareDown;
-    public GameObject deadShadow;       //죽으면 밑에 그림자
-    public GameObject watch1;           //시계1프리팹
-    public GameObject watch2;           //시계2프리팹
-    public GameObject bulletBombPrefab; //총알 터지는 애니메이션가진 프리팹
+    public GameObject deadShadow;           //죽으면 밑에 그림자
+    public GameObject watch1;               //시계1프리팹
+    public GameObject watch2;               //시계2프리팹
+    public GameObject bulletBombPrefab;     //총알 터지는 애니메이션가진 프리팹
+    public GameObject deadBookOpenPrefab;   //책 펼쳐지는 애니메이션가진 프리팹
+
+    public Canvas bookCanvasPrefab;               //책 안의 버튼있는 캔버스 프리팹
 
     GameObject deadSquareUpObj;         //여러함수에서 쓸수있게 선언해둠
     GameObject deadSquareDownObj;
@@ -47,6 +52,9 @@ public class PlayerController : MonoBehaviour
     GameObject watch1Obj;
     GameObject watch2Obj;
     GameObject bulletBombObj;
+    GameObject deadBookOpenObj;
+
+    Canvas bookCanvasObj;
 
     string nowAnimation = "";       // 현재 애니메이션
     string oldAnimation = "";       // 이전 애니메이션       
@@ -65,10 +73,11 @@ public class PlayerController : MonoBehaviour
     public bool isDodging = false;  // 회피 중
     public bool inlobby = false;    // 로비에 있는지
 
-    public static int hp ;          // 플레이어의 HP
-    public static int maxHp;        // maxHp
 
-    public string gameState;        // 게임 상태 (playing, dodging, gameover)
+   public static int hp ;          // 플레이어의 HP
+   public static int maxHp;        // maxHp
+
+    public string gameState;        // 게임 상태 (playing, gameover, falling)
     bool inDamage = false;          // 피격 상태
 
     Vector2 beforePos = new Vector2(0, 0);
@@ -90,7 +99,7 @@ public class PlayerController : MonoBehaviour
         // 게임 상태 지정
         gameState = "playing";
 
-        maxHp = 6;      //잠시 1로해둠
+        maxHp = 12;      //잠시 1로해둠
         // HP 불러오기
         hp = maxHp;
     }
@@ -98,7 +107,19 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // gameover 일때는 아무 것도 하지 않음
+        if (bookCanvasObj)      // 죽은후 책이 생겼을 때
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                SceneManager.LoadScene("MainStage");
+            }
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                SceneManager.LoadScene("Lobby");
+            }
+        }
+
+        // gameover 일때는 이 조건문 밑으로는아무 것도 하지 않음
         if (gameState == "gameover")
         {
             return;
@@ -228,13 +249,13 @@ public class PlayerController : MonoBehaviour
         Vector2 dodgePos = new Vector2(Mathf.Cos(angleDodge), Mathf.Sin(angleDodge));
         
         // 키입력을 받은 상태에서 마우스 우클릭을 했을 때만 구르기
-        if ((axisH != 0 || axisV != 0) && Input.GetButtonDown("Fire2"))
+        if ((axisH != 0 || axisV != 0) && Input.GetButton("Fire2"))
         {
             // 오른쪽, 오른쪽 아래로 구르기
             if (angleZ > -60 && angleZ < 15)
             {
                 // 회피중
-                gameState = "dodging";
+                isDodging = true;                
                 // 입력된 방향으로 구르기
                 rbody.AddForce(dodgePos, ForceMode2D.Impulse);
                 // 애니메이션 설정
@@ -242,41 +263,41 @@ public class PlayerController : MonoBehaviour
                 animator.Play("PilotDodgeRightDown");
             }
             // 오른쪽 위로 구르기
-            else if (angleZ > 30 && angleZ < 60)               
+            else if (angleZ > 30 && angleZ < 60)
             {
-                gameState = "dodging";
+                isDodging = true;
                 rbody.AddForce(dodgePos, ForceMode2D.Impulse);
                 nowAnimation = dodgeRightUpAnime;
                 animator.Play("PilotDodgeRightUp");
             }
             // 위로 구르기
-            else if (angleZ > 75 && angleZ < 105)             
+            else if (angleZ > 75 && angleZ < 105)
             {
-                gameState = "dodging";
+                isDodging = true;
                 rbody.AddForce(dodgePos, ForceMode2D.Impulse);
                 nowAnimation = dodgeUpAnime;
                 animator.Play("PilotDodgeUp");
             }
             // 왼쪽 위로 구르기
-            else if (angleZ > 120 && angleZ < 150)             
+            else if (angleZ > 120 && angleZ < 150)
             {
-                gameState = "dodging";
+                isDodging = true;
                 rbody.AddForce(dodgePos, ForceMode2D.Impulse);
                 nowAnimation = dodgeLeftUpAnime;
                 animator.Play("PilotDodgeRightUp");
             }
             // 왼쪽, 왼쪽 아래 구르기
-            else if (angleZ > 165 && angleZ < 240 || angleZ < -105 && angleZ > -200) 
+            else if (angleZ > 165 && angleZ < 240 || angleZ < -105 && angleZ > -200)
             {
-                gameState = "dodging";
+                isDodging = true;
                 rbody.AddForce(dodgePos, ForceMode2D.Impulse);
                 nowAnimation = dodgeLeftDownAnime;
                 animator.Play("PilotDodgeRightDown");
             }
             // 아래로 구르기
-            else if (angleZ < -80 && angleZ > -100)         
+            else if (angleZ < -80 && angleZ > -100)
             {
-                gameState = "dodging";
+                isDodging = true;
                 rbody.AddForce(dodgePos, ForceMode2D.Impulse);
                 nowAnimation = dodgeDownAnime;
                 animator.Play("PilotDodgeDown");
@@ -289,6 +310,8 @@ public class PlayerController : MonoBehaviour
             oldAnimation = nowAnimation;
             GetComponent<Animator>().Play(nowAnimation);
         }
+
+        
     }
 
     // (유니티 초기 설정 기준) 0.02초마다 호출되며, 1초에 총 50번 호출되는 함수
@@ -359,28 +382,24 @@ public class PlayerController : MonoBehaviour
 
     public void DodgeUpAnimationEnd()
     {
-        gameState = "playing";
         nowAnimation = stopUpAnime;
         animator.Play("PilotStopUp");
         isDodging = false;
     }
     public void DodgeRightUpAnimationEnd()
     {
-        gameState = "playing";
         nowAnimation = stopRightUpAnime;
         animator.Play("PilotStopRightUp");
         isDodging = false;
     }
     public void DodgeRightDownAnimationEnd()
     {
-        gameState = "playing";
         nowAnimation = stopRightDownAnime;
         animator.Play("PilotStopRightDown");
         isDodging = false;
     }
     public void DodgeDownAnimationEnd()
     {
-        gameState = "playing";
         nowAnimation = stopDownAnime;
         animator.Play("PilotStopDown");
         isDodging = false;
@@ -457,17 +476,21 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Enemy와 물리적으로 충돌 발생
-        if ((collision.gameObject.tag == "Enemy"|| collision.gameObject.tag == "EnemyBullet") && gameState =="playing")
+        if ((collision.gameObject.tag == "Enemy"|| collision.gameObject.tag == "EnemyBullet") && !isDodging)
         {
             // 데미지 계산
             GetDamage(collision.gameObject);
 
-            // 총알에 맞았을경우 총알 삭제
-            if(collision.gameObject.tag == "EnemyBullet")
+            // 적 총알에 맞았을경우
+            if (collision.gameObject.tag == "EnemyBullet")
             {
-                bulletBombObj = Instantiate(bulletBombPrefab,
-                    collision.gameObject.transform.position,collision.gameObject.transform.rotation);   //되는지 확인안해봄
-                Destroy(collision.gameObject);
+                if(gameState!="gameover")
+                {
+                    bulletBombObj = Instantiate(bulletBombPrefab,
+                    collision.gameObject.transform.position, collision.gameObject.transform.rotation);   //총알 터지는 효과                
+                    Destroy(bulletBombObj, 1f);
+                }                
+                Destroy(collision.gameObject);      //  총알 삭제
             }
         }
     }
@@ -528,7 +551,7 @@ public class PlayerController : MonoBehaviour
         hp--;   // HP감소
         gameObject.GetComponent<Collider2D>().enabled = false;  // 콜라이더 비활성화해서 무적상태효과
 
-        if (gameState=="playing")
+        if (!isDodging)
         {
             if (hp > 0)
             {               
@@ -584,18 +607,22 @@ public class PlayerController : MonoBehaviour
         animator.Play(deadAnime1);
         Invoke("AfterDead", 3.0f);
 
-        // 위에서 내려오는 검정박스
-        deadSquareUpObj = Instantiate(deadSquareUp);
-        deadSquareUpObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -5.0f), ForceMode2D.Impulse);
-        // 아래에서 올라오는 검정박스
-        deadSquareDownObj = Instantiate(deadSquareUp,new Vector3(0,-7f,0),new Quaternion(0,0,0,0));
-        deadSquareDownObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, +5.0f),ForceMode2D.Impulse);
-        Invoke("StopSquare", 0.5f);
-
+        foreach (Transform child in transform)  // 플레이어 자식 오브젝트들 모두 안보이게
+        {
+            child.gameObject.SetActive(false);  
+        }        
+        Destroy(GameObject.Find("PilotOtherHand(Clone)"));  // 플레이어 다른손 제거
         Destroy(transform.Find("PilotShadow").gameObject);  // 플레이어 그림자 제거
         // 플레이어 밑에 큰 그림자 생성
-        deadShadowObj = Instantiate(deadShadow,transform.position+new Vector3(0,0.2f,0),transform.rotation);
-                
+        deadShadowObj = Instantiate(deadShadow, transform.position + new Vector3(0, 0.2f, 0), transform.rotation);
+
+        // 위에서 내려오는 검정박스
+        deadSquareUpObj = Instantiate(deadSquareUp,transform.position + new Vector3(0, +7f, 0), transform.rotation);
+        deadSquareUpObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -5.0f), ForceMode2D.Impulse);
+        // 아래에서 올라오는 검정박스
+        deadSquareDownObj = Instantiate(deadSquareUp, transform.position+new Vector3(0,-7f,0), transform.rotation);
+        deadSquareDownObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, +5.0f),ForceMode2D.Impulse);
+        Invoke("StopSquare", 0.5f);
     }
     void StopSquare()
     {
@@ -617,12 +644,20 @@ public class PlayerController : MonoBehaviour
         watch2Obj = Instantiate(watch2, transform.position , transform.rotation); 
         animator.Play(deadAnime2);      //시계총 맞고 쓰러지는 애니메이션
         Destroy(watch2Obj, 1.0f);
+        Invoke("DeadBookOpen", 2.0f);
     }
 
+    void DeadBookOpen()
+    {
+        deadBookOpenObj = Instantiate(deadBookOpenPrefab, transform.position, transform.rotation);
+        bookCanvasObj = Instantiate(bookCanvasPrefab, transform.position, transform.rotation);
+    }
 }
 
 // 키 입력 관련 함수 목록
 /*
+    죽었을때 검정내려오는거 위치설정
+
     // 키보드의 특정 키 입력에 대한 검사
     bool down = Input.GetKeyDown(KeyCode.Space);
     bool press = Input.GetKey(KeyCode.Space);

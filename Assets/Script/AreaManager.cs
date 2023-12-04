@@ -1,37 +1,87 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq; // Linq를 사용하기 위해 추가
+
+public class AreaManager : MonoBehaviour
+{
+    public List<DoorManager> doorManagers; // 문 매니저 리스트
+    public List<GardManager> gardManagers; // 가드 매니저 리스트
+    public GameObject roomEnterManager; // 에디터에서 설정
+
+    private bool isEnemyPresent;
+
+    void Update()
+    {
+        // 현재 Enemy 태그를 가진 자식 개체가 있는지 확인
+        bool enemyCurrentlyPresent = roomEnterManager.transform.Cast<Transform>().Any(child => child.tag == "Enemy");
+
+        // Enemy 태그를 가진 개체가 사라졌다면 문을 열고 가드를 비활성화
+        if (isEnemyPresent && !enemyCurrentlyPresent)
+        {
+            Debug.Log("열림 체크");
+            foreach (var doorManager in doorManagers)
+            {
+                doorManager.OpenDoor();
+            }
+            foreach (var gardManager in gardManagers)
+            {
+                gardManager.OpenGard();
+            }
+        }
+
+        // Enemy 태그를 가진 개체의 현재 상태를 추적
+        isEnemyPresent = enemyCurrentlyPresent;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            // RoomEnterManager 오브젝트 안에서 Enemy 태그를 가진 자식 개체가 하나라도 있는지 확인
+            isEnemyPresent = roomEnterManager.transform.Cast<Transform>().Any(child => child.tag == "Enemy");
+
+            // Enemy 태그를 가진 자식 개체가 하나라도 있으면 문을 닫고 가드를 작동시킴
+            if (isEnemyPresent)
+            {
+                Debug.Log("닫힘 체크");
+                foreach (var doorManager in doorManagers)
+                {
+                    doorManager.CloseDoor();
+                }
+                foreach (var gardManager in gardManagers)
+                {
+                    gardManager.CloseGard();
+                }
+            }
+        }
+    }
+}
+
+/*
 public class AreaManager : MonoBehaviour
 {
     public List<DoorManager> doorManagers; // 문 매니저들을 리스트로 관리합니다.
-    public Animator UDGardAnimator; // 위 문 가드의 애니메이터
-    public Animator DDGardAnimator; // 아래 문 가드의 애니메이터
-    public Animator LTGardAnimator; // 왼쪽 문 가드의 애니메이터
-    public Animator RTGardAnimator; // 오른쪽 문 가드의 애니메이터
+    public List<GardManager> gardManagers; // 문 매니저들을 리스트로 관리합니다.
 
     void Start()
     {
-        // 게임 시작 시 모든 가드를 비활성화합니다.
-        UDGardAnimator.gameObject.SetActive(false);
-        DDGardAnimator.gameObject.SetActive(false);
-        LTGardAnimator.gameObject.SetActive(false);
-        RTGardAnimator.gameObject.SetActive(false);
     }
 
     private void CloseAllGuards()
     {
         // 각 가드를 활성화하고 'Close' 애니메이션을 재생합니다.
-        UDGardAnimator.gameObject.SetActive(true);
-        UDGardAnimator.Play("UDGard_Down");
+        r.gameObject.SetActive(true);
+        UDGardAnimator.Play("UDGard_Close");
 
         DDGardAnimator.gameObject.SetActive(true);
-        DDGardAnimator.Play("DDGard_Down");
+        DDGardAnimator.Play("DDGard_Close");
 
         LTGardAnimator.gameObject.SetActive(true);
-        LTGardAnimator.Play("LTGard_Down");
+        LTGardAnimator.Play("LTGard_Close");
 
         RTGardAnimator.gameObject.SetActive(true);
-        RTGardAnimator.Play("RTGard_Down");
+        RTGardAnimator.Play("RTGard_Close");
     }
 
     private void OpenAllGuards()
@@ -71,7 +121,7 @@ public class AreaManager : MonoBehaviour
                 // "Enemy" 태그인 오브젝트가 하나라도 있으면 문을 닫습니다.
                 if (collider.gameObject.tag == "Enemy")
                 {
-                    //Debug.Log("닫힘 체크");
+                    Debug.Log("닫힘 체크");
                     foreach (var doorManager in doorManagers)
                     {
                         doorManager.CloseDoor();
@@ -88,7 +138,7 @@ public class AreaManager : MonoBehaviour
         // BattleArea 내에 Enemy 태그를 가진 오브젝트가 없다면 문을 엽니다.
         if (GameObject.FindGameObjectWithTag("Enemy") == null)
         {
-            //Debug.Log("열림 체크");
+            Debug.Log("열림 체크");
             foreach (var doorManager in doorManagers)
             {
                 doorManager.OpenDoor();
@@ -97,3 +147,60 @@ public class AreaManager : MonoBehaviour
         }
     }
 }
+ */
+/*
+using UnityEngine;
+// 게임에서 전투 영역을 관리합니다.
+public class AreaManager : MonoBehaviour
+{
+    DoorManager doorManager;
+    GameObject[] enemies;
+    GameObject[] doors;
+
+    void Start()
+    {
+        doorManager = FindObjectOfType<DoorManager>();
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        doors = GameObject.FindGameObjectsWithTag("Door");
+    }
+
+    // 영역 내의 적을 확인하고 적이 있으면 문을 닫습니다.
+    void Update()
+    {
+        CheckForEnemies();
+    }
+
+    void CheckForEnemies()
+    {
+        bool enemiesPresent = false;
+        foreach (var enemy in enemies)
+        {
+            if (enemy != null)
+            {
+                enemiesPresent = true;
+                break;
+            }
+        }
+
+        foreach (var door in doors)
+        {
+            DoorManager dm = door.GetComponent<DoorManager>();
+            if (enemiesPresent)
+            {
+                dm.CloseDoor();
+            }
+            else
+            {
+                dm.OpenDoor();
+            }
+        }
+    }
+}
+ */
+
+/*
+ 
+
+
+
+ */

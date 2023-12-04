@@ -1,47 +1,46 @@
 using Unity.Mathematics;
-using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public enum BGMType { None, Title, Lobby, InGame, Boss }
-public enum SEType { UI, InGameSE, Shoot, Enemy,}
 
 public class SoundManager : MonoBehaviour
 {
+    public static SoundManager Instance { get; private set; }
+
+    public AudioSource bgmSource; // 배경음악을 위한 AudioSource
+    public AudioSource seSource;  // 효과음을 위한 AudioSource
+
     public AudioClip bgmTitle;          // BGM(타이틀)
     public AudioClip bgmLobby;       // BGM(로비)
     public AudioClip bgmInGame;    // BGM(게임 중)
     public AudioClip bgmBoss;          // BGM(보스전)
 
-    public AudioClip seUI;            // SE UI
-    public AudioClip seInGame;  // SE 인게임
-    public AudioClip seShoot;     // SE 쏘는 소리
-    public AudioClip seEnemy;     // SE 쏘는 소리
+    public float bgmVolume = 1.0f; // 기본 BGM 볼륨 값
+    public float seVolume = 1.0f;  // 기본 SE 볼륨 값
 
-    // 사운드매니저를 저장할 변수
-    public static SoundManager soundManager;
-
-    // 현재 재생중인 BGM
+    // 현재 실행되고 있는 BGM
     public static BGMType playingBGM = BGMType.None;
 
-    private void Awake()
-    {
-        // BGM 재생
-        if (soundManager == null)
-        {
-            // static 변수에 자기자신을 저장
-            soundManager = this;
+    //private Dictionary<string, AudioClip> seClips = new Dictionary<string, AudioClip>();
 
-            // Scene 이 이동해도 오브젝트를 파기하지 않음
-            DontDestroyOnLoad(gameObject);
+    void Awake()
+    {
+        // 싱글톤 패턴 구현
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // 게임 오브젝트가 씬 전환시에도 파괴되지 않도록 설정
         }
         else
         {
-            // 정보가 삽입되어 있다면 즉시 파기
             Destroy(gameObject);
         }
     }
-    // Start is called before the first frame update
+
     void Update()
     {
         string sceneName = SceneManager.GetActiveScene().name;
@@ -55,9 +54,16 @@ public class SoundManager : MonoBehaviour
         {
             PlayBGM(BGMType.Lobby);
         }
-
+        else if (sceneName == "MainStage")
+        {
+            PlayBGM(BGMType.InGame);
+        }
+        else if (sceneName == "EndingCredit")
+        {
+            PlayBGM(BGMType.Title);
+        }
     }
-    // BGM 재생
+
     public void PlayBGM(BGMType type)
     {
         if (type != playingBGM)
@@ -77,23 +83,30 @@ public class SoundManager : MonoBehaviour
             audio.Play(); // 사운드 재생
         }
     }
-
-    public void StopBGM()
+    
+    public void PlaySE(string seName)
     {
-        GetComponent<AudioSource>().Stop();
-        playingBGM = BGMType.None;
+        /*
+        if (seClips.ContainsKey(seName))
+        {
+            seSource.PlayOneShot(seClips[seName]);
+        }
+        else
+        {
+            Debug.LogWarning("SE clip not found: " + seName);
+        }
+         */
     }
 
-    public void SEPlay(SEType type)
+    public void SetBGMVolume(float volume)
     {
-        if (type == SEType.UI)
-            GetComponent<AudioSource>().PlayOneShot(seUI);
-        else if (type == SEType.InGameSE)
-            GetComponent<AudioSource>().PlayOneShot(seInGame);
-        else if (type == SEType.Shoot)
-            GetComponent<AudioSource>().PlayOneShot(seShoot);
-        else if (type == SEType.Shoot)
-            GetComponent<AudioSource>().PlayOneShot(seEnemy);
+        bgmVolume = volume;
+        bgmSource.volume = volume;
+    }
+
+    public void SetSEVolume(float volume)
+    {
+        seVolume = volume;
+        seSource.volume = volume;
     }
 }
-

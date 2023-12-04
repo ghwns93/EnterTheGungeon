@@ -32,8 +32,7 @@ public class TableController : MonoBehaviour
 
         // rigidbody의 타입을 Static으로 테이블이 움직일 수 없게.
         rbody.bodyType = RigidbodyType2D.Static;
-        // 레이어 collision matrix false로 바꿔 총알레이어와 테이블 레이어가 충돌하지 않게 조정.
-        Physics.IgnoreLayerCollision(9, 10, false);
+        
     }
 
     // Update is called once per frame
@@ -57,8 +56,12 @@ public class TableController : MonoBehaviour
             // 테이블을 움직일 수 있게 변경
             rbody.bodyType = RigidbodyType2D.Dynamic;
 
+            gameObject.layer = 14;
+
             // 테이블과 총알이 충돌이 가능하게 변경. (막기)
-            Physics.IgnoreLayerCollision(9, 10, true);
+            //Physics2D.IgnoreLayerCollision(9, 10, true);
+            // 플레이어 총알
+            //Physics2D.IgnoreLayerCollision(9, 12, true);
         }
 
     }
@@ -84,7 +87,7 @@ public class TableController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            if (Input.GetButton("E"))
+            if (Input.GetButton("E") && canMove == false)
             {
                 if (direction.x > 0.5 && direction.x <= 1)
                 {

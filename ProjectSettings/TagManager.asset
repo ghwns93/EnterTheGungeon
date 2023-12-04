@@ -13,6 +13,9 @@ TagManager:
   - EnemyBullet
   - BattleArea
   - Table
+  - Wall
+  - Door
+  - RoomEnterManager
   layers:
   - Default
   - TransparentFX
@@ -27,8 +30,8 @@ TagManager:
   - Bullet
   - Player
   - PlayerBullet
-  - 
-  - 
+  - Emeny
+  - TableGuard
   - 
   - 
   - 
