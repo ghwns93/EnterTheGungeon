@@ -50302,6 +50302,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1264321937617278057, guid: b4aea27f900514a4d80e561f788f994c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4aea27f900514a4d80e561f788f994c, type: 3}
 --- !u!1001 &1192978129
@@ -50955,6 +50959,10 @@ PrefabInstance:
       value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3347810483116990837, guid: dfd8c9454b8da804cb39ef0d98f29281, type: 3}
+      propertyPath: attackDistance
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3347810483116990837, guid: dfd8c9454b8da804cb39ef0d98f29281, type: 3}
       propertyPath: shootWatingTime
       value: 0
       objectReference: {fileID: 0}
@@ -50972,7 +50980,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3347810483116990859, guid: dfd8c9454b8da804cb39ef0d98f29281, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 20.46
+      value: 19.96
       objectReference: {fileID: 0}
     - target: {fileID: 3347810483116990859, guid: dfd8c9454b8da804cb39ef0d98f29281, type: 3}
       propertyPath: m_LocalPosition.z
