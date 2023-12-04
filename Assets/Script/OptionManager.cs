@@ -42,7 +42,7 @@ public class OptionManager : MonoBehaviour
         Time.timeScale = 0; // 게임을 일시 정지합니다.
     }
 
-    private void ResumeGame()
+    public void ResumeGame()
     {
         Time.timeScale = 1; // 게임의 시간 흐름을 정상으로 복원합니다.
     }

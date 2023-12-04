@@ -181,6 +181,7 @@ MonoBehaviour:
   deadAnime: booklletsBlueDeath
   mjscAnime: booklletsBlueMjsc
   bulletPrefab: {fileID: 1586123153232276774, guid: 165cd03a9e7a0c84bb3636d616242bae, type: 3}
+  barrierbulletPrefab: {fileID: 1586123153232276774, guid: 47742db1f976a7a4398e318d540da0df, type: 3}
   shootSpeed: 5
   pulseSpeed: 5
   pulseMaxTime: 3

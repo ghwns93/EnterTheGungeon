@@ -271,6 +271,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3622452741397239899, guid: 82f44f273b105bf42bbf0a21d3350669, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8850024603837044387, guid: 82f44f273b105bf42bbf0a21d3350669, type: 3}
       propertyPath: m_Name
       value: RTGard
@@ -33749,6 +33753,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3622452741397239899, guid: 82f44f273b105bf42bbf0a21d3350669, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8850024603837044387, guid: 82f44f273b105bf42bbf0a21d3350669, type: 3}
       propertyPath: m_Name
       value: RTGard
@@ -53884,6 +53892,10 @@ PrefabInstance:
     - target: {fileID: 4501473682789012005, guid: cebc67a42f0c2cb49a05b3009a921b50, type: 3}
       propertyPath: m_Name
       value: LTGard
+      objectReference: {fileID: 0}
+    - target: {fileID: 5538156645752907300, guid: cebc67a42f0c2cb49a05b3009a921b50, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cebc67a42f0c2cb49a05b3009a921b50, type: 3}
