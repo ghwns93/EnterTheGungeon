@@ -549,28 +549,19 @@ public class PlayerController : MonoBehaviour
 
     // 데미지 계산
     void GetDamage(GameObject enemy)
-    {
-        // 무적상태가 아닐경우에만 데미지 계산
-        if (isInvincible == false)
-        {
-            hp--;
-            if (hp == 0)
-            {
-                // 체력이 없으면 게임오버
-                GameOver();
-                Debug.Log("gameover함수 호출");
-            }
-        }
+    {        
 
-        if (!isDodging)
+        if (!isDodging!&& isInvincible == false)
         {
+            // 무적상태가 아닐경우에만 hp 까짐
+            hp--;
             if (hp > 0)
             {               
                 // 현재 공격받고 있음
                 inDamage = true;    //inDamage == true 일경우 FixedUpdate에서 if(inDamage)조건문 실행
                 Invoke("DamageEnd", 1.5f);
             }
-            else
+            else if (hp == 0)
             {
                 // 체력이 없으면 게임오버
                 GameOver();     
@@ -625,17 +616,17 @@ public class PlayerController : MonoBehaviour
         Destroy(GameObject.Find("PilotOtherHand(Clone)"));  // 플레이어 다른손 제거
         Destroy(transform.Find("PilotShadow").gameObject);  // 플레이어 그림자 제거
         // 플레이어 밑에 큰 그림자 생성
-        deadShadowObj = Instantiate(deadShadow, transform.position + new Vector3(0, 0.2f, 0), transform.rotation);
+        deadShadowObj = Instantiate(deadShadow, transform.position + new Vector3(0, 0f, 0), transform.rotation);
 
         // 위에서 내려오는 검정박스
         if(!deadSquareUpObj)
             deadSquareUpObj = Instantiate(deadSquareUp,transform.position + new Vector3(0, +8f, 0), transform.rotation);
-        deadSquareUpObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -2.0f), ForceMode2D.Impulse);
+        deadSquareUpObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -3.5f), ForceMode2D.Impulse);
         // 아래에서 올라오는 검정박스
         if (!deadSquareDownObj)
             deadSquareDownObj = Instantiate(deadSquareDown, transform.position+new Vector3(0,-8f,0), transform.rotation);
-        deadSquareDownObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, +2.0f),ForceMode2D.Impulse);
-        Invoke("StopSquare", 0.8f);
+        deadSquareDownObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, +3.5f),ForceMode2D.Impulse);
+        Invoke("StopSquare", 1f);
     }
     void StopSquare()
     {

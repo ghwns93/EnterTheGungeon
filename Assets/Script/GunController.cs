@@ -561,7 +561,7 @@ public class GunController : MonoBehaviour
         Invoke("ChangeVariable", 1.3f);  //1.3초뒤 isReloading=false ,canAttack =true로 바꾸는함수 실행
         if(gunNumber==1)
             pilotGunBulletCount = 8;    //이거 이벤트함수 써서 장전 중간에 끊기면 장전안되게 위에 줄도 거기 넣으면될듯
-        if (gunNumber == 2)
+        else if(gunNumber == 2)
             redGunBulletCount = 20;
     }
 
