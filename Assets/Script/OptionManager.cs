@@ -3,7 +3,7 @@ using UnityEngine;
 public class OptionManager : MonoBehaviour
 {
     public GameObject SoundOptionPrefab; // SoundOption2 프리팹에 대한 참조
-    private GameObject soundOptionInstance; // 현재 활성화된 SoundOption2 인스턴스
+    public static GameObject soundOptionInstance; // 현재 활성화된 SoundOption2 인스턴스
 
     private void Update()
     {
@@ -27,7 +27,7 @@ public class OptionManager : MonoBehaviour
         PauseGame(); // 게임을 일시 정지 상태로 만듭니다.
     }
 
-    private void CloseSoundOption()
+    public void CloseSoundOption()
     {
         if (soundOptionInstance != null)
         {
