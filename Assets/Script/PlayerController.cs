@@ -77,6 +77,8 @@ public class PlayerController : MonoBehaviour
     public static int hp ;          // 플레이어의 HP
     public static int maxHp;        // maxHp
 
+    private float previousPosTime;
+
     public string gameState;        // 게임 상태 (playing, gameover, falling)
     bool inDamage = false;          // 피격 상태
     bool isInvincible;              // 무적일때 피안까지게
@@ -118,6 +120,12 @@ public class PlayerController : MonoBehaviour
             {
                 SceneManager.LoadScene("Lobby");
             }
+        }
+
+        // falling 일때는 이 조건문 밑으로는아무 것도 하지 않음
+        if (gameState == "falling")
+        {
+            return;
         }
 
         // gameover 일때는 이 조건문 밑으로는아무 것도 하지 않음
@@ -500,33 +508,24 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
+       
         // FallDown 직전 캐릭터 재생성 위치 저장
-        if (collision.gameObject.tag == "BeforePos")
-        {
-            // 재생성할 위치 저장하기
-            beforePos = gameObject.transform.position;
-        }
+        //if (collision.gameObject.tag == "BeforePos")
+        //{
+        //    // 재생성할 위치 저장하기
+        //    beforePos = gameObject.transform.position;
+        //}
         // FallDown 애니메이션
         if (collision.gameObject.tag == "FallDown" && !isDodging)
         {
             // 게임 상태를 추락중으로 변경
             gameState = "falling";
             // 이동 중지
-            rbody.velocity = new Vector2(0, 0);
+            //rbody.velocity = new Vector2(0, 0);
+            axisH = 0;
+            axisV = 0;
             // 추락 애니메이션 재생
             animator.Play("PilotFall");
-
-            // 로비가 아닐경우 데미지 계산
-            if(!inlobby)
-            {
-                hp--;
-                if (hp == 0)
-                {
-                    // 체력이 없으면 게임오버
-                    GameOver();
-                }
-            }
-                
 
             // 추락 애니메이션이 재생된 후에 떨어지기 전 위치로 이동하기 위해 1초 대기
             Invoke("BeforePos", 1.0f);
@@ -537,7 +536,9 @@ public class PlayerController : MonoBehaviour
     void BeforePos()
     {
         // 플레이어의 위치를 추락 전 저장된 위치로 이동
-        gameObject.transform.position = beforePos;
+        //gameObject.transform.position = beforePos;
+        // 지정된 위치로 이동
+        gameObject.transform.position = Vector3.zero;
 
         // 게임상태를 다시 게임중으로 변경
         gameState = "playing";
@@ -605,6 +606,7 @@ public class PlayerController : MonoBehaviour
 
         // 이동 중지
         rbody.velocity = new Vector2(0, 0);
+
         // 애니메이션 변경        
         animator.Play(deadAnime1);
         Invoke("AfterDead", 3.0f);
