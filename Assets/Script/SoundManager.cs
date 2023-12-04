@@ -25,6 +25,8 @@ public class SoundManager : MonoBehaviour
     // 현재 실행되고 있는 BGM
     public static BGMType playingBGM = BGMType.None;
 
+    public bool bossRoom = false;
+
     //private Dictionary<string, AudioClip> seClips = new Dictionary<string, AudioClip>();
 
     void Awake()
@@ -56,7 +58,14 @@ public class SoundManager : MonoBehaviour
         }
         else if (sceneName == "MainStage")
         {
-            PlayBGM(BGMType.InGame);
+            if(bossRoom == false)
+            {
+                PlayBGM(BGMType.InGame);
+            }
+            else
+            {
+                PlayBGM(BGMType.Boss);
+            }
         }
         else if (sceneName == "EndingCredit")
         {
