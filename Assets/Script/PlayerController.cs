@@ -196,7 +196,7 @@ public class PlayerController : MonoBehaviour
             {
                 nowAnimation = walkRightDownAnime;
             }
-            else if (angleZ > 30 && angleZ < 60)                 // ¿À¸¥À§
+            else if (angleZ > 15 && angleZ < 75)                 // ¿À¸¥À§
             {
                 nowAnimation = walkRightUpAnime;
             }
@@ -204,15 +204,15 @@ public class PlayerController : MonoBehaviour
             {
                 nowAnimation = walkUpAnime;
             }
-            else if (angleZ > 90 && angleZ < 180)                // ¿ÞÀ§
+            else if (angleZ > 105 && angleZ < 145)                // ¿ÞÀ§
             {
                 nowAnimation = walkLeftUpAnime;
             }
-            else if (angleZ > 145 && angleZ < 240 || angleZ < -105 && angleZ > -200)   // ¿Þ, ¿Þ¹Ø
+            else if (angleZ > 145 && angleZ < 180 || angleZ < -105 && angleZ > -180)   // ¿Þ, ¿Þ¹Ø
             {
                 nowAnimation = walkLeftDownAnime;
             }
-            else if (angleZ < -80 && angleZ > -100)              // ¾Æ·¡
+            else if (angleZ < -75 && angleZ > -105)              // ¾Æ·¡
             {
                 nowAnimation = walkDownAnime;
             }
@@ -223,7 +223,7 @@ public class PlayerController : MonoBehaviour
             {
                 nowAnimation = stopRightDownAnime;
             }
-            else if (angleZ > 30 && angleZ < 90)         // ¿À¸¥À§
+            else if (angleZ > 15 && angleZ < 75)          // ¿À¸¥À§
             {
                 nowAnimation = stopRightUpAnime;
             }
@@ -231,15 +231,15 @@ public class PlayerController : MonoBehaviour
             {
                 nowAnimation = stopUpAnime;
             }
-            else if (angleZ > 90 && angleZ < 180)       // ¿ÞÀ§
+            else if (angleZ > 105 && angleZ < 145)       // ¿ÞÀ§
             {
                 nowAnimation = stopLeftUpAnime;
             }
-            else if (angleZ > 145 && angleZ < 240 || angleZ < -105 && angleZ > -200)  // ¿Þ, ¿Þ¹Ø
+            else if (angleZ > 145 && angleZ < 180 || angleZ < -105 && angleZ > -180)  // ¿Þ, ¿Þ¹Ø
             {
                 nowAnimation = stopLeftDownAnime;
             }
-            else if (angleZ < -80 && angleZ > -100)    // ¾Æ·¡
+            else if (angleZ < -75 && angleZ > -105)    // ¾Æ·¡
             {
                 nowAnimation = stopDownAnime;
             }
