@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
         // 게임 상태 지정
         gameState = "playing";
 
-        maxHp = 12;      //잠시 1로해둠
+        maxHp = 6;      //잠시 1로해둠
         // HP 불러오기
         hp = maxHp;
     }
@@ -520,7 +520,7 @@ public class PlayerController : MonoBehaviour
             if(!inlobby)
             {
                 hp--;
-                if (hp <= 0)
+                if (hp == 0)
                 {
                     // 체력이 없으면 게임오버
                     GameOver();
@@ -554,10 +554,11 @@ public class PlayerController : MonoBehaviour
         if (isInvincible == false)
         {
             hp--;
-            if (hp <= 0)
+            if (hp == 0)
             {
                 // 체력이 없으면 게임오버
                 GameOver();
+                Debug.Log("gameover함수 호출");
             }
         }
 
@@ -567,12 +568,12 @@ public class PlayerController : MonoBehaviour
             {               
                 // 현재 공격받고 있음
                 inDamage = true;    //inDamage == true 일경우 FixedUpdate에서 if(inDamage)조건문 실행
-                Invoke("DamageEnd", 2.0f);
+                Invoke("DamageEnd", 1.5f);
             }
             else
             {
                 // 체력이 없으면 게임오버
-                GameOver();     //떨어져서 죽을때 구덩이에서 시계총안맞으면 고쳐야함
+                GameOver();     
             }
         }
     }
@@ -580,7 +581,7 @@ public class PlayerController : MonoBehaviour
     // 데미지 처리 종료
     void DamageEnd()
     {
-        isInvincible = true;
+        isInvincible = false;
         inDamage = false;
 
         // 플레이어 투명하면 해제
@@ -627,12 +628,14 @@ public class PlayerController : MonoBehaviour
         deadShadowObj = Instantiate(deadShadow, transform.position + new Vector3(0, 0.2f, 0), transform.rotation);
 
         // 위에서 내려오는 검정박스
-        deadSquareUpObj = Instantiate(deadSquareUp,transform.position + new Vector3(0, +7f, 0), transform.rotation);
-        deadSquareUpObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -5.0f), ForceMode2D.Impulse);
+        if(!deadSquareUpObj)
+            deadSquareUpObj = Instantiate(deadSquareUp,transform.position + new Vector3(0, +8f, 0), transform.rotation);
+        deadSquareUpObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -2.0f), ForceMode2D.Impulse);
         // 아래에서 올라오는 검정박스
-        deadSquareDownObj = Instantiate(deadSquareUp, transform.position+new Vector3(0,-7f,0), transform.rotation);
-        deadSquareDownObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, +5.0f),ForceMode2D.Impulse);
-        Invoke("StopSquare", 0.5f);
+        if (!deadSquareDownObj)
+            deadSquareDownObj = Instantiate(deadSquareDown, transform.position+new Vector3(0,-8f,0), transform.rotation);
+        deadSquareDownObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, +2.0f),ForceMode2D.Impulse);
+        Invoke("StopSquare", 0.8f);
     }
     void StopSquare()
     {
@@ -643,7 +646,8 @@ public class PlayerController : MonoBehaviour
     void AfterDead()
     {
         //시계나오기
-        watch1Obj = Instantiate(watch1, transform.position, transform.rotation);
+        if (!watch1Obj)
+            watch1Obj = Instantiate(watch1, transform.position, transform.rotation);
         Invoke("WatchShot", 1.5f);
     }
 
@@ -659,7 +663,8 @@ public class PlayerController : MonoBehaviour
 
     void DeadBookOpen()
     {
-        deadBookOpenObj = Instantiate(deadBookOpenPrefab, transform.position, transform.rotation);
+        if (!deadBookOpenObj)
+            deadBookOpenObj = Instantiate(deadBookOpenPrefab, transform.position, transform.rotation);
         bookCanvasObj = Instantiate(bookCanvasPrefab, transform.position, transform.rotation);
     }
 }
