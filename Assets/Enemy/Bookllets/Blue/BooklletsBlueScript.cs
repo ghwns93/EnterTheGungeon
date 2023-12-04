@@ -20,6 +20,7 @@ public class BooklletsBlueScript : MonoBehaviour
     public string mjscAnime = "EnemyMjsc";
 
     public GameObject bulletPrefab;         //총알
+    public GameObject barrierbulletPrefab;  //총알
     public float shootSpeed = 5.0f;         //총알 속도
     public float pulseSpeed = 5.0f;         //배리어 회전 속도
     public float pulseMaxTime = 3.0f;       //배리어 유지시간
@@ -205,7 +206,7 @@ public class BooklletsBlueScript : MonoBehaviour
                             #endregion
 
                             var ps = pulseStats[i];
-                            ps.transform.RotateAround(gameObject.transform.position, new Vector3(0, 0, 1), pulseSpeed);
+                            if(ps != null) ps.transform.RotateAround(gameObject.transform.position, new Vector3(0, 0, 1), pulseSpeed);
                         }
                     }
                     catch (Exception e) 
@@ -235,7 +236,8 @@ public class BooklletsBlueScript : MonoBehaviour
 
                 foreach (var ps in pulseStats)
                 {
-                    ps.GetComponent<Rigidbody2D>().velocity = new Vector2(axisH, axisV);
+                    if (ps != null)
+                        ps.GetComponent<Rigidbody2D>().velocity = new Vector2(axisH, axisV);
                 }
             }
             else
@@ -274,7 +276,7 @@ public class BooklletsBlueScript : MonoBehaviour
 
                                 //프리팹을 이용하여 총알 오브젝트 만들기 (진행 방향으로 회전)
                                 Quaternion r = Quaternion.Euler(0, 0, 0);
-                                GameObject bullet = Instantiate(bulletPrefab, bulletTran, r);
+                                GameObject bullet = Instantiate(barrierbulletPrefab, bulletTran, r);
 
                                 if (bullet != null) pulseStats.Add(bullet);
 
