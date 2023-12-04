@@ -173,12 +173,12 @@ public class PlayerController : MonoBehaviour
             angleZ = GetAngle(characterPt, mousePosition);
 
             // 왼쪽으로 이동할 때 X축 플립
-            if (mousePosition.x < 0)
+            if (mousePosition.x < transform.position.x)
             {
                 // SpriteRenderer의 flipX를 사용하는 경우
                 GetComponent<SpriteRenderer>().flipX = true;
             }
-            else if (mousePosition.x >= 0) // 오른쪽으로 이동할 때 X축 플립 해제
+            else if (mousePosition.x >= transform.position.x) // 오른쪽으로 이동할 때 X축 플립 해제
             {
                 // SpriteRenderer의 flipX를 사용하는 경우
                 GetComponent<SpriteRenderer>().flipX = false;
@@ -192,54 +192,54 @@ public class PlayerController : MonoBehaviour
         // 이동 각도를 바탕으로 방향과 애니메이션을 변경한다
         if ( (axisH != 0 || axisV != 0) && !isDodging) // 키 입력이 있는 경우에만 Walk 애니메이션을 재생
         {
-            if (angleZ > -60 && angleZ < 15)                     //오른, 오른아래
+            if (angleZ > -75 && angleZ <= 15)                     //오른아래, 오른
             {
                 nowAnimation = walkRightDownAnime;
             }
-            else if (angleZ > 15 && angleZ < 75)                 // 오른위
+            else if (angleZ > 15 && angleZ <= 75)                 // 오른위
             {
                 nowAnimation = walkRightUpAnime;
             }
-            else if (angleZ > 75 && angleZ < 105)                // 위
+            else if (angleZ > 75 && angleZ <= 105)                // 위
             {
                 nowAnimation = walkUpAnime;
             }
-            else if (angleZ > 105 && angleZ < 145)                // 왼위
+            else if (angleZ > 105 && angleZ <= 165)                // 왼위
             {
                 nowAnimation = walkLeftUpAnime;
             }
-            else if (angleZ > 145 && angleZ < 180 || angleZ < -105 && angleZ > -180)   // 왼, 왼밑
+            else if (angleZ > 165 && angleZ <= 180 || angleZ < -105 && angleZ >= -180)   // 왼, 왼밑
             {
                 nowAnimation = walkLeftDownAnime;
             }
-            else if (angleZ < -75 && angleZ > -105)              // 아래
+            else if (angleZ <= -75 && angleZ >= -105)              // 아래
             {
                 nowAnimation = walkDownAnime;
             }
         }
         else if(axisH == 0.0f && axisV == 0.0f && !isDodging)// 키 입력이 없는 경우에는 Stop 애니메이션을 재생
-        {            
-            if (angleZ > -60 && angleZ < 15)     //오른, 오른아래
+        {
+            if (angleZ > -75 && angleZ <= 15)                     //오른아래, 오른
             {
                 nowAnimation = stopRightDownAnime;
             }
-            else if (angleZ > 15 && angleZ < 75)          // 오른위
+            else if (angleZ > 15 && angleZ <= 75)                 // 오른위
             {
                 nowAnimation = stopRightUpAnime;
             }
-            else if (angleZ > 75 && angleZ < 105)       // 위
+            else if (angleZ > 75 && angleZ <= 105)                // 위
             {
                 nowAnimation = stopUpAnime;
             }
-            else if (angleZ > 105 && angleZ < 145)       // 왼위
+            else if (angleZ > 105 && angleZ <= 165)                // 왼위
             {
                 nowAnimation = stopLeftUpAnime;
             }
-            else if (angleZ > 145 && angleZ < 180 || angleZ < -105 && angleZ > -180)  // 왼, 왼밑
+            else if (angleZ > 165 && angleZ <= 180 || angleZ < -105 && angleZ >= -180)   // 왼, 왼밑
             {
                 nowAnimation = stopLeftDownAnime;
             }
-            else if (angleZ < -75 && angleZ > -105)    // 아래
+            else if (angleZ <= -75 && angleZ >= -105)              // 아래
             {
                 nowAnimation = stopDownAnime;
             }
@@ -253,7 +253,7 @@ public class PlayerController : MonoBehaviour
         if ((axisH != 0 || axisV != 0) && Input.GetButton("Fire2"))
         {
             // 오른쪽, 오른쪽 아래로 구르기
-            if (angleZ > -60 && angleZ < 15)
+            if (angleZ > -75 && angleZ <= 15)
             {
                 // 회피중
                 isDodging = true;                
@@ -264,7 +264,7 @@ public class PlayerController : MonoBehaviour
                 animator.Play("PilotDodgeRightDown");
             }
             // 오른쪽 위로 구르기
-            else if (angleZ > 30 && angleZ < 60)
+            else if (angleZ > 15 && angleZ <= 75)
             {
                 isDodging = true;
                 rbody.AddForce(dodgePos, ForceMode2D.Impulse);
@@ -272,7 +272,7 @@ public class PlayerController : MonoBehaviour
                 animator.Play("PilotDodgeRightUp");
             }
             // 위로 구르기
-            else if (angleZ > 75 && angleZ < 105)
+            else if (angleZ > 75 && angleZ <= 105)
             {
                 isDodging = true;
                 rbody.AddForce(dodgePos, ForceMode2D.Impulse);
@@ -280,7 +280,7 @@ public class PlayerController : MonoBehaviour
                 animator.Play("PilotDodgeUp");
             }
             // 왼쪽 위로 구르기
-            else if (angleZ > 120 && angleZ < 150)
+            else if (angleZ > 105 && angleZ <= 165)
             {
                 isDodging = true;
                 rbody.AddForce(dodgePos, ForceMode2D.Impulse);
@@ -288,7 +288,7 @@ public class PlayerController : MonoBehaviour
                 animator.Play("PilotDodgeRightUp");
             }
             // 왼쪽, 왼쪽 아래 구르기
-            else if (angleZ > 165 && angleZ < 240 || angleZ < -105 && angleZ > -200)
+            else if (angleZ > 165 && angleZ <= 180 || angleZ < -105 && angleZ >= -180)
             {
                 isDodging = true;
                 rbody.AddForce(dodgePos, ForceMode2D.Impulse);
@@ -296,7 +296,7 @@ public class PlayerController : MonoBehaviour
                 animator.Play("PilotDodgeRightDown");
             }
             // 아래로 구르기
-            else if (angleZ < -80 && angleZ > -100)
+            else if (angleZ <= -75 && angleZ >= -105)
             {
                 isDodging = true;
                 rbody.AddForce(dodgePos, ForceMode2D.Impulse);

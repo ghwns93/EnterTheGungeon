@@ -280,7 +280,7 @@ public class GunController : MonoBehaviour
                 if(pilotGunBulletCount == 0)
                 {
                     // 재장전 문구 생성
-                    ReloadText = Instantiate(reloadText, transform.position + new Vector3(-0.5f, 0.9f, 0), transform.rotation);
+                    ReloadText = Instantiate(reloadText, transform.position + new Vector3(-0.5f, 1.2f, 0), transform.rotation);
                     ReloadText.transform.SetParent(transform);  // 플레이어 따라다니게 자식으로 설정
                     isReloadText = true;
                     // 텍스트 깜빡거리게 하기
@@ -294,7 +294,7 @@ public class GunController : MonoBehaviour
                 if (redGunBulletCount == 0)
                 {
                     // 재장전 문구 생성
-                    ReloadText = Instantiate(reloadText, transform.position + new Vector3(-0.5f, 0.9f, 0), transform.rotation);
+                    ReloadText = Instantiate(reloadText, transform.position + new Vector3(-0.5f, 1f, 0), transform.rotation);
                     ReloadText.transform.SetParent(transform);  // 플레이어 따라다니게 자식으로 설정
                     isReloadText = true;
                     // 텍스트 깜빡거리게 하기
@@ -552,8 +552,8 @@ public class GunController : MonoBehaviour
         else if (gunNumber == 2)
             gunAnimator.Play("RedGunReload", 0, 0f);
 
-        ReloadBack = Instantiate(reloadBack, transform.position + new Vector3(-0.1f, 0.6f, 0), transform.rotation);   //긴막대 생성            
-        ReloadBar = Instantiate(reloadBar, transform.position + new Vector3(-0.5f, 0.64f, 0), transform.rotation);   //짧은막대 생성
+        ReloadBack = Instantiate(reloadBack, transform.position + new Vector3(-0.1f, 0.8f, 0), transform.rotation);   //긴막대 생성            
+        ReloadBar = Instantiate(reloadBar, transform.position + new Vector3(-0.5f, 0.84f, 0), transform.rotation);   //짧은막대 생성
         ReloadBack.transform.SetParent(transform);  //플레이어 따라다니게
         ReloadBar.transform.SetParent(transform);   //플레이어 객체를 총 객체의 부모로 설정
         Destroy(ReloadBack, 1.3f);
