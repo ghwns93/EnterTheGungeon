@@ -530,6 +530,7 @@ public class PlayerController : MonoBehaviour
 
             // 추락 애니메이션이 재생된 후에 떨어지기 전 위치로 이동하기 위해 1초 대기
             Invoke("BeforePos", 1.0f);
+            transform.Find("PilotShadow").gameObject.SetActive(false);
         }
     }
 
@@ -547,6 +548,7 @@ public class PlayerController : MonoBehaviour
         nowAnimation = stopDownAnime;
         // 애니메이션을 다시 재생
         animator.Play("PilotStopDown");
+        transform.Find("PilotShadow").gameObject.SetActive(true);
     }
 
     // 데미지 계산
@@ -665,7 +667,6 @@ public class PlayerController : MonoBehaviour
 
 // 키 입력 관련 함수 목록
 /*
-    죽었을때 검정내려오는거 위치설정
 
     // 키보드의 특정 키 입력에 대한 검사
     bool down = Input.GetKeyDown(KeyCode.Space);

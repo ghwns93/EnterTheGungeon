@@ -225,9 +225,9 @@ public class GunController : MonoBehaviour
         }
         if (GetComponent<PlayerController>().gameState == "falling")    //떨어지고 있을때
         {
-            Destroy(RightHandObj);                                                                  //오른손 삭제
+            Destroy(RightHandObj);                                      //오른손 삭제
             isRightHand = false;
-            Destroy(LeftHandObj);                                                                   //왼손 삭제
+            Destroy(LeftHandObj);                                       //왼손 삭제
             isLeftHand = false;
         }
                 
