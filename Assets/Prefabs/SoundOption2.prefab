@@ -1710,6 +1710,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bgmslider: {fileID: 4468517905843623243}
   SEslider: {fileID: 5102860959932714688}
+  OptionManager: {fileID: 6907106846199170905, guid: c543416d5031f2945bdf8d1476393fad, type: 3}
 --- !u!1 &7706028681501080495
 GameObject:
   m_ObjectHideFlags: 0

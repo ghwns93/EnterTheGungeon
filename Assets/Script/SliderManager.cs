@@ -38,7 +38,7 @@ public class SliderManager : MonoBehaviour
     private void CloseSoundOption()
     {
         // 이 오브젝트가 사운드 옵션 UI라면 비활성화합니다.
-        this.gameObject.SetActive(false);
+        Destroy(this.gameObject);
         Time.timeScale = 1; // 게임의 시간 흐름을 정상으로 복원합니다.
     }
 
