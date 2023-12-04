@@ -22,5 +22,6 @@ public class BookSceneChange : MonoBehaviour
     public void ChangeSceneToMainStage()
     {
         SceneManager.LoadScene("MainStage");
+        //SceneManager.LoadScene("MainStage", LoadSceneMode.Single);
     }
 }

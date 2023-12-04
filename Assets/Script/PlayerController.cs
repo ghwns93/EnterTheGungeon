@@ -74,11 +74,12 @@ public class PlayerController : MonoBehaviour
     public bool inlobby = false;    // 로비에 있는지
 
 
-   public static int hp ;          // 플레이어의 HP
-   public static int maxHp;        // maxHp
+    public static int hp ;          // 플레이어의 HP
+    public static int maxHp;        // maxHp
 
     public string gameState;        // 게임 상태 (playing, gameover, falling)
     bool inDamage = false;          // 피격 상태
+    bool isInvincible;              // 무적일때 피안까지게
 
     Vector2 beforePos = new Vector2(0, 0);
 
@@ -326,6 +327,7 @@ public class PlayerController : MonoBehaviour
         // 공격받는 도중에 캐릭터를 점멸시킨다
         if (inDamage)
         {
+            isInvincible = true;
             // Time.time : 게임 시작부터 현재까지의 경과시간 (초단위)
             // Sin 함수에 연속적으로 증가하는 값을 대입하면 0~1~0~-1~0... 순으로 변화
             float value = Mathf.Sin(Time.time * 30);
@@ -548,8 +550,16 @@ public class PlayerController : MonoBehaviour
     // 데미지 계산
     void GetDamage(GameObject enemy)
     {
-        hp--;   // HP감소
-        gameObject.GetComponent<Collider2D>().enabled = false;  // 콜라이더 비활성화해서 무적상태효과
+        // 무적상태가 아닐경우에만 데미지 계산
+        if (isInvincible == false)
+        {
+            hp--;
+            if (hp <= 0)
+            {
+                // 체력이 없으면 게임오버
+                GameOver();
+            }
+        }
 
         if (!isDodging)
         {
@@ -570,8 +580,8 @@ public class PlayerController : MonoBehaviour
     // 데미지 처리 종료
     void DamageEnd()
     {
+        isInvincible = true;
         inDamage = false;
-        gameObject.GetComponent<Collider2D>().enabled = true;  // 콜라이더 생겨서 무적풀림
 
         // 플레이어 투명하면 해제
         gameObject.GetComponent<SpriteRenderer>().enabled = true;
