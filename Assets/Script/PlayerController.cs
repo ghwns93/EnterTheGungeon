@@ -621,11 +621,11 @@ public class PlayerController : MonoBehaviour
         // 위에서 내려오는 검정박스
         if(!deadSquareUpObj)
             deadSquareUpObj = Instantiate(deadSquareUp,transform.position + new Vector3(0, +8f, 0), transform.rotation);
-        deadSquareUpObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -3.5f), ForceMode2D.Impulse);
+        deadSquareUpObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -2f), ForceMode2D.Impulse);
         // 아래에서 올라오는 검정박스
         if (!deadSquareDownObj)
             deadSquareDownObj = Instantiate(deadSquareDown, transform.position+new Vector3(0,-8f,0), transform.rotation);
-        deadSquareDownObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, +3.5f),ForceMode2D.Impulse);
+        deadSquareDownObj.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, +2f),ForceMode2D.Impulse);
         Invoke("StopSquare", 1f);
     }
     void StopSquare()
