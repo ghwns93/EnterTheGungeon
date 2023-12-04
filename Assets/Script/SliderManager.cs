@@ -1,19 +1,29 @@
-using UnityEngine;
-using UnityEngine.UI;
 
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class SliderManager : MonoBehaviour
 {
     [SerializeField] private Slider Bgmslider;
     [SerializeField] private Slider SEslider;
+    public Button targetButton; // 에디터에서 할당할 버튼
 
     private void Start()
     {
         // 시작 시에 슬라이더 값 로드
         Bgmslider.value = PlayerPrefs.GetFloat("BGMvolumeValue", 1f);
         SEslider.value = PlayerPrefs.GetFloat("SEvolumeValue", 1f);
+
+        // 현재 씬 이름 확인
+        string sceneName = SceneManager.GetActiveScene().name;
+
+        // 씬 이름이 "Title"인 경우 버튼 비활성화, 그렇지 않으면 활성화
+        if (sceneName == "Title")
+        {
+            targetButton.gameObject.SetActive(false);
+        }
     }
 
     public void SaveVolumeButton()
@@ -48,7 +58,11 @@ public class SliderManager : MonoBehaviour
         Application.Quit();
     }
 
-
+    public void BackTitle()
+    {
+            targetButton.gameObject.SetActive(true);
+            SceneManager.LoadScene("Title");
+    }
 }
 /*
 using System.Collections;
