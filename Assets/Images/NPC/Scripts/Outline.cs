@@ -25,7 +25,7 @@ public class Outline : MonoBehaviour
     {
         pilot = GameObject.Find("Pilot");
         Distance = Vector3.Distance(pilot.transform.position, otherObject.transform.position);
-        if (Distance <= 0.5f)
+        if (Distance <= 1.0f)
         {
             whiteSprite();
         }
