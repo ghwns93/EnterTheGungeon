@@ -55,6 +55,7 @@ public class BossController : MonoBehaviour
 
         chairManager = transform.Find("BossMoveObject").transform.Find("BossChair").GetComponent<BossChairManager>();
         slider = transform.Find("Canvas").transform.Find("Slider").GetComponent<Slider>();
+        slider.gameObject.SetActive(false);
 
         unitMove = GetComponent<UnitMove>();
 
@@ -116,7 +117,11 @@ public class BossController : MonoBehaviour
         else if(awakeOnce)
         {
             isActive = monsterAwakeManager.isAwake;
-            if(isActive) awakeOnce = false;
+            if (isActive)
+            {
+                slider.gameObject.SetActive(true);
+                awakeOnce = false;
+            }
         }
     }
 
