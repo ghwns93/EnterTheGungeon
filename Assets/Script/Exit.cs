@@ -34,6 +34,12 @@ public class Exit : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             RoomManager.ChangeScene(sceneName, doorNumber);
+            //if (sceneName == "MainStage")
+            //{
+            //    GameObject player = GameObject.FindGameObjectWithTag("Player");
+            //    Vector2 pos = player.transform.position;
+            //    pos.y += 10;
+            //}
         }
     }
 }
