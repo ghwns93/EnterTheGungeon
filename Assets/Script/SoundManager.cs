@@ -41,6 +41,8 @@ public class SoundManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        gameObject.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("BGMvolumeValue");
     }
 
     void Update()

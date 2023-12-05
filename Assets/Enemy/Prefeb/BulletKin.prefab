@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5907841089783412845}
   - component: {fileID: 5907841089783412844}
   - component: {fileID: 5907841089783412819}
-  - component: {fileID: 5907841089783412818}
+  - component: {fileID: -3103271989988803853}
   m_Layer: 13
   m_Name: BulletKin
   m_TagString: Enemy
@@ -183,6 +183,7 @@ MonoBehaviour:
   fallAnime: bulletKinFalling
   AttackAnime: EnemyGunAttack
   GunIdleAnime: EnemyGunIdle
+  hp: 3
   attackDistance: 10
   EnemyHand: {fileID: 5907841091535558182}
   EnemyGun: {fileID: 5907841090173848380}
@@ -213,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a964479f6dca314fb2b10c6911c0dd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!82 &5907841089783412818
+--- !u!82 &-3103271989988803853
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -225,7 +226,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -321,7 +322,7 @@ GameObject:
   - component: {fileID: 5907841090173848377}
   - component: {fileID: 5907841090173848376}
   - component: {fileID: 5907841090173848383}
-  - component: {fileID: 5907841090173848382}
+  - component: {fileID: 8510473275326364641}
   m_Layer: 13
   m_Name: Gun
   m_TagString: Untagged
@@ -434,7 +435,7 @@ MonoBehaviour:
   shootSpeed: 5
   isActive: 1
   audioShot: {fileID: 8300000, guid: c18908cf66c6b33418db5f82e4e69250, type: 3}
---- !u!82 &5907841090173848382
+--- !u!82 &8510473275326364641
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -446,7 +447,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0

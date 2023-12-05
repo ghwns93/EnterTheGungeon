@@ -67,7 +67,12 @@ public class BooklletsRedScript : MonoBehaviour
         rbody = GetComponent<Rigidbody2D>();
         bulletStats = new List<GameObject>();
         monsterAwakeManager = GetComponent<MonsterAwakeManager>();
-        audioSource = GetComponent<AudioSource>();
+
+        // 오디오 소스 가져오기
+        if (GameObject.Find("SeSoundPrefab") != null)
+            audioSource = GameObject.Find("SeSoundPrefab").GetComponent<AudioSource>();
+        else
+            audioSource = GetComponent<AudioSource>();
 
         player = GameObject.FindGameObjectWithTag("Player");
         playerController = player.GetComponent<PlayerController>();

@@ -79,7 +79,12 @@ public class BooklletsBlueScript : MonoBehaviour
         bulletStats = new List<GameObject>();
         pulseStats = new List<GameObject>();
         monsterAwake = GetComponent<MonsterAwakeManager>();
-        audioSource = GetComponent<AudioSource>();
+
+        // 오디오 소스 가져오기
+        if (GameObject.Find("SeSoundPrefab") != null)
+            audioSource = GameObject.Find("SeSoundPrefab").GetComponent<AudioSource>();
+        else
+            audioSource = GetComponent<AudioSource>();
 
         player = GameObject.FindGameObjectWithTag("Player");
         playerController = player.GetComponent<PlayerController>();
@@ -556,6 +561,11 @@ public class BooklletsBlueScript : MonoBehaviour
                 GetComponent<Animator>().Play(deadAnime);
 
                 foreach (var bs in bulletStats)
+                {
+                    Destroy(bs);
+                }
+
+                foreach (var bs in pulseStats)
                 {
                     Destroy(bs);
                 }

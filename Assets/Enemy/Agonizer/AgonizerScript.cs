@@ -66,7 +66,12 @@ public class AgonizerScript : MonoBehaviour
         rbody = GetComponent<Rigidbody2D>();
         bulletStats = new List<GameObject>();
         monsterAwake = GetComponent<MonsterAwakeManager>();
-        audioSource = GetComponent<AudioSource>();
+
+        // 오디오 소스 가져오기
+        if (GameObject.Find("SeSoundPrefab") != null)
+            audioSource = GameObject.Find("SeSoundPrefab").GetComponent<AudioSource>();
+        else
+            audioSource = GetComponent<AudioSource>();
 
         playerController = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }

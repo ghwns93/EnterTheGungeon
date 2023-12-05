@@ -59,7 +59,12 @@ public class BossBulletManager : MonoBehaviour
     private void Awake()
     {
         rDelay = shootWatingTime;
-        audioSource = GetComponent<AudioSource>();
+
+        // 오디오 소스 가져오기
+        if (GameObject.Find("SeSoundPrefab") != null)
+            audioSource = GameObject.Find("SeSoundPrefab").GetComponent<AudioSource>();
+        else
+            audioSource = GetComponent<AudioSource>();
 
         audioEnd = true;
     }

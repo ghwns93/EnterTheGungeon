@@ -69,7 +69,12 @@ public class BulletKinScript : MonoBehaviour
         rbody = GetComponent<Rigidbody2D>();
 
         monsterAwakeManager = GetComponent<MonsterAwakeManager>();
-        audioSource = GetComponent<AudioSource>();
+
+        // 오디오 소스 가져오기
+        if (GameObject.Find("SeSoundPrefab") != null)
+            audioSource = GameObject.Find("SeSoundPrefab").GetComponent<AudioSource>();
+        else
+            audioSource = GetComponent<AudioSource>();
 
         // 애니메이터 가져오기
         animator = GetComponent<Animator>();
@@ -246,6 +251,10 @@ public class BulletKinScript : MonoBehaviour
                 //rbody.velocity = Vector2.zero;
                 unitMove.StopRoutine();
             }
+        }
+        else
+        {
+            unitMove.StopRoutine();
         }
     }
 

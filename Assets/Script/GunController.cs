@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.Rendering.DebugUI;
 
@@ -63,6 +64,13 @@ public class GunController : MonoBehaviour
 
     Vector3 mousePosition;
 
+    public AudioClip pilotGunSound;
+    public AudioClip redGunSound;
+    public AudioClip reloadSound;
+
+    AudioSource audioSource;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -73,7 +81,13 @@ public class GunController : MonoBehaviour
         pilotGunBulletCount = 8;
         redGunBulletCount = 20;
 
-        inlobby = GetComponent<PlayerController>().inlobby;            
+        inlobby = GetComponent<PlayerController>().inlobby;
+
+        // 오디오 소스 가져오기
+        if (GameObject.Find("SeSoundPrefab") != null)
+            audioSource = GameObject.Find("SeSoundPrefab").GetComponent<AudioSource>();
+        else
+            audioSource = GetComponent<AudioSource>();
 
         canAttack = true;
         isReloading = false;
@@ -259,7 +273,7 @@ public class GunController : MonoBehaviour
                 {                    
                     // 공격 키 입력 및 딜레이 시작
                     StartCoroutine(AttackWithDelay());
-
+                    audioSource.PlayOneShot(pilotGunSound);
                 }
             }
             else if(gunNumber ==2) 
@@ -268,6 +282,7 @@ public class GunController : MonoBehaviour
                 {
                     // 공격 키 입력 및 딜레이 시작
                     StartCoroutine(AttackWithDelay());
+                    audioSource.PlayOneShot(redGunSound);
                 }
             }            
         }
@@ -283,6 +298,7 @@ public class GunController : MonoBehaviour
                     ReloadText = Instantiate(reloadText, transform.position + new Vector3(-0.5f, 1.2f, 0), transform.rotation);
                     ReloadText.transform.SetParent(transform);  // 플레이어 따라다니게 자식으로 설정
                     isReloadText = true;
+
                     // 텍스트 깜빡거리게 하기
                     textMesh = ReloadText.GetComponent<TextMesh>();
                     textColor = textMesh.color;
@@ -297,6 +313,7 @@ public class GunController : MonoBehaviour
                     ReloadText = Instantiate(reloadText, transform.position + new Vector3(-0.5f, 1f, 0), transform.rotation);
                     ReloadText.transform.SetParent(transform);  // 플레이어 따라다니게 자식으로 설정
                     isReloadText = true;
+
                     // 텍스트 깜빡거리게 하기
                     textMesh = ReloadText.GetComponent<TextMesh>();
                     textColor = textMesh.color;
@@ -546,6 +563,8 @@ public class GunController : MonoBehaviour
         canAttack = false;
         Destroy(ReloadText);
         isReloadText = false;
+
+        audioSource.PlayOneShot(reloadSound);
 
         if (gunNumber == 1)
             gunAnimator.Play(pilotGunReload, 0, 0f);    // 애니메이션 키포인트 처음으로 이동후 실행

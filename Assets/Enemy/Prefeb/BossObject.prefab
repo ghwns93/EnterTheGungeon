@@ -208,7 +208,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1156,14 +1156,14 @@ MonoBehaviour:
   shootSpeed: 5
   isAttack: 0
   shootWatingTime: 0.1
-  bulletPrefab: {fileID: 1823372486241522438, guid: f0f9d97eb46240b4ca7bffb33f7d36db, type: 3}
+  bulletPrefab: {fileID: 1586123153232276774, guid: 165cd03a9e7a0c84bb3636d616242bae, type: 3}
   minAngle: 0
   maxAngle: 360
   angleCount: 4
   MaxBullet: 6
   spinAttackTime: 2.6
   bulletTwoWay: 0
-  shotgunBulletPrefab: {fileID: 1823372486241522438, guid: f0f9d97eb46240b4ca7bffb33f7d36db, type: 3}
+  shotgunBulletPrefab: {fileID: 2564994599411822171, guid: 2dd04c823065ff841a24c0c45bc76b3f, type: 3}
   shotgunCount: 3
   shotgunFireCount: 2
   shotAngle: 10
