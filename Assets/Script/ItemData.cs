@@ -17,7 +17,7 @@ public class ItemData : MonoBehaviour
 
     public static int hasKeys = 1;      //¿­¼è ¼ö
     public static int hasMoneyBullet = 0;       //µ·
-    public static int hasBlankBullets = 2;
+    public static int hasBlankBullets = 3;
 
     // Start is called before the first frame update
     void Start()
