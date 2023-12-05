@@ -129,10 +129,14 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 SceneManager.LoadScene("MainStage");
+                SoundManager sound = GameObject.Find("SoundPrefab").GetComponent<SoundManager>();
+                sound.bossRoom = false;
             }
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 SceneManager.LoadScene("Lobby");
+                SoundManager sound = GameObject.Find("SoundPrefab").GetComponent<SoundManager>();
+                sound.bossRoom = false;
             }
         }
 
