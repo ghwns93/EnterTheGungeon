@@ -19,7 +19,6 @@ public class OpenBossCurtain : MonoBehaviour
     {
         if (bossObj == null && mobObj == null)
         {
-            Debug.Log("11111");
             GameObject curtain = GameObject.FindGameObjectWithTag("ExitCurtain");
             curtain.GetComponent<SpriteRenderer>().enabled = false;
         }

@@ -24,6 +24,9 @@ public class TableController : MonoBehaviour
     private Vector2 Vec;
     private Vector2 direction;
 
+    AudioSource audioSource;
+    public AudioClip audioFlip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +35,7 @@ public class TableController : MonoBehaviour
 
         // rigidbody의 타입을 Static으로 테이블이 움직일 수 없게.
         rbody.bodyType = RigidbodyType2D.Static;
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -57,7 +60,6 @@ public class TableController : MonoBehaviour
             rbody.bodyType = RigidbodyType2D.Dynamic;
 
             gameObject.layer = 14;
-
             // 테이블과 총알이 충돌이 가능하게 변경. (막기)
             //Physics2D.IgnoreLayerCollision(9, 10, true);
             // 플레이어 총알
@@ -90,6 +92,7 @@ public class TableController : MonoBehaviour
             if (Input.GetButton("E") && canMove == false)
             {
                 gameObject.tag = "Wall";
+                audioSource.PlayOneShot(audioFlip);
                 if (direction.x > 0.5 && direction.x <= 1)
                 {
                     //Debug.Log("좌로밀기");
