@@ -24,7 +24,7 @@ public class BulletDelete : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Wall")
+        if (collision.gameObject.tag == "Wall" || collision.gameObject.tag.ToLower() == "enemy")
         {
             // 닿은 곳에서 총알 터지는 애니메이션 가진 객체생성
             bulletBombObj = Instantiate(bulletBombPrefab, gameObject.transform.position, gameObject.transform.rotation);

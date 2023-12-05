@@ -89,6 +89,9 @@ public class PlayerController : MonoBehaviour
 
     public AudioClip dodgeSound;
     public AudioClip walkSound;
+    public AudioClip shotSound;
+    public AudioClip lockon;
+    public AudioClip hurtSound;
 
     AudioSource audioSource;
 
@@ -577,6 +580,7 @@ public class PlayerController : MonoBehaviour
             {               
                 // 현재 공격받고 있음
                 inDamage = true;    //inDamage == true 일경우 FixedUpdate에서 if(inDamage)조건문 실행
+                audioSource.PlayOneShot(hurtSound);
                 Invoke("DamageEnd", 1.5f);
             }
             else if (hp == 0)
@@ -659,11 +663,16 @@ public class PlayerController : MonoBehaviour
         if (!watch1Obj)
             watch1Obj = Instantiate(watch1, transform.position, transform.rotation);
         Invoke("WatchShot", 1.5f);
+        //시계나오는소리
+        audioSource.PlayOneShot(lockon);
+        
     }
 
     //이벤트함수
     void WatchShot()
     {
+        //총소리1
+        audioSource.PlayOneShot(shotSound);
         Destroy(watch1Obj);
         watch2Obj = Instantiate(watch2, transform.position , transform.rotation); 
         animator.Play(deadAnime2);      //시계총 맞고 쓰러지는 애니메이션
@@ -673,10 +682,18 @@ public class PlayerController : MonoBehaviour
 
     void DeadBookOpen()
     {
+        //총소리2 0.5초후
+        Invoke("BookShotSound", 0.6f);
         if (!deadBookOpenObj)
             deadBookOpenObj = Instantiate(deadBookOpenPrefab, transform.position, transform.rotation);
         bookCanvasObj = Instantiate(bookCanvasPrefab, transform.position, transform.rotation);
     }
+
+    void BookShotSound()
+    {
+        audioSource.PlayOneShot(shotSound);
+    }
+
 }
 
 // 키 입력 관련 함수 목록

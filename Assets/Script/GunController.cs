@@ -67,6 +67,7 @@ public class GunController : MonoBehaviour
     public AudioClip pilotGunSound;
     public AudioClip redGunSound;
     public AudioClip reloadSound;
+    public AudioClip BBSound;
 
     AudioSource audioSource;
 
@@ -373,6 +374,7 @@ public class GunController : MonoBehaviour
         // Q눌러서 공포탄 사용
         if(Input.GetKeyDown(KeyCode.Q) && !inlobby && ItemData.hasBlankBullets>0)
         {
+            audioSource.PlayOneShot(BBSound);
             ItemData.hasBlankBullets--;
             Vector2 blankBulletPos = new Vector2(transform.position.x -4.7f,transform.position.y - 4.7f);   //공포탄 생성위치
             GameObject blankBulletInstance = Instantiate(blankBullet, blankBulletPos, transform.rotation);  //공포탄 객체생성,객체 변수

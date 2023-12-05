@@ -141,6 +141,9 @@ MonoBehaviour:
   mousePosition: {x: 0, y: 0, z: 0}
   dodgeSound: {fileID: 8300000, guid: f6151bba3cdf49b4c9c46c5515e5710c, type: 3}
   walkSound: {fileID: 0}
+  shotSound: {fileID: 8300000, guid: ec68ca6b5fd71654a9b8137bf7f8dff7, type: 3}
+  lockon: {fileID: 8300000, guid: 6b208065b8c9a304095d61c7fd9e857f, type: 3}
+  hurtSound: {fileID: 8300000, guid: c5ed9b8e106142043a6b3d53a96a583e, type: 3}
 --- !u!50 &9127711577806407684
 Rigidbody2D:
   serializedVersion: 4
@@ -246,6 +249,7 @@ MonoBehaviour:
   pilotGunSound: {fileID: 8300000, guid: c489c1ff0521ae041a77659ab94a0e04, type: 3}
   redGunSound: {fileID: 8300000, guid: e5ddeec1dafa85542b63424956ea7769, type: 3}
   reloadSound: {fileID: 8300000, guid: 26befc9e2c9c3c643aa2d2d9d4d1abda, type: 3}
+  BBSound: {fileID: 8300000, guid: 71af3e33ffe867142aec418cf24fdfbd, type: 3}
 --- !u!82 &-3202388328029562487
 AudioSource:
   m_ObjectHideFlags: 0

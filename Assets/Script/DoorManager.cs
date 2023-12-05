@@ -11,9 +11,19 @@ public class DoorManager : MonoBehaviour
     public string openAnimationName; // 열릴 때의 애니메이션 이름
     public string closeAnimationName; // 닫힐 때의 애니메이션 이름
 
+    AudioSource audioSource;
+
+    public AudioClip DOSound;
+
     void Start()
     {
         animator = GetComponent<Animator>();
+
+        // 오디오 소스 가져오기
+        if (GameObject.Find("SeSoundPrefab") != null)
+            audioSource = GameObject.Find("SeSoundPrefab").GetComponent<AudioSource>();
+        else
+            audioSource = GetComponent<AudioSource>();
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -22,6 +32,7 @@ public class DoorManager : MonoBehaviour
         {
             isPlayerInside = true;
             animator.Play(openAnimationName);
+            audioSource.PlayOneShot(DOSound);
         }
     }
 
@@ -38,6 +49,7 @@ public class DoorManager : MonoBehaviour
         if (isPlayerInside)
         {
             animator.Play(openAnimationName);
+            audioSource.PlayOneShot(DOSound);
         }
     }
 }
