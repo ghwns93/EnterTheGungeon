@@ -87,6 +87,11 @@ public class PlayerController : MonoBehaviour
 
     public Vector3 mousePosition;
 
+    public AudioClip dodgeSound;
+    public AudioClip walkSound;
+
+    AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -98,7 +103,13 @@ public class PlayerController : MonoBehaviour
 
         // 애니메이터 가져오기
         animator = GetComponent<Animator>();
-                
+
+        // 오디오 소스 가져오기
+        if(GameObject.Find("SeSoundPrefab") != null)
+            audioSource = GameObject.Find("SeSoundPrefab").GetComponent<AudioSource>();
+        else
+            audioSource = GetComponent<AudioSource>();
+
         // 게임 상태 지정
         gameState = "playing";
 
@@ -320,8 +331,6 @@ public class PlayerController : MonoBehaviour
             oldAnimation = nowAnimation;
             GetComponent<Animator>().Play(nowAnimation);
         }
-
-        
     }
 
     // (유니티 초기 설정 기준) 0.02초마다 호출되며, 1초에 총 50번 호출되는 함수
@@ -389,6 +398,11 @@ public class PlayerController : MonoBehaviour
 
         // 이동 속도를 더하여 캐릭터를 움직여준다
         rbody.velocity = new Vector2(axisH, axisV) * speed;        
+    }
+
+    void DodgeSound()
+    {
+        audioSource.PlayOneShot(dodgeSound);
     }
 
     public void DodgeUpAnimationEnd()

@@ -10,11 +10,17 @@ public class SliderManager : MonoBehaviour
     [SerializeField] private Slider SEslider;
     public Button targetButton; // 에디터에서 할당할 버튼
 
+    GameObject soundManager;
+    GameObject seSoundManager;
+
     private void Start()
     {
         // 시작 시에 슬라이더 값 로드
         Bgmslider.value = PlayerPrefs.GetFloat("BGMvolumeValue", 1f);
         SEslider.value = PlayerPrefs.GetFloat("SEvolumeValue", 1f);
+
+        soundManager = GameObject.Find("SoundPrefab");
+        seSoundManager = GameObject.Find("SeSoundPrefab");
 
         // 현재 씬 이름 확인
         string sceneName = SceneManager.GetActiveScene().name;
@@ -23,6 +29,19 @@ public class SliderManager : MonoBehaviour
         if (sceneName == "Title")
         {
             targetButton.gameObject.SetActive(false);
+        }
+    }
+
+    private void Update()
+    {
+        if (soundManager != null)
+        {
+            soundManager.GetComponent<AudioSource>().volume = Bgmslider.value;
+        }
+
+        if (seSoundManager != null)
+        {
+            seSoundManager.GetComponent<AudioSource>().volume = SEslider.value;
         }
     }
 
@@ -41,6 +60,7 @@ public class SliderManager : MonoBehaviour
         // 슬라이더 값을 기본값으로 리셋
         Bgmslider.value = 1f;
         SEslider.value = 1f;
+
         PlayerPrefs.SetFloat("BGMvolumeValue", 1f);
         PlayerPrefs.SetFloat("SEvolumeValue", 1f);
     }

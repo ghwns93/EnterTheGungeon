@@ -14,7 +14,11 @@ public class EnemyGunManager : MonoBehaviour
 
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        // 오디오 소스 가져오기
+        if (GameObject.Find("SeSoundPrefab") != null)
+            audioSource = GameObject.Find("SeSoundPrefab").GetComponent<AudioSource>();
+        else
+            audioSource = GetComponent<AudioSource>();
     }
 
     void Attack()

@@ -51,7 +51,12 @@ public class BossController : MonoBehaviour
         // Rigidbody2D 가져오기
         rbody = GetComponent<Rigidbody2D>();
         monsterAwakeManager = GetComponent<MonsterAwakeManager>();
-        audioSource = GetComponent<AudioSource>();
+
+        // 오디오 소스 가져오기
+        if (GameObject.Find("SeSoundPrefab") != null)
+            audioSource = GameObject.Find("SeSoundPrefab").GetComponent<AudioSource>();
+        else
+            audioSource = GetComponent<AudioSource>();
 
         chairManager = transform.Find("BossMoveObject").transform.Find("BossChair").GetComponent<BossChairManager>();
         slider = transform.Find("Canvas").transform.Find("Slider").GetComponent<Slider>();
