@@ -35,7 +35,12 @@ public class TableController : MonoBehaviour
 
         // rigidbody의 타입을 Static으로 테이블이 움직일 수 없게.
         rbody.bodyType = RigidbodyType2D.Static;
-        audioSource = GetComponent<AudioSource>();
+
+        // 오디오 소스 가져오기
+        if (GameObject.Find("SeSoundPrefab") != null)
+            audioSource = GameObject.Find("SeSoundPrefab").GetComponent<AudioSource>();
+        else
+            audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
