@@ -37,11 +37,13 @@ public class SliderManager : MonoBehaviour
         if (soundManager != null)
         {
             soundManager.GetComponent<AudioSource>().volume = Bgmslider.value;
+            PlayerPrefs.SetFloat("BGMvolumeValue", Bgmslider.value);
         }
 
         if (seSoundManager != null)
         {
             seSoundManager.GetComponent<AudioSource>().volume = SEslider.value;
+            PlayerPrefs.SetFloat("SEvolumeValue", SEslider.value);
         }
     }
 
